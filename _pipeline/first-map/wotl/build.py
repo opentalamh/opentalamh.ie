@@ -81,12 +81,21 @@ def merge_sites(points, radius_m=config.MERGE_RADIUS_M):
     return pts, sites
 
 
+def _detail(row):
+    """School patron, NIAH use, or OSM tags: whatever the source says about use."""
+    raw = row.get("raw_use")
+    if not isinstance(raw, str) or not raw.strip() or raw.startswith("{"):
+        return ""
+    return f"{raw}<br>"
+
+
 def _popup(row):
     gmap = f"https://www.google.com/maps/search/?api=1&query={row.lat:.6f},{row.lon:.6f}"
     return folium.Popup(
         f"<b>{row['name'] or '(unnamed)'}</b><br>"
         f"<i>{row['category']}</i> · {row['source']}<br>"
         f"Denomination: {row['denomination']}<br>"
+        f"{_detail(row)}"
         f"{row['address']}<br>"
         f"<a href='{row['source_url']}' target='_blank'>source record</a> · "
         f"<a href='{gmap}' target='_blank'>open location</a><br>"

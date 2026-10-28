@@ -262,6 +262,7 @@ def _find_col(df, *patterns):
 
 def parse_schools(df, label, source_url=None, catholic_only=True):
     ethos = _find_col(df, r"ethos", r"relig", r"patron")
+    patron = _find_col(df, r"^patron")
     lat = _find_col(df, r"^lat", r"latitude")
     lon = _find_col(df, r"^lon", r"^long", r"longitude")
     east = _find_col(df, r"easting", r"^x$", r"itm.?e", r"x.?coord")
@@ -300,7 +301,8 @@ def parse_schools(df, label, source_url=None, catholic_only=True):
         "lon": d["_lon"],
         "address": _join_cols(d, addr) if addr else "",
         "source_url": source_url or "https://data.gov.ie/dataset/" + label.split(": ")[-1],
-        "raw_use": d[ethos].astype(str) if ethos else "",
+        # The patron (usually a bishop or a religious order) is the first lead to the owner.
+        "raw_use": (d[ethos].astype(str) + (" · patron: " + d[patron].astype(str) if patron and patron != ethos else "")) if ethos else "",
     }, columns=SITE_COLUMNS)
 
 
