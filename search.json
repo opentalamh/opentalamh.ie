@@ -1,0 +1,79 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Open Talamh is run by Maedbh King. Talamh is Irish for land."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Who owns Ireland’s land?",
+    "section": "",
+    "text": "Open Talamh is an open, evidence-graded map of who owns land in Ireland. We start with the Catholic Church and State bodies, and every parcel links back to its source.\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "map.html",
+    "href": "map.html",
+    "title": "Map",
+    "section": "",
+    "text": "The first map covers County Louth. Every point is graded A to E by how well its ownership is evidenced; see Method."
+  },
+  {
+    "objectID": "contribute.html",
+    "href": "contribute.html",
+    "title": "Contribute",
+    "section": "",
+    "text": "Open Talamh is built with help from people all over Ireland. You don’t need any technical skills to take part. If you know something about who owns a piece of land, we want to hear it."
+  },
+  {
+    "objectID": "contribute.html#what-you-can-send",
+    "href": "contribute.html#what-you-can-send",
+    "title": "Contribute",
+    "section": "What you can send",
+    "text": "What you can send\nAnything that helps show who owns or controls land, for example:\n\na Land Registry folio or deed (PDF or photo)\na photo of a site, a sign or a noticeboard\na planning file, a newspaper cutting or a local history source\na place on the map you think we’ve missed, or got wrong\na tip about a parish, order, trust or State body"
+  },
+  {
+    "objectID": "contribute.html#send-it-to-us",
+    "href": "contribute.html#send-it-to-us",
+    "title": "Contribute",
+    "section": "Send it to us",
+    "text": "Send it to us\n\nOr email opentalamh@proton.me with whatever you have.\nEverything sent in is checked before it goes on the map, and given a confidence grade (see Method). We’ll credit you by name if you want, or keep you anonymous."
+  },
+  {
+    "objectID": "contribute.html#for-developers-and-data-people",
+    "href": "contribute.html#for-developers-and-data-people",
+    "title": "Contribute",
+    "section": "For developers and data people",
+    "text": "For developers and data people\nThe code and data are open on GitHub. You can open an issue to report a data problem or suggest a source, or send a pull request."
+  },
+  {
+    "objectID": "contribute.html#corrections",
+    "href": "contribute.html#corrections",
+    "title": "Contribute",
+    "section": "Corrections",
+    "text": "Corrections\nIf something on this site is wrong, tell us using the form or email above and we will check it and correct it promptly. We map organisations, never private individuals."
+  },
+  {
+    "objectID": "method.html",
+    "href": "method.html",
+    "title": "Method",
+    "section": "",
+    "text": "Grade\nMeaning\n\n\n\n\nA\nOwnership confirmed by a Land Registry folio or deed\n\n\nB\nStrong documentary evidence\n\n\nC\nReasonable inference from public records\n\n\nD\nLocation of a likely site; ownership not yet checked\n\n\nE\nUnverified tip"
+  },
+  {
+    "objectID": "method.html#confidence-grades",
+    "href": "method.html#confidence-grades",
+    "title": "Method",
+    "section": "",
+    "text": "Grade\nMeaning\n\n\n\n\nA\nOwnership confirmed by a Land Registry folio or deed\n\n\nB\nStrong documentary evidence\n\n\nC\nReasonable inference from public records\n\n\nD\nLocation of a likely site; ownership not yet checked\n\n\nE\nUnverified tip"
+  },
+  {
+    "objectID": "method.html#sources",
+    "href": "method.html#sources",
+    "title": "Method",
+    "section": "Sources",
+    "text": "Sources\nOpenStreetMap, NIAH, school lists, the valuation list, the Charities Register and published inquiry reports."
+  }
+]
