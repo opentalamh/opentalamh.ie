@@ -1,6 +1,6 @@
 ---
 title: "Contribute"
-tally-id: ""
+tally-id: "Geejjj"
 ---
 
 Open Talamh is built with help from people all over Ireland. You don't need any technical skills to take part. If you know something about who owns a piece of land, we want to hear it.
@@ -24,7 +24,7 @@ You can send a message and upload files through the form, or email us directly. 
 ### Use the form
 
 <div id="contribute-form" data-tally-id="{{< meta tally-id >}}">
-<p class="form-pending"><em>The online upload form is being set up. Until then, please email us using the button below, attaching any files.</em></p>
+<p><a href="https://tally.so/r/Geejjj">Open the form in a new page</a> if it doesn't load here.</p>
 </div>
 
 <script>
