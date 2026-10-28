@@ -73,8 +73,6 @@ jobs:
           cp _pipeline/first-map/outputs/louth_first_map.html maps/ || true
           git config user.name "github-actions[bot]"
           git config user.email "41898213+github-actions[bot]@users.noreply.github.com"
-          # Raw downloads are kept on working branches only, to debug parsing offline.
-          find _pipeline/first-map/data/raw -size +45M -delete
-          git add -f _pipeline/first-map/outputs maps _pipeline/first-map/data/raw
+          git add -f _pipeline/first-map/outputs maps
           git commit -m "Rebuild first map from live sources" || echo "nothing changed"
           git push
