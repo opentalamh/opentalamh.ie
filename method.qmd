@@ -1,17 +1,115 @@
 ---
 title: "Method"
+description: "How Open Talamh finds, checks and grades land held by Catholic Church entities in Ireland, and the data sources it uses."
+toc: true
 ---
+
+Open Talamh is building the first open, parcel-level atlas of land held by Catholic Church entities in Ireland. Every parcel traces back to a primary record, and every parcel carries a confidence grade. The method is being piloted in County Louth before it is extended to other counties and, later, to State bodies.
+
+## Principles
+
+- **Traceable.** Every claim links to a folio, deed, register entry or published document.
+- **Graded.** Every parcel carries a confidence grade, so uncertainty is visible rather than hidden.
+- **Reproducible.** The method, code and list of entities are published, so anyone can re-run or challenge the work.
+- **Neutral.** The map states facts and sources. Interpretation lives in separate, clearly labelled commentary.
+- **Living.** Releases are versioned with a changelog, and anyone can [submit a correction](contribute.qmd#corrections).
+
+## Research questions
+
+1. Which parcels of land and buildings are legally held by, or in trust for, Catholic Church entities?
+2. What share is that of the State's land area, its building stock and specific asset classes (schools, hospitals, urban zoned land)?
+3. What is the estimated market value of those holdings, and how has it changed since 2002?
+4. Which properties are tied to institutional abuse, redress agreements or State transfers, and what happened to them?
+
+## What counts as "the Church"
+
+The Catholic Church is not one legal owner. Open Talamh defines the entities it tracks and publishes those definitions.
+
+| Class | Typical legal holder | Where names come from |
+|---|---|---|
+| Dioceses (26) and parishes | Diocesan trusts, named clerical trustees | Charities Regulator, diocesan directories |
+| Religious congregations and orders | Trustee bodies, companies limited by guarantee, named trustees | Charities Regulator, CRO, AMRI membership |
+| Schools | Patron trustees, boards of management, congregational trusts (e.g. Edmund Rice Schools Trust) | Department of Education school lists, patron bodies |
+| Health and care | Voluntary hospital companies, congregational holding companies | HSE Section 38 list, CRO |
+| Lay Catholic bodies | Companies, trusts | CRO, Charities Regulator |
+
+Each parcel is assigned one **ownership tier**:
+
+1. **Legal title.** A Catholic entity or trustee is the registered owner on a folio.
+2. **Beneficial interest.** Title is held by individuals or a company in trust for a Catholic entity.
+3. **Control without title.** For example, patronage of a school on State-owned land, or a long lease.
+4. **Former holding.** Sold, transferred to the State, or handed over under redress agreements since 2002.
+
+The Republic of Ireland comes first, with Northern Ireland as a later phase. Percentages are reported against several denominators (land area, building count, asset class and value) rather than one headline figure.
 
 ## Confidence grades
 
-| Grade | Meaning |
-|---|---|
-| A | Ownership confirmed by a Land Registry folio or deed |
-| B | Strong documentary evidence |
-| C | Reasonable inference from public records |
-| D | Location of a likely site; ownership not yet checked |
-| E | Unverified tip |
+| Grade | Evidence | Shown on the map as |
+|---|---|---|
+| **A** | A Land Registry folio names a Catholic entity as registered owner | Confirmed |
+| **B** | A folio names individuals or a company, and a second source confirms they hold in trust for a Catholic entity | Confirmed via trustee |
+| **C** | Registry of Deeds evidence only | Probable |
+| **D** | Use, signage or a heritage record suggests Church ownership; title not yet checked | Unverified lead (not counted in totals) |
+| **E** | Held since 2002 but since sold or transferred | Former holding |
 
-## Sources
+The first Louth map is built entirely from open data, so every point on it is currently a **grade D lead**.
 
-OpenStreetMap, NIAH, school lists, the valuation list, the Charities Register and published inquiry reports.
+## How ownership is established
+
+The ground truth is the Land Registry folio: a mapped parcel with a named registered owner. About 93% of the State's land area is registered. A Names Index search returns every folio registered to one exact name in one county, so the unit of work is *name × county*, not parcel.
+
+1. **Build the name list.** Collect the legal name of every diocese, parish, congregation, trust and school body, with every variant (prefixes such as "Trustees of", Irish-language forms, abbreviations, former names). Keep extending it until a full round of checking new folios produces no new names. The list is published with a version number.
+2. **Search the Names Index (name × county).** Every search is logged, including those that return nothing. Each folio returned is pulled for its owner, burdens and location.
+3. **Work back from known sites.** Every church, convent, school and institution is looked up on the free Land Registry map to find its folio. Any site whose owner isn't on the name list reveals a missing name. The share of known sites already found in step 2 measures how complete the search is.
+4. **Check unregistered land.** For land with no folio, the Registry of Deeds is searched by townland and by grantor and grantee name. These results get a lower grade.
+5. **Grade every parcel** using the A to E scale above.
+6. **Validate.** A random sample is double-checked by a second researcher, totals are benchmarked against published figures (such as the 2009 panel valuations and RTÉ's 800-property Christian Brothers portfolio), and each major entity is sent its list of parcels for a right of reply before publication.
+
+### Known blind spots
+
+- Beneficial ownership registers for trusts and companies are not public, so trusts are only visible where a second source links trustee to beneficiary.
+- Folios show legal title, not leases, licences or covenants.
+- Trustee names change over time, so each folio is recorded with the date it was retrieved.
+
+## Pilot: County Louth
+
+Louth is the smallest county, with two large towns (Dundalk and Drogheda) and farmland. It sits mainly in the Archdiocese of Armagh, which straddles the border, so it tests the cross-border trust question early.
+
+1. Build the Louth name list (parishes, congregations with houses in Dundalk and Drogheda, school patrons and trustees).
+2. Map every known church, convent, school and institution, and find each site's folio number on the free Land Registry map. *([First map](map.qmd), in progress.)*
+3. Run Names Index searches for each name in County Louth.
+4. Pull every folio returned, check the owner and burdens, and grade each parcel.
+5. Compare the two lists: any known site the name searches missed points to a missing name.
+6. Search the Registry of Deeds for sites with no folio.
+7. Add valuation and history layers, then validate.
+
+## Further layers
+
+**Valuation.** Each parcel is valued as a range with a stated method, never a single figure. In order of preference: an actual sale price; a value disclosed by the owner or the State; the official rates valuation; or a modelled estimate from area, zoning and comparable prices. Existing-use and development value are reported separately, and the model will be reviewed by a chartered valuer before publication.
+
+**History.** Parcels are linked to what happened there, using only findings from official inquiries or peer-reviewed work, cited to the paragraph. Findings about an institution are kept separate from claims about the current owner, and survivor groups are consulted on how sites and burial grounds are presented.
+
+## Data sources
+
+Location data is plentiful and open. Ownership data is closed and paid. The project's work is the bridge between them.
+
+| Source | What it gives | Shows ownership? | Access |
+|---|---|---|---|
+| [Land Registry folios](https://www.landdirect.ie/) (Tailte Éireann) | Registered owner, burdens, parcel map | **Yes, the ground truth** | Paid per search and per folio; free map search for folio numbers |
+| Registry of Deeds, Henrietta Street | Deeds since 1708, by grantor and townland | Clues | In person, by appointment |
+| [OpenStreetMap](https://www.openstreetmap.org/) | Churches, convents, religious land, schools, graveyards | No | Free (ODbL) |
+| [National Inventory of Architectural Heritage](https://data.gov.ie/dataset/national-inventory-of-architectural-heritage-niah-national-dataset) | Historic churches, convents, presbyteries and schools, with original and current use | No | Free |
+| Department of Education school lists ([primary](https://data.gov.ie/dataset/primary-schools), [post-primary](https://data.gov.ie/dataset/post-primary-schools)) | Every school with its ethos and location | No (the patron is not always the landowner) | Free |
+| [Valuation list](https://tailte.ie/en/valuation/open-data/open-data-information) (Tailte Éireann) | Rateable properties with use, area and location | No; places of worship are often exempt | Free |
+| [Charities Regulator register](https://data.gov.ie/dataset/register-of-charities-in-ireland) | Legal names of dioceses, parishes, congregations and trusts | Names only | Free |
+| [Companies Registration Office](https://core.cro.ie/) | Companies, directors, former names | Names only | Search free; documents paid |
+| Ryan, McAleese and Mother and Baby Homes reports; [Industrial Memories](https://industrialmemories.ucd.ie/) | Institutions, operators, dates | No | Free |
+| [Townland and county boundaries](https://data.gov.ie/en_GB/dataset/townlands-national-statutory-boundaries-ungeneralised-20241) | Statutory boundaries | No | Free (CC BY) |
+| [Residential Property Price Register](https://www.propertypriceregister.ie/) | Sale prices since 2010 | No | Free |
+| INSPIRE cadastral parcels (Tailte Éireann) | Parcel shapes without owners | No | Licence to be confirmed |
+
+See the [reading list](reading.qmd) for the reports, journalism and research behind this method.
+
+## Publishing and licensing
+
+Data is published under an open licence (CC BY 4.0, with layers derived from OpenStreetMap under ODbL), alongside the code, the entity list and a changelog. Folio boundary maps are subject to Tailte Éireann copyright, so until republication is agreed, parcels are published as points with folio numbers, which anyone can look up. Open Talamh maps organisations, not private individuals, and gives every major entity a right of reply before publication.
