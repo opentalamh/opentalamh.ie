@@ -1,0 +1,29 @@
+project:
+  type: website
+  output-dir: _site
+  resources:
+    - CNAME
+
+website:
+  title: "Open Talamh"
+  description: "Who owns Ireland's land? An open, evidence-graded map of land ownership in Ireland, starting with the Catholic Church and the State."
+  site-url: "https://opentalamh.ie"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: map.qmd
+        text: Map
+      - href: method.qmd
+        text: Method
+      - href: contribute.qmd
+        text: Contribute
+      - href: about.qmd
+        text: About
+  page-footer:
+    center: "Data CC BY 4.0 (OpenStreetMap-derived layers ODbL) · [Corrections and takedowns](contribute.qmd#corrections)"
+
+format:
+  html:
+    theme: cosmo
+    toc: false

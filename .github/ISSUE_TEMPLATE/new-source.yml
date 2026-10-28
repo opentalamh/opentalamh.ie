@@ -1,0 +1,14 @@
+name: Suggest a data source
+description: A dataset, register or archive we should use
+labels: [source]
+body:
+  - type: input
+    id: source
+    attributes:
+      label: Source name and link
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: What does it tell us about land ownership?

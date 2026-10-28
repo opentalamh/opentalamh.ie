@@ -1,0 +1,22 @@
+name: Data correction
+description: Something on the map is wrong or missing
+labels: [data]
+body:
+  - type: input
+    id: place
+    attributes:
+      label: Place
+      description: Site name, townland or address, and county
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What's wrong or missing?
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Folio number, link, or attach files here

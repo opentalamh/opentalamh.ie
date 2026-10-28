@@ -1,0 +1,10 @@
+---
+title: "Who owns Ireland's land?"
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  categories: true
+---
+
+Open Talamh is an open, evidence-graded map of who owns land in Ireland. We start with the Catholic Church and State bodies, and every parcel links back to its source.

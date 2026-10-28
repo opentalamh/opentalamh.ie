@@ -1,0 +1,34 @@
+---
+title: "Contribute"
+---
+
+Open Talamh is built with help from people all over Ireland. You don't need any technical skills to take part. If you know something about who owns a piece of land, we want to hear it.
+
+## What you can send
+
+Anything that helps show who owns or controls land, for example:
+
+- a Land Registry folio or deed (PDF or photo)
+- a photo of a site, a sign or a noticeboard
+- a planning file, a newspaper cutting or a local history source
+- a place on the map you think we've missed, or got wrong
+- a tip about a parish, order, trust or State body
+
+## Send it to us
+
+<!-- Paste the Tally embed code here once the form exists, e.g.:
+<iframe data-tally-src="https://tally.so/embed/XXXXXX?hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="600" frameborder="0" title="Contribute to Open Talamh"></iframe>
+<script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
+-->
+
+Or email [opentalamh@proton.me](mailto:opentalamh@proton.me) with whatever you have.
+
+Everything sent in is checked before it goes on the map, and given a confidence grade (see [Method](method.qmd)). We'll credit you by name if you want, or keep you anonymous.
+
+## For developers and data people
+
+The code and data are open on [GitHub](https://github.com/opentalamh/opentalamh.ie). You can [open an issue](https://github.com/opentalamh/opentalamh.ie/issues/new/choose) to report a data problem or suggest a source, or send a pull request.
+
+## Corrections {#corrections}
+
+If something on this site is wrong, tell us using the form or email above and we will check it and correct it promptly. We map organisations, never private individuals.

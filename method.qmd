@@ -1,0 +1,17 @@
+---
+title: "Method"
+---
+
+## Confidence grades
+
+| Grade | Meaning |
+|---|---|
+| A | Ownership confirmed by a Land Registry folio or deed |
+| B | Strong documentary evidence |
+| C | Reasonable inference from public records |
+| D | Location of a likely site; ownership not yet checked |
+| E | Unverified tip |
+
+## Sources
+
+OpenStreetMap, NIAH, school lists, the valuation list, the Charities Register and published inquiry reports.
