@@ -42,55 +42,6 @@
     "text": "Datasets\n\nIndustrial Memories (UCD): the Ryan Report as a searchable database, including transfers between institutions.\nJFMR Magdalene Names Project and Preserving Magdalene History.\nPARISH: a record of the interiors of Ireland’s 3,000+ Catholic churches (Notre Dame and Maynooth).\nNational Inventory of Architectural Heritage: churches, convents and schools with coordinates, also on data.gov.ie.\n\nLinks checked October 2026."
   },
   {
-    "objectID": "map.html",
-    "href": "map.html",
-    "title": "Map",
-    "section": "",
-    "text": "The first map covers County Louth. Every point is graded A to E by how well its ownership is evidenced; see Method."
-  },
-  {
-    "objectID": "contribute.html",
-    "href": "contribute.html",
-    "title": "Contribute",
-    "section": "",
-    "text": "Open Talamh is built with help from people all over Ireland. You don’t need any technical skills to take part. If you know something about who owns a piece of land, we want to hear it."
-  },
-  {
-    "objectID": "contribute.html#what-you-can-send",
-    "href": "contribute.html#what-you-can-send",
-    "title": "Contribute",
-    "section": "What you can send",
-    "text": "What you can send\nAnything that helps show who owns or controls land, for example:\n\na Land Registry folio or deed (PDF or photo)\na photo of a site, a sign or a noticeboard\na planning file, a newspaper cutting or a local history source\na place on the map you think we’ve missed, or got wrong\na tip about a parish, order, trust or State body"
-  },
-  {
-    "objectID": "contribute.html#privacy",
-    "href": "contribute.html#privacy",
-    "title": "Contribute",
-    "section": "Privacy and personal data",
-    "text": "Privacy and personal data\n\n\n\n\n\n\nImportant\n\n\n\nPlease do not send personal data about private individuals. That means no names, addresses, phone numbers, photos of people, or details of anyone’s health, family or finances. If a document names a private person, cover or blank out their details before you send it. Open Talamh maps organisations, not people.\n\n\n\nWhat we keep. We keep what you send (text, files and locations) so we can check it against public records. Your name and email are optional. We only use them to contact you about your submission and, if you ask, to credit you.\nWhere it’s stored. Submissions go to our form provider (Tally) and the project inbox (Proton Mail). They are not published as they are. Only checked facts about organisations go on the map.\nHow long. We keep submissions for as long as they are needed to check and source the map, and delete personal details we don’t need.\nYour rights. You can ask to see, correct or delete anything you’ve sent, or have something removed from the site, by emailing opentalamh@proton.me."
-  },
-  {
-    "objectID": "contribute.html#send-it-to-us",
-    "href": "contribute.html#send-it-to-us",
-    "title": "Contribute",
-    "section": "Send it to us",
-    "text": "Send it to us\nPlease read the privacy note above first.\n\nOr email opentalamh@proton.me with whatever you have.\nEverything sent in is checked before it goes on the map, and given a confidence grade (see Method). We’ll credit you by name if you want, or keep you anonymous."
-  },
-  {
-    "objectID": "contribute.html#for-developers-and-data-people",
-    "href": "contribute.html#for-developers-and-data-people",
-    "title": "Contribute",
-    "section": "For developers and data people",
-    "text": "For developers and data people\nThe code and data are open on GitHub. You can open an issue to report a data problem or suggest a source, or send a pull request."
-  },
-  {
-    "objectID": "contribute.html#corrections",
-    "href": "contribute.html#corrections",
-    "title": "Contribute",
-    "section": "Corrections",
-    "text": "Corrections\nIf something on this site is wrong, tell us using the form or email above and we will check it and correct it promptly. We map organisations, never private individuals."
-  },
-  {
     "objectID": "research/international-precedents.html",
     "href": "research/international-precedents.html",
     "title": "Similar projects around the world",
@@ -117,6 +68,62 @@
     "title": "Similar projects around the world",
     "section": "Sources not found or unverified",
     "text": "Sources not found or unverified\n\nSpain government list (PDF of 34,961 items): the official Moncloa summary was verified, but the list document itself was not opened. No working website for “Recuperando” was found; it is cited only through press coverage. The noticiasdenavarra.com January 2025 article on heritage associations failed to load.\nSMH original article URL (smh.com.au/national/catholic-church-s-massive-wealth-revealed-20180209-p4yzus.html) [not opened]. Content was verified through the bishop-accountability.org mirror and the AAP/New Daily summary.\nBloomberg original article not opened (paywalled). The finding is cited through the longform.org listing and the National Review summary.\nMichael West Media / Crikey on Catholic property: nothing specific found.\nACNC data: no Catholic-specific ACNC property dataset was found. Only the “basic religious charity” exemption reporting (above).\nWild Card “Church of England land map”: no standalone Wild Card map was found. The campaign relies on Shrubsole’s data (Church Times article above).\nGermany parcel-level work: none found. Correctiv-style “Wem gehört…” projects and the Mecklenburg-Vorpommern Landtag question on church land were not verified (the redirect to the Landtag PDF was not followed).\nNew Zealand: no Catholic land or wealth investigation found. A Press (2024) piece covers Anglican assets (more than NZ$2.87bn). https://www.pressreader.com/new-zealand/the-press/20240224/281560885728191\nPhilippines and Kenya: only scattered land-dispute news (for example https://nation.africa/kenya/news/church-land-wars-escalate-as-families-agencies-and-developers-clash-5554460) and CARP and Church-lands coverage. No systematic mapping project was found.\nLatin America, Belgium: no comparable project found in this pass.\nItaly: no count of Church properties found; the ICI/IMU coverage gives none.\nPoland Property Commission totals (about 80,000 ha) come from the OKO.press piece; the original commission records were not checked."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Who owns Ireland’s land?",
+    "section": "",
+    "text": "Open Talamh is an open, evidence-graded map of who owns land in Ireland. We start with the Catholic Church and State bodies, and every parcel links back to its source.\nNew here? Start with the reading list: the reports, journalism and research behind the project.\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "map.html",
+    "href": "map.html",
+    "title": "Map",
+    "section": "",
+    "text": "The first map covers County Louth. Every point is graded A to E by how well its ownership is evidenced; see Method."
+  },
+  {
+    "objectID": "contribute.html",
+    "href": "contribute.html",
+    "title": "Contribute",
+    "section": "",
+    "text": "Open Talamh is built with help from people all over Ireland. You don’t need any technical skills to take part. If you know something about who owns a piece of land, we want to hear it."
+  },
+  {
+    "objectID": "contribute.html#what-you-can-send",
+    "href": "contribute.html#what-you-can-send",
+    "title": "Contribute",
+    "section": "What you can send",
+    "text": "What you can send\nAnything that helps show who owns or controls land, for example:\n\na Land Registry folio or deed (PDF or photo)\na photo of a site, a sign or a noticeboard\na planning file, a newspaper cutting or a local history source\na place on the map you think we’ve missed, or got wrong\na tip about a parish, order, trust or State body"
+  },
+  {
+    "objectID": "contribute.html#send-it-to-us",
+    "href": "contribute.html#send-it-to-us",
+    "title": "Contribute",
+    "section": "Send it to us",
+    "text": "Send it to us\nPlease read the privacy and personal data notice below before you send anything.\nYou can send a message and upload files through the form, or email us directly. Everything sent in is checked before it goes on the map and given a confidence grade (see Method). We’ll credit you by name if you want, or keep you anonymous.\n\nUse the form\n\n\nThe online upload form is being set up. Until then, please email us using the button below, attaching any files.\n\n\n\n\n\nOr email us\nSend whatever you have, with files attached, to opentalamh@proton.me.\nEmail a submission"
+  },
+  {
+    "objectID": "contribute.html#privacy",
+    "href": "contribute.html#privacy",
+    "title": "Contribute",
+    "section": "Privacy and personal data",
+    "text": "Privacy and personal data\n\n\n\n\n\n\nImportant\n\n\n\nPlease do not send personal data about private individuals. That means no names, addresses, phone numbers, photos of people, or details of anyone’s health, family or finances. If a document names a private person, cover or blank out their details before you send it. Open Talamh maps organisations, not people.\n\n\n\nWhat we keep. We keep what you send (text, files and locations) so we can check it against public records. Your name and email are optional. We only use them to contact you about your submission and, if you ask, to credit you.\nWhere it’s stored. Emails go to the project inbox (Proton Mail). Submissions through the online form are stored by our form provider (Tally) and forwarded to the same inbox. They are not published as they are. Only checked facts about organisations go on the map.\nHow long. We keep submissions for as long as they are needed to check and source the map, and delete personal details we don’t need.\nYour rights. You can ask to see, correct or delete anything you’ve sent, or have something removed from the site, by emailing opentalamh@proton.me."
+  },
+  {
+    "objectID": "contribute.html#for-developers-and-data-people",
+    "href": "contribute.html#for-developers-and-data-people",
+    "title": "Contribute",
+    "section": "For developers and data people",
+    "text": "For developers and data people\nThe code and data are open on GitHub. You can open an issue to report a data problem or suggest a source, or send a pull request."
+  },
+  {
+    "objectID": "contribute.html#corrections",
+    "href": "contribute.html#corrections",
+    "title": "Contribute",
+    "section": "Corrections",
+    "text": "Corrections\nIf something on this site is wrong, tell us using the form or email above and we will check it and correct it promptly. We map organisations, never private individuals."
   },
   {
     "objectID": "method.html",
@@ -194,12 +201,5 @@
     "title": "About",
     "section": "",
     "text": "Open Talamh is run by Maedbh King. Talamh is Irish for land."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Who owns Ireland’s land?",
-    "section": "",
-    "text": "Open Talamh is an open, evidence-graded map of who owns land in Ireland. We start with the Catholic Church and State bodies, and every parcel links back to its source.\nNew here? Start with the reading list: the reports, journalism and research behind the project.\n\n\n\n\n\n\n\n\nNo matching items"
   }
 ]
