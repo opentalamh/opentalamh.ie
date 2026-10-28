@@ -1,0 +1,4304 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-10-28T22:33:05Z",
+    "timestamp_areas_base": "2026-10-28T18:37:50Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 938555926,
+  "lat": 54.0074317,
+  "lon": -6.4014918,
+  "tags": {
+    "amenity": "school",
+    "name": "Coláiste Rís"
+  }
+},
+{
+  "type": "node",
+  "id": 938555927,
+  "lat": 54.0086027,
+  "lon": -6.4001011,
+  "tags": {
+    "amenity": "school",
+    "name": "The Marist"
+  }
+},
+{
+  "type": "node",
+  "id": 938555983,
+  "lat": 54.0065521,
+  "lon": -6.4009580,
+  "tags": {
+    "addr:street": "Union Street",
+    "amenity": "school",
+    "name": "CBS Primary"
+  }
+},
+{
+  "type": "node",
+  "id": 1512522251,
+  "lat": 53.8076102,
+  "lon": -6.3050378,
+  "tags": {
+    "fixme": "Is this the cemetery 1.2 km WNW?",
+    "landuse": "cemetery"
+  }
+},
+{
+  "type": "node",
+  "id": 3361657033,
+  "lat": 54.0108842,
+  "lon": -6.4050703,
+  "tags": {
+    "amenity": "school"
+  }
+},
+{
+  "type": "node",
+  "id": 4452506391,
+  "lat": 54.0064500,
+  "lon": -6.3997190,
+  "tags": {
+    "amenity": "school",
+    "name": "Christian Brothers Primary",
+    "name:en": "Christian Brothers Primary"
+  }
+},
+{
+  "type": "node",
+  "id": 5369019195,
+  "lat": 53.9219482,
+  "lon": -6.3984381,
+  "tags": {
+    "amenity": "monastery",
+    "historic": "monastery",
+    "name": "Dromiskin Monastery",
+    "wikidata": "Q28232392",
+    "wikipedia": "en:Dromiskin Monastery"
+  }
+},
+{
+  "type": "way",
+  "id": 26503277,
+  "center": {
+    "lat": 53.7181873,
+    "lon": -6.3404974
+  },
+  "tags": {
+    "landuse": "cemetery"
+  }
+},
+{
+  "type": "way",
+  "id": 26509571,
+  "center": {
+    "lat": 53.7178873,
+    "lon": -6.3495590
+  },
+  "tags": {
+    "amenity": "school",
+    "name": "St. Joeph's CBS"
+  }
+},
+{
+  "type": "way",
+  "id": 26519694,
+  "center": {
+    "lat": 53.7168029,
+    "lon": -6.3502558
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "anglican": "Church of Ireland",
+    "building": "church",
+    "denomination": "anglican",
+    "heritage": "4",
+    "name": "Saint Peter's Church of Ireland",
+    "ref:IE:niah": "13619089",
+    "ref:dove": "15123",
+    "religion": "christian",
+    "wikidata": "Q55028957"
+  }
+},
+{
+  "type": "way",
+  "id": 26519755,
+  "center": {
+    "lat": 53.7169205,
+    "lon": -6.3502354
+  },
+  "tags": {
+    "anglican": "Church of Ireland",
+    "denomination": "anglican",
+    "landuse": "religious",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 26520457,
+  "center": {
+    "lat": 53.7168270,
+    "lon": -6.3500737
+  },
+  "tags": {
+    "amenity": "grave_yard",
+    "anglican": "Church of Ireland",
+    "denomination": "anglican",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 37639975,
+  "center": {
+    "lat": 54.0544642,
+    "lon": -6.3953421
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "roman_catholic",
+    "fixme": "Is this actually a church? There is a church to the south west.",
+    "name": "Saint Brigid Shrine",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 133497198,
+  "center": {
+    "lat": 54.0089234,
+    "lon": -6.1786242
+  },
+  "tags": {
+    "landuse": "cemetery"
+  }
+},
+{
+  "type": "way",
+  "id": 133569981,
+  "center": {
+    "lat": 54.0138939,
+    "lon": -6.1399478
+  },
+  "tags": {
+    "denomination": "roman_catholic",
+    "landuse": "cemetery",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 133571611,
+  "center": {
+    "lat": 54.0325088,
+    "lon": -6.1783910
+  },
+  "tags": {
+    "landuse": "cemetery"
+  }
+},
+{
+  "type": "way",
+  "id": 133642923,
+  "center": {
+    "lat": 54.0358329,
+    "lon": -6.1849374
+  },
+  "tags": {
+    "addr:street": "Dundalk Street",
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "roman_catholic",
+    "name": "Saint Michael's",
+    "religion": "christian",
+    "wikidata": "Q55028981"
+  }
+},
+{
+  "type": "way",
+  "id": 145356585,
+  "center": {
+    "lat": 53.9978616,
+    "lon": -6.1877942
+  },
+  "tags": {
+    "addr:city": "Dundalk",
+    "addr:place": "Riverstown",
+    "addr:postcode": "A91W320",
+    "amenity": "school",
+    "name": "Bush Post Primary School",
+    "operator": "Louth and Meath Education and Training Board",
+    "operator:short": "LMETB",
+    "operator:type": "public",
+    "religion": "multifaith",
+    "school": "secondary",
+    "website": "https://www.bpps.ie/"
+  }
+},
+{
+  "type": "way",
+  "id": 162013178,
+  "center": {
+    "lat": 53.7777010,
+    "lon": -6.4178913
+  },
+  "tags": {
+    "amenity": "grave_yard",
+    "name": "Monasterboice Graveyard",
+    "religion": "christian",
+    "source": "GPS"
+  }
+},
+{
+  "type": "way",
+  "id": 174692164,
+  "center": {
+    "lat": 53.9919391,
+    "lon": -6.3875836
+  },
+  "tags": {
+    "amenity": "school",
+    "name": "Saint Joseph's National School & Campus",
+    "source": "GPS/modified with Bing"
+  }
+},
+{
+  "type": "way",
+  "id": 174825928,
+  "center": {
+    "lat": 54.0102123,
+    "lon": -6.4052991
+  },
+  "tags": {
+    "amenity": "school",
+    "name": "Saint Nicholas' Monastery National School"
+  }
+},
+{
+  "type": "way",
+  "id": 183462837,
+  "center": {
+    "lat": 53.7078646,
+    "lon": -6.3391417
+  },
+  "tags": {
+    "addr:city": "Drogheda",
+    "addr:place": "Bryanstown",
+    "addr:postcode": "A92XD80",
+    "amenity": "school",
+    "denomination": "roman_catholic",
+    "name": "Saint Mary's Parish Primary School",
+    "religion": "christian",
+    "school": "primary",
+    "website": "https://www.smpps.ie/",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 183462840,
+  "center": {
+    "lat": 53.7077893,
+    "lon": -6.3414875
+  },
+  "tags": {
+    "landuse": "cemetery",
+    "name": "Calvary Cemetery",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 193196928,
+  "center": {
+    "lat": 53.9971971,
+    "lon": -6.1961152
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "anglican": "Church of Ireland",
+    "building": "church",
+    "denomination": "anglican",
+    "name": "Saint Andrew's Church, Bush",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 193196935,
+  "center": {
+    "lat": 54.0135419,
+    "lon": -6.1405464
+  },
+  "tags": {
+    "alt_name": "Our Lady Star of the Sea Church",
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "roman_catholic",
+    "name": "Saint James's",
+    "ref:IE:niah": "13900905",
+    "religion": "christian",
+    "wikidata": "Q55055801"
+  }
+},
+{
+  "type": "way",
+  "id": 227777618,
+  "center": {
+    "lat": 54.0533928,
+    "lon": -6.3973813
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "roman_catholic",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 231644806,
+  "center": {
+    "lat": 54.0037102,
+    "lon": -6.3990862
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "cathedral",
+    "denomination": "roman_catholic",
+    "name": "Saint Patrick's Cathedral",
+    "religion": "christian",
+    "wikidata": "Q7590922",
+    "wikipedia": "en:St. Patrick's Church, Dundalk"
+  }
+},
+{
+  "type": "way",
+  "id": 232230583,
+  "center": {
+    "lat": 54.0041975,
+    "lon": -6.3896938
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "roman_catholic",
+    "name": "The Redemptorists",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 233367123,
+  "center": {
+    "lat": 54.0212826,
+    "lon": -6.3947816
+  },
+  "tags": {
+    "building": "chapel"
+  }
+},
+{
+  "type": "way",
+  "id": 233897634,
+  "center": {
+    "lat": 53.9874695,
+    "lon": -6.3819000
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "check_date": "2024-10-10",
+    "denomination": "roman_catholic",
+    "name": "Church of the Holy family",
+    "religion": "christian",
+    "source": "GPS"
+  }
+},
+{
+  "type": "way",
+  "id": 234477131,
+  "center": {
+    "lat": 53.7243072,
+    "lon": -6.3541582
+  },
+  "tags": {
+    "landuse": "cemetery",
+    "name": "Saint Peter's Cemetery"
+  }
+},
+{
+  "type": "way",
+  "id": 235288346,
+  "center": {
+    "lat": 53.9643688,
+    "lon": -6.3684866
+  },
+  "tags": {
+    "amenity": "school",
+    "name": "Saint Oliver Plunkett National School"
+  }
+},
+{
+  "type": "way",
+  "id": 235289870,
+  "center": {
+    "lat": 53.9662240,
+    "lon": -6.3639762
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "roman_catholic",
+    "name": "Saint Oliver Plunkett's Church",
+    "religion": "christian",
+    "wikidata": "Q55047248"
+  }
+},
+{
+  "type": "way",
+  "id": 237474732,
+  "center": {
+    "lat": 53.7085224,
+    "lon": -6.3476770
+  },
+  "tags": {
+    "amenity": "school",
+    "name": "St Mary's Diocesan School",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 237790165,
+  "center": {
+    "lat": 53.7983202,
+    "lon": -6.2540731
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "roman_catholic",
+    "name": "Saint Michael's, Clogherhead",
+    "religion": "christian",
+    "website": "http://clogherparish.homestead.com/",
+    "wikidata": "Q55055823"
+  }
+},
+{
+  "type": "way",
+  "id": 238454590,
+  "center": {
+    "lat": 53.7133416,
+    "lon": -6.3784601
+  },
+  "tags": {
+    "addr:street": "Rathmullan Road",
+    "amenity": "school",
+    "contact:instagram": "st_olivers_cc",
+    "email": "socc@lmetb.ie",
+    "name": "Saint Oliver's Community College",
+    "name:ga": "Coláiste Naomi Olibhéar",
+    "operator": "Louth and Meath Education and Training Board",
+    "operator:type": "public",
+    "phone": "+353 41 983 8390",
+    "website": "https://www.socc.ie/",
+    "wikidata": "Q104853490"
+  }
+},
+{
+  "type": "way",
+  "id": 249015635,
+  "center": {
+    "lat": 54.0395140,
+    "lon": -6.1856334
+  },
+  "tags": {
+    "alt_name": "Carlingford Heritage Centre",
+    "alt_name:en": "Carlingford Heritage Centre",
+    "building": "church",
+    "heritage": "2",
+    "heritage:operator": "IE:smr;IE:niah",
+    "name": "Church of the Holy Trinity",
+    "name:ga": "Eaglais na Tríonóide Naofa",
+    "ref:IE:niah": "13825040",
+    "ref:IE:smr": "LH005-042010-",
+    "religion": "christian",
+    "was:amenity": "place_of_worship",
+    "website": "https://carlingfordheritagecentre.com",
+    "wikidata": "Q55028982"
+  }
+},
+{
+  "type": "way",
+  "id": 251037111,
+  "center": {
+    "lat": 54.0083039,
+    "lon": -6.4015978
+  },
+  "tags": {
+    "amenity": "grave_yard",
+    "anglican": "Church of Ireland",
+    "denomination": "anglican",
+    "name": "Saint Nicholas Church Cemetery",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 251037114,
+  "center": {
+    "lat": 54.0096982,
+    "lon": -6.4025855
+  },
+  "tags": {
+    "landuse": "religious",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 251139283,
+  "center": {
+    "lat": 54.0097638,
+    "lon": -6.4025426
+  },
+  "tags": {
+    "addr:street": "Church Street",
+    "amenity": "place_of_worship",
+    "building": "church",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 257027834,
+  "center": {
+    "lat": 53.7127924,
+    "lon": -6.3474573
+  },
+  "tags": {
+    "addr:city": "Drogheda",
+    "addr:street": "James Street",
+    "amenity": "place_of_worship",
+    "building": "church",
+    "heritage": "4",
+    "name": "Saint Mary's",
+    "ref:IE:niah": "13622068",
+    "religion": "christian",
+    "wheelchair": "no",
+    "wikidata": "Q55028958"
+  }
+},
+{
+  "type": "way",
+  "id": 257353329,
+  "center": {
+    "lat": 53.7215150,
+    "lon": -6.3508024
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "roman_catholic",
+    "name": "Our Lady Of Lourdes Church",
+    "religion": "christian",
+    "wikidata": "Q55028947"
+  }
+},
+{
+  "type": "way",
+  "id": 259715188,
+  "center": {
+    "lat": 54.0004861,
+    "lon": -6.4086495
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "check_date": "2024-09-29",
+    "denomination": "roman_catholic",
+    "name": "Saint Malachy's",
+    "religion": "christian",
+    "wikidata": "Q55028976"
+  }
+},
+{
+  "type": "way",
+  "id": 260259094,
+  "center": {
+    "lat": 53.9986485,
+    "lon": -6.4090711
+  },
+  "tags": {
+    "amenity": "school",
+    "building": "school",
+    "name": "Dundalk Grammar School",
+    "source": "walked past and Bing",
+    "wikidata": "Q5314727"
+  }
+},
+{
+  "type": "way",
+  "id": 260418077,
+  "center": {
+    "lat": 54.0045681,
+    "lon": -6.3955127
+  },
+  "tags": {
+    "addr:street": "Jocelyn Street",
+    "amenity": "place_of_worship",
+    "building": "church",
+    "name": "Dundalk Presbyterian Church",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 261951927,
+  "center": {
+    "lat": 54.0324303,
+    "lon": -6.4535928
+  },
+  "tags": {
+    "landuse": "cemetery"
+  }
+},
+{
+  "type": "way",
+  "id": 264947202,
+  "center": {
+    "lat": 53.9487888,
+    "lon": -6.5429933
+  },
+  "tags": {
+    "landuse": "cemetery",
+    "name": "Louth Village Cemetery",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 265456294,
+  "center": {
+    "lat": 53.9726580,
+    "lon": -6.4845124
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "roman_catholic",
+    "name": "Saint Mary's",
+    "religion": "christian",
+    "wikidata": "Q55055804"
+  }
+},
+{
+  "type": "way",
+  "id": 265927402,
+  "center": {
+    "lat": 54.0393824,
+    "lon": -6.1852596
+  },
+  "tags": {
+    "amenity": "grave_yard",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 267770337,
+  "center": {
+    "lat": 53.7109600,
+    "lon": -6.3731127
+  },
+  "tags": {
+    "addr:city": "Drogheda",
+    "amenity": "school",
+    "denomination": "roman_catholic",
+    "email": "office@stpaulssns.com",
+    "fax": "+353-41-9833681",
+    "fixme": "School appears to have been re-built.",
+    "name": "St. Paul's National School",
+    "operator": "Diocese of Meath",
+    "operator:type": "religious",
+    "phone": "+353-41-983368",
+    "religion": "christian",
+    "website": "https://stpaulssns.com/"
+  }
+},
+{
+  "type": "way",
+  "id": 280137535,
+  "center": {
+    "lat": 53.9690643,
+    "lon": -6.3947967
+  },
+  "tags": {
+    "amenity": "grave_yard",
+    "denomination": "roman_catholic",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 289493990,
+  "center": {
+    "lat": 53.8318679,
+    "lon": -6.3938143
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "anglican": "Church of Ireland",
+    "building": "church",
+    "denomination": "anglican",
+    "name": "Dunleer Church of Ireland",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 295479901,
+  "center": {
+    "lat": 53.9874572,
+    "lon": -6.3820188
+  },
+  "tags": {
+    "denomination": "roman_catholic",
+    "landuse": "religious",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 295810885,
+  "center": {
+    "lat": 54.0190094,
+    "lon": -6.3021204
+  },
+  "tags": {
+    "building": "church"
+  }
+},
+{
+  "type": "way",
+  "id": 300654969,
+  "center": {
+    "lat": 54.0084819,
+    "lon": -6.4004916
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "religion": "christian",
+    "wikidata": "Q55028964"
+  }
+},
+{
+  "type": "way",
+  "id": 301796452,
+  "center": {
+    "lat": 54.0003792,
+    "lon": -6.4088993
+  },
+  "tags": {
+    "building": "church"
+  }
+},
+{
+  "type": "way",
+  "id": 303782894,
+  "center": {
+    "lat": 54.0041887,
+    "lon": -6.3952368
+  },
+  "tags": {
+    "amenity": "school"
+  }
+},
+{
+  "type": "way",
+  "id": 303785889,
+  "center": {
+    "lat": 53.9689451,
+    "lon": -6.3961161
+  },
+  "tags": {
+    "addr:city": "Haggardstown",
+    "addr:street": "Chapel Road",
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "roman_catholic",
+    "name": "St Fursey's",
+    "name:ga": "(Séipéal Caitliceach) Naomh Fursa",
+    "religion": "christian",
+    "wikidata": "Q55047293"
+  }
+},
+{
+  "type": "way",
+  "id": 304003203,
+  "center": {
+    "lat": 54.0051119,
+    "lon": -6.3919273
+  },
+  "tags": {
+    "addr:street": "Seatown Place",
+    "amenity": "place_of_worship",
+    "building": "church",
+    "check_date": "2024-09-30",
+    "name": "Emmanuel Community Church",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 304392843,
+  "center": {
+    "lat": 54.0302907,
+    "lon": -6.3568365
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "anglican": "Church of Ireland",
+    "building": "church",
+    "denomination": "anglican",
+    "name": "Saint Mary's",
+    "religion": "christian",
+    "wikidata": "Q55050891"
+  }
+},
+{
+  "type": "way",
+  "id": 304629742,
+  "center": {
+    "lat": 54.0207930,
+    "lon": -6.4313744
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "roman_catholic",
+    "name": "St. Joseph's Church",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 304795068,
+  "center": {
+    "lat": 54.0084231,
+    "lon": -6.4690697
+  },
+  "tags": {
+    "landuse": "cemetery"
+  }
+},
+{
+  "type": "way",
+  "id": 304798719,
+  "center": {
+    "lat": 54.0321091,
+    "lon": -6.4537414
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "roman_catholic",
+    "religion": "christian",
+    "wikidata": "Q55047270"
+  }
+},
+{
+  "type": "way",
+  "id": 304830390,
+  "center": {
+    "lat": 54.0433857,
+    "lon": -6.4260927
+  },
+  "tags": {
+    "denomination": "roman_catholic",
+    "landuse": "cemetery",
+    "name": "Kilcurry Cemetery",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 305153140,
+  "center": {
+    "lat": 54.0069860,
+    "lon": -6.4685923
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "roman_catholic",
+    "religion": "christian",
+    "wikidata": "Q55047268"
+  }
+},
+{
+  "type": "way",
+  "id": 306401055,
+  "center": {
+    "lat": 53.9646180,
+    "lon": -6.3789491
+  },
+  "tags": {
+    "addr:city": "Blackrock",
+    "addr:street": "Rock Road",
+    "amenity": "school",
+    "name": "St. Francis National School",
+    "name:ga": "Scoil Phroinias Naofa",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 306401056,
+  "center": {
+    "lat": 53.9271187,
+    "lon": -6.4584234
+  },
+  "tags": {
+    "addr:city": "Dundalk",
+    "addr:place": "Readypenny",
+    "amenity": "school",
+    "denomination": "roman_catholic",
+    "name": "Darver National School",
+    "name:en": "Darver National School",
+    "name:ga": "Scoil Dairbhre",
+    "operator": "Diocese of Armagh",
+    "operator:type": "religious",
+    "religion": "christian",
+    "website": "https://www.darverns.ie/"
+  }
+},
+{
+  "type": "way",
+  "id": 306401060,
+  "center": {
+    "lat": 53.9272010,
+    "lon": -6.4575033
+  },
+  "tags": {
+    "landuse": "religious"
+  }
+},
+{
+  "type": "way",
+  "id": 306401061,
+  "center": {
+    "lat": 53.9274979,
+    "lon": -6.4575178
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "roman_catholic",
+    "ref:IE:niah": "13901206",
+    "religion": "christian",
+    "wikidata": "Q55055808"
+  }
+},
+{
+  "type": "way",
+  "id": 306841465,
+  "center": {
+    "lat": 53.8298808,
+    "lon": -6.3956264
+  },
+  "tags": {
+    "building": "church"
+  }
+},
+{
+  "type": "way",
+  "id": 306842151,
+  "center": {
+    "lat": 53.8848759,
+    "lon": -6.3901102
+  },
+  "tags": {
+    "landuse": "cemetery"
+  }
+},
+{
+  "type": "way",
+  "id": 306842153,
+  "center": {
+    "lat": 53.8849035,
+    "lon": -6.3898138
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "building:colour": "cream",
+    "building:levels": "1",
+    "denomination": "roman_catholic",
+    "name": "St. Mary's Catholic Church",
+    "religion": "christian",
+    "roof:colour": "darkgrey",
+    "roof:material": "slate",
+    "roof:shape": "gabled",
+    "wikidata": "Q55055816"
+  }
+},
+{
+  "type": "way",
+  "id": 306845025,
+  "center": {
+    "lat": 53.9222383,
+    "lon": -6.3977373
+  },
+  "tags": {
+    "landuse": "cemetery"
+  }
+},
+{
+  "type": "way",
+  "id": 306845026,
+  "center": {
+    "lat": 53.9206648,
+    "lon": -6.4046724
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "roman_catholic",
+    "name": "St. Peter's Church",
+    "ref:IE:niah": "13829004",
+    "religion": "christian",
+    "wikidata": "Q55047252"
+  }
+},
+{
+  "type": "way",
+  "id": 329296450,
+  "center": {
+    "lat": 54.0210709,
+    "lon": -6.4317299
+  },
+  "tags": {
+    "amenity": "grave_yard",
+    "denomination": "roman_catholic",
+    "name": "Castletown New Cemetery",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 339752868,
+  "center": {
+    "lat": 54.0426994,
+    "lon": -6.4255264
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "roman_catholic",
+    "name": "St. Brigid's Church",
+    "religion": "christian",
+    "wikidata": "Q55055793"
+  }
+},
+{
+  "type": "way",
+  "id": 339754858,
+  "center": {
+    "lat": 54.0084722,
+    "lon": -6.4016378
+  },
+  "tags": {
+    "addr:city": "Dundalk",
+    "addr:street": "Church Street",
+    "amenity": "place_of_worship",
+    "anglican": "Church of Ireland",
+    "building": "church",
+    "denomination": "anglican",
+    "loc_name": "The Green Church",
+    "name": "Saint Nicholas Parish Church",
+    "religion": "christian",
+    "source": "GPS",
+    "website": "https://www.ireland.anglican.org/find-a-church/parish/10230/dundalk-st-nicholas"
+  }
+},
+{
+  "type": "way",
+  "id": 340065980,
+  "center": {
+    "lat": 54.0054426,
+    "lon": -6.4167289
+  },
+  "tags": {
+    "addr:city": "Dundalk",
+    "addr:street": "Ard Easmuinn",
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "roman_catholic",
+    "name": "The Holy Redeemer",
+    "ref:IE:niah": "13900761",
+    "religion": "christian",
+    "wikidata": "Q55028995"
+  }
+},
+{
+  "type": "way",
+  "id": 340289113,
+  "center": {
+    "lat": 53.9989240,
+    "lon": -6.2525351
+  },
+  "tags": {
+    "landuse": "cemetery"
+  }
+},
+{
+  "type": "way",
+  "id": 340290520,
+  "center": {
+    "lat": 53.9863116,
+    "lon": -6.1551119
+  },
+  "tags": {
+    "amenity": "grave_yard"
+  }
+},
+{
+  "type": "way",
+  "id": 340291071,
+  "center": {
+    "lat": 53.9990985,
+    "lon": -6.2565582
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "check_date": "2024-09-21",
+    "denomination": "roman_catholic",
+    "name": "Saint Mary's",
+    "religion": "christian",
+    "wikidata": "Q55055800"
+  }
+},
+{
+  "type": "way",
+  "id": 340415841,
+  "center": {
+    "lat": 53.9086697,
+    "lon": -6.5458880
+  },
+  "tags": {
+    "amenity": "grave_yard"
+  }
+},
+{
+  "type": "way",
+  "id": 340605099,
+  "center": {
+    "lat": 54.0354940,
+    "lon": -6.4751595
+  },
+  "tags": {
+    "amenity": "grave_yard"
+  }
+},
+{
+  "type": "way",
+  "id": 340644935,
+  "center": {
+    "lat": 53.9195290,
+    "lon": -6.5490566
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "roman_catholic",
+    "name": "Saint Peter's Roman Catholic",
+    "ref:IE:niah": "13901123",
+    "religion": "christian",
+    "wikidata": "Q55055807"
+  }
+},
+{
+  "type": "way",
+  "id": 340663278,
+  "center": {
+    "lat": 53.8408757,
+    "lon": -6.2594337
+  },
+  "tags": {
+    "alt_name": "Port Cemetery",
+    "amenity": "grave_yard",
+    "name": "Port Graveyard",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 340672171,
+  "center": {
+    "lat": 53.8076303,
+    "lon": -6.3053354
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "roman_catholic",
+    "name": "Church of SS. Peter and Paul",
+    "religion": "christian",
+    "website": "http://clogherparish.homestead.com/"
+  }
+},
+{
+  "type": "way",
+  "id": 341584585,
+  "center": {
+    "lat": 53.8143132,
+    "lon": -6.3237437
+  },
+  "tags": {
+    "amenity": "grave_yard",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 345216360,
+  "center": {
+    "lat": 54.0323550,
+    "lon": -6.4535800
+  },
+  "tags": {
+    "landuse": "religious"
+  }
+},
+{
+  "type": "way",
+  "id": 349826585,
+  "center": {
+    "lat": 54.0515251,
+    "lon": -6.3841116
+  },
+  "tags": {
+    "amenity": "grave_yard",
+    "heritage": "2",
+    "heritage:operator": "IE:smr",
+    "ref:IE:smr": "LH004-097003-",
+    "source": "bing",
+    "wikimedia_commons": "Category:Faughart Graveyard"
+  }
+},
+{
+  "type": "way",
+  "id": 366865643,
+  "center": {
+    "lat": 53.7142967,
+    "lon": -6.3551186
+  },
+  "tags": {
+    "addr:city": "Drogheda",
+    "addr:street": "Wellington Quay",
+    "alt_name": "Saint Dominic's Church",
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "roman_catholic",
+    "heritage": "4",
+    "name": "Saint Mary Magdalen's Catholic Church",
+    "ref:IE:niah": "13621014",
+    "religion": "christian",
+    "wikidata": "Q55028955"
+  }
+},
+{
+  "type": "way",
+  "id": 369233634,
+  "center": {
+    "lat": 53.7232953,
+    "lon": -6.3305206
+  },
+  "tags": {
+    "addr:city": "Drogheda",
+    "addr:street": "Newfoundwell Road",
+    "alt_name": "Saint Joseph's Christian Brothers School",
+    "amenity": "school",
+    "denomination": "roman_catholic",
+    "isced:level": "2;3",
+    "name": "Saint Joseph's Secondary School",
+    "religion": "christian",
+    "website": "https://www.droghedacbs.ie/"
+  }
+},
+{
+  "type": "way",
+  "id": 391441831,
+  "center": {
+    "lat": 53.8443295,
+    "lon": -6.4357137
+  },
+  "tags": {
+    "amenity": "grave_yard",
+    "ref:IE:smr": "LH018-014003-",
+    "religion": "christian",
+    "wikimedia_commons": "File:Church and graveyard at Dromin - geograph.org.uk - 692292.jpg"
+  }
+},
+{
+  "type": "way",
+  "id": 391441834,
+  "center": {
+    "lat": 53.8444603,
+    "lon": -6.4378656
+  },
+  "tags": {
+    "amenity": "grave_yard",
+    "denomination": "roman_catholic",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 391441837,
+  "center": {
+    "lat": 53.8443511,
+    "lon": -6.4367634
+  },
+  "tags": {
+    "addr:city": "Dunleer",
+    "addr:place": "Dromin",
+    "addr:postcode": "A92E732",
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "roman_catholic",
+    "name": "Saint Finian's Catholic Church",
+    "old_name": "St. Joseph's Church",
+    "ref:IE:niah": "13901832",
+    "religion": "christian",
+    "website": "https://www.dunleerparish.ie/parish-churches/st-finians-church/",
+    "wikidata": "Q55047304",
+    "wikimedia_commons": "File:St. Joseph's Church, Dromin - geograph.org.uk - 692434.jpg"
+  }
+},
+{
+  "type": "way",
+  "id": 396144794,
+  "center": {
+    "lat": 53.7580565,
+    "lon": -6.2704028
+  },
+  "tags": {
+    "amenity": "school"
+  }
+},
+{
+  "type": "way",
+  "id": 396515023,
+  "center": {
+    "lat": 53.9642386,
+    "lon": -6.4051786
+  },
+  "tags": {
+    "addr:city": "Haggardstown",
+    "addr:postcode": "A91AP98",
+    "addr:street": "Marlbog Road",
+    "amenity": "school",
+    "denomination": "roman_catholic",
+    "name": "St Fursey's National School",
+    "name:en": "St Fursey's National School",
+    "name:ga": "Scoil Fhursa",
+    "religion": "christian",
+    "website": "https://www.stfurseys.com/"
+  }
+},
+{
+  "type": "way",
+  "id": 416459153,
+  "center": {
+    "lat": 53.9603612,
+    "lon": -6.6011711
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "roman_catholic",
+    "name": "Saint Mary's",
+    "religion": "christian",
+    "wikidata": "Q55055803"
+  }
+},
+{
+  "type": "way",
+  "id": 416459154,
+  "center": {
+    "lat": 53.9645024,
+    "lon": -6.5983634
+  },
+  "tags": {
+    "amenity": "school",
+    "name": "Stonetown National School"
+  }
+},
+{
+  "type": "way",
+  "id": 416459158,
+  "center": {
+    "lat": 53.9604668,
+    "lon": -6.6011838
+  },
+  "tags": {
+    "denomination": "roman_catholic",
+    "landuse": "religious",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 434869785,
+  "center": {
+    "lat": 53.7590327,
+    "lon": -6.2720407
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "roman_catholic",
+    "name": "Saint Mary's",
+    "religion": "christian",
+    "wikidata": "Q55055791"
+  }
+},
+{
+  "type": "way",
+  "id": 434869786,
+  "center": {
+    "lat": 53.7612936,
+    "lon": -6.2697918
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "anglican": "Church of Ireland",
+    "building": "church",
+    "denomination": "anglican",
+    "name": "St Fechin's",
+    "religion": "christian",
+    "wikidata": "Q55028993"
+  }
+},
+{
+  "type": "way",
+  "id": 435866749,
+  "center": {
+    "lat": 53.9662321,
+    "lon": -6.3780329
+  },
+  "tags": {
+    "amenity": "grave_yard",
+    "name": "Haggardstown Old Church & Cemetery"
+  }
+},
+{
+  "type": "way",
+  "id": 439634846,
+  "center": {
+    "lat": 54.0957377,
+    "lon": -6.3625288
+  },
+  "tags": {
+    "amenity": "grave_yard",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 440111248,
+  "center": {
+    "lat": 53.7328461,
+    "lon": -6.3199447
+  },
+  "tags": {
+    "landuse": "cemetery",
+    "name": "Newton Cross Lawn Cemetery"
+  }
+},
+{
+  "type": "way",
+  "id": 452894877,
+  "center": {
+    "lat": 53.8577149,
+    "lon": -6.5392564
+  },
+  "tags": {
+    "addr:city": "Ardee",
+    "addr:street": "Market Street",
+    "amenity": "place_of_worship",
+    "building": "church",
+    "ref:IE:niah": "13823052",
+    "religion": "christian",
+    "wikidata": "Q55055787"
+  }
+},
+{
+  "type": "way",
+  "id": 465122816,
+  "center": {
+    "lat": 53.9533961,
+    "lon": -6.5453483
+  },
+  "tags": {
+    "alt_name": "The Monk's House",
+    "building": "church",
+    "heritage": "2",
+    "historic": "church",
+    "name": "St. Mochta's House",
+    "name:en": "St. Mochta's House",
+    "ref:IE:nm": "312",
+    "ref:IE:smr": "LH011-115002",
+    "wikidata": "Q26964644",
+    "wikipedia": "en:St. Mochta's House"
+  }
+},
+{
+  "type": "way",
+  "id": 481636176,
+  "center": {
+    "lat": 53.7351913,
+    "lon": -6.4178320
+  },
+  "tags": {
+    "amenity": "grave_yard",
+    "denomination": "roman_catholic",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 482018170,
+  "center": {
+    "lat": 53.7368665,
+    "lon": -6.4234857
+  },
+  "tags": {
+    "amenity": "school",
+    "name": "Tullyallen National School",
+    "school": "primary",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 482476148,
+  "center": {
+    "lat": 53.7354288,
+    "lon": -6.4387333
+  },
+  "tags": {
+    "amenity": "grave_yard"
+  }
+},
+{
+  "type": "way",
+  "id": 482476149,
+  "center": {
+    "lat": 53.7354705,
+    "lon": -6.4387682
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 511643881,
+  "center": {
+    "lat": 53.9157789,
+    "lon": -6.5491600
+  },
+  "tags": {
+    "alt_name": "Tallanstown New Cemetery",
+    "landuse": "cemetery",
+    "name": "St. Oliver Plunkett's Cemetery"
+  }
+},
+{
+  "type": "way",
+  "id": 511648513,
+  "center": {
+    "lat": 53.9195028,
+    "lon": -6.5499590
+  },
+  "tags": {
+    "amenity": "school"
+  }
+},
+{
+  "type": "way",
+  "id": 520238612,
+  "center": {
+    "lat": 53.8578585,
+    "lon": -6.5391729
+  },
+  "tags": {
+    "amenity": "grave_yard",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 522083050,
+  "center": {
+    "lat": 53.7104365,
+    "lon": -6.3473453
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "heritage": "4",
+    "name": "Saint Mary's Church",
+    "ref:IE:niah": "13622071",
+    "religion": "christian",
+    "wikidata": "Q55028962"
+  }
+},
+{
+  "type": "way",
+  "id": 553624438,
+  "center": {
+    "lat": 54.0060767,
+    "lon": -6.4175569
+  },
+  "tags": {
+    "addr:city": "Dundalk",
+    "addr:street": "Ard Easmuinn",
+    "amenity": "school",
+    "contact:facebook": "https://www.facebook.com/stbrigidsschooldundalk/",
+    "denomination": "roman_catholic",
+    "name": "St. Brigid's Special School",
+    "phone": "+353 42 933 5238",
+    "religion": "christian",
+    "start_date": "1970",
+    "website": "https://stbrigids.net/"
+  }
+},
+{
+  "type": "way",
+  "id": 576699232,
+  "center": {
+    "lat": 53.7772025,
+    "lon": -6.4871145
+  },
+  "tags": {
+    "addr:city": "Collon",
+    "addr:postcode": "A92 K168",
+    "addr:street": "Church Street",
+    "amenity": "place_of_worship",
+    "anglican": "Church of Ireland",
+    "building": "church",
+    "denomination": "anglican",
+    "name": "Collon Church of Ireland",
+    "religion": "christian",
+    "service_times": "Su[4] 09:45",
+    "wikidata": "Q55050865"
+  }
+},
+{
+  "type": "way",
+  "id": 576699233,
+  "center": {
+    "lat": 53.7772848,
+    "lon": -6.4873171
+  },
+  "tags": {
+    "amenity": "grave_yard",
+    "anglican": "Church of Ireland",
+    "denomination": "anglican",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 609826166,
+  "center": {
+    "lat": 54.0087686,
+    "lon": -6.1809495
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "roman_catholic",
+    "name": "Church of Saint James",
+    "religion": "christian",
+    "wikidata": "Q55047277"
+  }
+},
+{
+  "type": "way",
+  "id": 609826167,
+  "center": {
+    "lat": 54.0087855,
+    "lon": -6.1809151
+  },
+  "tags": {
+    "denomination": "roman_catholic",
+    "landuse": "religious",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 620707984,
+  "center": {
+    "lat": 53.7171730,
+    "lon": -6.3556400
+  },
+  "tags": {
+    "amenity": "school",
+    "name": "St. Peter's National School"
+  }
+},
+{
+  "type": "way",
+  "id": 620709182,
+  "center": {
+    "lat": 53.7181633,
+    "lon": -6.3490113
+  },
+  "tags": {
+    "amenity": "school",
+    "check_date": "2024-07-18",
+    "name": "Scoil Aonghusa"
+  }
+},
+{
+  "type": "way",
+  "id": 620713561,
+  "center": {
+    "lat": 53.7194145,
+    "lon": -6.3687251
+  },
+  "tags": {
+    "amenity": "school"
+  }
+},
+{
+  "type": "way",
+  "id": 620737277,
+  "center": {
+    "lat": 53.7634596,
+    "lon": -6.3442570
+  },
+  "tags": {
+    "addr:street": "Ballymakenny Road",
+    "amenity": "place_of_worship",
+    "building": "church",
+    "name": "St. Nicholas' Church",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 620737278,
+  "center": {
+    "lat": 53.7633730,
+    "lon": -6.3441912
+  },
+  "tags": {
+    "addr:street": "Ballymakenny Road",
+    "amenity": "grave_yard",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 625172171,
+  "center": {
+    "lat": 54.0416910,
+    "lon": -6.1873585
+  },
+  "tags": {
+    "addr:city": "Carlingford",
+    "addr:street": "Newry Street",
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "presbyterian",
+    "name": "Carlingford Presbyterian Church",
+    "religion": "christian",
+    "wikidata": "Q55050861"
+  }
+},
+{
+  "type": "way",
+  "id": 625845415,
+  "center": {
+    "lat": 54.0025557,
+    "lon": -6.1735474
+  },
+  "tags": {
+    "addr:city": "Carlingford",
+    "addr:place": "Monksland",
+    "addr:postcode": "A91PW81",
+    "amenity": "school",
+    "education": "school",
+    "name": "Monksland National School",
+    "name:en": "Monksland National School",
+    "name:ga": "Scoil Náisiúnta Talamh na Manach",
+    "school": "primary",
+    "website": "https://www.monkslandschool.com/"
+  }
+},
+{
+  "type": "way",
+  "id": 625845478,
+  "center": {
+    "lat": 53.9970165,
+    "lon": -6.1960699
+  },
+  "tags": {
+    "anglican": "Church of Ireland",
+    "denomination": "anglican",
+    "landuse": "religious",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 626761172,
+  "center": {
+    "lat": 54.0838730,
+    "lon": -6.2533321
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "roman_catholic",
+    "name": "Saint Laurence's",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 629635169,
+  "center": {
+    "lat": 54.0929169,
+    "lon": -6.2648404
+  },
+  "tags": {
+    "amenity": "grave_yard",
+    "denomination": "anglican",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 629635171,
+  "center": {
+    "lat": 54.0930045,
+    "lon": -6.2645188
+  },
+  "tags": {
+    "building": "church",
+    "name": "Saint Andrew's Church"
+  }
+},
+{
+  "type": "way",
+  "id": 629997163,
+  "center": {
+    "lat": 54.0833589,
+    "lon": -6.2530242
+  },
+  "tags": {
+    "landuse": "cemetery"
+  }
+},
+{
+  "type": "way",
+  "id": 631688478,
+  "center": {
+    "lat": 53.7201881,
+    "lon": -6.3267799
+  },
+  "tags": {
+    "addr:city": "Drogheda",
+    "addr:postcode": "A92 VP28",
+    "addr:street": "Newtown Road",
+    "amenity": "school",
+    "denomination": "roman_catholic",
+    "email": "office@ourladys.ie",
+    "fax": "+353 41 983 2809",
+    "name": "Our Lady's College",
+    "phone": "+353 41 983 1219",
+    "religion": "christian",
+    "school": "secondary",
+    "website": "https://www.ourladys.ie/"
+  }
+},
+{
+  "type": "way",
+  "id": 632407790,
+  "center": {
+    "lat": 54.0162772,
+    "lon": -6.3219746
+  },
+  "tags": {
+    "amenity": "school"
+  }
+},
+{
+  "type": "way",
+  "id": 636354664,
+  "center": {
+    "lat": 54.0183765,
+    "lon": -6.4260703
+  },
+  "tags": {
+    "amenity": "school",
+    "building": "school"
+  }
+},
+{
+  "type": "way",
+  "id": 662759471,
+  "center": {
+    "lat": 53.7930868,
+    "lon": -6.2371593
+  },
+  "tags": {
+    "amenity": "grave_yard",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 662759631,
+  "center": {
+    "lat": 53.8013708,
+    "lon": -6.2664431
+  },
+  "tags": {
+    "amenity": "grave_yard",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 668509951,
+  "center": {
+    "lat": 53.9975320,
+    "lon": -6.2294211
+  },
+  "tags": {
+    "landuse": "cemetery",
+    "name": "Newtown Graveyard"
+  }
+},
+{
+  "type": "way",
+  "id": 668726170,
+  "center": {
+    "lat": 54.0208789,
+    "lon": -6.2205922
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "roman_catholic",
+    "name": "Saint Anne's",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 679781573,
+  "center": {
+    "lat": 53.8481605,
+    "lon": -6.4063478
+  },
+  "tags": {
+    "amenity": "grave_yard",
+    "barrier": "hedge"
+  }
+},
+{
+  "type": "way",
+  "id": 686178295,
+  "center": {
+    "lat": 53.7315963,
+    "lon": -6.3441148
+  },
+  "tags": {
+    "amenity": "school",
+    "check_date": "2026-10-28"
+  }
+},
+{
+  "type": "way",
+  "id": 686955688,
+  "center": {
+    "lat": 54.0437515,
+    "lon": -6.5650639
+  },
+  "tags": {
+    "landuse": "cemetery"
+  }
+},
+{
+  "type": "way",
+  "id": 686955691,
+  "center": {
+    "lat": 54.0435880,
+    "lon": -6.5646306
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "roman_catholic",
+    "name": "Sacred Heart",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 687095351,
+  "center": {
+    "lat": 54.0835436,
+    "lon": -6.2519650
+  },
+  "tags": {
+    "amenity": "grave_yard"
+  }
+},
+{
+  "type": "way",
+  "id": 696204843,
+  "center": {
+    "lat": 53.9495974,
+    "lon": -6.5431102
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "roman_catholic",
+    "ref:IE:niah": "13832001",
+    "religion": "christian",
+    "wikidata": "Q55028990"
+  }
+},
+{
+  "type": "way",
+  "id": 709034844,
+  "center": {
+    "lat": 53.9955678,
+    "lon": -6.4150961
+  },
+  "tags": {
+    "addr:city": "Dundalk",
+    "addr:street": "Ardee Terrace",
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "baptist",
+    "name": "Dundalk Baptist Church",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 709269795,
+  "center": {
+    "lat": 54.0431633,
+    "lon": -6.3313511
+  },
+  "tags": {
+    "building": "church",
+    "ref:IE:niah": "13900435",
+    "wikidata": "Q55055797"
+  }
+},
+{
+  "type": "way",
+  "id": 713106835,
+  "center": {
+    "lat": 53.7277698,
+    "lon": -6.2942200
+  },
+  "tags": {
+    "building": "church"
+  }
+},
+{
+  "type": "way",
+  "id": 719668305,
+  "center": {
+    "lat": 53.8522173,
+    "lon": -6.5390740
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "ref:IE:niah": "13823024",
+    "religion": "christian",
+    "wikidata": "Q55028979"
+  }
+},
+{
+  "type": "way",
+  "id": 719668326,
+  "center": {
+    "lat": 53.7909206,
+    "lon": -6.4198286
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "roman_catholic",
+    "name": "Church of Our Lady of the Immaculate Conception, Tenure",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 719668328,
+  "center": {
+    "lat": 53.8530258,
+    "lon": -6.5387631
+  },
+  "tags": {
+    "addr:city": "Ardee",
+    "addr:street": "John Street",
+    "building": "church",
+    "ref:IE:niah": "13823026"
+  }
+},
+{
+  "type": "way",
+  "id": 722749596,
+  "center": {
+    "lat": 53.9815464,
+    "lon": -6.4167106
+  },
+  "tags": {
+    "addr:city": "Dundalk",
+    "addr:housename": "Killally, near Dundalk, County Louth.",
+    "amenity": "grave_yard",
+    "contact:facebook": "https://www.facebook.com/Dundalkfaminegraveyard",
+    "name": "Dundalk Famine Graveyard",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 766676185,
+  "center": {
+    "lat": 53.7355991,
+    "lon": -6.4178632
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "roman_catholic",
+    "name": "Church of Our Lady of the Assumption",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 771187160,
+  "center": {
+    "lat": 53.9949629,
+    "lon": -6.3739984
+  },
+  "tags": {
+    "amenity": "school",
+    "contact:email": "info@bayestatens.ie",
+    "contact:phone": "+353 42 9336158",
+    "name": "Scoil Mhuire na nGael"
+  }
+},
+{
+  "type": "way",
+  "id": 771280096,
+  "center": {
+    "lat": 54.0381481,
+    "lon": -6.1846818
+  },
+  "tags": {
+    "heritage": "yes",
+    "historic": "yes",
+    "landuse": "religious",
+    "name": "Dominican Friary",
+    "name:ga": "Mainistir Dhoiminiceach",
+    "wikidata": "Q26998429",
+    "wikipedia": "en:Carlingford Abbey"
+  }
+},
+{
+  "type": "way",
+  "id": 795938172,
+  "center": {
+    "lat": 53.7179463,
+    "lon": -6.3408260
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 796241500,
+  "center": {
+    "lat": 53.7290083,
+    "lon": -6.3440197
+  },
+  "tags": {
+    "addr:city": "Brogheda",
+    "addr:street": "Ballymakenny Road",
+    "amenity": "place_of_worship",
+    "building": "church",
+    "check_date": "2026-08-16",
+    "denomination": "pentecostal",
+    "name": "Solid Rock Church",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 796309957,
+  "center": {
+    "lat": 53.7312777,
+    "lon": -6.3444026
+  },
+  "tags": {
+    "addr:housenumber": "Ballymakenny College",
+    "addr:street": "Ballymakenny Road",
+    "amenity": "school",
+    "building": "school",
+    "isced:level": "2;3",
+    "name": "Ballymakenny College"
+  }
+},
+{
+  "type": "way",
+  "id": 796575998,
+  "center": {
+    "lat": 53.7620592,
+    "lon": -6.2943905
+  },
+  "tags": {
+    "amenity": "grave_yard"
+  }
+},
+{
+  "type": "way",
+  "id": 798117319,
+  "center": {
+    "lat": 53.7714459,
+    "lon": -6.3094207
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "roman_catholic",
+    "name": "Saint Mary's",
+    "religion": "christian",
+    "wikidata": "Q55055785"
+  }
+},
+{
+  "type": "way",
+  "id": 836760789,
+  "center": {
+    "lat": 53.8237761,
+    "lon": -6.5583339
+  },
+  "tags": {
+    "denomination": "roman_catholic",
+    "landuse": "cemetery",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 836760790,
+  "center": {
+    "lat": 53.8233334,
+    "lon": -6.5566623
+  },
+  "tags": {
+    "amenity": "grave_yard",
+    "denomination": "roman_catholic",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 852277262,
+  "center": {
+    "lat": 54.0531285,
+    "lon": -6.3980433
+  },
+  "tags": {
+    "denomination": "roman_catholic",
+    "landuse": "religious",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 854706289,
+  "center": {
+    "lat": 53.8969612,
+    "lon": -6.4455105
+  },
+  "tags": {
+    "amenity": "grave_yard",
+    "name": "Mansfieldstown Cemetery",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 857571550,
+  "center": {
+    "lat": 53.7983604,
+    "lon": -6.2540261
+  },
+  "tags": {
+    "denomination": "roman_catholic",
+    "landuse": "religious",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 857571553,
+  "center": {
+    "lat": 53.7983239,
+    "lon": -6.2542669
+  },
+  "tags": {
+    "amenity": "grave_yard",
+    "denomination": "roman_catholic",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 858756698,
+  "center": {
+    "lat": 53.7352761,
+    "lon": -6.4178124
+  },
+  "tags": {
+    "denomination": "roman_catholic",
+    "landuse": "religious",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 858757098,
+  "center": {
+    "lat": 53.9690636,
+    "lon": -6.3949176
+  },
+  "tags": {
+    "denomination": "roman_catholic",
+    "landuse": "religious",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 859363026,
+  "center": {
+    "lat": 53.7908448,
+    "lon": -6.4199396
+  },
+  "tags": {
+    "denomination": "roman_catholic",
+    "landuse": "religious",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 859363027,
+  "center": {
+    "lat": 53.7912115,
+    "lon": -6.4185463
+  },
+  "tags": {
+    "amenity": "school",
+    "name": "St. Buites National School",
+    "school": "primary",
+    "source": "Local Knowledge"
+  }
+},
+{
+  "type": "way",
+  "id": 859364766,
+  "center": {
+    "lat": 53.7721901,
+    "lon": -6.3698090
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "roman_catholic",
+    "name": "Fieldstown Church",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 859454429,
+  "center": {
+    "lat": 53.7145245,
+    "lon": -6.3494806
+  },
+  "tags": {
+    "addr:street": "Shop Street",
+    "amenity": "place_of_worship",
+    "building": "church",
+    "check_date": "2024-07-17",
+    "denomination": "roman_catholic",
+    "name": "Saint Augustine's",
+    "religion": "christian",
+    "wikidata": "Q55028956"
+  }
+},
+{
+  "type": "way",
+  "id": 859454430,
+  "center": {
+    "lat": 53.7153614,
+    "lon": -6.3524254
+  },
+  "tags": {
+    "addr:street": "West Street",
+    "amenity": "place_of_worship",
+    "building": "church",
+    "check_date": "2026-08-13",
+    "denomination": "roman_catholic",
+    "heritage": "4",
+    "name": "Saint Peter's",
+    "religion": "christian",
+    "wikidata": "Q7591418",
+    "wikipedia": "en:St. Peter's Roman Catholic Church, Drogheda"
+  }
+},
+{
+  "type": "way",
+  "id": 863304481,
+  "center": {
+    "lat": 53.7214746,
+    "lon": -6.3506160
+  },
+  "tags": {
+    "denomination": "roman_catholic",
+    "landuse": "religious",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 863304624,
+  "center": {
+    "lat": 53.7714428,
+    "lon": -6.3092367
+  },
+  "tags": {
+    "denomination": "roman_catholic",
+    "landuse": "religious",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 863307743,
+  "center": {
+    "lat": 53.9499678,
+    "lon": -6.5444448
+  },
+  "tags": {
+    "amenity": "school"
+  }
+},
+{
+  "type": "way",
+  "id": 863361151,
+  "center": {
+    "lat": 53.9661555,
+    "lon": -6.3639308
+  },
+  "tags": {
+    "denomination": "roman_catholic",
+    "landuse": "religious",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 863362672,
+  "center": {
+    "lat": 54.0436251,
+    "lon": -6.5647340
+  },
+  "tags": {
+    "denomination": "roman_catholic",
+    "landuse": "religious",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 863362703,
+  "center": {
+    "lat": 54.0431260,
+    "lon": -6.4257612
+  },
+  "tags": {
+    "denomination": "roman_catholic",
+    "landuse": "religious",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 863366461,
+  "center": {
+    "lat": 54.0208167,
+    "lon": -6.2207300
+  },
+  "tags": {
+    "denomination": "roman_catholic",
+    "landuse": "religious",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 863366578,
+  "center": {
+    "lat": 53.9990463,
+    "lon": -6.2566132
+  },
+  "tags": {
+    "denomination": "roman_catholic",
+    "landuse": "religious",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 863371479,
+  "center": {
+    "lat": 54.0069865,
+    "lon": -6.4686079
+  },
+  "tags": {
+    "denomination": "roman_catholic",
+    "landuse": "religious",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 863734467,
+  "center": {
+    "lat": 54.0167685,
+    "lon": -6.4283323
+  },
+  "tags": {
+    "addr:city": "Dundalk",
+    "addr:street": "Mill Road",
+    "amenity": "school",
+    "name": "De La Salle College",
+    "name:ie": "Coláiste De La Salle"
+  }
+},
+{
+  "type": "way",
+  "id": 863734468,
+  "center": {
+    "lat": 54.0171120,
+    "lon": -6.4259800
+  },
+  "tags": {
+    "addr:city": "Dundalk",
+    "addr:housename": "Castletown Road",
+    "addr:street": "Castletown Road",
+    "amenity": "school",
+    "fixme": "Check extend of school",
+    "name": "St Louis Girls School"
+  }
+},
+{
+  "type": "way",
+  "id": 864103659,
+  "center": {
+    "lat": 54.0416946,
+    "lon": -6.1872958
+  },
+  "tags": {
+    "denomination": "presbyterian",
+    "landuse": "religious",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 868826743,
+  "center": {
+    "lat": 53.7425279,
+    "lon": -6.3803892
+  },
+  "tags": {
+    "historic": "yes",
+    "landuse": "cemetery",
+    "source": "British War Office 1:25k"
+  }
+},
+{
+  "type": "way",
+  "id": 877322128,
+  "center": {
+    "lat": 53.7151821,
+    "lon": -6.3485472
+  },
+  "tags": {
+    "building": "church",
+    "heritage": "4"
+  }
+},
+{
+  "type": "way",
+  "id": 877322151,
+  "center": {
+    "lat": 53.7156769,
+    "lon": -6.3492515
+  },
+  "tags": {
+    "building": "church",
+    "building:levels": "2",
+    "heritage": "4",
+    "vacant": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 877325069,
+  "center": {
+    "lat": 53.7122809,
+    "lon": -6.3597056
+  },
+  "tags": {
+    "building": "church"
+  }
+},
+{
+  "type": "way",
+  "id": 893964824,
+  "center": {
+    "lat": 54.0689110,
+    "lon": -6.4534926
+  },
+  "tags": {
+    "amenity": "grave_yard",
+    "name": "Urney Graveyard",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 960866394,
+  "center": {
+    "lat": 53.7104258,
+    "lon": -6.3474816
+  },
+  "tags": {
+    "amenity": "grave_yard"
+  }
+},
+{
+  "type": "way",
+  "id": 979847842,
+  "center": {
+    "lat": 53.7425647,
+    "lon": -6.4653817
+  },
+  "tags": {
+    "amenity": "grave_yard"
+  }
+},
+{
+  "type": "way",
+  "id": 1011396817,
+  "center": {
+    "lat": 53.8516205,
+    "lon": -6.5373418
+  },
+  "tags": {
+    "addr:city": "Ardee",
+    "addr:postcode": "A92X788",
+    "addr:street": "Drogheda Road",
+    "amenity": "school",
+    "denomination": "roman_catholic",
+    "education": "school",
+    "email": "officeardeemns@gmail.com",
+    "name": "Monastery National School, Ardee",
+    "phone": "+353 41 685 3641",
+    "religion": "christian",
+    "school": "primary",
+    "website": "https://www.monasterynsardee.ie/"
+  }
+},
+{
+  "type": "way",
+  "id": 1018371674,
+  "center": {
+    "lat": 53.7276779,
+    "lon": -6.2943919
+  },
+  "tags": {
+    "amenity": "grave_yard"
+  }
+},
+{
+  "type": "way",
+  "id": 1046691757,
+  "center": {
+    "lat": 53.7264591,
+    "lon": -6.3600909
+  },
+  "tags": {
+    "amenity": "school",
+    "fixme": "Check details"
+  }
+},
+{
+  "type": "way",
+  "id": 1123174537,
+  "center": {
+    "lat": 53.7296454,
+    "lon": -6.3435615
+  },
+  "tags": {
+    "amenity": "school",
+    "check_date": "2026-08-16",
+    "name": "St Oliver"
+  }
+},
+{
+  "type": "way",
+  "id": 1123174545,
+  "center": {
+    "lat": 53.7290093,
+    "lon": -6.3439837
+  },
+  "tags": {
+    "denomination": "pentecostal",
+    "landuse": "religious",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 1123465238,
+  "center": {
+    "lat": 53.7705293,
+    "lon": -6.3098097
+  },
+  "tags": {
+    "addr:city": "Sandpit",
+    "addr:postcode": "A92A567",
+    "alt_name": "Sandpit National School",
+    "amenity": "school",
+    "denomination": "roman_catholic",
+    "name": "Scoil Náisiúnta Muire gan Smál",
+    "religion": "christian",
+    "school": "primary",
+    "website": "http://www.scoilmhuirec.ie/"
+  }
+},
+{
+  "type": "way",
+  "id": 1124866387,
+  "center": {
+    "lat": 54.0013266,
+    "lon": -6.4080150
+  },
+  "tags": {
+    "addr:city": "Dundalk",
+    "addr:street": "Anne Street",
+    "amenity": "school",
+    "denomination": "roman_catholic",
+    "email": "office@stmalachysinfants.ie",
+    "name": "St. Malachy's Infants' School",
+    "phone": "+353 42 933 8130",
+    "religion": "christian",
+    "school": "primary",
+    "website": "https://www.stmalachysinfants.ie/"
+  }
+},
+{
+  "type": "way",
+  "id": 1135265403,
+  "center": {
+    "lat": 53.9532154,
+    "lon": -6.5441394
+  },
+  "tags": {
+    "amenity": "grave_yard",
+    "heritage": "2",
+    "heritage:operator": "IE:smr",
+    "ref:IE:smr": "LH011-115006"
+  }
+},
+{
+  "type": "way",
+  "id": 1135302644,
+  "center": {
+    "lat": 53.9501768,
+    "lon": -6.5368679
+  },
+  "tags": {
+    "amenity": "grave_yard"
+  }
+},
+{
+  "type": "way",
+  "id": 1181743781,
+  "center": {
+    "lat": 53.8960193,
+    "lon": -6.3903481
+  },
+  "tags": {
+    "building": "church",
+    "ref:IE:niah": "13826007",
+    "wikidata": "Q55050862"
+  }
+},
+{
+  "type": "way",
+  "id": 1217955488,
+  "center": {
+    "lat": 53.8996520,
+    "lon": -6.3911288
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "presbyterian",
+    "ref:IE:niah": "13826025",
+    "religion": "christian",
+    "wikidata": "Q55050864"
+  }
+},
+{
+  "type": "way",
+  "id": 1221389051,
+  "center": {
+    "lat": 53.7166093,
+    "lon": -6.3474509
+  },
+  "tags": {
+    "addr:city": "Drogheda",
+    "addr:street": "Palace Street",
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "presbyterian",
+    "heritage": "4",
+    "name": "Drogheda Presbyterian Church",
+    "religion": "christian",
+    "wikidata": "Q55050837"
+  }
+},
+{
+  "type": "way",
+  "id": 1221423064,
+  "center": {
+    "lat": 53.7112074,
+    "lon": -6.3597402
+  },
+  "tags": {
+    "amenity": "school"
+  }
+},
+{
+  "type": "way",
+  "id": 1221625677,
+  "center": {
+    "lat": 53.7779946,
+    "lon": -6.3039391
+  },
+  "tags": {
+    "amenity": "grave_yard"
+  }
+},
+{
+  "type": "way",
+  "id": 1227775544,
+  "center": {
+    "lat": 53.9576329,
+    "lon": -6.6487487
+  },
+  "tags": {
+    "landuse": "cemetery"
+  }
+},
+{
+  "type": "way",
+  "id": 1227775545,
+  "center": {
+    "lat": 53.9583155,
+    "lon": -6.6496365
+  },
+  "tags": {
+    "landuse": "religious",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 1227775548,
+  "center": {
+    "lat": 53.9593026,
+    "lon": -6.6494877
+  },
+  "tags": {
+    "alt_name": "Killanny National School",
+    "amenity": "school",
+    "contact:facebook": "http://www.facebook.com/killannyns",
+    "name": "Scoil Naoimh Éanna",
+    "school": "primary",
+    "school:gender": "both",
+    "website": "https://www.killannyns.com/"
+  }
+},
+{
+  "type": "way",
+  "id": 1238383886,
+  "center": {
+    "lat": 53.9582781,
+    "lon": -6.6496281
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 1265305402,
+  "center": {
+    "lat": 53.8229173,
+    "lon": -6.5572640
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "roman_catholic",
+    "name": "Saint Catherine's",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 1267243805,
+  "center": {
+    "lat": 53.8393933,
+    "lon": -6.3127309
+  },
+  "tags": {
+    "amenity": "grave_yard"
+  }
+},
+{
+  "type": "way",
+  "id": 1267245150,
+  "center": {
+    "lat": 53.8631563,
+    "lon": -6.3398033
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "ref:IE:niah": "13901504",
+    "religion": "christian",
+    "wikidata": "Q55055813"
+  }
+},
+{
+  "type": "way",
+  "id": 1267246073,
+  "center": {
+    "lat": 53.7996577,
+    "lon": -6.3950871
+  },
+  "tags": {
+    "amenity": "grave_yard",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 1267250291,
+  "center": {
+    "lat": 53.7804264,
+    "lon": -6.4871682
+  },
+  "tags": {
+    "building": "church",
+    "building:use": "retail"
+  }
+},
+{
+  "type": "way",
+  "id": 1288069412,
+  "center": {
+    "lat": 54.0054691,
+    "lon": -6.4165199
+  },
+  "tags": {
+    "landuse": "religious"
+  }
+},
+{
+  "type": "way",
+  "id": 1288069413,
+  "center": {
+    "lat": 54.0063257,
+    "lon": -6.4158652
+  },
+  "tags": {
+    "addr:city": "Dundalk",
+    "addr:street": "Ard Easmuinn",
+    "amenity": "school",
+    "denomination": "roman_catholic",
+    "email": "redeemerboysschool@yahoo.com",
+    "name": "Redeemer Boys' National School",
+    "phone": "+353 42 933 2053",
+    "religion": "christian",
+    "website": "https://www.redeemerboysns.ie/"
+  }
+},
+{
+  "type": "way",
+  "id": 1297587763,
+  "center": {
+    "lat": 53.8509574,
+    "lon": -6.5469379
+  },
+  "tags": {
+    "addr:city": "Ardee",
+    "addr:postcode": "A92F838",
+    "addr:street": "John Street",
+    "amenity": "school",
+    "education": "school",
+    "email": "info@ardeecs.ie",
+    "name": "Ardee Community School",
+    "operator": "Louth and Meath Education and Training Board;Archdiocese of Armagh",
+    "phone": "+353 41 685 3554",
+    "religion": "multifaith",
+    "school": "secondary",
+    "start_date": "1970s",
+    "website": "https://ardeecommunityschool.ie/",
+    "wikidata": "Q16833577",
+    "wikipedia": "en:Ardee Community School"
+  }
+},
+{
+  "type": "way",
+  "id": 1297595875,
+  "center": {
+    "lat": 53.8521975,
+    "lon": -6.5389937
+  },
+  "tags": {
+    "landuse": "religious",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 1297595899,
+  "center": {
+    "lat": 53.8629706,
+    "lon": -6.5417136
+  },
+  "tags": {
+    "addr:city": "Ardee",
+    "addr:postcode": "A92TW80",
+    "addr:street": "Dundalk Road",
+    "amenity": "school",
+    "email": "ardeeetns@gmail.com",
+    "name": "Ardee Educate Together National School",
+    "operator": "Educate Together",
+    "operator:type": "charitable",
+    "operator:wikidata": "Q5340837",
+    "phone": "+353 41 685 3774",
+    "religion": "multifaith",
+    "school": "primary",
+    "website": "https://www.aet.ie/"
+  }
+},
+{
+  "type": "way",
+  "id": 1297600619,
+  "center": {
+    "lat": 53.8526852,
+    "lon": -6.5338722
+  },
+  "tags": {
+    "addr:city": "Ardee",
+    "addr:postcode": "A92FR58",
+    "addr:street": "Hale Street",
+    "amenity": "school",
+    "contact:facebook": "https://www.facebook.com/profile.php?id=100092160751940",
+    "denomination": "roman_catholic",
+    "education": "school",
+    "email": "office@smntardee.ie",
+    "name": "Scoil Mhuire na Trócaire",
+    "phone": "+353 41 685 3152",
+    "religion": "christian",
+    "school": "primary",
+    "website": "https://www.smntardee.ie/"
+  }
+},
+{
+  "type": "way",
+  "id": 1299486661,
+  "center": {
+    "lat": 53.8519622,
+    "lon": -6.5348065
+  },
+  "tags": {
+    "amenity": "monastery",
+    "denomination": "roman_catholic",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 1299486664,
+  "center": {
+    "lat": 53.8531441,
+    "lon": -6.5386741
+  },
+  "tags": {
+    "landuse": "religious",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 1299536458,
+  "center": {
+    "lat": 53.8210395,
+    "lon": -6.5572430
+  },
+  "tags": {
+    "addr:city": "Ardee",
+    "addr:street": "Ballapousta",
+    "amenity": "school",
+    "name": "Ballapousta National School",
+    "school": "primary"
+  }
+},
+{
+  "type": "way",
+  "id": 1300090538,
+  "center": {
+    "lat": 53.8221010,
+    "lon": -6.4703619
+  },
+  "tags": {
+    "addr:city": "Dunleer",
+    "addr:place": "Philipstown",
+    "addr:postcode": "A92D761",
+    "amenity": "school",
+    "denomination": "roman_catholic",
+    "name": "St. Kevin's NS Philipstown",
+    "name:en": "St. Kevin's NS Philipstown",
+    "name:ga": "Scoil Chaoimhín Naofa",
+    "phone": "+353 41 685 1902",
+    "religion": "christian",
+    "start_date": "1954"
+  }
+},
+{
+  "type": "way",
+  "id": 1300090557,
+  "center": {
+    "lat": 53.8178647,
+    "lon": -6.4623105
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "roman_catholic",
+    "name": "Saint Kevin's RC Church",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 1300635672,
+  "center": {
+    "lat": 53.8314932,
+    "lon": -6.4010358
+  },
+  "tags": {
+    "amenity": "school",
+    "school": "primary"
+  }
+},
+{
+  "type": "way",
+  "id": 1300641147,
+  "center": {
+    "lat": 53.8254688,
+    "lon": -6.3811602
+  },
+  "tags": {
+    "amenity": "school",
+    "school": "secondary"
+  }
+},
+{
+  "type": "way",
+  "id": 1300643741,
+  "center": {
+    "lat": 53.8071699,
+    "lon": -6.3006008
+  },
+  "tags": {
+    "amenity": "school",
+    "school": "primary"
+  }
+},
+{
+  "type": "way",
+  "id": 1303518262,
+  "center": {
+    "lat": 54.0071510,
+    "lon": -6.4072048
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "jehovahs_witness",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 1318430717,
+  "center": {
+    "lat": 54.0010482,
+    "lon": -6.3950411
+  },
+  "tags": {
+    "amenity": "school",
+    "name": "Coláiste Chú Chulainn"
+  }
+},
+{
+  "type": "way",
+  "id": 1331737430,
+  "center": {
+    "lat": 54.0055412,
+    "lon": -6.3920280
+  },
+  "tags": {
+    "addr:street": "Seatown Place",
+    "amenity": "school",
+    "building": "school"
+  }
+},
+{
+  "type": "way",
+  "id": 1331737474,
+  "center": {
+    "lat": 54.0071710,
+    "lon": -6.3908961
+  },
+  "tags": {
+    "amenity": "school",
+    "name": "Réalt na Mara"
+  }
+},
+{
+  "type": "way",
+  "id": 1334734622,
+  "center": {
+    "lat": 54.0124138,
+    "lon": -6.1382025
+  },
+  "tags": {
+    "addr:city": "Greenore",
+    "addr:place": "Muchgrange",
+    "addr:postcode": "A91DK09",
+    "alt_name": "Muchgrange National School",
+    "amenity": "school",
+    "loc_name": "Boher",
+    "name": "The Boher National School",
+    "name:en": "The Boher National School",
+    "name:ga": "Scoil Naomh Mhuire",
+    "school": "primary",
+    "website": "https://www.boherns.ie/"
+  }
+},
+{
+  "type": "way",
+  "id": 1334756277,
+  "center": {
+    "lat": 54.0195536,
+    "lon": -6.1441020
+  },
+  "tags": {
+    "amenity": "grave_yard",
+    "source": "OS 1st edition map"
+  }
+},
+{
+  "type": "way",
+  "id": 1334849113,
+  "center": {
+    "lat": 54.0199716,
+    "lon": -6.2199649
+  },
+  "tags": {
+    "amenity": "school"
+  }
+},
+{
+  "type": "way",
+  "id": 1335051946,
+  "center": {
+    "lat": 54.0000919,
+    "lon": -6.2632786
+  },
+  "tags": {
+    "amenity": "school"
+  }
+},
+{
+  "type": "way",
+  "id": 1335814549,
+  "center": {
+    "lat": 54.0403312,
+    "lon": -6.3282591
+  },
+  "tags": {
+    "landuse": "cemetery"
+  }
+},
+{
+  "type": "way",
+  "id": 1336604713,
+  "center": {
+    "lat": 53.8663768,
+    "lon": -6.4485106
+  },
+  "tags": {
+    "amenity": "grave_yard"
+  }
+},
+{
+  "type": "way",
+  "id": 1336604729,
+  "center": {
+    "lat": 53.8663768,
+    "lon": -6.4406470
+  },
+  "tags": {
+    "amenity": "school"
+  }
+},
+{
+  "type": "way",
+  "id": 1336604734,
+  "center": {
+    "lat": 53.8671430,
+    "lon": -6.4409843
+  },
+  "tags": {
+    "landuse": "religious"
+  }
+},
+{
+  "type": "way",
+  "id": 1336604735,
+  "center": {
+    "lat": 53.8671395,
+    "lon": -6.4409652
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "ref:IE:niah": "13901502",
+    "religion": "christian",
+    "wikidata": "Q55055812"
+  }
+},
+{
+  "type": "way",
+  "id": 1337171606,
+  "center": {
+    "lat": 54.0210468,
+    "lon": -6.3913010
+  },
+  "tags": {
+    "landuse": "cemetery"
+  }
+},
+{
+  "type": "way",
+  "id": 1337176571,
+  "center": {
+    "lat": 54.0369634,
+    "lon": -6.3688966
+  },
+  "tags": {
+    "landuse": "cemetery"
+  }
+},
+{
+  "type": "way",
+  "id": 1337795215,
+  "center": {
+    "lat": 53.9222306,
+    "lon": -6.3981919
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "ref:IE:niah": "13829001",
+    "religion": "christian",
+    "wikidata": "Q55047251"
+  }
+},
+{
+  "type": "way",
+  "id": 1337819757,
+  "center": {
+    "lat": 54.0389311,
+    "lon": -6.5582044
+  },
+  "tags": {
+    "amenity": "school"
+  }
+},
+{
+  "type": "way",
+  "id": 1337834511,
+  "center": {
+    "lat": 53.8744122,
+    "lon": -6.3015765
+  },
+  "tags": {
+    "amenity": "grave_yard",
+    "heritage": "2",
+    "heritage:operator": "IE:smr",
+    "ref:IE:smr": "LH016-003002-"
+  }
+},
+{
+  "type": "way",
+  "id": 1338475875,
+  "center": {
+    "lat": 53.9346832,
+    "lon": -6.5597344
+  },
+  "tags": {
+    "amenity": "grave_yard"
+  }
+},
+{
+  "type": "way",
+  "id": 1338743731,
+  "center": {
+    "lat": 53.9346891,
+    "lon": -6.4818358
+  },
+  "tags": {
+    "building": "church"
+  }
+},
+{
+  "type": "way",
+  "id": 1338744813,
+  "center": {
+    "lat": 53.9346122,
+    "lon": -6.4818773
+  },
+  "tags": {
+    "alt_name": "Killencoole Graveyard",
+    "amenity": "grave_yard",
+    "name": "Killincoole Graveyard",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 1338745498,
+  "center": {
+    "lat": 53.9270001,
+    "lon": -6.4642799
+  },
+  "tags": {
+    "amenity": "grave_yard"
+  }
+},
+{
+  "type": "way",
+  "id": 1339289470,
+  "center": {
+    "lat": 53.8882005,
+    "lon": -6.6142379
+  },
+  "tags": {
+    "amenity": "grave_yard"
+  }
+},
+{
+  "type": "way",
+  "id": 1339289473,
+  "center": {
+    "lat": 53.8882662,
+    "lon": -6.6142675
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church"
+  }
+},
+{
+  "type": "way",
+  "id": 1339651804,
+  "center": {
+    "lat": 53.9115226,
+    "lon": -6.6123466
+  },
+  "tags": {
+    "landuse": "cemetery"
+  }
+},
+{
+  "type": "way",
+  "id": 1339653795,
+  "center": {
+    "lat": 53.9097756,
+    "lon": -6.6110947
+  },
+  "tags": {
+    "landuse": "religious"
+  }
+},
+{
+  "type": "way",
+  "id": 1339653796,
+  "center": {
+    "lat": 53.9097555,
+    "lon": -6.6109995
+  },
+  "tags": {
+    "building": "church",
+    "ref:IE:niah": "13901302",
+    "wikidata": "Q55047294"
+  }
+},
+{
+  "type": "way",
+  "id": 1346074327,
+  "center": {
+    "lat": 53.7889861,
+    "lon": -6.4754024
+  },
+  "tags": {
+    "landuse": "cemetery"
+  }
+},
+{
+  "type": "way",
+  "id": 1346230685,
+  "center": {
+    "lat": 53.8201538,
+    "lon": -6.4343512
+  },
+  "tags": {
+    "landuse": "cemetery",
+    "name": "Mosstown Cemetery"
+  }
+},
+{
+  "type": "way",
+  "id": 1346232739,
+  "center": {
+    "lat": 53.8203961,
+    "lon": -6.4343903
+  },
+  "tags": {
+    "building": "chapel"
+  }
+},
+{
+  "type": "way",
+  "id": 1346236060,
+  "center": {
+    "lat": 53.9500137,
+    "lon": -6.6382997
+  },
+  "tags": {
+    "amenity": "grave_yard",
+    "name": "Killanny Old Graveyard",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 1347166560,
+  "center": {
+    "lat": 53.8589872,
+    "lon": -6.3770109
+  },
+  "tags": {
+    "amenity": "grave_yard",
+    "note": "approximate geometry",
+    "ref:IE:smr": "LH018-006002-"
+  }
+},
+{
+  "type": "way",
+  "id": 1347166561,
+  "center": {
+    "lat": 53.8588998,
+    "lon": -6.3768925
+  },
+  "tags": {
+    "building": "church",
+    "ref:IE:niah": "13901839",
+    "wikidata": "Q55028978"
+  }
+},
+{
+  "type": "way",
+  "id": 1347686357,
+  "center": {
+    "lat": 53.8554355,
+    "lon": -6.2618350
+  },
+  "tags": {
+    "building": "church",
+    "name": "Dunany Church"
+  }
+},
+{
+  "type": "way",
+  "id": 1347704328,
+  "center": {
+    "lat": 53.8291672,
+    "lon": -6.3304786
+  },
+  "tags": {
+    "amenity": "grave_yard"
+  }
+},
+{
+  "type": "way",
+  "id": 1347824678,
+  "center": {
+    "lat": 53.8554915,
+    "lon": -6.5019434
+  },
+  "tags": {
+    "amenity": "grave_yard"
+  }
+},
+{
+  "type": "way",
+  "id": 1348085810,
+  "center": {
+    "lat": 53.8392139,
+    "lon": -6.5728743
+  },
+  "tags": {
+    "amenity": "grave_yard",
+    "name": "Shanlis Graveyard",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 1348090820,
+  "center": {
+    "lat": 53.8178231,
+    "lon": -6.5662601
+  },
+  "tags": {
+    "alt_name": "Smearamair",
+    "amenity": "grave_yard",
+    "name": "Smarmore Graveyard",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 1349621295,
+  "center": {
+    "lat": 53.7781620,
+    "lon": -6.4843245
+  },
+  "tags": {
+    "building": "church"
+  }
+},
+{
+  "type": "way",
+  "id": 1349621296,
+  "center": {
+    "lat": 53.7782121,
+    "lon": -6.4843502
+  },
+  "tags": {
+    "landuse": "religious"
+  }
+},
+{
+  "type": "way",
+  "id": 1349621299,
+  "center": {
+    "lat": 53.7768495,
+    "lon": -6.4832535
+  },
+  "tags": {
+    "amenity": "school"
+  }
+},
+{
+  "type": "way",
+  "id": 1349621308,
+  "center": {
+    "lat": 53.7776694,
+    "lon": -6.4914987
+  },
+  "tags": {
+    "landuse": "cemetery"
+  }
+},
+{
+  "type": "way",
+  "id": 1356048348,
+  "center": {
+    "lat": 53.8609032,
+    "lon": -6.2540786
+  },
+  "tags": {
+    "amenity": "grave_yard"
+  }
+},
+{
+  "type": "way",
+  "id": 1356218817,
+  "center": {
+    "lat": 53.8631328,
+    "lon": -6.3476622
+  },
+  "tags": {
+    "amenity": "school"
+  }
+},
+{
+  "type": "way",
+  "id": 1356246245,
+  "center": {
+    "lat": 53.8447686,
+    "lon": -6.2930792
+  },
+  "tags": {
+    "landuse": "religious"
+  }
+},
+{
+  "type": "way",
+  "id": 1356246246,
+  "center": {
+    "lat": 53.8447228,
+    "lon": -6.2930936
+  },
+  "tags": {
+    "building": "church"
+  }
+},
+{
+  "type": "way",
+  "id": 1356644911,
+  "center": {
+    "lat": 53.7914912,
+    "lon": -6.2435529
+  },
+  "tags": {
+    "addr:city": "Clogherhead",
+    "addr:postcode": "A92P981",
+    "addr:street": "Callystown Road",
+    "amenity": "school",
+    "contact:phone": "+353 41 982 2873",
+    "denomination": "roman_catholic",
+    "education": "school",
+    "email": "principal@callystownnationalschool.ie",
+    "name": "Callystown National School",
+    "opening_hours": "Mo-Fr 09:00-14:45",
+    "religion": "christian",
+    "website": "https://callystownnationalschool.ie/"
+  }
+},
+{
+  "type": "way",
+  "id": 1358398720,
+  "center": {
+    "lat": 53.8184385,
+    "lon": -6.4973831
+  },
+  "tags": {
+    "amenity": "grave_yard",
+    "source": "OS 1st edition map"
+  }
+},
+{
+  "type": "way",
+  "id": 1358439718,
+  "center": {
+    "lat": 53.7776719,
+    "lon": -6.3645574
+  },
+  "tags": {
+    "amenity": "grave_yard"
+  }
+},
+{
+  "type": "way",
+  "id": 1358440347,
+  "center": {
+    "lat": 53.7762176,
+    "lon": -6.3528388
+  },
+  "tags": {
+    "amenity": "school"
+  }
+},
+{
+  "type": "way",
+  "id": 1359157915,
+  "center": {
+    "lat": 53.8156219,
+    "lon": -6.2861068
+  },
+  "tags": {
+    "amenity": "grave_yard"
+  }
+},
+{
+  "type": "way",
+  "id": 1359160849,
+  "center": {
+    "lat": 53.8336363,
+    "lon": -6.3358143
+  },
+  "tags": {
+    "landuse": "religious"
+  }
+},
+{
+  "type": "way",
+  "id": 1359160861,
+  "center": {
+    "lat": 53.8336579,
+    "lon": -6.3361366
+  },
+  "tags": {
+    "building": "church",
+    "name": "Skeaghmore Chapel"
+  }
+},
+{
+  "type": "way",
+  "id": 1359178919,
+  "center": {
+    "lat": 53.8356655,
+    "lon": -6.5205145
+  },
+  "tags": {
+    "amenity": "grave_yard",
+    "name": "Kildemock Graveyard",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 1359181297,
+  "center": {
+    "lat": 53.8904279,
+    "lon": -6.5620572
+  },
+  "tags": {
+    "amenity": "grave_yard"
+  }
+},
+{
+  "type": "way",
+  "id": 1359181305,
+  "center": {
+    "lat": 53.8900734,
+    "lon": -6.5624998
+  },
+  "tags": {
+    "building": "church"
+  }
+},
+{
+  "type": "way",
+  "id": 1359183388,
+  "center": {
+    "lat": 53.8864561,
+    "lon": -6.3900343
+  },
+  "tags": {
+    "amenity": "school"
+  }
+},
+{
+  "type": "way",
+  "id": 1359284017,
+  "center": {
+    "lat": 53.8378030,
+    "lon": -6.3366088
+  },
+  "tags": {
+    "alt_name": "Tullydonnell National School",
+    "amenity": "school",
+    "name": "St. Colmcille National School",
+    "name:ga": "Scoil Naomh Cholmcille",
+    "website": "https://scoilnaomhcholmcille.ie/"
+  }
+},
+{
+  "type": "way",
+  "id": 1359895277,
+  "center": {
+    "lat": 53.9602021,
+    "lon": -6.4118702
+  },
+  "tags": {
+    "alt_name": "Haynestown Cemetery",
+    "denomination": "anglican",
+    "landuse": "cemetery",
+    "name": "Heynestown Churchyard",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 1359895278,
+  "center": {
+    "lat": 53.9603191,
+    "lon": -6.4109912
+  },
+  "tags": {
+    "amenity": "grave_yard",
+    "denomination": "anglican",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 1359895279,
+  "center": {
+    "lat": 53.9603179,
+    "lon": -6.4111047
+  },
+  "tags": {
+    "amenity": "place_of_worship",
+    "building": "church",
+    "denomination": "anglican",
+    "name": "St Paul's Church",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 1408287745,
+  "center": {
+    "lat": 53.9859056,
+    "lon": -6.1896604
+  },
+  "tags": {
+    "addr:city": "Dundalk",
+    "addr:place": "Riverstown",
+    "addr:postcode": "A91 X098",
+    "amenity": "school",
+    "name": "​Rathcor National School",
+    "name:en": "​Rathcor National School",
+    "name:ga": "Scoil Náisiúnta Ráth Corr",
+    "school": "primary",
+    "website": "https://www.rathcorschool.com/"
+  }
+},
+{
+  "type": "way",
+  "id": 1408921028,
+  "center": {
+    "lat": 54.0800335,
+    "lon": -6.2722109
+  },
+  "tags": {
+    "amenity": "school"
+  }
+},
+{
+  "type": "way",
+  "id": 1414530851,
+  "center": {
+    "lat": 54.0136046,
+    "lon": -6.1409370
+  },
+  "tags": {
+    "amenity": "grave_yard",
+    "denomination": "roman_catholic",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 1462827564,
+  "center": {
+    "lat": 53.8996519,
+    "lon": -6.3911402
+  },
+  "tags": {
+    "landuse": "religious"
+  }
+},
+{
+  "type": "way",
+  "id": 1496298219,
+  "center": {
+    "lat": 53.7903406,
+    "lon": -6.3413351
+  },
+  "tags": {
+    "amenity": "grave_yard",
+    "name": "Drumshallon Old Graveyard"
+  }
+},
+{
+  "type": "way",
+  "id": 1496317737,
+  "center": {
+    "lat": 53.8318724,
+    "lon": -6.3937851
+  },
+  "tags": {
+    "amenity": "grave_yard",
+    "denomination": "anglican",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 1523112407,
+  "center": {
+    "lat": 53.8444225,
+    "lon": -6.4375117
+  },
+  "tags": {
+    "denomination": "roman_catholic",
+    "landuse": "religious",
+    "religion": "christian"
+  }
+},
+{
+  "type": "way",
+  "id": 1523112421,
+  "center": {
+    "lat": 53.8444119,
+    "lon": -6.4447032
+  },
+  "tags": {
+    "addr:city": "Dunleer",
+    "addr:place": "Dromin",
+    "amenity": "school",
+    "denomination": "roman_catholic",
+    "education": "school",
+    "name": "Dromin National School",
+    "religion": "christian",
+    "school": "primary",
+    "website": "https://www.drominnationalschool.com/"
+  }
+},
+{
+  "type": "relation",
+  "id": 4844017,
+  "center": {
+    "lat": 54.0304922,
+    "lon": -6.3565908
+  },
+  "tags": {
+    "amenity": "grave_yard",
+    "anglican": "Church of Ireland",
+    "denomination": "anglican",
+    "designation": "Church and grave yard",
+    "heritage": "2",
+    "heritage:operator": "IE:smr",
+    "ref:IE:smr": "LH007-017002-",
+    "religion": "christian",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 5389088,
+  "center": {
+    "lat": 53.9261646,
+    "lon": -6.4575685
+  },
+  "tags": {
+    "amenity": "grave_yard",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 5390874,
+  "center": {
+    "lat": 54.0153485,
+    "lon": -6.4253768
+  },
+  "tags": {
+    "alt_name": "Castletown Graveyard",
+    "landuse": "cemetery",
+    "name": "Castletown Cemetery",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 5407305,
+  "center": {
+    "lat": 53.9728612,
+    "lon": -6.4846724
+  },
+  "tags": {
+    "denomination": "roman_catholic",
+    "landuse": "cemetery",
+    "religion": "christian",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 5407307,
+  "center": {
+    "lat": 53.9730755,
+    "lon": -6.4858758
+  },
+  "tags": {
+    "addr:city": "Knockbridge",
+    "amenity": "school",
+    "denomination": "roman_catholic",
+    "name": "St Mary's National School, Knockbridge",
+    "name:ga": "Scoil Naomh Muire, Cnoc Bríde",
+    "operator": "Archdiocese of Armagh",
+    "operator:type": "religious",
+    "operator:wikidata": "Q1364035",
+    "religion": "christian",
+    "school": "primary",
+    "type": "multipolygon",
+    "website": "https://knockbridgens.com/contacts/"
+  }
+},
+{
+  "type": "relation",
+  "id": 6447387,
+  "center": {
+    "lat": 53.7612570,
+    "lon": -6.2697105
+  },
+  "tags": {
+    "amenity": "grave_yard",
+    "anglican": "Church of Ireland",
+    "denomination": "anglican",
+    "religion": "christian",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 11035562,
+  "center": {
+    "lat": 53.7298060,
+    "lon": -6.3434326
+  },
+  "tags": {
+    "addr:housenumber": "Presentation Primary School",
+    "addr:street": "Ballymakenny Road",
+    "amenity": "school",
+    "building": "school",
+    "isced:level": "1",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 11042359,
+  "center": {
+    "lat": 53.7312220,
+    "lon": -6.3294319
+  },
+  "tags": {
+    "amenity": "school",
+    "isced:level": "2;3",
+    "name": "Aston Village Educate Together",
+    "operator": "Educate Together",
+    "operator:type": "charitable",
+    "operator:wikidata": "Q5340837",
+    "type": "multipolygon",
+    "website": "https://astonvillageetns.com/"
+  }
+},
+{
+  "type": "relation",
+  "id": 20600269,
+  "center": {
+    "lat": 53.7210645,
+    "lon": -6.3534543
+  },
+  "tags": {
+    "addr:city": "Drogheda",
+    "addr:postcode": "A92 Y236",
+    "addr:street": "Bóthar Brugha",
+    "amenity": "school",
+    "denomination": "roman_catholic",
+    "name": "Saint Brigid's & Saint Patrick's National School",
+    "religion": "christian",
+    "type": "multipolygon",
+    "website": "https://www.sbsp.ie/",
+    "wheelchair": "yes"
+  }
+}
+
+  ]
+}

@@ -169,11 +169,23 @@ status 200 final url https://www.gov.ie/en/department-of-education/collections/d
 ### links on https://www.gov.ie/en/department-of-education/publications/data-on-individual-schools/
 status 404 final url https://www.gov.ie/en/department-of-education/publications/data-on-individual-schools/
 
+### https://assets.gov.ie/static/documents/8e1b86ab/Data_on_Individual_Schools_Mainstream..xlsx
+status 200, 986,203 bytes, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+
+### https://assets.gov.ie/static/documents/d5fbb204/Data_on_Individual_Schools_post_primary..xlsx
+status 200, 256,644 bytes, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+
+### https://www.charitiesregulator.ie/media/d52jwriz/register-of-charities.csv
+status 403, 5,696 bytes, text/html; charset=UTF-8
+
+### https://overpass-api.de/api/interpreter?data=[out:json];node(53.70,-6.40,53.72,-6.34)[amenity=place_of_worship];out;
+status 406, 156 bytes, text/html
+
 ### https://overpass-api.de/api/status
-status 200, 210 bytes, text/plain; charset=utf-8
+status 200, 209 bytes, text/plain; charset=utf-8
 
 ### https://overpass.kumi.systems/api/status
 failed: HTTPSConnectionPool(host='overpass.kumi.systems', port=443): Read timed out. (read timeout=90)
 
 ### https://overpass.private.coffee/api/status
-failed: HTTPSConnectionPool(host='overpass.private.coffee', port=443): Read timed out. (read timeout=90)
+status 200, 800 bytes, text/plain; charset=utf-8
