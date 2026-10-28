@@ -10,6 +10,7 @@ churches, convents, schools and so on. Ownership needs the Land Registry.
 
 import json
 import re
+import time
 import warnings
 from io import BytesIO
 
@@ -140,11 +141,23 @@ def parse_overpass(payload):
     return pd.DataFrame(rows, columns=SITE_COLUMNS)
 
 
+def _overpass(query):
+    errors = []
+    for url in config.OVERPASS_MIRRORS:
+        for attempt in range(2):
+            try:
+                return _get(url, data={"data": query}).content
+            except Exception as e:
+                errors.append(f"{url}: {e}")
+                time.sleep(10 * (attempt + 1))
+    raise RuntimeError("; ".join(errors))
+
+
 def fetch_osm(refresh=False):
     try:
         raw = _cached(
             f"osm_{config.COUNTY.lower()}.json",
-            lambda: _get(config.OVERPASS_URL, data={"data": overpass_query(config.OSM_AREA_NAME)}).content,
+            lambda: _overpass(overpass_query(config.OSM_AREA_NAME)),
             refresh,
         )
         return parse_overpass(json.loads(raw))

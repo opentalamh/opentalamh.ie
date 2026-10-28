@@ -4,6 +4,7 @@ on:
     paths:
       - "_pipeline/first-map/wotl/**"
       - "_pipeline/first-map/run_pilot.py"
+      - "_pipeline/first-map/tools/**"
       - "_pipeline/first-map/data/seed/**"
       - ".github/workflows/build-map.yml"
   workflow_dispatch:
@@ -26,9 +27,14 @@ jobs:
           python-version: "3.12"
       - run: pip install pandas requests openpyxl pyproj folium pytest
       - run: python -m pytest -q tests
+      - name: Find current source links
+        continue-on-error: true
+        run: mkdir -p outputs && python tools/discover_sources.py | tee outputs/source_discovery.txt
       - name: Run the pipeline against the live sources
-        run: python run_pilot.py --refresh | tee outputs/run_log.txt
+        continue-on-error: true
+        run: python run_pilot.py --refresh 2>&1 | tee outputs/run_log.txt
       - name: Describe the raw downloads
+        continue-on-error: true
         run: |
           python - <<'EOF' | tee outputs/raw_inventory.txt
           import json, pathlib, pandas as pd
@@ -64,7 +70,7 @@ jobs:
         working-directory: .
         run: |
           mkdir -p maps
-          cp _pipeline/first-map/outputs/louth_first_map.html maps/
+          cp _pipeline/first-map/outputs/louth_first_map.html maps/ || true
           git config user.name "github-actions[bot]"
           git config user.email "41898213+github-actions[bot]@users.noreply.github.com"
           # Raw downloads are kept on working branches only, to debug parsing offline.

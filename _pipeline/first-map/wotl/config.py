@@ -12,6 +12,12 @@ COUNTY = "Louth"
 # OpenStreetMap: Irish counties are admin_level 6, named "County <Name>".
 OSM_AREA_NAME = f"County {COUNTY}"
 OVERPASS_URL = "https://overpass-api.de/api/interpreter"
+# Tried in order when the main server is busy (it often answers 502/504).
+OVERPASS_MIRRORS = [
+    OVERPASS_URL,
+    "https://overpass.kumi.systems/api/interpreter",
+    "https://overpass.private.coffee/api/interpreter",
+]
 
 # National Inventory of Architectural Heritage (ArcGIS feature service, layer 0).
 NIAH_QUERY_URL = (

@@ -2,7 +2,15 @@
 title: "Map"
 ---
 
-The first map covers County Louth. Every point is graded A to E by how well its ownership is evidenced; see [Method](method.qmd).
+The first map covers County Louth. It puts every likely Catholic Church site in the county on one map, from open data: OpenStreetMap, the National Inventory of Architectural Heritage, the Department of Education school lists, the Tailte Éireann valuation list, and institutions named in the official reports.
 
-<!-- Embed the Folium output from first-map, e.g. copy outputs/louth_map.html to maps/ and: -->
-<!-- <iframe src="maps/louth_map.html" width="100%" height="600" style="border:0"></iframe> -->
+::: {.callout-warning}
+## Every point is a grade D lead
+A point says *where* a church, convent or school is, not *who owns it*. No open dataset records ownership. Each site still has to be checked against its Land Registry folio before it moves up the evidence grades; see [Method](method.qmd).
+:::
+
+Toggle sources in the layer list. Click a point for its source record.
+
+<iframe src="maps/louth_first_map.html" width="100%" height="650" style="border:0" title="First-attempt map of candidate Church sites in County Louth"></iframe>
+
+[Open the map full screen](maps/louth_first_map.html). Spotted a mistake? [Send a correction](contribute.qmd#corrections).
