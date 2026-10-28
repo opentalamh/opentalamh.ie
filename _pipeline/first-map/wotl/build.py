@@ -53,12 +53,19 @@ def merge_sites(points, radius_m=config.MERGE_RADIUS_M):
     ids = {r: n + 1 for n, r in enumerate(dict.fromkeys(roots))}
     pts["site_id"] = [f"{config.COUNTY[:2].upper()}-{ids[r]:04d}" for r in roots]
 
+    # Name a site after its best-evidenced point: Catholic-marked first, then by source.
+    source_rank = {"History seed list": 0, "NIAH": 1, "OpenStreetMap": 3}
+
     def summarise(g):
-        named = g[g["name"].astype(str).str.strip() != ""]
+        named = g[g["name"].fillna("").astype(str).str.strip() != ""]
+        named = named.assign(
+            _cath=(named["denomination"] != "catholic").astype(int),
+            _src=named["source"].map(source_rank).fillna(2),
+        ).sort_values(["_cath", "_src"], kind="stable")
         return pd.Series({
             "name": named["name"].iloc[0] if len(named) else "",
             "all_names": " | ".join(dict.fromkeys(named["name"].astype(str))),
-            "categories": ", ".join(sorted(set(g["category"].dropna().astype(str)))),
+            "categories": ", ".join(sorted(set(g["category"].dropna().astype(str)) - {""})),
             "sources": ", ".join(sorted(set(g["source"]))),
             "n_sources": g["source"].nunique(),
             "denomination": "catholic" if (g["denomination"] == "catholic").any() else "unknown",

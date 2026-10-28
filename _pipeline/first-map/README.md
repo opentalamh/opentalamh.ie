@@ -39,8 +39,20 @@ To run another county, change `COUNTY` in `wotl/config.py`.
 
 ## Status
 
-The code was tested on made-up records only. It has not yet run against the
-live sources, because the environment it was written in couldn't reach them.
-Expect to adjust a column name or two on the first real run, especially for
-the school lists and the valuation API, whose formats change between years.
-If a source fails, the run carries on without it and prints a warning.
+First live run: 28 October 2026, on GitHub Actions (`.github/workflows/build-map.yml`
+in the website repo runs the pipeline and commits the outputs).
+
+| Source | Result for Louth |
+| --- | --- |
+| OpenStreetMap (Overpass) | 158 points. The main server often answers 502, so the fetcher retries and falls back to mirrors. |
+| NIAH | 107 of 1,347 Louth records kept (churches, convents, presbyteries, schools with a Catholic marker). |
+| Dept of Education school lists, 2025/26 | 71 Catholic-ethos schools (62 primary, 9 post-primary), all with coordinates. Patron shown: mostly the Archbishop of Armagh, some Bishop of Meath, CEIST, Edmund Rice, Le Chéile, Marist. |
+| Tailte Éireann valuation list | 4,477 Louth properties downloaded, none with a religious use. Most Church property is exempt from rates, so it is not on the list. |
+| Charities register | Not downloaded: charitiesregulator.ie refuses automated requests (403). Download it by hand and save it as `data/raw/public-register-of-charities.xlsx`. |
+| History seed list | 1 site (St Joseph's Industrial School, Dundalk), placed on the St Malachy's Convent complex. |
+
+Result: 157 candidate sites, 68 of them found by two or more sources.
+Every point is a grade D lead: location only, ownership not checked.
+
+If a fetcher fails because a link moved, `python tools/discover_sources.py`
+lists the current links on data.gov.ie and the publishers' pages.
