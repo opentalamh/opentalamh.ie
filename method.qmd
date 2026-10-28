@@ -8,18 +8,11 @@ Open Talamh is building the first open, parcel-level atlas of land held by Catho
 
 ## Principles
 
-- **Traceable.** Every claim links to a folio, deed, register entry or published document.
-- **Graded.** Every parcel carries a confidence grade, so uncertainty is visible rather than hidden.
-- **Reproducible.** The method, code and list of entities are published, so anyone can re-run or challenge the work.
-- **Neutral.** The map states facts and sources. Interpretation lives in separate, clearly labelled commentary.
-- **Living.** Releases are versioned with a changelog, and anyone can [submit a correction](contribute.qmd#corrections).
-
-## Research questions
-
-1. Which parcels of land and buildings are legally held by, or in trust for, Catholic Church entities?
-2. What share is that of the State's land area, its building stock and specific asset classes (schools, hospitals, urban zoned land)?
-3. What is the estimated market value of those holdings, and how has it changed since 2002?
-4. Which properties are tied to institutional abuse, redress agreements or State transfers, and what happened to them?
+- Every claim links to a folio, deed, register entry or published document.
+- Every parcel carries a confidence grade, so uncertainty is visible rather than hidden.
+- The method, code and list of entities are published, so anyone can re-run or challenge the work.
+- The map states facts and sources. Interpretation lives in separate, clearly labelled commentary.
+- Releases are versioned with a changelog, and anyone can [submit a correction](contribute.qmd#corrections).
 
 ## What counts as "the Church"
 
@@ -39,8 +32,6 @@ Each parcel is assigned one **ownership tier**:
 2. **Beneficial interest.** Title is held by individuals or a company in trust for a Catholic entity.
 3. **Control without title.** For example, patronage of a school on State-owned land, or a long lease.
 4. **Former holding.** Sold, transferred to the State, or handed over under redress agreements since 2002.
-
-The Republic of Ireland comes first, with Northern Ireland as a later phase. Percentages are reported against several denominators (land area, building count, asset class and value) rather than one headline figure.
 
 ## Confidence grades
 
@@ -70,24 +61,6 @@ The ground truth is the Land Registry folio: a mapped parcel with a named regist
 - Beneficial ownership registers for trusts and companies are not public, so trusts are only visible where a second source links trustee to beneficiary.
 - Folios show legal title, not leases, licences or covenants.
 - Trustee names change over time, so each folio is recorded with the date it was retrieved.
-
-## Pilot: County Louth
-
-Louth is the smallest county, with two large towns (Dundalk and Drogheda) and farmland. It sits mainly in the Archdiocese of Armagh, which straddles the border, so it tests the cross-border trust question early.
-
-1. Build the Louth name list (parishes, congregations with houses in Dundalk and Drogheda, school patrons and trustees).
-2. Map every known church, convent, school and institution, and find each site's folio number on the free Land Registry map. *([First map](map.qmd), in progress.)*
-3. Run Names Index searches for each name in County Louth.
-4. Pull every folio returned, check the owner and burdens, and grade each parcel.
-5. Compare the two lists: any known site the name searches missed points to a missing name.
-6. Search the Registry of Deeds for sites with no folio.
-7. Add valuation and history layers, then validate.
-
-## Further layers
-
-**Valuation.** Each parcel is valued as a range with a stated method, never a single figure. In order of preference: an actual sale price; a value disclosed by the owner or the State; the official rates valuation; or a modelled estimate from area, zoning and comparable prices. Existing-use and development value are reported separately, and the model will be reviewed by a chartered valuer before publication.
-
-**History.** Parcels are linked to what happened there, using only findings from official inquiries or peer-reviewed work, cited to the paragraph. Findings about an institution are kept separate from claims about the current owner, and survivor groups are consulted on how sites and burial grounds are presented.
 
 ## Data sources
 
