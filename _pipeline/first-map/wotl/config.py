@@ -27,14 +27,27 @@ NIAH_QUERY_URL = (
 
 # data.gov.ie CKAN API, used to find the current download link for a dataset.
 CKAN_API = "https://data.gov.ie/api/3/action"
-SCHOOL_DATASETS = ["primary-schools", "post-primary-schools"]
 
-# Charities Regulator public register (XLSX). The link has moved before;
-# if it fails, download the register by hand from charitiesregulator.ie
-# and save it as data/raw/public-register-of-charities.xlsx.
-CHARITIES_XLSX_URL = (
-    "https://www.charitiesregulator.ie/media/5rrnldzg/public-register-of-charities.xlsx"
-)
+# Department of Education "Data on individual schools" (gov.ie), the current
+# lists with ethos. New links appear each school year on the collection pages.
+SCHOOL_LISTS = {
+    "primary-schools": (
+        "https://assets.gov.ie/static/documents/8e1b86ab/Data_on_Individual_Schools_Mainstream..xlsx",
+        "https://www.gov.ie/en/department-of-education/collections/primary-schools-enrolment-figures/",
+    ),
+    "post-primary-schools": (
+        "https://assets.gov.ie/static/documents/d5fbb204/Data_on_Individual_Schools_post_primary..xlsx",
+        "https://www.gov.ie/en/department-of-education/collections/post-primary-schools-enrolment-figures/",
+    ),
+}
+# Older lists (2016/17) on data.gov.ie that carry coordinates, joined on roll
+# number when the current list has none.
+SCHOOL_LOCATION_DATASETS = ["list-of-primary-schools", "post-primary-schools-list-2017"]
+
+# Charities Regulator public register. The file name changes with each
+# release, so the current link is looked up on data.gov.ie. If the download is
+# refused, save the register by hand as data/raw/public-register-of-charities.xlsx.
+CHARITIES_DATASET = "register-of-charities-in-ireland"
 
 # Tailte Éireann valuation API. Experimental: the filter parameter names are
 # not documented publicly, so results are filtered again on our side.
@@ -42,6 +55,12 @@ VALUATION_API = "https://opendata.tailte.ie/api/Property/GetProperties"
 VALUATION_LOCAL_AUTHORITY = f"{COUNTY.upper()} COUNTY COUNCIL"
 
 USER_AGENT = "who-owns-the-land-research/0.1 (first-attempt map)"
+# Some publishers refuse requests that do not look like a browser.
+BROWSER_HEADERS = {
+    "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:128.0) Gecko/20100101 Firefox/128.0",
+    "Accept": "text/html,application/xhtml+xml,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,*/*;q=0.8",
+    "Accept-Language": "en-IE,en;q=0.8",
+}
 
 # Points from different sources closer than this are treated as one site.
 MERGE_RADIUS_M = 100

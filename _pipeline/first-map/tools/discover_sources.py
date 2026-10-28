@@ -52,6 +52,10 @@ links("https://www.gov.ie/en/service/search-or-download-the-public-register-of-c
 links("https://www.charitiesregulator.ie/en/information-for-the-public/search-the-register-of-charities")
 links("https://www.gov.ie/en/department-of-education/collections/data-on-individual-schools/")
 links("https://www.gov.ie/en/department-of-education/publications/data-on-individual-schools/")
-for u in ("https://overpass-api.de/api/status", "https://overpass.kumi.systems/api/status",
+for u in ("https://assets.gov.ie/static/documents/8e1b86ab/Data_on_Individual_Schools_Mainstream..xlsx",
+          "https://assets.gov.ie/static/documents/d5fbb204/Data_on_Individual_Schools_post_primary..xlsx",
+          "https://www.charitiesregulator.ie/media/d52jwriz/register-of-charities.csv",
+          "https://overpass-api.de/api/interpreter?data=[out:json];node(53.70,-6.40,53.72,-6.34)[amenity=place_of_worship];out;",
+          "https://overpass-api.de/api/status", "https://overpass.kumi.systems/api/status",
           "https://overpass.private.coffee/api/status"):
     head(u)

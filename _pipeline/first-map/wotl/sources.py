@@ -29,8 +29,8 @@ def _empty():
     return pd.DataFrame(columns=SITE_COLUMNS)
 
 
-def _get(url, *, params=None, data=None, timeout=180):
-    headers = {"User-Agent": config.USER_AGENT}
+def _get(url, *, params=None, data=None, timeout=180, browser=False):
+    headers = config.BROWSER_HEADERS if browser else {"User-Agent": config.USER_AGENT}
     if data is not None:
         r = requests.post(url, data=data, headers=headers, timeout=timeout)
     else:
@@ -149,7 +149,7 @@ def _overpass(query):
                 return _get(url, data={"data": query}).content
             except Exception as e:
                 errors.append(f"{url}: {e}")
-                time.sleep(10 * (attempt + 1))
+                time.sleep(30 * (attempt + 1))
     raise RuntimeError("; ".join(errors))
 
 
@@ -230,15 +230,26 @@ def fetch_niah(refresh=False):
         return _empty()
 
 
-# --- Department of Education school lists (via data.gov.ie) ------------------
+# --- Department of Education school lists ------------------------------------
 
-def _ckan_resource_url(dataset_id, formats=("CSV", "XLSX", "XLS")):
+def _ckan_resource_url(dataset_id, formats=("CSV", "XLSX", "XLS"), name_pattern=None):
     meta = _get(f"{config.CKAN_API}/package_show", params={"id": dataset_id}).json()["result"]
     for fmt in formats:
         for res in meta.get("resources", []):
-            if (res.get("format") or "").upper() == fmt:
-                return res["url"], fmt
-    raise ValueError(f"no CSV/XLSX resource in {dataset_id}")
+            if (res.get("format") or "").upper() != fmt:
+                continue
+            if name_pattern and not re.search(name_pattern, res.get("url", ""), re.I):
+                continue
+            return res["url"], fmt
+    raise ValueError(f"no {'/'.join(formats)} resource in {dataset_id}")
+
+
+def _join_cols(d, cols):
+    """Join text columns per row, skipping blanks (pandas 3 keeps NaN in astype(str))."""
+    return d[cols].apply(
+        lambda r: ", ".join(str(v).strip() for v in r if pd.notna(v) and str(v).strip() not in ("", "nan", "None")),
+        axis=1,
+    )
 
 
 def _find_col(df, *patterns):
@@ -249,7 +260,7 @@ def _find_col(df, *patterns):
     return None
 
 
-def parse_schools(df, label):
+def parse_schools(df, label, source_url=None, catholic_only=True):
     ethos = _find_col(df, r"ethos", r"relig", r"patron")
     lat = _find_col(df, r"^lat", r"latitude")
     lon = _find_col(df, r"^lon", r"^long", r"longitude")
@@ -259,13 +270,14 @@ def parse_schools(df, label):
     county = _find_col(df, r"county")
     roll = _find_col(df, r"roll")
     addr = [c for c in df.columns if re.search(r"address", str(c), re.I)]
-    if ethos is None:
+    if ethos is None and catholic_only:
         warnings.warn(f"{label}: no ethos column found; columns are {list(df.columns)}")
         return _empty()
     d = df.copy()
-    if county:
+    if county and catholic_only:
         d = d[d[county].astype(str).str.contains(config.COUNTY, case=False, na=False)]
-    d = d[d[ethos].astype(str).str.contains("catholic", case=False, na=False)]
+    if catholic_only:
+        d = d[d[ethos].astype(str).str.contains("catholic", case=False, na=False)]
     if lat and lon:
         d["_lat"], d["_lon"] = pd.to_numeric(d[lat], errors="coerce"), pd.to_numeric(d[lon], errors="coerce")
     elif east and north:
@@ -280,41 +292,77 @@ def parse_schools(df, label):
         d["_lat"], d["_lon"] = None, None
     return pd.DataFrame({
         "source": label,
-        "source_id": d[roll].astype(str) if roll else "",
+        "source_id": d[roll].astype(str).str.strip().str.upper() if roll else "",
         "name": d[name].astype(str) if name else "",
         "category": "school",
         "denomination": "catholic",
         "lat": d["_lat"],
         "lon": d["_lon"],
-        "address": d[addr].astype(str).agg(", ".join, axis=1) if addr else "",
-        "source_url": "https://data.gov.ie/dataset/" + label.split(": ")[-1],
-        "raw_use": d[ethos].astype(str),
+        "address": _join_cols(d, addr) if addr else "",
+        "source_url": source_url or "https://data.gov.ie/dataset/" + label.split(": ")[-1],
+        "raw_use": d[ethos].astype(str) if ethos else "",
     }, columns=SITE_COLUMNS)
+
+
+def _promote_header(df, pattern=r"roll|charity.?name"):
+    """Spreadsheets often open with a title block; use the first row that looks like a header."""
+    if any(re.search(pattern, str(c), re.I) for c in df.columns):
+        return df
+    for i in range(min(len(df), 20)):
+        row = df.iloc[i].astype(str)
+        if row.str.contains(pattern, case=False, regex=True).any():
+            out = df.iloc[i + 1:].copy()
+            out.columns = [str(c).strip() for c in df.iloc[i]]
+            return out.reset_index(drop=True)
+    return df
 
 
 def _read_table(content, fmt):
     if fmt == "CSV":
         for enc in ("utf-8", "cp1252", "latin-1"):
             try:
-                return pd.read_csv(BytesIO(content), encoding=enc)
+                return _promote_header(pd.read_csv(BytesIO(content), encoding=enc))
             except UnicodeDecodeError:
                 continue
-    return pd.read_excel(BytesIO(content))
+    sheets = pd.read_excel(BytesIO(content), sheet_name=None)
+    return _promote_header(max(sheets.values(), key=len))
+
+
+def _school_locations(refresh):
+    """Roll number -> (lat, lon) from the older lists that carry coordinates."""
+    frames = []
+    for ds in config.SCHOOL_LOCATION_DATASETS:
+        try:
+            url, fmt = _ckan_resource_url(ds)
+            raw = _cached(f"{ds}.{fmt.lower()}", lambda: _get(url, browser=True).content, refresh)
+            df = _read_table(raw, fmt)
+            parsed = parse_schools(df, "locations", catholic_only=False)
+            frames.append(parsed[["source_id", "lat", "lon"]].dropna())
+        except Exception as e:
+            warnings.warn(f"School locations {ds} skipped: {e}")
+    if not frames:
+        return pd.DataFrame(columns=["source_id", "lat", "lon"])
+    return pd.concat(frames).drop_duplicates("source_id").set_index("source_id")
 
 
 def fetch_schools(refresh=False):
-    frames = []
-    for ds in config.SCHOOL_DATASETS:
+    frames, locations = [], None
+    for ds, (url, page) in config.SCHOOL_LISTS.items():
         try:
-            meta_path = config.RAW_DIR / f"{ds}.url"
-            if meta_path.exists() and not refresh:
-                url, fmt = meta_path.read_text().split("\n")[:2]
-            else:
-                url, fmt = _ckan_resource_url(ds)
-                meta_path.parent.mkdir(parents=True, exist_ok=True)
-                meta_path.write_text(f"{url}\n{fmt}")
-            raw = _cached(f"{ds}.{fmt.lower()}", lambda: _get(url).content, refresh)
-            frames.append(parse_schools(_read_table(raw, fmt), f"Dept of Education: {ds}"))
+            fmt = "CSV" if url.lower().endswith(".csv") else "XLSX"
+            raw = _cached(f"{ds}.{fmt.lower()}", lambda: _get(url, browser=True).content, refresh)
+            d = parse_schools(_read_table(raw, fmt), f"Dept of Education: {ds}", source_url=page)
+            missing = d["lat"].isna()
+            if missing.any():
+                if locations is None:
+                    locations = _school_locations(refresh)
+                key = d.loc[missing, "source_id"].str.strip().str.upper()
+                d.loc[missing, "lat"] = key.map(locations["lat"]).values
+                d.loc[missing, "lon"] = key.map(locations["lon"]).values
+                still = int(d["lat"].isna().sum())
+                if still:
+                    warnings.warn(f"School list {ds}: {still} of {len(d)} Catholic schools have no coordinates (not mapped)")
+            frames.append(d)
         except Exception as e:
             warnings.warn(f"School list {ds} skipped: {e}")
     return pd.concat(frames, ignore_index=True) if frames else _empty()
@@ -322,7 +370,9 @@ def fetch_schools(refresh=False):
 
 # --- Tailte Éireann valuation list (experimental) ----------------------------
 
-VALUATION_USE_PATTERN = r"church|chapel|convent|presbytery|parochial|monastery|friary|religious|seminary|school|hall"
+# Schools and halls are left out: the list has no names to tell a parish hall
+# from a dance hall. Most Church property is exempt from rates and so is absent.
+VALUATION_USE_PATTERN = r"church|chapel|convent|presbytery|parochial|monastery|friary|religious|seminary"
 
 
 def parse_valuation(records):
@@ -330,7 +380,7 @@ def parse_valuation(records):
     if df.empty:
         return _empty()
     use_cols = [c for c in df.columns if re.search(r"use|category", c, re.I)]
-    text = df[use_cols].astype(str).agg(" ".join, axis=1) if use_cols else pd.Series("", index=df.index)
+    text = _join_cols(df, use_cols).str.replace(",", "") if use_cols else pd.Series("", index=df.index)
     d = df[text.str.contains(VALUATION_USE_PATTERN, case=False, na=False)].copy()
     if d.empty:
         return _empty()
@@ -339,7 +389,7 @@ def parse_valuation(records):
     t = Transformer.from_crs("EPSG:2157", "EPSG:4326", always_xy=True)
     lon, lat = t.transform(pd.to_numeric(d[x], errors="coerce").values, pd.to_numeric(d[y], errors="coerce").values)
     pn = _find_col(d, r"property.?number")
-    addr = [c for c in d.columns if re.search(r"address", c, re.I)]
+    addr = sorted(c for c in d.columns if re.search(r"address", c, re.I))
     return pd.DataFrame({
         "source": "Tailte Éireann valuation list",
         "source_id": d[pn].astype(str) if pn else "",
@@ -348,7 +398,7 @@ def parse_valuation(records):
         "denomination": "unknown",
         "lat": lat,
         "lon": lon,
-        "address": d[addr].astype(str).agg(", ".join, axis=1) if addr else "",
+        "address": _join_cols(d, addr) if addr else "",
         "source_url": "https://tailte.ie/en/valuation/open-data/open-data-information",
         "raw_use": text.loc[d.index],
     }, columns=SITE_COLUMNS)
@@ -421,7 +471,11 @@ def parse_charities(df):
 
 def fetch_charity_names(refresh=False):
     try:
-        raw = _cached("public-register-of-charities.xlsx", lambda: _get(config.CHARITIES_XLSX_URL).content, refresh)
+        def download():
+            url, _ = _ckan_resource_url(config.CHARITIES_DATASET, formats=("XLSX",), name_pattern=r"public-register")
+            return _get(url, browser=True).content
+
+        raw = _cached("public-register-of-charities.xlsx", download, refresh)
         xl = pd.read_excel(BytesIO(raw), sheet_name=None)
         # The register has a header block on some sheets; pick the sheet with most rows.
         df = max(xl.values(), key=len)
