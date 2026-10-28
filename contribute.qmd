@@ -14,7 +14,20 @@ Anything that helps show who owns or controls land, for example:
 - a place on the map you think we've missed, or got wrong
 - a tip about a parish, order, trust or State body
 
+## Privacy and personal data {#privacy}
+
+::: {.callout-important}
+**Please do not send personal data about private individuals.** That means no names, addresses, phone numbers, photos of people, or details of anyone's health, family or finances. If a document names a private person, cover or blank out their details before you send it. Open Talamh maps organisations, not people.
+:::
+
+- **What we keep.** We keep what you send (text, files and locations) so we can check it against public records. Your name and email are optional. We only use them to contact you about your submission and, if you ask, to credit you.
+- **Where it's stored.** Submissions go to our form provider ([Tally](https://tally.so)) and the project inbox ([Proton Mail](https://proton.me)). They are not published as they are. Only checked facts about organisations go on the map.
+- **How long.** We keep submissions for as long as they are needed to check and source the map, and delete personal details we don't need.
+- **Your rights.** You can ask to see, correct or delete anything you've sent, or have something removed from the site, by emailing [opentalamh@proton.me](mailto:opentalamh@proton.me).
+
 ## Send it to us
+
+Please read the [privacy note](#privacy) above first.
 
 <!-- Paste the Tally embed code here once the form exists, e.g.:
 <iframe data-tally-src="https://tally.so/embed/XXXXXX?hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="600" frameborder="0" title="Contribute to Open Talamh"></iframe>

@@ -3,6 +3,12 @@
 Create at tally.so (free plan: unlimited submissions, file uploads up to 10 MB each, email notifications).
 Set notifications to opentalamh@proton.me. Keep every field optional except the main description so it stays flexible.
 
+Top of form (text block):
+"Please don't send personal data about private individuals (names, addresses, photos of people, health or family details). Blank out private people's details on any document. Open Talamh maps organisations, not people. Your name and email below are optional and are only used to contact or credit you. To have anything you sent deleted, email opentalamh@proton.me. Full privacy note: https://opentalamh.ie/contribute.html#privacy"
+
+Before submit (required checkbox, GDPR):
+"I have not included personal data about private individuals, or I have blanked it out."
+
 Fields:
 1. What are you sending? (multiple choice, "Other" allowed): Folio or deed / Photo / Planning or other document / Missing or wrong place on the map / Tip / Other
 2. Tell us about it (long text, required)
