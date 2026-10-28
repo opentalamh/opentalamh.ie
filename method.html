@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="How Open Talamh finds, checks and grades land held by Catholic Church entities in Ireland, and the data sources it uses.">
 
 <title>Method – Open Talamh</title>
 <style>
@@ -77,7 +78,7 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -129,7 +130,26 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#principles" id="toc-principles" class="nav-link active" data-scroll-target="#principles">Principles</a></li>
+  <li><a href="#research-questions" id="toc-research-questions" class="nav-link" data-scroll-target="#research-questions">Research questions</a></li>
+  <li><a href="#what-counts-as-the-church" id="toc-what-counts-as-the-church" class="nav-link" data-scroll-target="#what-counts-as-the-church">What counts as “the Church”</a></li>
+  <li><a href="#confidence-grades" id="toc-confidence-grades" class="nav-link" data-scroll-target="#confidence-grades">Confidence grades</a></li>
+  <li><a href="#how-ownership-is-established" id="toc-how-ownership-is-established" class="nav-link" data-scroll-target="#how-ownership-is-established">How ownership is established</a>
+  <ul class="collapse">
+  <li><a href="#known-blind-spots" id="toc-known-blind-spots" class="nav-link" data-scroll-target="#known-blind-spots">Known blind spots</a></li>
+  </ul></li>
+  <li><a href="#pilot-county-louth" id="toc-pilot-county-louth" class="nav-link" data-scroll-target="#pilot-county-louth">Pilot: County Louth</a></li>
+  <li><a href="#further-layers" id="toc-further-layers" class="nav-link" data-scroll-target="#further-layers">Further layers</a></li>
+  <li><a href="#data-sources" id="toc-data-sources" class="nav-link" data-scroll-target="#data-sources">Data sources</a></li>
+  <li><a href="#publishing-and-licensing" id="toc-publishing-and-licensing" class="nav-link" data-scroll-target="#publishing-and-licensing">Publishing and licensing</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -138,6 +158,11 @@ ul.task-list li input[type="checkbox"] {
 <h1 class="title">Method</h1>
 </div>
 
+<div>
+  <div class="description">
+    How Open Talamh finds, checks and grades land held by Catholic Church entities in Ireland, and the data sources it uses.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
@@ -152,42 +177,254 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="confidence-grades" class="level2">
-<h2 class="anchored" data-anchor-id="confidence-grades">Confidence grades</h2>
+<p>Open Talamh is building the first open, parcel-level atlas of land held by Catholic Church entities in Ireland. Every parcel traces back to a primary record, and every parcel carries a confidence grade. The method is being piloted in County Louth before it is extended to other counties and, later, to State bodies.</p>
+<section id="principles" class="level2">
+<h2 class="anchored" data-anchor-id="principles">Principles</h2>
+<ul>
+<li><strong>Traceable.</strong> Every claim links to a folio, deed, register entry or published document.</li>
+<li><strong>Graded.</strong> Every parcel carries a confidence grade, so uncertainty is visible rather than hidden.</li>
+<li><strong>Reproducible.</strong> The method, code and list of entities are published, so anyone can re-run or challenge the work.</li>
+<li><strong>Neutral.</strong> The map states facts and sources. Interpretation lives in separate, clearly labelled commentary.</li>
+<li><strong>Living.</strong> Releases are versioned with a changelog, and anyone can <a href="./contribute.html#corrections">submit a correction</a>.</li>
+</ul>
+</section>
+<section id="research-questions" class="level2">
+<h2 class="anchored" data-anchor-id="research-questions">Research questions</h2>
+<ol type="1">
+<li>Which parcels of land and buildings are legally held by, or in trust for, Catholic Church entities?</li>
+<li>What share is that of the State’s land area, its building stock and specific asset classes (schools, hospitals, urban zoned land)?</li>
+<li>What is the estimated market value of those holdings, and how has it changed since 2002?</li>
+<li>Which properties are tied to institutional abuse, redress agreements or State transfers, and what happened to them?</li>
+</ol>
+</section>
+<section id="what-counts-as-the-church" class="level2">
+<h2 class="anchored" data-anchor-id="what-counts-as-the-church">What counts as “the Church”</h2>
+<p>The Catholic Church is not one legal owner. Open Talamh defines the entities it tracks and publishes those definitions.</p>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
 <thead>
 <tr class="header">
-<th>Grade</th>
-<th>Meaning</th>
+<th>Class</th>
+<th>Typical legal holder</th>
+<th>Where names come from</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>A</td>
-<td>Ownership confirmed by a Land Registry folio or deed</td>
+<td>Dioceses (26) and parishes</td>
+<td>Diocesan trusts, named clerical trustees</td>
+<td>Charities Regulator, diocesan directories</td>
 </tr>
 <tr class="even">
-<td>B</td>
-<td>Strong documentary evidence</td>
+<td>Religious congregations and orders</td>
+<td>Trustee bodies, companies limited by guarantee, named trustees</td>
+<td>Charities Regulator, CRO, AMRI membership</td>
 </tr>
 <tr class="odd">
-<td>C</td>
-<td>Reasonable inference from public records</td>
+<td>Schools</td>
+<td>Patron trustees, boards of management, congregational trusts (e.g.&nbsp;Edmund Rice Schools Trust)</td>
+<td>Department of Education school lists, patron bodies</td>
 </tr>
 <tr class="even">
-<td>D</td>
-<td>Location of a likely site; ownership not yet checked</td>
+<td>Health and care</td>
+<td>Voluntary hospital companies, congregational holding companies</td>
+<td>HSE Section 38 list, CRO</td>
 </tr>
 <tr class="odd">
-<td>E</td>
-<td>Unverified tip</td>
+<td>Lay Catholic bodies</td>
+<td>Companies, trusts</td>
+<td>CRO, Charities Regulator</td>
 </tr>
 </tbody>
 </table>
+<p>Each parcel is assigned one <strong>ownership tier</strong>:</p>
+<ol type="1">
+<li><strong>Legal title.</strong> A Catholic entity or trustee is the registered owner on a folio.</li>
+<li><strong>Beneficial interest.</strong> Title is held by individuals or a company in trust for a Catholic entity.</li>
+<li><strong>Control without title.</strong> For example, patronage of a school on State-owned land, or a long lease.</li>
+<li><strong>Former holding.</strong> Sold, transferred to the State, or handed over under redress agreements since 2002.</li>
+</ol>
+<p>The Republic of Ireland comes first, with Northern Ireland as a later phase. Percentages are reported against several denominators (land area, building count, asset class and value) rather than one headline figure.</p>
 </section>
-<section id="sources" class="level2">
-<h2 class="anchored" data-anchor-id="sources">Sources</h2>
-<p>OpenStreetMap, NIAH, school lists, the valuation list, the Charities Register and published inquiry reports.</p>
+<section id="confidence-grades" class="level2">
+<h2 class="anchored" data-anchor-id="confidence-grades">Confidence grades</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Grade</th>
+<th>Evidence</th>
+<th>Shown on the map as</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>A</strong></td>
+<td>A Land Registry folio names a Catholic entity as registered owner</td>
+<td>Confirmed</td>
+</tr>
+<tr class="even">
+<td><strong>B</strong></td>
+<td>A folio names individuals or a company, and a second source confirms they hold in trust for a Catholic entity</td>
+<td>Confirmed via trustee</td>
+</tr>
+<tr class="odd">
+<td><strong>C</strong></td>
+<td>Registry of Deeds evidence only</td>
+<td>Probable</td>
+</tr>
+<tr class="even">
+<td><strong>D</strong></td>
+<td>Use, signage or a heritage record suggests Church ownership; title not yet checked</td>
+<td>Unverified lead (not counted in totals)</td>
+</tr>
+<tr class="odd">
+<td><strong>E</strong></td>
+<td>Held since 2002 but since sold or transferred</td>
+<td>Former holding</td>
+</tr>
+</tbody>
+</table>
+<p>The first Louth map is built entirely from open data, so every point on it is currently a <strong>grade D lead</strong>.</p>
+</section>
+<section id="how-ownership-is-established" class="level2">
+<h2 class="anchored" data-anchor-id="how-ownership-is-established">How ownership is established</h2>
+<p>The ground truth is the Land Registry folio: a mapped parcel with a named registered owner. About 93% of the State’s land area is registered. A Names Index search returns every folio registered to one exact name in one county, so the unit of work is <em>name × county</em>, not parcel.</p>
+<ol type="1">
+<li><strong>Build the name list.</strong> Collect the legal name of every diocese, parish, congregation, trust and school body, with every variant (prefixes such as “Trustees of”, Irish-language forms, abbreviations, former names). Keep extending it until a full round of checking new folios produces no new names. The list is published with a version number.</li>
+<li><strong>Search the Names Index (name × county).</strong> Every search is logged, including those that return nothing. Each folio returned is pulled for its owner, burdens and location.</li>
+<li><strong>Work back from known sites.</strong> Every church, convent, school and institution is looked up on the free Land Registry map to find its folio. Any site whose owner isn’t on the name list reveals a missing name. The share of known sites already found in step 2 measures how complete the search is.</li>
+<li><strong>Check unregistered land.</strong> For land with no folio, the Registry of Deeds is searched by townland and by grantor and grantee name. These results get a lower grade.</li>
+<li><strong>Grade every parcel</strong> using the A to E scale above.</li>
+<li><strong>Validate.</strong> A random sample is double-checked by a second researcher, totals are benchmarked against published figures (such as the 2009 panel valuations and RTÉ’s 800-property Christian Brothers portfolio), and each major entity is sent its list of parcels for a right of reply before publication.</li>
+</ol>
+<section id="known-blind-spots" class="level3">
+<h3 class="anchored" data-anchor-id="known-blind-spots">Known blind spots</h3>
+<ul>
+<li>Beneficial ownership registers for trusts and companies are not public, so trusts are only visible where a second source links trustee to beneficiary.</li>
+<li>Folios show legal title, not leases, licences or covenants.</li>
+<li>Trustee names change over time, so each folio is recorded with the date it was retrieved.</li>
+</ul>
+</section>
+</section>
+<section id="pilot-county-louth" class="level2">
+<h2 class="anchored" data-anchor-id="pilot-county-louth">Pilot: County Louth</h2>
+<p>Louth is the smallest county, with two large towns (Dundalk and Drogheda) and farmland. It sits mainly in the Archdiocese of Armagh, which straddles the border, so it tests the cross-border trust question early.</p>
+<ol type="1">
+<li>Build the Louth name list (parishes, congregations with houses in Dundalk and Drogheda, school patrons and trustees).</li>
+<li>Map every known church, convent, school and institution, and find each site’s folio number on the free Land Registry map. <em>(<a href="./map.html">First map</a>, in progress.)</em></li>
+<li>Run Names Index searches for each name in County Louth.</li>
+<li>Pull every folio returned, check the owner and burdens, and grade each parcel.</li>
+<li>Compare the two lists: any known site the name searches missed points to a missing name.</li>
+<li>Search the Registry of Deeds for sites with no folio.</li>
+<li>Add valuation and history layers, then validate.</li>
+</ol>
+</section>
+<section id="further-layers" class="level2">
+<h2 class="anchored" data-anchor-id="further-layers">Further layers</h2>
+<p><strong>Valuation.</strong> Each parcel is valued as a range with a stated method, never a single figure. In order of preference: an actual sale price; a value disclosed by the owner or the State; the official rates valuation; or a modelled estimate from area, zoning and comparable prices. Existing-use and development value are reported separately, and the model will be reviewed by a chartered valuer before publication.</p>
+<p><strong>History.</strong> Parcels are linked to what happened there, using only findings from official inquiries or peer-reviewed work, cited to the paragraph. Findings about an institution are kept separate from claims about the current owner, and survivor groups are consulted on how sites and burial grounds are presented.</p>
+</section>
+<section id="data-sources" class="level2">
+<h2 class="anchored" data-anchor-id="data-sources">Data sources</h2>
+<p>Location data is plentiful and open. Ownership data is closed and paid. The project’s work is the bridge between them.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Source</th>
+<th>What it gives</th>
+<th>Shows ownership?</th>
+<th>Access</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://www.landdirect.ie/">Land Registry folios</a> (Tailte Éireann)</td>
+<td>Registered owner, burdens, parcel map</td>
+<td><strong>Yes, the ground truth</strong></td>
+<td>Paid per search and per folio; free map search for folio numbers</td>
+</tr>
+<tr class="even">
+<td>Registry of Deeds, Henrietta Street</td>
+<td>Deeds since 1708, by grantor and townland</td>
+<td>Clues</td>
+<td>In person, by appointment</td>
+</tr>
+<tr class="odd">
+<td><a href="https://www.openstreetmap.org/">OpenStreetMap</a></td>
+<td>Churches, convents, religious land, schools, graveyards</td>
+<td>No</td>
+<td>Free (ODbL)</td>
+</tr>
+<tr class="even">
+<td><a href="https://data.gov.ie/dataset/national-inventory-of-architectural-heritage-niah-national-dataset">National Inventory of Architectural Heritage</a></td>
+<td>Historic churches, convents, presbyteries and schools, with original and current use</td>
+<td>No</td>
+<td>Free</td>
+</tr>
+<tr class="odd">
+<td>Department of Education school lists (<a href="https://data.gov.ie/dataset/primary-schools">primary</a>, <a href="https://data.gov.ie/dataset/post-primary-schools">post-primary</a>)</td>
+<td>Every school with its ethos and location</td>
+<td>No (the patron is not always the landowner)</td>
+<td>Free</td>
+</tr>
+<tr class="even">
+<td><a href="https://tailte.ie/en/valuation/open-data/open-data-information">Valuation list</a> (Tailte Éireann)</td>
+<td>Rateable properties with use, area and location</td>
+<td>No; places of worship are often exempt</td>
+<td>Free</td>
+</tr>
+<tr class="odd">
+<td><a href="https://data.gov.ie/dataset/register-of-charities-in-ireland">Charities Regulator register</a></td>
+<td>Legal names of dioceses, parishes, congregations and trusts</td>
+<td>Names only</td>
+<td>Free</td>
+</tr>
+<tr class="even">
+<td><a href="https://core.cro.ie/">Companies Registration Office</a></td>
+<td>Companies, directors, former names</td>
+<td>Names only</td>
+<td>Search free; documents paid</td>
+</tr>
+<tr class="odd">
+<td>Ryan, McAleese and Mother and Baby Homes reports; <a href="https://industrialmemories.ucd.ie/">Industrial Memories</a></td>
+<td>Institutions, operators, dates</td>
+<td>No</td>
+<td>Free</td>
+</tr>
+<tr class="even">
+<td><a href="https://data.gov.ie/en_GB/dataset/townlands-national-statutory-boundaries-ungeneralised-20241">Townland and county boundaries</a></td>
+<td>Statutory boundaries</td>
+<td>No</td>
+<td>Free (CC BY)</td>
+</tr>
+<tr class="odd">
+<td><a href="https://www.propertypriceregister.ie/">Residential Property Price Register</a></td>
+<td>Sale prices since 2010</td>
+<td>No</td>
+<td>Free</td>
+</tr>
+<tr class="even">
+<td>INSPIRE cadastral parcels (Tailte Éireann)</td>
+<td>Parcel shapes without owners</td>
+<td>No</td>
+<td>Licence to be confirmed</td>
+</tr>
+</tbody>
+</table>
+<p>See the <a href="./reading.html">reading list</a> for the reports, journalism and research behind this method.</p>
+</section>
+<section id="publishing-and-licensing" class="level2">
+<h2 class="anchored" data-anchor-id="publishing-and-licensing">Publishing and licensing</h2>
+<p>Data is published under an open licence (CC BY 4.0, with layers derived from OpenStreetMap under ODbL), alongside the code, the entity list and a changelog. Folio boundary maps are subject to Tailte Éireann copyright, so until republication is agreed, parcels are published as points with folio numbers, which anyone can look up. Open Talamh maps organisations, not private individuals, and gives every major entity a right of reply before publication.</p>
 
 
 </section>
