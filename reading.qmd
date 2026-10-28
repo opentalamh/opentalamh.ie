@@ -1,0 +1,58 @@
+---
+title: "Reading list"
+description: "Official reports, journalism, scholarship and datasets on Church and State land in Ireland, plus research on similar projects abroad."
+---
+
+The background reading behind Open Talamh. If you know of something that belongs here, [tell us](contribute.qmd).
+
+## Research notes
+
+- [Similar projects around the world](research/international-precedents.qmd): fifteen investigations into Church and land ownership abroad (Who Owns England, Spain's *inmatriculaciones*, the Australian and Canadian church-wealth investigations and more), with the lessons for Ireland.
+
+## Official reports and State records
+
+| Source | Year | Why it matters |
+|---|---|---|
+| [C&AG Special Report 96: Cost of Child Abuse Inquiry and Redress](https://www.audit.gov.ie/en/publications/special%20reports/special-report-96-cost-of-child-abuse-inquiry-and-redress.html) | 2017 | Redress cost about €1.5bn to end-2015. Congregations offered further cash and property worth €353m after 2009. Lists property transfers. |
+| [Report of the Commission to Inquire into Child Abuse (Ryan Report)](https://www.gov.ie/en/publication/3c76d0-the-report-of-the-commission-to-inquire-into-child-abuse-the-ryan-re/) | 2009 | Names every institution, its congregation and its location. |
+| [Report of the Panel to Assess the Statements of Resources submitted by Religious Congregations](https://assets.gov.ie/42460/3a600cd4840b4764afa17c694b73e70d.pdf) (PDF) | 2009 | Asset values for the 18 redress congregations. The best published valuation benchmark. |
+| [McAleese Report on State involvement with the Magdalen Laundries](https://www.gov.ie/en/collection/a69a14-report-of-the-inter-departmental-committee-to-establish-the-facts-of) | 2013 | Lists Magdalene institutions and State involvement. |
+| [Final Report of the Commission of Investigation into Mother and Baby Homes](https://www.gov.ie/en/publication/d4b3d-final-report-of-the-commission-of-investigation-into-mother-and-baby-homes/) | 2021 | Institutions, operators and sites. |
+| [Forum on Patronage and Pluralism in the Primary Sector: Advisory Group report](https://www.gov.ie/en/publication/99634e-the-forum-on-patronage-and-pluralism-in-the-primary-sector-report-of) | 2012 | School patronage figures and the divestment debate. |
+| [Oireachtas PQ on school ownership, 10 March 2009](https://www.oireachtas.ie/en/debates/question/2009-03-10/517/) | 2009 | The Department confirms school site records sit on individual files, not a central database. |
+| [C&AG Report on the Accounts of the Public Services 2019, Ch. 8: Management of the schools estate](https://www.audit.gov.ie/en/find-report/publications/2020/report-on-the-accounts-of-the-public-services-2019.pdf) (PDF; [The Journal's summary](https://jrnl.ie/5219833)) | 2020 | An estimated 87% of the school estate is on land not owned by the Minister or ETBs, as reported by The Journal. |
+| [C&AG Report on the Accounts of the Public Services 2023, Ch. 7: Protecting the State's investment in the schools estate](https://www.audit.gov.ie/media/roelmqyh/7-protecting-the-state-s-investment-in-the-schools-estate-copy.pdf) (PDF) | 2024 | 85% of schools are built on land owned by patrons or trustees. |
+
+## Journalism
+
+| Source | Year | Why it matters |
+|---|---|---|
+| RTÉ Investigates: *Christian Brothers – The Assets, The Abusers* ([press pack](https://presspack.rte.ie/2025/05/01/rte-investigates-christian-brothers-the-assets-the-abusers)) | 2025 | Traced a portfolio of over 800 properties through trustees named on deeds. |
+| Noteworthy and The Journal, [HOLY LAND: religious orders involved in redress sold properties totalling €90 million since 2016](https://www.thejournal.ie/holy-land-5847757-Aug2022/) | 2022 | Property sales by seven redress-linked orders, checked against 2009 asset data. |
+| Conor Ryan, Irish Examiner, [Church's asset portfolio included 10,700 properties](https://www.irishexaminer.com/news/arid-20171915.html) | 2011 | Examined over 1.5 million property parcels outside Dublin and found 10,700+ owned or occupied by the Church, about 1 in 100 rateable properties. |
+| [Abuse orders cashed in €667million on property deals](https://www.thejournal.ie/article.php?id=169070) (The Journal, summarising the Irish Examiner) | 2011 | 395 properties sold by 17 orders for €667m between 1999 and 2009. |
+| Emma Gilleece, Village Magazine, [Church betrays its public-interest legacy by school-land sales](https://villagemagazine.ie/church-betrays-its-public-interest-legacy-by-school-land-sales/) | 2017 | Puts Church land and property in the State at €3.743bn. |
+| Mary Raftery, *States of Fear*, RTÉ ([MoLI exhibition page](https://exhibitions.moli.ie/screening-coercive-confinement/states-of-fear)) | 1999 | The documentary that led to the State apology and the Commission. |
+
+## Books and scholarship
+
+| Source | Why it matters |
+|---|---|
+| Sarah Roddy, [*Money and Irish Catholicism*](https://www.cambridge.org/core/books/money-and-irish-catholicism/introduction/0D3D384691DBB1416DFC9F947857FDAA) (Cambridge University Press) | How the Church acquired its property. |
+| Sarah Roddy and Patrick Doyle, ["The Catholic Church and investor capitalism in late-nineteenth century Ireland"](https://doi.org/10.1080/09670882.2024.2308330), *Irish Studies Review* 32(1), 2024 | How the Church invested its money. |
+| Kevin Cahill, [*Who Owns Ireland: The Hidden Truth of Land Ownership in Ireland*](https://catalogue.nli.ie/Record/vtls000848546) (History Press Ireland, 2017) | The only national land-ownership survey. |
+| James M. Smith, [*Ireland's Magdalen Laundries and the Nation's Architecture of Containment*](https://catalogue.nli.ie/Record/vtls000275891) (Notre Dame, 2007) | Frames institutional sites as a system, not isolated buildings. |
+| Eoin O'Sullivan and Ian O'Donnell (eds), [*Coercive Confinement in Ireland*](https://manchesteruniversitypress.co.uk/9780719086489) (Manchester University Press, 2012) | Counts and categorises institutions across the 20th century. |
+| Mary Raftery and Eoin O'Sullivan, [*Suffer the Little Children*](https://www.publishersweekly.com/9780826413376) (New Island, 1999) | The industrial school system, its finances and State funding. |
+| Claire McGettrick, Katherine O'Donnell, Maeve O'Rourke, James M. Smith and Mari Steed, [*Ireland and the Magdalene Laundries: A Campaign for Justice*](https://jfmresearch.com/books/ireland-and-the-magdalene-laundries-a-campaign-for-justice/) (2021) | Survivor-led research and a critique of the McAleese Report. |
+| Tom Inglis, [*Moral Monopoly: The Rise and Fall of the Catholic Church in Modern Ireland*](https://www.waterstones.com/book/moral-monopoly-rise-and-fall-of-the-catholic-church-in-modern-ireland/tom-inglis/9781900621120) (UCD Press, 1998) | The sociology of Church power. |
+| Matt Cooper, [*Who Really Owns Ireland*](https://www.gillbooks.ie/politics-current-affairs/who-really-owns-ireland) (Gill, 2024) | Who owns and controls Irish land and property today, including foreign investment. |
+
+## Datasets
+
+- [Industrial Memories (UCD)](https://industrialmemories.ucd.ie/the-project): the Ryan Report as a searchable database, including transfers between institutions.
+- [JFMR Magdalene Names Project](https://jfmresearch.com/home/magdalene-names-project/) and [Preserving Magdalene History](https://jfmresearch.com/home/preserving-magdalene-history/).
+- [PARISH](https://parishproject.nd.edu/about/): a record of the interiors of Ireland's 3,000+ Catholic churches (Notre Dame and Maynooth).
+- [National Inventory of Architectural Heritage](https://www.buildingsofireland.ie/): churches, convents and schools with coordinates, also on [data.gov.ie](https://data.gov.ie/en_GB/dataset/national-inventory-of-architectural-heritage).
+
+*Links checked October 2026.*

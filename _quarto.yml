@@ -16,12 +16,14 @@ website:
         text: Map
       - href: method.qmd
         text: Method
+      - href: reading.qmd
+        text: Reading
       - href: contribute.qmd
         text: Contribute
       - href: about.qmd
         text: About
   page-footer:
-    center: "Data CC BY 4.0 (OpenStreetMap-derived layers ODbL) · [Corrections and takedowns](contribute.qmd#corrections)"
+    center: "Data CC BY 4.0 (OpenStreetMap-derived layers ODbL) · [Corrections and takedowns](/contribute.qmd#corrections)"
 
 format:
   html:
