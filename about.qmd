@@ -14,6 +14,6 @@ The "open" in Open Talamh is deliberate. This is meant to be a community effort,
 
 ## Who I am
 
-My name is Maedbh King. I got a PhD in psychology from the University of California, Berkeley, and during that time I spent years [building maps of the human brain](https://www.psychologytoday.com/ie/blog/the-athletes-way/201907/new-maps-the-cerebellum-show-how-our-little-brain-works). Now I'm turning those same research skills to mapping who owns Ireland's land, carefully and in the open.
+My name is [Maedbh King](https://www.maedbhking.com/home). I grew up in Dublin, and I have a PhD in Psychology from the University of California, Berkeley, where I used large-scale neuroimaging data to [build maps of the human brain](https://www.psychologytoday.com/ie/blog/the-athletes-way/201907/new-maps-the-cerebellum-show-how-our-little-brain-works). Now I'm turning those same research skills to mapping who owns Ireland's land, carefully and in the open.
 
 *Talamh* is Irish for land. You can reach me at [opentalamh@proton.me](mailto:opentalamh@proton.me).
