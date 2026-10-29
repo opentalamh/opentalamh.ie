@@ -10,3 +10,19 @@ Only add what a report or peer-reviewed work states, with its reference.
 Rows with blank `lat`/`lon` stay in the tables but are left off the map.
 Fill coordinates by finding the site (NIAH, historic OS maps on GeoHive), not
 by geocoding the town, so a point never lands on the wrong building.
+
+Until then, the `anchor` column can place a row on another source's record of
+the same building: it is a regular expression matched against the names of
+NIAH, OpenStreetMap and protected-structure records. A row is placed only when
+every match lies within 250 m of the others, and its popup says which record
+it was placed on, so it can be checked. Rows that stay unplaced are listed in
+`outputs/<county>_unplaced_history.csv`.
+
+# Entity list
+
+`entities.csv` lists the bodies whose names are worth searching in the Land
+Registry Names Index, one row each, with the counties they matter for (`all`
+for national trusts). These are leads, not legal names: confirm each against
+the Charities Register or the CRO, and add every variant found on a folio.
+The pipeline adds school patrons, OpenStreetMap operators and county charities
+to it and writes `outputs/<county>_name_leads.csv`.

@@ -1,5 +1,11 @@
-"""Settings for the first-attempt map. Change COUNTY to run another county."""
+"""Settings for the first-attempt map.
 
+Each county has an entry in COUNTIES. Pick one with `python run_pilot.py
+--county Dublin`, the WOTL_COUNTY environment variable, or set_county() in a
+notebook. Everything county-specific below is set from that entry.
+"""
+
+import os
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -7,10 +13,70 @@ RAW_DIR = ROOT / "data" / "raw"          # cached downloads, safe to delete
 SEED_DIR = ROOT / "data" / "seed"        # hand-curated inputs (history sites)
 OUT_DIR = ROOT / "outputs"
 
-COUNTY = "Louth"
+# Per-county settings. Dublin is split into four local authorities (Dublin
+# City, Fingal, South Dublin, Dún Laoghaire-Rathdown), and several sources
+# file records under the local authority rather than the county, so each
+# setting is a list of the names a source might use.
+COUNTIES = {
+    "Louth": {
+        # OpenStreetMap administrative areas whose union is the county.
+        "osm_areas": ["County Louth"],
+        # Values to look for in NIAH's COUNTY field.
+        "niah_terms": ["LOUTH"],
+        # Matches the county in school, charity and address columns.
+        "county_pattern": r"louth",
+        # Tailte Éireann valuation list, one download per local authority.
+        "valuation_authorities": ["LOUTH COUNTY COUNCIL"],
+        # Council Records of Protected Structures on data.gov.ie (dataset ids).
+        "rps_datasets": {},
+        "merge_radius_m": 100,
+        "site_prefix": "LO",
+    },
+    "Dublin": {
+        "osm_areas": [
+            "County Dublin", "Dublin City", "Fingal", "South Dublin",
+            "Dún Laoghaire-Rathdown", "Dún Laoghaire–Rathdown",
+        ],
+        "niah_terms": ["DUBLIN", "FINGAL", "RATHDOWN"],
+        "county_pattern": r"dublin|fingal|rathdown|d[uú]n laoghaire",
+        # Skipped: the Louth run found no religious uses among 4,477 rated
+        # properties (Church property is mostly exempt), and the four Dublin
+        # lists are far larger. Add the authority names here to try anyway.
+        "valuation_authorities": [],
+        "rps_datasets": {
+            "Dublin City Council": "dublin-city-record-of-protected-structures",
+            "Fingal County Council": "development-plan-2023-2029-rps-record-of-protected-structures-fcc2",
+            "South Dublin County Council": "record-of-protected-structures-south-dublin-county-development-plan-2022-to-2028-sdcc1",
+            "Dún Laoghaire-Rathdown County Council": "development-plan-2022-2028-protected-structures-dlr",
+        },
+        # Dense city streets: a smaller radius stops neighbouring sites chaining together.
+        "merge_radius_m": 50,
+        "site_prefix": "DU",
+    },
+}
 
-# OpenStreetMap: Irish counties are admin_level 6, named "County <Name>".
-OSM_AREA_NAME = f"County {COUNTY}"
+COUNTY = None  # set by set_county() at the bottom of this file
+
+
+def set_county(name):
+    """Point every county-specific setting at one entry of COUNTIES."""
+    global COUNTY, OSM_AREA_NAMES, NIAH_COUNTY_TERMS, COUNTY_PATTERN
+    global VALUATION_LOCAL_AUTHORITIES, RPS_DATASETS, MERGE_RADIUS_M, SITE_PREFIX
+    key = next((k for k in COUNTIES if k.lower() == name.strip().lower()), None)
+    if key is None:
+        raise ValueError(f"unknown county {name!r}; add it to COUNTIES (have {', '.join(COUNTIES)})")
+    c = COUNTIES[key]
+    COUNTY = key
+    OSM_AREA_NAMES = c["osm_areas"]
+    NIAH_COUNTY_TERMS = c["niah_terms"]
+    COUNTY_PATTERN = c["county_pattern"]
+    VALUATION_LOCAL_AUTHORITIES = c["valuation_authorities"]
+    RPS_DATASETS = c["rps_datasets"]
+    MERGE_RADIUS_M = c["merge_radius_m"]
+    SITE_PREFIX = c["site_prefix"]
+    return COUNTY
+
+
 OVERPASS_URL = "https://overpass-api.de/api/interpreter"
 # Tried in order when the main server is busy (it often answers 502/504).
 OVERPASS_MIRRORS = [
@@ -52,7 +118,6 @@ CHARITIES_DATASET = "register-of-charities-in-ireland"
 # Tailte Éireann valuation API. Experimental: the filter parameter names are
 # not documented publicly, so results are filtered again on our side.
 VALUATION_API = "https://opendata.tailte.ie/api/Property/GetProperties"
-VALUATION_LOCAL_AUTHORITY = f"{COUNTY.upper()} COUNTY COUNCIL"
 
 USER_AGENT = "who-owns-the-land-research/0.1 (first-attempt map)"
 # Some publishers refuse requests that do not look like a browser.
@@ -61,9 +126,6 @@ BROWSER_HEADERS = {
     "Accept": "text/html,application/xhtml+xml,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,*/*;q=0.8",
     "Accept-Language": "en-IE,en;q=0.8",
 }
-
-# Points from different sources closer than this are treated as one site.
-MERGE_RADIUS_M = 100
 
 # Words that mark a building or body as plausibly Catholic. Deliberately broad:
 # every hit is a lead (grade D), never a finding.
@@ -92,3 +154,14 @@ NIAH_RELEVANT_USES = [
     "industrial school", "reformatory", "laundry", "hospital", "workhouse",
     "graveyard", "cemetery", "mortuary chapel", "religious house", "hall",
 ]
+
+# Uses in a Record of Protected Structures description that matter for Church
+# property. Schools, halls and similar only count with a Catholic marker.
+RPS_RELEVANT_USES = [
+    r"church", r"chapel", r"cathedral", r"pro-cathedral", r"convent", r"presbytery",
+    r"parochial", r"monastery", r"friary", r"abbey", r"seminary", r"oratory",
+    r"novitiate", r"religious", r"orphanage", r"industrial school", r"magdalen",
+    r"laundry", r"school", r"college", r"hospital", r"hall", r"graveyard", r"cemetery",
+]
+
+set_county(os.environ.get("WOTL_COUNTY", "Louth"))

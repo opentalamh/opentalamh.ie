@@ -46,8 +46,26 @@ def head(url, **kw):
         print(f"\n### {url}\nfailed: {e}")
 
 
-for q in ("primary schools", "post-primary schools", "schools ethos", "charities register"):
+def ckan_show(dataset_id):
+    print(f"\n### data.gov.ie package_show {dataset_id}")
+    try:
+        r = requests.get("https://data.gov.ie/api/3/action/package_show",
+                         params={"id": dataset_id}, headers=UA, timeout=60)
+        print("status", r.status_code)
+        for res in r.json()["result"].get("resources", []):
+            print(f"    {res.get('format')}: {res.get('url')}")
+    except Exception as e:
+        print("failed:", e)
+
+
+for q in ("primary schools", "post-primary schools", "schools ethos", "charities register",
+          "protected structures dublin", "planning applications dublin"):
     ckan_search(q)
+for ds in ("dublin-city-record-of-protected-structures", "record-protected-structures-dcc",
+           "development-plan-2023-2029-rps-record-of-protected-structures-fcc2",
+           "record-of-protected-structures-south-dublin-county-development-plan-2022-to-2028-sdcc1",
+           "development-plan-2022-2028-protected-structures-dlr", "national-planning-applications"):
+    ckan_show(ds)
 links("https://www.gov.ie/en/service/search-or-download-the-public-register-of-charities/")
 links("https://www.charitiesregulator.ie/en/information-for-the-public/search-the-register-of-charities")
 links("https://www.gov.ie/en/department-of-education/collections/data-on-individual-schools/")

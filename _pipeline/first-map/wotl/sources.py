@@ -66,10 +66,16 @@ def guess_denomination(*texts):
 
 # --- OpenStreetMap -----------------------------------------------------------
 
-def overpass_query(area_name):
+def overpass_query(area_names):
+    """Query the union of one or more administrative areas (Dublin needs four)."""
+    if isinstance(area_names, str):
+        area_names = [area_names]
+    # Overpass uses POSIX regex inside a quoted string, so a metacharacter
+    # needs a doubled backslash.
+    names = "|".join(re.sub(r"([.^$*+?()\[\]{}|\\])", r"\\\\\1", n) for n in area_names)
     return f"""
-[out:json][timeout:180];
-area["boundary"="administrative"]["admin_level"="6"]["name"="{area_name}"]->.a;
+[out:json][timeout:300];
+area["boundary"="administrative"]["name"~"^({names})$"]->.a;
 (
   nwr["amenity"="place_of_worship"]["religion"="christian"](area.a);
   nwr["amenity"="monastery"](area.a);
@@ -97,7 +103,8 @@ def _osm_category(tags):
     return "other"
 
 
-def parse_overpass(payload):
+def parse_overpass(payload, other_only=False):
+    """Catholic or unmarked sites; with other_only, only those marked as another denomination."""
     rows = []
     for el in payload.get("elements", []):
         tags = el.get("tags", {})
@@ -120,7 +127,7 @@ def parse_overpass(payload):
             name, config.CATHOLIC_TERMS
         ):
             continue
-        if denom == "other":
+        if (denom == "other") != other_only:
             continue
         rows.append({
             "source": "OpenStreetMap",
@@ -153,26 +160,28 @@ def _overpass(query):
     raise RuntimeError("; ".join(errors))
 
 
-def fetch_osm(refresh=False):
+def fetch_osm(refresh=False, other_only=False):
     try:
         raw = _cached(
             f"osm_{config.COUNTY.lower()}.json",
-            lambda: _overpass(overpass_query(config.OSM_AREA_NAME)),
+            lambda: _overpass(overpass_query(config.OSM_AREA_NAMES)),
             refresh,
         )
-        return parse_overpass(json.loads(raw))
+        return parse_overpass(json.loads(raw), other_only=other_only)
     except Exception as e:  # network, rate limit, bad area name
-        warnings.warn(f"OpenStreetMap skipped: {e}")
+        if not other_only:
+            warnings.warn(f"OpenStreetMap skipped: {e}")
         return _empty()
 
 
 # --- National Inventory of Architectural Heritage ----------------------------
 
-def _niah_pages(county):
+def _niah_pages(terms):
     features, offset = [], 0
+    where = " OR ".join(f"UPPER(COUNTY) LIKE '%{t.upper()}%'" for t in terms)
     while True:
         params = {
-            "where": f"UPPER(COUNTY) LIKE '%{county.upper()}%'",
+            "where": where,
             "outFields": "*",
             "outSR": 4326,
             "f": "geojson",
@@ -223,11 +232,191 @@ def parse_niah(geojson):
 
 def fetch_niah(refresh=False):
     try:
-        raw = _cached(f"niah_{config.COUNTY.lower()}.geojson", lambda: _niah_pages(config.COUNTY), refresh)
+        raw = _cached(f"niah_{config.COUNTY.lower()}.geojson", lambda: _niah_pages(config.NIAH_COUNTY_TERMS), refresh)
         return parse_niah(json.loads(raw))
     except Exception as e:
         warnings.warn(f"NIAH skipped: {e}")
         return _empty()
+
+
+# --- Council Records of Protected Structures ---------------------------------
+
+# A use word followed by a street word is an address ("Church Street"), not a use.
+_STREET_NAME = re.compile(
+    r"\b(church|chapel|abbey|convent|friary|cathedral|presbytery|school|college|hospital|hall|"
+    r"monastery|seminary|priory)\s+(street|st|road|rd|avenue|ave|lane|terrace|place|park|square|"
+    r"row|quay|hill|gardens|close|drive|green|parade|court|view|grove|walk|way|villas)\b",
+    re.I,
+)
+
+
+def _geometry_centre(geom):
+    """A representative point for a GeoJSON geometry: the mean of its vertices."""
+    if not geom:
+        return None, None
+    coords = []
+
+    def walk(c):
+        if c and isinstance(c[0], (int, float)):
+            coords.append(c[:2])
+        else:
+            for x in c or []:
+                walk(x)
+
+    walk(geom.get("coordinates"))
+    if not coords:
+        return None, None
+    return sum(c[0] for c in coords) / len(coords), sum(c[1] for c in coords) / len(coords)
+
+
+def _to_wgs84(x, y):
+    """Return (lon, lat), projecting from ITM when the numbers are metres."""
+    x, y = pd.to_numeric(pd.Series(x), errors="coerce"), pd.to_numeric(pd.Series(y), errors="coerce")
+    if x.dropna().abs().median() > 1000:
+        from pyproj import Transformer
+        crs = "EPSG:2157" if x.dropna().median() > 400000 else "EPSG:29902"
+        t = Transformer.from_crs(crs, "EPSG:4326", always_xy=True)
+        lon, lat = t.transform(x.values, y.values)
+        return pd.Series(lon), pd.Series(lat)
+    return x, y
+
+
+def parse_rps(df, label, source_url):
+    """Protected structures whose name or description reads as a Catholic site.
+
+    Council records describe a building (\"Church of St Agatha\", \"former convent
+    and chapel\"), so the same filter as NIAH applies: a relevant use, no other
+    denomination, and a Catholic marker for schools, halls and the like.
+    df needs `_lon` and `_lat` columns (WGS84) alongside the council's own.
+    """
+    name = _find_col(df, r"^(structure.?)?name$", r"structure.?name", r"^name", r"title", r"building")
+    desc = [c for c in df.columns if re.search(r"desc|use|type", str(c), re.I) and c not in ("_lon", "_lat")]
+    num = _find_col(df, r"rps.?(no|num|ref|id)", r"^rps$", r"ref.?(no|num)", r"^(no|number|objectid)$")
+    addr = [c for c in df.columns if re.search(r"address|location|street|townland", str(c), re.I)]
+    text_cols = [c for c in [name, *desc] if c]
+    if not text_cols:
+        warnings.warn(f"{label}: no name or description column; columns are {list(df.columns)}")
+        return _empty()
+    text = _join_cols(df, text_cols).fillna("")
+    use_text = text.str.replace(_STREET_NAME, " ", regex=True)
+    uses = [rf"\b{u}" for u in config.RPS_RELEVANT_USES]
+    rows = []
+    for i, t in use_text.items():
+        if not _matches(t, uses):
+            continue
+        denom = guess_denomination(t)
+        if denom == "other":
+            continue
+        if re.search(r"school|college|hall|hospital", t, re.I) and not re.search(
+            r"church|chapel|convent|presbytery|monastery|friary|seminary", t, re.I
+        ) and denom != "catholic" and not _matches(t, config.CATHOLIC_TERMS):
+            continue
+        lon, lat = df.at[i, "_lon"], df.at[i, "_lat"]
+        if pd.isna(lat) or pd.isna(lon):
+            continue
+        rows.append({
+            "source": label,
+            "source_id": str(df.at[i, num]) if num else str(i),
+            "name": str(df.at[i, name]) if name and pd.notna(df.at[i, name]) else text[i][:80],
+            "category": (re.search("|".join(uses), t, re.I).group(0).lower()),
+            "denomination": denom,
+            "lat": lat,
+            "lon": lon,
+            "address": _join_cols(df.loc[[i]], addr).iloc[0] if addr else "",
+            "source_url": source_url,
+            "raw_use": text[i][:300],
+        })
+    return pd.DataFrame(rows, columns=SITE_COLUMNS)
+
+
+def _ckan_meta(dataset_id):
+    return _get(f"{config.CKAN_API}/package_show", params={"id": dataset_id}).json()["result"]
+
+
+def _arcgis_layer_geojson(url):
+    """Every feature of an ArcGIS feature or map service layer, as WGS84 GeoJSON."""
+    base = re.sub(r"/query.*$", "", url.split("?")[0].rstrip("/"))
+    if re.search(r"/(Feature|Map)Server$", base):
+        base += "/0"
+    features, offset = [], 0
+    while True:
+        page = _get(f"{base}/query", params={
+            "where": "1=1", "outFields": "*", "outSR": 4326, "f": "geojson",
+            "resultOffset": offset, "resultRecordCount": 1000,
+        }).json()
+        batch = page.get("features", [])
+        features.extend(batch)
+        if len(batch) < 1000:
+            break
+        offset += len(batch)
+    return json.dumps({"type": "FeatureCollection", "features": features}).encode()
+
+
+def _rps_download(dataset_id):
+    """Fetch a council RPS from data.gov.ie, preferring formats with coordinates."""
+    resources = _ckan_meta(dataset_id).get("resources", [])
+
+    def kind(res):
+        fmt, url = (res.get("format") or "").lower(), res.get("url") or ""
+        if "geojson" in fmt or url.lower().endswith(".geojson") or "f=geojson" in url.lower():
+            return "geojson"
+        if re.search(r"(feature|map)server", url, re.I) or "esri" in fmt or "arcgis" in fmt:
+            return "arcgis"
+        if fmt == "csv" or url.lower().endswith(".csv"):
+            return "csv"
+        return None
+
+    ranked = sorted((r for r in resources if kind(r)), key=lambda r: ["geojson", "arcgis", "csv"].index(kind(r)))
+    errors = []
+    for res in ranked:
+        try:
+            if kind(res) == "arcgis":
+                return "geojson", _arcgis_layer_geojson(res["url"])
+            return kind(res), _get(res["url"], browser=True).content
+        except Exception as e:
+            errors.append(f"{res.get('url')}: {e}")
+    raise ValueError(f"no usable resource in {dataset_id}: {'; '.join(errors) or [r.get('format') for r in resources]}")
+
+
+def _rps_frame(fmt, content):
+    if fmt == "geojson":
+        feats = json.loads(content).get("features", [])
+        df = pd.DataFrame([f.get("properties") or {} for f in feats])
+        centres = [_geometry_centre(f.get("geometry")) for f in feats]
+        df["_lon"], df["_lat"] = _to_wgs84([c[0] for c in centres], [c[1] for c in centres])
+        return df
+    df = _read_table(content, "CSV")
+    lat, lon = _find_col(df, r"^lat", r"latitude"), _find_col(df, r"^lon", r"^long", r"longitude")
+    x = _find_col(df, r"easting", r"^x$", r"itm.?e", r"x.?coord", r"^x_")
+    y = _find_col(df, r"northing", r"^y$", r"itm.?n", r"y.?coord", r"^y_")
+    if lat and lon:
+        df["_lon"], df["_lat"] = _to_wgs84(df[lon].values, df[lat].values)
+    elif x and y:
+        df["_lon"], df["_lat"] = _to_wgs84(df[x].values, df[y].values)
+    else:
+        df["_lon"], df["_lat"] = None, None
+    return df.reset_index(drop=True)
+
+
+def fetch_rps(refresh=False):
+    frames = []
+    for council, dataset_id in config.RPS_DATASETS.items():
+        try:
+            meta = {}
+
+            def download():
+                fmt, content = _rps_download(dataset_id)
+                meta["fmt"] = fmt
+                return content
+
+            raw = _cached(f"rps_{dataset_id}.data", download, refresh)
+            fmt = meta.get("fmt") or ("geojson" if raw.lstrip()[:1] == b"{" else "csv")
+            df = _rps_frame(fmt, raw)
+            frames.append(parse_rps(df, f"Protected structures: {council}", f"https://data.gov.ie/dataset/{dataset_id}"))
+        except Exception as e:
+            warnings.warn(f"Protected structures {council} skipped: {e}")
+    frames = [f for f in frames if not f.empty]
+    return pd.concat(frames, ignore_index=True) if frames else _empty()
 
 
 # --- Department of Education school lists ------------------------------------
@@ -276,7 +465,7 @@ def parse_schools(df, label, source_url=None, catholic_only=True):
         return _empty()
     d = df.copy()
     if county and catholic_only:
-        d = d[d[county].astype(str).str.contains(config.COUNTY, case=False, na=False)]
+        d = d[d[county].astype(str).str.contains(config.COUNTY_PATTERN, case=False, na=False, regex=True)]
     if catholic_only:
         d = d[d[ethos].astype(str).str.contains("catholic", case=False, na=False)]
     if lat and lon:
@@ -407,22 +596,26 @@ def parse_valuation(records):
 
 
 def fetch_valuation(refresh=False):
-    try:
-        params = {
-            "Fields": "*",
-            "LocalAuthority": config.VALUATION_LOCAL_AUTHORITY,
-            "Format": "json",
-            "Download": "false",
-        }
-        raw = _cached(
-            f"valuation_{config.COUNTY.lower()}.json",
-            lambda: _get(config.VALUATION_API, params=params, timeout=300).content,
-            refresh,
-        )
-        return parse_valuation(json.loads(raw))
-    except Exception as e:
-        warnings.warn(f"Valuation list skipped: {e}")
-        return _empty()
+    frames = []
+    for authority in config.VALUATION_LOCAL_AUTHORITIES:
+        try:
+            params = {
+                "Fields": "*",
+                "LocalAuthority": authority,
+                "Format": "json",
+                "Download": "false",
+            }
+            slug = re.sub(r"\W+", "_", authority.lower()).strip("_")
+            raw = _cached(
+                f"valuation_{slug}.json",
+                lambda: _get(config.VALUATION_API, params=params, timeout=300).content,
+                refresh,
+            )
+            frames.append(parse_valuation(json.loads(raw)))
+        except Exception as e:
+            warnings.warn(f"Valuation list {authority} skipped: {e}")
+    frames = [f for f in frames if not f.empty]
+    return pd.concat(frames, ignore_index=True) if frames else _empty()
 
 
 # --- Hand-curated history sites ----------------------------------------------
@@ -437,7 +630,7 @@ def load_history_sites():
     if not path.exists():
         return _empty()
     h = pd.read_csv(path)
-    h = h[h["county"].astype(str).str.contains(config.COUNTY, case=False, na=False)]
+    h = h[h["county"].astype(str).str.fullmatch(config.COUNTY, case=False, na=False)]
     return pd.DataFrame({
         "source": "History seed list",
         "source_id": h["source_ref"].astype(str),
@@ -449,7 +642,41 @@ def load_history_sites():
         "address": h["town"].astype(str),
         "source_url": h["source_url"],
         "raw_use": h["operator"].astype(str),
-    }, columns=SITE_COLUMNS)
+        "anchor": h["anchor"] if "anchor" in h else "",
+    }, columns=SITE_COLUMNS + ["anchor"])
+
+
+def place_history_sites(history, points, max_spread_m=250):
+    """Give unplaced history sites the location of the record their `anchor` names.
+
+    `anchor` is a regular expression for the name of the same building in
+    another source (an NIAH, OSM or protected-structure record). A site is
+    placed only when every matching record sits within max_spread_m of the
+    others; otherwise it stays unplaced for a hand check. Returns (placed or
+    already placed rows, unplaced rows).
+    """
+    from .build import _metres
+
+    h = history.copy()
+    named = points[points["name"].fillna("").astype(str).str.strip() != ""].dropna(subset=["lat", "lon"])
+    for i, row in h.iterrows():
+        if pd.notna(row["lat"]) or not isinstance(row.get("anchor"), str) or not row["anchor"].strip():
+            continue
+        hits = named[named["name"].str.contains(row["anchor"], case=False, regex=True, na=False)]
+        if hits.empty:
+            continue
+        lat, lon = hits["lat"].astype(float), hits["lon"].astype(float)
+        spread = max(_metres(lat.iloc[0], lon.iloc[0], a, b) for a, b in zip(lat, lon))
+        if spread > max_spread_m:
+            continue
+        best = hits.iloc[0]
+        h.at[i, "lat"], h.at[i, "lon"] = lat.mean(), lon.mean()
+        h.at[i, "raw_use"] = (
+            f"{row['raw_use']} · placed by name on {best['source']} record {best['source_id']} "
+            f"(\"{best['name']}\"): check the exact building"
+        )
+    placed = h["lat"].notna() & h["lon"].notna()
+    return h[placed].drop(columns="anchor"), h[~placed].drop(columns="anchor")
 
 
 # --- Charities Regulator register: names, not places ---------------------------
@@ -466,7 +693,7 @@ def parse_charities(df):
     text = df[name].astype(str) + " " + (df[aka].astype(str) if aka else "")
     hits = df[text.apply(lambda t: _matches(t, config.CATHOLIC_TERMS))].copy()
     if addr:
-        hits["in_county"] = hits[addr].astype(str).str.contains(config.COUNTY, case=False, na=False)
+        hits["in_county"] = hits[addr].astype(str).str.contains(config.COUNTY_PATTERN, case=False, na=False, regex=True)
     keep = [c for c in (number, name, aka, form, addr) if c] + (["in_county"] if addr else [])
     return hits[keep].rename(columns={number: "charity_number", name: "name", aka: "also_known_as", form: "governing_form", addr: "address"})
 

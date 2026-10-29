@@ -15,6 +15,8 @@ SOURCE_COLOURS = {
     "Tailte Éireann valuation list": "#6b46c1",
     "History seed list": "#c53030",
 }
+# Council protected-structure lists share one colour family.
+RPS_COLOUR = "#b83280"
 
 
 def _metres(lat1, lon1, lat2, lon2):
@@ -25,12 +27,37 @@ def _metres(lat1, lon1, lat2, lon2):
     return 2 * r * math.asin(math.sqrt(a))
 
 
-def merge_sites(points, radius_m=config.MERGE_RADIUS_M):
+def drop_near_other(points, other, radius_m=None):
+    """Drop unmarked points that sit on a site marked as another denomination.
+
+    Dublin's heritage lists hold many Church of Ireland churches whose records
+    don't say so; OpenStreetMap often does. Points marked Catholic are kept.
+    Returns (kept points, number dropped).
+    """
+    radius_m = radius_m or config.MERGE_RADIUS_M
+    if points.empty or other.empty:
+        return points, 0
+    o_lat, o_lon = other["lat"].astype(float).tolist(), other["lon"].astype(float).tolist()
+    deg = radius_m / 111_000
+
+    def near(row):
+        if row["denomination"] == "catholic" or pd.isna(row["lat"]):
+            return False
+        lat, lon = float(row["lat"]), float(row["lon"])
+        return any(abs(lat - a) < deg and abs(lon - b) < deg * 2 and _metres(lat, lon, a, b) <= radius_m
+                   for a, b in zip(o_lat, o_lon))
+
+    drop = points.apply(near, axis=1)
+    return points[~drop].reset_index(drop=True), int(drop.sum())
+
+
+def merge_sites(points, radius_m=None):
     """Group points within radius_m of each other into candidate sites.
 
     Simple single-link grouping, fine for a county (a few thousand points).
     Returns (points with a site_id column, one row per candidate site).
     """
+    radius_m = radius_m or config.MERGE_RADIUS_M
     pts = points.dropna(subset=["lat", "lon"]).reset_index(drop=True).copy()
     parent = list(range(len(pts)))
 
@@ -51,10 +78,13 @@ def merge_sites(points, radius_m=config.MERGE_RADIUS_M):
                 parent[find(j)] = find(i)
     roots = [find(i) for i in range(len(pts))]
     ids = {r: n + 1 for n, r in enumerate(dict.fromkeys(roots))}
-    pts["site_id"] = [f"{config.COUNTY[:2].upper()}-{ids[r]:04d}" for r in roots]
+    pts["site_id"] = [f"{config.SITE_PREFIX}-{ids[r]:04d}" for r in roots]
 
     # Name a site after its best-evidenced point: Catholic-marked first, then by source.
     source_rank = {"History seed list": 0, "NIAH": 1, "OpenStreetMap": 3}
+    for src in pts["source"].unique():
+        if src.startswith("Protected structures"):
+            source_rank[src] = 1
 
     def summarise(g):
         named = g[g["name"].fillna("").astype(str).str.strip() != ""]
@@ -113,13 +143,13 @@ def _popup(row):
 
 def draw_map(points, sites, path=None):
     if points.empty:
-        centre = [53.9, -6.5]
+        centre = [53.5, -7.5]
     else:
         centre = [points["lat"].astype(float).mean(), points["lon"].astype(float).mean()]
     m = folium.Map(location=centre, zoom_start=10, tiles="OpenStreetMap", control_scale=True)
     for source, g in points.groupby("source"):
         layer = folium.FeatureGroup(name=f"{source} ({len(g)})", show=True)
-        colour = SOURCE_COLOURS.get(source, "#4a5568")
+        colour = SOURCE_COLOURS.get(source, RPS_COLOUR if source.startswith("Protected structures") else "#4a5568")
         for _, row in g.iterrows():
             folium.CircleMarker(
                 [row.lat, row.lon], radius=5, color=colour, fill=True, fill_opacity=0.8,

@@ -1,0 +1,24 @@
+name,entity_class,counties,variants,why,status
+Archdiocese of Dublin,diocese,Dublin,Archbishop of Dublin; Catholic Archdiocese of Dublin; Ard-Deoise Bhaile Átha Cliath,All of County Dublin lies in the archdiocese. The Archbishop is patron of most Catholic primary schools in Dublin.,lead: confirm legal name on Charities Register / CRO
+Parishes of the Archdiocese of Dublin,parish,Dublin,Parish of <name>; named clerical trustees,Parish property is often held by named trustees rather than a body; search each parish and its trustees.,lead: build the parish list from the diocesan directory
+Archdiocese of Armagh,diocese,Louth,Archbishop of Armagh; Catholic Archdiocese of Armagh,Most of Louth lies in the archdiocese. The Archbishop is patron of most Louth Catholic primary schools.,lead: confirm legal name on Charities Register / CRO
+Diocese of Meath,diocese,Louth,Bishop of Meath; Catholic Diocese of Meath,Patron of some Louth schools.,lead: confirm legal name on Charities Register / CRO
+Religious Sisters of Charity,congregation,Dublin,Sisters of Charity; Irish Sisters of Charity,Founded in Dublin. Ran St Vincent's Hospital and the Donnybrook Magdalene laundry.,lead: confirm legal name on Charities Register / CRO
+Sisters of Mercy,congregation,Dublin; Louth,Congregation of the Sisters of Mercy; Mercy Sisters,Founded in Dublin (Baggot Street). Ran Goldenbridge and the Dún Laoghaire laundry in Dublin and St Joseph's in Dundalk.,lead: confirm legal name on Charities Register / CRO
+Sisters of Our Lady of Charity,congregation,Dublin,Our Lady of Charity of Refuge; OLC Sisters,Ran the High Park and Sean McDermott Street laundries.,lead: confirm legal name on Charities Register / CRO
+Congregation of Christian Brothers,congregation,Dublin; Louth,Christian Brothers; Irish Christian Brothers,Ran Artane and Carriglea Park. School property largely passed to the Edmund Rice Schools Trust.,lead: confirm legal name on Charities Register / CRO
+Daughters of Charity of St Vincent de Paul,congregation,Dublin,Daughters of Charity,Ran St Patrick's on the Navan Road for the Dublin health authority; disability services in Dublin.,lead: confirm legal name on Charities Register / CRO
+Congregation of the Holy Spirit,congregation,Dublin,Holy Ghost Fathers; Spiritans; Des Places Educational Association,Blackrock College; St Mary's College Rathmines; Templeogue College.,lead: confirm legal name on Charities Register / CRO
+Society of Jesus,congregation,Dublin,Jesuits; Irish Jesuit Province,Belvedere College; Gonzaga College; Milltown Park.,lead: confirm legal name on Charities Register / CRO
+Congregation of the Mission,congregation,Dublin,Vincentians; Vincentian Fathers,Castleknock College; St Paul's College Raheny.,lead: confirm legal name on Charities Register / CRO
+Loreto Sisters,congregation,Dublin,Institute of the Blessed Virgin Mary; IBVM; Loreto Education Trust,Loreto schools across Dublin; Loreto Abbey Rathfarnham.,lead: confirm legal name on Charities Register / CRO
+Holy Faith Sisters,congregation,Dublin,Congregation of the Sisters of the Holy Faith,Founded in Dublin; Glasnevin; schools in the north city.,lead: confirm legal name on Charities Register / CRO
+Dominican Sisters,congregation,Dublin,Dominican Sisters Cabra,Cabra (St Mary's School for Deaf Girls); Sion Hill.,lead: confirm legal name on Charities Register / CRO
+Carmelites,congregation,Dublin,Order of Carmelites; Irish Province of Carmelites,Terenure College; Whitefriar Street.,lead: confirm legal name on Charities Register / CRO
+Capuchin Franciscans,congregation,Dublin,Irish Capuchin Province; Capuchins,Church Street friary.,lead: confirm legal name on Charities Register / CRO
+De La Salle Brothers,congregation,Dublin,Brothers of the Christian Schools,De La Salle schools in Dublin.,lead: confirm legal name on Charities Register / CRO
+Marist Brothers,congregation,Louth,Marist Brothers Ireland,Patron of a Louth school.,lead: confirm legal name on Charities Register / CRO
+Legion of Mary,lay body,Dublin,Concilium Legionis Mariae,Ran the Regina Coeli hostel on North Brunswick Street.,lead: confirm legal name on Charities Register / CRO
+Edmund Rice Schools Trust,school trust,all,ERST,Trustee of former Christian Brothers schools since 2008.,lead: confirm legal name on Charities Register / CRO
+CEIST,school trust,all,Catholic Education an Irish Schools Trust,Trustee of voluntary secondary schools from several congregations.,lead: confirm legal name on Charities Register / CRO
+Le Chéile Schools Trust,school trust,all,Le Cheile,Trustee of voluntary secondary schools from several congregations.,lead: confirm legal name on Charities Register / CRO

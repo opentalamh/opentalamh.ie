@@ -3,6 +3,8 @@
 The fixtures are invented test data, not real sites. Run: python -m pytest tests
 """
 
+import json
+
 import pandas as pd
 
 from wotl import build, sources
@@ -71,3 +73,96 @@ def test_charities_name_filter():
     out = sources.parse_charities(df)
     assert list(out["name"]) == ["Test Diocesan Trust", "Sisters of Test"]
     assert list(out["in_county"]) == [True, False]
+
+
+# --- County switching and the Dublin sources ---------------------------------
+
+import pytest
+
+from wotl import config, names
+
+
+@pytest.fixture
+def dublin():
+    config.set_county("Dublin")
+    yield
+    config.set_county("Louth")
+
+
+def test_set_county_switches_every_setting(dublin):
+    assert config.COUNTY == "Dublin" and config.SITE_PREFIX == "DU"
+    assert "Fingal" in config.OSM_AREA_NAMES and config.RPS_DATASETS
+    q = sources.overpass_query(config.OSM_AREA_NAMES)
+    assert "^(County Dublin|Dublin City|Fingal|South Dublin|" in q
+    with pytest.raises(ValueError):
+        config.set_county("Atlantis")
+
+
+def test_schools_match_dublin_postal_districts(dublin):
+    df = SCHOOLS.assign(County=["Dublin 7", "Dublin", "Co. Fingal"])
+    out = sources.parse_schools(df, "Dept of Education: test")
+    assert list(out["source_id"]) == ["00001A", "00003C"]
+
+
+RPS = pd.DataFrame({
+    "RPS_No": [1, 2, 3, 4, 5, 6],
+    "Name": ["Church of the Test", "Test House", "Test Parish Church", "Former Test Convent", "Test Hall", "Test Shop"],
+    "Description": ["Catholic church", "Georgian house", "Church of Ireland church", "convent and chapel",
+                    "parish hall", "Shopfront"],
+    "Address": ["Main Street", "Church Street", "Church Road", "Convent Lane", "Main Street", "Church Street"],
+    "_lon": [-6.26, -6.27, -6.28, -6.29, -6.30, -6.31],
+    "_lat": [53.35] * 6,
+})
+
+
+def test_rps_keeps_catholic_uses_and_skips_addresses_and_other_denominations(dublin):
+    out = sources.parse_rps(RPS, "Protected structures: Test Council", "https://example.org")
+    assert list(out["source_id"]) == ["1", "4", "5"]
+    assert out.loc[out["source_id"] == "1", "denomination"].iloc[0] == "catholic"
+
+
+def test_rps_street_name_is_not_a_use(dublin):
+    df = pd.DataFrame({"Name": ["No. 3 Church Street"], "_lon": [-6.2], "_lat": [53.3]})
+    assert sources.parse_rps(df, "Protected structures: Test", "x").empty
+
+
+def test_rps_frame_reads_geojson_polygons_in_itm():
+    gj = {"features": [{"properties": {"Name": "Test Church"},
+                        "geometry": {"type": "Polygon", "coordinates": [[[715000, 734000], [715010, 734000], [715010, 734010]]]}}]}
+    df = sources._rps_frame("geojson", json.dumps(gj).encode())
+    assert 53.2 < df["_lat"].iloc[0] < 53.5 and -6.4 < df["_lon"].iloc[0] < -6.1
+
+
+def test_history_anchor_places_only_on_a_clear_match():
+    hist = pd.DataFrame({
+        "source": "History seed list", "source_id": ["a", "b", "c"], "name": ["Inst A", "Inst B", "Inst C"],
+        "category": "x", "denomination": "catholic", "lat": [None, None, None], "lon": [None, None, None],
+        "address": "", "source_url": "", "raw_use": "Order", "anchor": ["test abbey", "test convent", ""],
+    })
+    pts = pd.DataFrame({
+        "source": "NIAH", "source_id": ["1", "2", "3"],
+        "name": ["Test Abbey", "Test Convent", "Test Convent Annex"],
+        "lat": [53.30, 53.40, 53.60], "lon": [-6.2, -6.2, -6.2],
+    })
+    placed, unplaced = sources.place_history_sites(hist, pts)
+    assert list(placed["source_id"]) == ["a"] and placed["lat"].iloc[0] == 53.30
+    assert "placed by name on NIAH record 1" in placed["raw_use"].iloc[0]
+    assert list(unplaced["source_id"]) == ["b", "c"]  # b matches two far-apart records
+
+
+def test_drop_near_other_keeps_catholic_points():
+    pts = sources.parse_overpass(OSM)
+    other = sources.parse_overpass(OSM, other_only=True)
+    assert list(other["name"]) == ["Test Parish Church"]
+    unmarked = pd.DataFrame([{**pts.iloc[0].to_dict(), "denomination": "unknown", "lat": 54.1, "lon": -6.3, "name": "X"}])
+    kept, dropped = build.drop_near_other(pd.concat([pts, unmarked], ignore_index=True), other, 100)
+    assert dropped == 1 and "X" not in set(kept["name"])
+
+
+def test_name_leads_combine_seed_patrons_and_operators(dublin):
+    schools = pd.DataFrame({"raw_use": ["CATHOLIC · patron: ARCHBISHOP OF DUBLIN"] * 3 + ["CATHOLIC · patron: CEIST"]})
+    osm = pd.DataFrame({"raw_use": [json.dumps({"operator": "Test Parish"}), json.dumps({"amenity": "school"})]})
+    leads = names.name_leads(schools, osm, pd.DataFrame())
+    assert {"Archdiocese of Dublin", "Archbishop Of Dublin", "Test Parish"} <= set(leads["name"])
+    assert "Archdiocese of Armagh" not in set(leads["name"])
+    assert leads.loc[leads["name"] == "Archbishop Of Dublin", "count"].iloc[0] == 3

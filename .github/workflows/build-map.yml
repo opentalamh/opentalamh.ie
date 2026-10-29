@@ -8,6 +8,10 @@ on:
       - "_pipeline/first-map/data/seed/**"
       - ".github/workflows/build-map.yml"
   workflow_dispatch:
+    inputs:
+      counties:
+        description: "Counties to build, space-separated"
+        default: "Louth Dublin"
 
 name: Build first map
 
@@ -32,7 +36,12 @@ jobs:
         run: mkdir -p outputs && python tools/discover_sources.py | tee outputs/source_discovery.txt
       - name: Run the pipeline against the live sources
         continue-on-error: true
-        run: python run_pilot.py --refresh 2>&1 | tee outputs/run_log.txt
+        env:
+          COUNTIES: ${{ inputs.counties || 'Louth Dublin' }}
+        run: |
+          for c in $COUNTIES; do
+            python run_pilot.py --county "$c" --refresh 2>&1 | tee "outputs/run_log_${c,,}.txt"
+          done
       - name: Describe the raw downloads
         continue-on-error: true
         run: |
@@ -70,9 +79,10 @@ jobs:
         working-directory: .
         run: |
           mkdir -p maps
-          cp _pipeline/first-map/outputs/louth_first_map.html maps/ || true
+          cp _pipeline/first-map/outputs/*_first_map.html maps/ || true
           git config user.name "github-actions[bot]"
           git config user.email "41898213+github-actions[bot]@users.noreply.github.com"
           git add -f _pipeline/first-map/outputs maps
           git commit -m "Rebuild first map from live sources" || echo "nothing changed"
+          git pull --rebase origin "${GITHUB_REF_NAME}" || true
           git push
