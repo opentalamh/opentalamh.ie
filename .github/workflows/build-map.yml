@@ -1,0 +1,78 @@
+on:
+  push:
+    branches-ignore: [main, gh-pages]
+    paths:
+      - "_pipeline/first-map/wotl/**"
+      - "_pipeline/first-map/run_pilot.py"
+      - "_pipeline/first-map/tools/**"
+      - "_pipeline/first-map/data/seed/**"
+      - ".github/workflows/build-map.yml"
+  workflow_dispatch:
+
+name: Build first map
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: _pipeline/first-map
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pandas requests openpyxl pyproj folium pytest
+      - run: python -m pytest -q tests
+      - name: Find current source links
+        continue-on-error: true
+        run: mkdir -p outputs && python tools/discover_sources.py | tee outputs/source_discovery.txt
+      - name: Run the pipeline against the live sources
+        continue-on-error: true
+        run: python run_pilot.py --refresh 2>&1 | tee outputs/run_log.txt
+      - name: Describe the raw downloads
+        continue-on-error: true
+        run: |
+          python - <<'EOF' | tee outputs/raw_inventory.txt
+          import json, pathlib, pandas as pd
+          from io import BytesIO
+          for p in sorted(pathlib.Path("data/raw").iterdir()):
+              print(f"\n== {p.name} ({p.stat().st_size:,} bytes)")
+              b = p.read_bytes()
+              try:
+                  if p.suffix in (".json", ".geojson"):
+                      d = json.loads(b)
+                      if isinstance(d, dict):
+                          print("keys:", list(d)[:20])
+                          feats = d.get("features") or d.get("elements") or []
+                          print("records:", len(feats))
+                          if feats:
+                              print("first:", json.dumps(feats[0])[:1500])
+                      else:
+                          print("list of", len(d))
+                          if d:
+                              print("first:", json.dumps(d[0])[:1500])
+                  elif p.suffix == ".csv":
+                      df = pd.read_csv(BytesIO(b), encoding="latin-1")
+                      print(df.shape, list(df.columns)); print(df.head(3).to_string()[:1500])
+                  elif p.suffix in (".xlsx", ".xls"):
+                      for name, df in pd.read_excel(BytesIO(b), sheet_name=None).items():
+                          print("sheet", name, df.shape, list(df.columns)[:30]); print(df.head(5).to_string()[:1500])
+                  else:
+                      print(b[:500])
+              except Exception as e:
+                  print("could not read:", e, b[:300])
+          EOF
+      - name: Copy the map into the site and commit the outputs
+        working-directory: .
+        run: |
+          mkdir -p maps
+          cp _pipeline/first-map/outputs/louth_first_map.html maps/ || true
+          git config user.name "github-actions[bot]"
+          git config user.email "41898213+github-actions[bot]@users.noreply.github.com"
+          git add -f _pipeline/first-map/outputs maps
+          git commit -m "Rebuild first map from live sources" || echo "nothing changed"
+          git push

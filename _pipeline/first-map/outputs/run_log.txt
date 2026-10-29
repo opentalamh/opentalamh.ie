@@ -1,0 +1,12 @@
+                         source  points  with_coordinates
+                  OpenStreetMap     158               158
+                           NIAH     107               107
+                   School lists      71                71
+                 Valuation list       0                 0
+              History seed list       1                 1
+Charities register (names only)       0                 0
+
+157 candidate sites; 68 found by 2+ sources.
+WARNING: Charities register skipped: 403 Client Error: Forbidden for url: https://www.charitiesregulator.ie/media/aqgpvsac/20261026-public-register-of-charities.xlsx
+
+Outputs in /home/runner/work/opentalamh.ie/opentalamh.ie/_pipeline/first-map/outputs
