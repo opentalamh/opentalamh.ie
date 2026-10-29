@@ -11,9 +11,13 @@ on:
     inputs:
       counties:
         description: "Counties to build, space-separated"
-        default: "Louth Dublin"
+        default: "Dublin"
 
 name: Build first map
+
+concurrency:
+  group: build-map-${{ github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: write
@@ -36,11 +40,12 @@ jobs:
         run: mkdir -p outputs && python tools/discover_sources.py | tee outputs/source_discovery.txt
       - name: Run the pipeline against the live sources
         continue-on-error: true
+        timeout-minutes: 60
         env:
-          COUNTIES: ${{ inputs.counties || 'Louth Dublin' }}
+          COUNTIES: ${{ inputs.counties || 'Dublin' }}
         run: |
           for c in $COUNTIES; do
-            python run_pilot.py --county "$c" --refresh 2>&1 | tee "outputs/run_log_${c,,}.txt"
+            python -u run_pilot.py --county "$c" --refresh 2>&1 | tee "outputs/run_log_${c,,}.txt"
           done
       - name: Describe the raw downloads
         continue-on-error: true

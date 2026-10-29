@@ -7,7 +7,10 @@ import json
 
 import pandas as pd
 
-from wotl import build, sources
+from wotl import build, config, sources
+
+# The first fixtures are Louth records.
+config.set_county("Louth")
 
 OSM = {"elements": [
     {"type": "node", "id": 1, "lat": 54.0, "lon": -6.4,
@@ -166,3 +169,13 @@ def test_name_leads_combine_seed_patrons_and_operators(dublin):
     assert {"Archdiocese of Dublin", "Archbishop Of Dublin", "Test Parish"} <= set(leads["name"])
     assert "Archdiocese of Armagh" not in set(leads["name"])
     assert leads.loc[leads["name"] == "Archbishop Of Dublin", "count"].iloc[0] == 3
+
+
+def test_industrial_schools_reference_list(dublin):
+    s = sources.load_industrial_schools()
+    assert "Artane Industrial School" in set(s["name"])
+    assert "Marlborough House" not in set(s["name"])  # State-run
+    assert s["raw_use"].str.contains("now: St David's CBS").any()
+    config.set_county("Louth")
+    louth = sources.load_industrial_schools()
+    assert list(louth["source_id"]) == ["Dundalk"] and louth["lat"].notna().all()

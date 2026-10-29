@@ -1,6 +1,25 @@
+# Industrial schools
+
+`industrial_schools.csv` is the national reference list of the institutions
+the Ryan Report investigated, taken from Industrial Memories' list of
+institutions (https://industrialmemories.ucd.ie/ryan-report/report/institutions),
+plus Passage West from its Transfer Graph 7 and other Dublin industrial
+schools from Wikipedia's list. One row per institution: its order, town and
+county, its Ryan Report pages, and what is known about the site today
+(`current_occupier`, `sale_or_transfer`, `sale_date`, `sale_price`), each with
+the source it came from. Blank means not yet researched or not found.
+Every county run picks up its own rows; `church_run = no` rows (Marlborough
+House, run by the State) are kept but not mapped.
+
+The orders that ran these schools (Christian Brothers, Rosminians, Brothers of
+Charity, Presentation Brothers, Oblates of Mary Immaculate, Sisters of Mercy,
+Sisters of Charity, Dominican Sisters, Daughters of the Cross) are in
+`entities.csv` for every county.
+
 # History seed list
 
-`history_sites.csv` holds institutions named in official reports, one row each.
+`history_sites.csv` holds other institutions named in official reports
+(Magdalene laundries, mother and baby homes), one row each.
 Only add what a report or peer-reviewed work states, with its reference.
 
 - **Ryan Report:** browse by institution on [Industrial Memories](https://industrialmemories.ucd.ie/).

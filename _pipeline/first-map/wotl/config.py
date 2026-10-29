@@ -164,4 +164,4 @@ RPS_RELEVANT_USES = [
     r"laundry", r"school", r"college", r"hospital", r"hall", r"graveyard", r"cemetery",
 ]
 
-set_county(os.environ.get("WOTL_COUNTY", "Louth"))
+set_county(os.environ.get("WOTL_COUNTY", "Dublin"))

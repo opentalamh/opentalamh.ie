@@ -153,7 +153,7 @@ def _overpass(query):
     for url in config.OVERPASS_MIRRORS:
         for attempt in range(2):
             try:
-                return _get(url, data={"data": query}).content
+                return _get(url, data={"data": query}, timeout=330).content
             except Exception as e:
                 errors.append(f"{url}: {e}")
                 time.sleep(30 * (attempt + 1))
@@ -338,15 +338,19 @@ def _arcgis_layer_geojson(url):
     base = re.sub(r"/query.*$", "", url.split("?")[0].rstrip("/"))
     if re.search(r"/(Feature|Map)Server$", base):
         base += "/0"
-    features, offset = [], 0
-    while True:
+    features, offset, seen = [], 0, set()
+    for _ in range(100):  # 100,000 features at most; a guard against servers that ignore offsets
         page = _get(f"{base}/query", params={
             "where": "1=1", "outFields": "*", "outSR": 4326, "f": "geojson",
             "resultOffset": offset, "resultRecordCount": 1000,
-        }).json()
+        }, timeout=120).json()
         batch = page.get("features", [])
+        first = json.dumps(batch[0], sort_keys=True) if batch else None
+        if first in seen:
+            break
+        seen.add(first)
         features.extend(batch)
-        if len(batch) < 1000:
+        if len(batch) < 1000 and not page.get("properties", {}).get("exceededTransferLimit"):
             break
         offset += len(batch)
     return json.dumps({"type": "FeatureCollection", "features": features}).encode()
@@ -643,6 +647,43 @@ def load_history_sites():
         "source_url": h["source_url"],
         "raw_use": h["operator"].astype(str),
         "anchor": h["anchor"] if "anchor" in h else "",
+    }, columns=SITE_COLUMNS + ["anchor"])
+
+
+def load_industrial_schools():
+    """Industrial and residential schools from the Ryan Report, for every county.
+
+    data/seed/industrial_schools.csv is the national reference list: each
+    school's order, location, Ryan Report pages, and what is known of who
+    occupies the site now and any sale or transfer. State-run institutions
+    (church_run = no) stay in the file but are left off the map.
+    """
+    path = config.SEED_DIR / "industrial_schools.csv"
+    if not path.exists():
+        return _empty()
+    s = pd.read_csv(path, dtype=str).fillna("")
+    s = s[s["county"].str.fullmatch(config.COUNTY, case=False) & (s["church_run"] != "no")]
+
+    def detail(r):
+        parts = [r["order"] or "order to confirm", r["type"], f"{r['opened']}–{r['closed']}".strip("–")]
+        if r["current_occupier"]:
+            parts.append(f"now: {r['current_occupier']}")
+        if r["sale_or_transfer"]:
+            parts.append(f"sale/transfer: {r['sale_or_transfer']}")
+        return " · ".join(p for p in parts if p)
+
+    return pd.DataFrame({
+        "source": "Industrial schools (Ryan Report)",
+        "source_id": s["ryan_report_name"].where(s["ryan_report_name"] != "", s["institution"]),
+        "name": s["institution"],
+        "category": s["type"].where(s["type"] != "", "industrial school"),
+        "denomination": "catholic",
+        "lat": pd.to_numeric(s["lat"], errors="coerce"),
+        "lon": pd.to_numeric(s["lon"], errors="coerce"),
+        "address": s["town"],
+        "source_url": s["ryan_report_url"].where(s["ryan_report_url"] != "", "https://industrialmemories.ucd.ie/"),
+        "raw_use": s.apply(detail, axis=1),
+        "anchor": s["anchor"],
     }, columns=SITE_COLUMNS + ["anchor"])
 
 

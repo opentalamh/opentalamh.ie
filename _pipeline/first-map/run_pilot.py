@@ -1,7 +1,7 @@
 """Build the first-attempt map for one county from open data.
 
-    python run_pilot.py                     # Louth (or $WOTL_COUNTY), cached downloads
-    python run_pilot.py --county Dublin     # another county from config.COUNTIES
+    python run_pilot.py                     # Dublin (or $WOTL_COUNTY), cached downloads
+    python run_pilot.py --county Louth      # another county from config.COUNTIES
     python run_pilot.py --refresh           # downloads everything again
 
 Outputs go to outputs/: the map (HTML), every point, the merged candidate
@@ -10,6 +10,7 @@ Land Registry search, and a seed list of Catholic-sounding charity names.
 """
 
 import argparse
+import time
 import warnings
 
 import pandas as pd
@@ -17,27 +18,43 @@ import pandas as pd
 from wotl import build, config, names, sources
 
 
+def _timed(label, fetch, refresh):
+    """Run one fetcher and log how long it took, so a slow source shows in the log."""
+    start = time.time()
+    print(f"[{time.strftime('%H:%M:%S')}] {label}...", flush=True)
+    out = fetch(refresh)
+    print(f"[{time.strftime('%H:%M:%S')}] {label}: {len(out)} rows in {time.time() - start:.0f}s", flush=True)
+    return out
+
+
 def run(refresh=False):
     config.OUT_DIR.mkdir(parents=True, exist_ok=True)
     county = config.COUNTY.lower()
-    frames = {
-        "OpenStreetMap": sources.fetch_osm(refresh),
-        "NIAH": sources.fetch_niah(refresh),
-        "Protected structures": sources.fetch_rps(refresh),
-        "School lists": sources.fetch_schools(refresh),
-        "Valuation list": sources.fetch_valuation(refresh),
+    fetchers = {
+        "OpenStreetMap": sources.fetch_osm,
+        "NIAH": sources.fetch_niah,
+        "Protected structures": sources.fetch_rps,
+        "School lists": sources.fetch_schools,
+        "Valuation list": sources.fetch_valuation,
     }
     if not config.RPS_DATASETS:
-        del frames["Protected structures"]
+        del fetchers["Protected structures"]
     if not config.VALUATION_LOCAL_AUTHORITIES:
-        del frames["Valuation list"]
+        del fetchers["Valuation list"]
+    frames = {label: _timed(label, fetch, refresh) for label, fetch in fetchers.items()}
     found = [v for v in frames.values() if not v.empty]
     points = pd.concat(found, ignore_index=True) if found else sources._empty()
 
-    history, unplaced = sources.place_history_sites(sources.load_history_sites(), points)
-    frames["History seed list"] = history
-    if not history.empty:
-        points = pd.concat([points, history], ignore_index=True)
+    unplaced = []
+    for label, seed in (("Industrial schools (Ryan Report)", sources.load_industrial_schools()),
+                        ("History seed list", sources.load_history_sites())):
+        placed, missing = sources.place_history_sites(seed, points)
+        frames[label] = placed
+        unplaced.append(missing)
+    for label in ("Industrial schools (Ryan Report)", "History seed list"):
+        if not frames[label].empty:
+            points = pd.concat([points, frames[label]], ignore_index=True)
+    unplaced = pd.concat(unplaced, ignore_index=True)
     unplaced.to_csv(config.OUT_DIR / f"{county}_unplaced_history.csv", index=False)
 
     summary = pd.DataFrame(
@@ -51,7 +68,7 @@ def run(refresh=False):
     sites.to_csv(config.OUT_DIR / f"{county}_candidate_sites.csv", index=False)
     build.draw_map(points, sites, config.OUT_DIR / f"{county}_first_map.html")
 
-    charities = sources.fetch_charity_names(refresh)
+    charities = _timed("Charities register", sources.fetch_charity_names, refresh)
     if not charities.empty:
         charities.to_csv(config.OUT_DIR / "charity_name_leads.csv", index=False)
     leads = names.name_leads(frames["School lists"], frames["OpenStreetMap"], charities)
