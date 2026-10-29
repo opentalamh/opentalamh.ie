@@ -26,7 +26,7 @@ The Catholic Church is not one legal owner. Open Talamh defines the entities it 
 | Health and care | Voluntary hospital companies, congregational holding companies | HSE Section 38 list, CRO |
 | Lay Catholic bodies | Companies, trusts | CRO, Charities Regulator |
 
-Each parcel is assigned one **ownership tier**:
+Each parcel is assigned one ownership tier:
 
 - Legal title: A Catholic entity or trustee is the registered owner on a folio.
 - Beneficial interest: Title is held by individuals or a company in trust for a Catholic entity.
