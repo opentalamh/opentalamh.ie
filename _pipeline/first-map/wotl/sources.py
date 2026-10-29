@@ -274,7 +274,12 @@ def _to_wgs84(x, y):
     x, y = pd.to_numeric(pd.Series(x), errors="coerce"), pd.to_numeric(pd.Series(y), errors="coerce")
     if x.dropna().abs().median() > 1000:
         from pyproj import Transformer
-        crs = "EPSG:2157" if x.dropna().median() > 400000 else "EPSG:29902"
+        # Web Mercator northings in Ireland are around 7 million; ITM eastings
+        # are above 400,000 and Irish Grid eastings below.
+        if y.dropna().median() > 1_500_000:
+            crs = "EPSG:3857"
+        else:
+            crs = "EPSG:2157" if x.dropna().median() > 400000 else "EPSG:29902"
         t = Transformer.from_crs(crs, "EPSG:4326", always_xy=True)
         lon, lat = t.transform(x.values, y.values)
         return pd.Series(lon), pd.Series(lat)

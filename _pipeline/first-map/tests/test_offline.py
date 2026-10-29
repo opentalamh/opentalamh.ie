@@ -195,3 +195,10 @@ def test_rps_frame_repairs_irish_grid_published_as_itm():
                         "geometry": {"type": "Point", "coordinates": [-11.833421, 48.835184]}}]}
     df = sources._rps_frame("geojson", json.dumps(gj).encode())
     assert build._metres(df["_lat"].iloc[0], df["_lon"].iloc[0], 53.381044, -6.217571) < 10
+
+
+def test_rps_frame_reads_web_mercator():
+    gj = {"features": [{"properties": {"Name": "Test"},
+                        "geometry": {"type": "Point", "coordinates": [-692110.0, 7050980.0]}}]}
+    df = sources._rps_frame("geojson", json.dumps(gj).encode())
+    assert 53.3 < df["_lat"].iloc[0] < 53.4 and -6.3 < df["_lon"].iloc[0] < -6.1

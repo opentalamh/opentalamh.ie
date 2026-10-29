@@ -44,6 +44,13 @@ def run(refresh=False):
     frames = {label: _timed(label, fetch, refresh) for label, fetch in fetchers.items()}
     found = [v for v in frames.values() if not v.empty]
     points = pd.concat(found, ignore_index=True) if found else sources._empty()
+    # An area name can also match a place abroad (there is a Fingal in Tasmania).
+    south, west, north, east = config.BBOX
+    inside = points["lat"].astype(float).between(south, north) & points["lon"].astype(float).between(west, east)
+    if (~inside).any():
+        print(f"Dropped {int((~inside).sum())} points outside the county's bounding box: "
+              f"{points.loc[~inside, 'source'].value_counts().to_dict()}", flush=True)
+    points = points[inside].reset_index(drop=True)
 
     unplaced = []
     for label, seed in (("Industrial schools (Ryan Report)", sources.load_industrial_schools()),

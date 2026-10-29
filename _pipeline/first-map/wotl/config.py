@@ -31,6 +31,9 @@ COUNTIES = {
         "rps_datasets": {},
         "merge_radius_m": 100,
         "site_prefix": "LO",
+        # (south, west, north, east): points outside are dropped, since an
+        # area name can also match a place abroad.
+        "bbox": (53.70, -6.75, 54.15, -6.00),
     },
     "Dublin": {
         "osm_areas": [
@@ -53,6 +56,7 @@ COUNTIES = {
         # Dense city streets: a smaller radius stops neighbouring sites chaining together.
         "merge_radius_m": 50,
         "site_prefix": "DU",
+        "bbox": (53.15, -6.55, 53.65, -5.95),
     },
 }
 
@@ -62,7 +66,7 @@ COUNTY = None  # set by set_county() at the bottom of this file
 def set_county(name):
     """Point every county-specific setting at one entry of COUNTIES."""
     global COUNTY, OSM_AREA_NAMES, NIAH_COUNTY_TERMS, COUNTY_PATTERN
-    global VALUATION_LOCAL_AUTHORITIES, RPS_DATASETS, MERGE_RADIUS_M, SITE_PREFIX
+    global VALUATION_LOCAL_AUTHORITIES, RPS_DATASETS, MERGE_RADIUS_M, SITE_PREFIX, BBOX
     key = next((k for k in COUNTIES if k.lower() == name.strip().lower()), None)
     if key is None:
         raise ValueError(f"unknown county {name!r}; add it to COUNTIES (have {', '.join(COUNTIES)})")
@@ -75,6 +79,7 @@ def set_county(name):
     RPS_DATASETS = c["rps_datasets"]
     MERGE_RADIUS_M = c["merge_radius_m"]
     SITE_PREFIX = c["site_prefix"]
+    BBOX = c["bbox"]
     return COUNTY
 
 
