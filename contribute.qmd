@@ -56,10 +56,10 @@ Send whatever you have, with files attached, to [opentalamh@proton.me](mailto:op
 **Please do not send personal data about private individuals.** That means no names, addresses, phone numbers, photos of people, or details of anyone's health, family or finances. If a document names a private person, cover or blank out their details before you send it. Open Talamh maps organisations, not people.
 :::
 
-- **What we keep.** We keep what you send (text, files and locations) so we can check it against public records. Your name and email are optional. We only use them to contact you about your submission and, if you ask, to credit you.
-- **Where it's stored.** Emails go to the project inbox ([Proton Mail](https://proton.me)). Submissions through the online form are stored by our form provider ([Tally](https://tally.so)) and forwarded to the same inbox. They are not published as they are. Only checked facts about organisations go on the map.
-- **How long.** We keep submissions for as long as they are needed to check and source the map, and delete personal details we don't need.
-- **Your rights.** You can ask to see, correct or delete anything you've sent, or have something removed from the site, by emailing [opentalamh@proton.me](mailto:opentalamh@proton.me).
+- We keep what you send (text, files and locations) so we can check it against public records. Your name and email are optional. We only use them to contact you about your submission and, if you ask, to credit you.
+- Emails go to the project inbox ([Proton Mail](https://proton.me)). Submissions through the online form are stored by our form provider ([Tally](https://tally.so)) and forwarded to the same inbox. They are not published as they are. Only checked facts about organisations go on the map.
+- We keep submissions for as long as they are needed to check and source the map, and delete personal details we don't need.
+- You can ask to see, correct or delete anything you've sent, or have something removed from the site, by emailing [opentalamh@proton.me](mailto:opentalamh@proton.me).
 
 ## For developers and data people
 
