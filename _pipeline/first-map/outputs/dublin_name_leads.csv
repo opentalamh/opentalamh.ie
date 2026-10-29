@@ -1,0 +1,69 @@
+name,entity_class,found_in,count,note,status
+Archdiocese of Dublin,diocese,entity list; OpenStreetMap operator tag,5,search also: Archbishop of Dublin; Catholic Archdiocese of Dublin; Ard-Deoise Bhaile Átha Cliath All of County Dublin lies in the archdiocese. The Archbishop is patron of most Catholic primary schools in Dublin.,lead: confirm legal name on Charities Register / CRO
+Parishes of the Archdiocese of Dublin,parish,entity list,,search also: Parish of <name>; named clerical trustees Parish property is often held by named trustees rather than a body; search each parish and its trustees.,lead: build the parish list from the diocesan directory
+Religious Sisters of Charity,congregation,entity list; Dept of Education school lists; OpenStreetMap operator tag,5,search also: Sisters of Charity; Irish Sisters of Charity Founded in Dublin. Ran St Vincent's Hospital and the Donnybrook Magdalene laundry.,lead: confirm legal name on Charities Register / CRO
+Sisters of Mercy,congregation,entity list,,search also: Congregation of the Sisters of Mercy; Mercy Sisters Founded in Dublin (Baggot Street). Ran Goldenbridge and the Dún Laoghaire laundry in Dublin and St Joseph's in Dundalk.,lead: confirm legal name on Charities Register / CRO
+Sisters of Our Lady of Charity,congregation,entity list,,search also: Our Lady of Charity of Refuge; OLC Sisters Ran the High Park and Sean McDermott Street laundries.,lead: confirm legal name on Charities Register / CRO
+Congregation of Christian Brothers,congregation,entity list,,search also: Christian Brothers; Irish Christian Brothers Ran Artane and Carriglea Park. School property largely passed to the Edmund Rice Schools Trust.,lead: confirm legal name on Charities Register / CRO
+Daughters of Charity of St Vincent de Paul,congregation,entity list,,search also: Daughters of Charity Ran St Patrick's on the Navan Road for the Dublin health authority; disability services in Dublin.,lead: confirm legal name on Charities Register / CRO
+Congregation of the Holy Spirit,congregation,entity list,,search also: Holy Ghost Fathers; Spiritans; Des Places Educational Association Blackrock College; St Mary's College Rathmines; Templeogue College.,lead: confirm legal name on Charities Register / CRO
+Society of Jesus,congregation,entity list,,search also: Jesuits; Irish Jesuit Province Belvedere College; Gonzaga College; Milltown Park.,lead: confirm legal name on Charities Register / CRO
+Congregation of the Mission,congregation,entity list,,search also: Vincentians; Vincentian Fathers Castleknock College; St Paul's College Raheny.,lead: confirm legal name on Charities Register / CRO
+Loreto Sisters,congregation,entity list,,search also: Institute of the Blessed Virgin Mary; IBVM; Loreto Education Trust Loreto schools across Dublin; Loreto Abbey Rathfarnham.,lead: confirm legal name on Charities Register / CRO
+Holy Faith Sisters,congregation,entity list; OpenStreetMap operator tag,1,search also: Congregation of the Sisters of the Holy Faith Founded in Dublin; Glasnevin; schools in the north city.,lead: confirm legal name on Charities Register / CRO
+Dominican Sisters,congregation,entity list,,search also: Dominican Sisters Cabra Cabra (St Mary's School for Deaf Girls); Sion Hill.,lead: confirm legal name on Charities Register / CRO
+Carmelites,congregation,entity list,,search also: Order of Carmelites; Irish Province of Carmelites Terenure College; Whitefriar Street.,lead: confirm legal name on Charities Register / CRO
+Capuchin Franciscans,congregation,entity list,,search also: Irish Capuchin Province; Capuchins Church Street friary.,lead: confirm legal name on Charities Register / CRO
+De La Salle Brothers,congregation,entity list,,search also: Brothers of the Christian Schools De La Salle schools in Dublin.,lead: confirm legal name on Charities Register / CRO
+Legion of Mary,lay body,entity list,,search also: Concilium Legionis Mariae Ran the Regina Coeli hostel on North Brunswick Street.,lead: confirm legal name on Charities Register / CRO
+Edmund Rice Schools Trust,school trust,entity list; Dept of Education school lists; OpenStreetMap operator tag,23,search also: ERST Trustee of former Christian Brothers schools since 2008.,lead: confirm legal name on Charities Register / CRO
+CEIST,school trust,entity list; Dept of Education school lists,10,search also: Catholic Education an Irish Schools Trust Trustee of voluntary secondary schools from several congregations.,lead: confirm legal name on Charities Register / CRO
+Le Chéile Schools Trust,school trust,entity list; Dept of Education school lists,25,search also: Le Cheile Trustee of voluntary secondary schools from several congregations.,lead: confirm legal name on Charities Register / CRO
+Rosminians,congregation,entity list,,search also: Institute of Charity; Rosminian Fathers Ran Upton (Cork) and Ferryhouse (Clonmel) industrial schools (Ryan Report).,lead: confirm legal name on Charities Register / CRO
+Brothers of Charity,congregation,entity list,,"search also: Brothers of Charity Services Ireland Ran Lota, Glanmire (Ryan Report); large disability services.",lead: confirm legal name on Charities Register / CRO
+Presentation Brothers,congregation,entity list,,"search also: Congregation of Presentation Brothers Ran Greenmount industrial school, Cork (Ryan Report).",lead: confirm legal name on Charities Register / CRO
+Oblates of Mary Immaculate,congregation,entity list,,"search also: Missionary Oblates of Mary Immaculate; Oblate Fathers Ran St Conleth's reformatory, Daingean (Ryan Report); Inchicore church.",lead: confirm legal name on Charities Register / CRO
+Daughters of the Cross of Liège,congregation,entity list,,"search also: Congregation of the Daughters of the Cross of Liège Ran Mary Immaculate, Stillorgan (Ryan Report).",lead: confirm legal name on Charities Register / CRO
+Archbishop Of Dublin,school patron,Dept of Education school lists; OpenStreetMap operator tag,334,schools in the county with this patron; the patron is not always the landowner,lead
+An Foras Pátrúnachta,school patron,Dept of Education school lists; OpenStreetMap operator tag,9,schools in the county with this patron; the patron is not always the landowner,lead
+Loreto Education Trust,school patron,Dept of Education school lists,7,schools in the county with this patron; the patron is not always the landowner,lead
+The Spiritan Education Trust,school patron,Dept of Education school lists,5,schools in the county with this patron; the patron is not always the landowner,lead
+Minister For Education & Skills,school patron,Dept of Education school lists,3,schools in the county with this patron; the patron is not always the landowner,lead
+Congregation Of The Missions (Vincentians),school patron,Dept of Education school lists,2,schools in the county with this patron; the patron is not always the landowner,lead
+Marist Brothers (Province Of West Central Europe),school patron,Dept of Education school lists,2,schools in the county with this patron; the patron is not always the landowner,lead
+Society Of Jesus (Jesuits),school patron,Dept of Education school lists; OpenStreetMap operator tag,2,schools in the county with this patron; the patron is not always the landowner,lead
+Marist Education Authority,school patron,Dept of Education school lists,2,schools in the county with this patron; the patron is not always the landowner,lead
+Erst,school patron,Dept of Education school lists,1,schools in the county with this patron; the patron is not always the landowner,lead
+Mount Anville Sacred Heart Education Trust,school patron,Dept of Education school lists,1,schools in the county with this patron; the patron is not always the landowner,lead
+Famed Company Limited By Guarantee,school patron,Dept of Education school lists,1,schools in the county with this patron; the patron is not always the landowner,lead
+Handmaids Of The Sacred Heart,school patron,Dept of Education school lists,1,schools in the county with this patron; the patron is not always the landowner,lead
+Carmelite Order (Irish Province),school patron,Dept of Education school lists,1,schools in the county with this patron; the patron is not always the landowner,lead
+St Conleth'S Ltd,school patron,Dept of Education school lists,1,schools in the county with this patron; the patron is not always the landowner,lead
+Teresian Association Ireland,school patron,Dept of Education school lists,1,schools in the county with this patron; the patron is not always the landowner,lead
+Famed,school patron,Dept of Education school lists,1,schools in the county with this patron; the patron is not always the landowner,lead
+Le Chéile Schools Trust  Religious Sisters Of Charity,school patron,Dept of Education school lists,1,schools in the county with this patron; the patron is not always the landowner,lead
+City Of Dublin Etb,school patron,Dept of Education school lists,1,schools in the county with this patron; the patron is not always the landowner,lead
+Minister For Education,school patron,Dept of Education school lists,1,schools in the county with this patron; the patron is not always the landowner,lead
+Edmund Rice Schools Trust Company Limited by Guarantee,operator,OpenStreetMap operator tag,5,volunteer-entered; often the parish or order that runs the site,lead
+Diocese of Dublin,operator,OpenStreetMap operator tag,5,volunteer-entered; often the parish or order that runs the site,lead
+Le Chéile Schools Trust Company Limited by Guarantee,operator,OpenStreetMap operator tag,4,volunteer-entered; often the parish or order that runs the site,lead
+Fingal County Council,operator,OpenStreetMap operator tag,3,volunteer-entered; often the parish or order that runs the site,lead
+CEIST Company Limited by Guarantee,operator,OpenStreetMap operator tag,3,volunteer-entered; often the parish or order that runs the site,lead
+Sisters of Loreto,operator,OpenStreetMap operator tag,2,volunteer-entered; often the parish or order that runs the site,lead
+Marist Sisters,operator,OpenStreetMap operator tag,2,volunteer-entered; often the parish or order that runs the site,lead
+Sisters of Charity,operator,OpenStreetMap operator tag,2,volunteer-entered; often the parish or order that runs the site,lead
+Catholic Church,operator,OpenStreetMap operator tag,1,volunteer-entered; often the parish or order that runs the site,lead
+UCD Chaplaincy,operator,OpenStreetMap operator tag,1,volunteer-entered; often the parish or order that runs the site,lead
+Congregation of Dominican Sisters,operator,OpenStreetMap operator tag,1,volunteer-entered; often the parish or order that runs the site,lead
+Spiritan Education Trust,operator,OpenStreetMap operator tag,1,volunteer-entered; often the parish or order that runs the site,lead
+Dublin and Dún Laoghaire Education and Training Board,operator,OpenStreetMap operator tag,1,volunteer-entered; often the parish or order that runs the site,lead
+Redeemed Christian Church of God,operator,OpenStreetMap operator tag,1,volunteer-entered; often the parish or order that runs the site,lead
+Pious Disciples of the Divine Master Sisters,operator,OpenStreetMap operator tag,1,volunteer-entered; often the parish or order that runs the site,lead
+Institute of the Blessed Virgin Mary,operator,OpenStreetMap operator tag,1,volunteer-entered; often the parish or order that runs the site,lead
+St. Martin apostolate,operator,OpenStreetMap operator tag,1,volunteer-entered; often the parish or order that runs the site,lead
+Rush NS Board of Management,operator,OpenStreetMap operator tag,1,volunteer-entered; often the parish or order that runs the site,lead
+CEIST / Board of Management,operator,OpenStreetMap operator tag,1,volunteer-entered; often the parish or order that runs the site,lead
+Little Sisters of the Poor,operator,OpenStreetMap operator tag,1,volunteer-entered; often the parish or order that runs the site,lead
+Department of Education and Skills,operator,OpenStreetMap operator tag,1,volunteer-entered; often the parish or order that runs the site,lead
+Foras Patrúnachta,operator,OpenStreetMap operator tag,1,volunteer-entered; often the parish or order that runs the site,lead
+Betania Limited,operator,OpenStreetMap operator tag,1,volunteer-entered; often the parish or order that runs the site,lead
