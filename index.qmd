@@ -9,6 +9,10 @@ listing:
 
 Open Talamh is an open, evidence-graded map of who owns land in Ireland, and every parcel links back to its source.
 
-That is a big question, and this project can't answer all of it yet. For now, the focus is on one owner: how much land the Catholic Church in Ireland, through its dioceses, orders, trusts and other bodies, owns today or has owned in the past. State bodies and other owners may follow.
+That is a big question, and this project can't answer all of it (yet). For now, the focus is on the Catholic Church in Ireland, and how much land, through its dioceses, orders, trusts and other bodies, it owns today or has owned in the past.
 
-New here? Start with the [reading list](reading.qmd): the reports, journalism and research that inspired this project, in particular Fintan O'Toole's [*We Don't Know Ourselves*](https://en.wikipedia.org/wiki/We_Don%27t_Know_Ourselves), The Journal and Noteworthy's [Holy Land](https://www.thejournal.ie/holy-land-5847757-Aug2022/) investigation, and [Sarah Roddy](https://www.cambridge.org/core/books/money-and-irish-catholicism/introduction/0D3D384691DBB1416DFC9F947857FDAA)'s work at Maynooth on money and Irish Catholicism.
+The "open" in Open Talamh is intentional. This is meant to be a collective effort that brings together journalists, historians and members of the public who want to help. See [Contribute](contribute.qmd) for how to take part.
+
+New here? Start with the [reading list](reading.qmd): the reports, journalism and research that inspired this project, in particular The Journal and Noteworthy's [Holy Land](https://www.thejournal.ie/holy-land-5847757-Aug2022/) investigation, and [Sarah Roddy's work at Maynooth on money and Irish Catholicism](https://www.cambridge.org/core/books/money-and-irish-catholicism/introduction/0D3D384691DBB1416DFC9F947857FDAA).
+
+And while it doesn't address land directly, Fintan O'Toole's [*We Don't Know Ourselves*](https://en.wikipedia.org/wiki/We_Don%27t_Know_Ourselves) is the book I return to whenever I want to understand this country I love.
