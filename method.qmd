@@ -49,12 +49,12 @@ The first Louth map is built entirely from open data, so every point on it is cu
 
 The ground truth is the Land Registry folio: a mapped parcel with a named registered owner. About 93% of the State's land area is registered. A Names Index search returns every folio registered to one exact name in one county, so the unit of work is *name × county*, not parcel.
 
-1. **Build the name list.** Collect the legal name of every diocese, parish, congregation, trust and school body, with every variant (prefixes such as "Trustees of", Irish-language forms, abbreviations, former names). Keep extending it until a full round of checking new folios produces no new names. The list is published with a version number.
-2. **Search the Names Index (name × county).** Every search is logged, including those that return nothing. Each folio returned is pulled for its owner, burdens and location.
-3. **Work back from known sites.** Every church, convent, school and institution is looked up on the free Land Registry map to find its folio. Any site whose owner isn't on the name list reveals a missing name. The share of known sites already found in step 2 measures how complete the search is.
-4. **Check unregistered land.** For land with no folio, the Registry of Deeds is searched by townland and by grantor and grantee name. These results get a lower grade.
-5. **Grade every parcel** using the A to E scale above.
-6. **Validate.** A random sample is double-checked by a second researcher, totals are benchmarked against published figures (such as the 2009 panel valuations and RTÉ's 800-property Christian Brothers portfolio), and each major entity is sent its list of parcels for a right of reply before publication.
+1. Collect the legal name of every diocese, parish, congregation, trust and school body, with every variant (prefixes such as "Trustees of", Irish-language forms, abbreviations, former names). Keep extending it until a full round of checking new folios produces no new names. The list is published with a version number.
+2. Every search is logged, including those that return nothing. Each folio returned is pulled for its owner, burdens and location.
+3. Every church, convent, school and institution is looked up on the free Land Registry map to find its folio. Any site whose owner isn't on the name list reveals a missing name. The share of known sites already found in step 2 measures how complete the search is.
+4. For land with no folio, the Registry of Deeds is searched by townland and by grantor and grantee name. These results get a lower grade.
+5. using the A to E scale above.
+6. A random sample is double-checked by a second researcher, totals are benchmarked against published figures (such as the 2009 panel valuations and RTÉ's 800-property Christian Brothers portfolio), and each major entity is sent its list of parcels for a right of reply before publication.
 
 ### Known blind spots
 
