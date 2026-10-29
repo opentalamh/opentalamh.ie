@@ -281,6 +281,38 @@ def _to_wgs84(x, y):
     return x, y
 
 
+def _in_ireland(lon, lat):
+    return lat.between(51.3, 55.5) & lon.between(-10.8, -5.3)
+
+
+def _repair_irish_grid_as_itm(lon, lat):
+    """Fix points published as Irish Grid numbers mislabelled as ITM.
+
+    Dublin City Council's RPS GeoJSON puts its points off south-west of
+    Ireland: the Irish Grid (EPSG:29902) eastings and northings were
+    converted as if they were ITM. Undoing that conversion and reading the
+    numbers as Irish Grid puts them back within a few metres. Points already
+    in Ireland are left alone.
+    """
+    from pyproj import Transformer
+    lon, lat = pd.Series(lon, dtype=float).reset_index(drop=True), pd.Series(lat, dtype=float).reset_index(drop=True)
+    bad = ~_in_ireland(lon, lat) & lon.notna() & lat.notna()
+    if not bad.any():
+        return lon, lat
+    to_itm = Transformer.from_crs("EPSG:4326", "EPSG:2157", always_xy=True)
+    from_ig = Transformer.from_crs("EPSG:29902", "EPSG:4326", always_xy=True)
+    x, y = to_itm.transform(lon[bad].values, lat[bad].values)
+    fixed_lon, fixed_lat = from_ig.transform(x, y)
+    fixed_lon, fixed_lat = pd.Series(fixed_lon, index=lon[bad].index), pd.Series(fixed_lat, index=lat[bad].index)
+    ok = _in_ireland(fixed_lon, fixed_lat)
+    lon.loc[ok[ok].index], lat.loc[ok[ok].index] = fixed_lon[ok], fixed_lat[ok]
+    still = bad.sum() - ok.sum()
+    if still:
+        warnings.warn(f"{still} protected-structure points lie outside Ireland and were left off the map")
+        lon.loc[~_in_ireland(lon, lat)], lat.loc[~_in_ireland(lon, lat)] = None, None
+    return lon, lat
+
+
 def parse_rps(df, label, source_url):
     """Protected structures whose name or description reads as a Catholic site.
 
@@ -392,7 +424,7 @@ def _rps_frame(fmt, content):
         feats = json.loads(text).get("features", [])
         df = pd.DataFrame([f.get("properties") or {} for f in feats])
         centres = [_geometry_centre(f.get("geometry")) for f in feats]
-        df["_lon"], df["_lat"] = _to_wgs84([c[0] for c in centres], [c[1] for c in centres])
+        df["_lon"], df["_lat"] = _repair_irish_grid_as_itm(*_to_wgs84([c[0] for c in centres], [c[1] for c in centres]))
         return df
     df = _read_table(content, "CSV")
     lat, lon = _find_col(df, r"^lat", r"latitude"), _find_col(df, r"^lon", r"^long", r"longitude")

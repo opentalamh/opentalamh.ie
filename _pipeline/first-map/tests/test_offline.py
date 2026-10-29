@@ -187,3 +187,11 @@ def test_rps_frame_reads_cp1252_geojson():
                         "geometry": {"type": "Point", "coordinates": [-6.26, 53.35]}}]}
     df = sources._rps_frame("geojson", json.dumps(gj, ensure_ascii=False).encode("cp1252"))
     assert df["Name"].iloc[0] == "Church of St François"
+
+
+def test_rps_frame_repairs_irish_grid_published_as_itm():
+    # St David's CBS, Artane, as Dublin City Council's GeoJSON gives it.
+    gj = {"features": [{"properties": {"Name": "Test"},
+                        "geometry": {"type": "Point", "coordinates": [-11.833421, 48.835184]}}]}
+    df = sources._rps_frame("geojson", json.dumps(gj).encode())
+    assert build._metres(df["_lat"].iloc[0], df["_lon"].iloc[0], 53.381044, -6.217571) < 10
