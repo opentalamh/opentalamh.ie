@@ -8,7 +8,7 @@ I care about this because I have two young children who will grow up in this cou
 
 A lot of excellent journalism and research has been published on this (see the [reading list](reading.qmd)). What's missing is a living map that the public can use, add to and argue over, and that keeps track of what is owned, bought and sold.
 
-The Catholic Church is still one of the biggest landowners in Ireland. Its influence on Irish life has waned, but land still brings money and power. Its holdings are spread across dioceses, parishes, orders, trusts, companies and named individuals, which makes the whole picture hard to see and responsibility easy to avoid. Open Talamh sets out to make that picture visible, starting with the Church.
+The Catholic Church is still one of the biggest landowners in Ireland. Its influence on Irish life has waned, but land still brings money and power. Its holdings are spread across dioceses, parishes, orders, trusts, companies and named individuals, which makes the whole picture hard to see and responsibility easy to avoid. Open Talamh sets out to make that picture visible.
 
 The "open" in Open Talamh is deliberate. This is meant to be a community effort, something journalists, historians, local researchers and anyone curious can use and [contribute to](contribute.qmd). The data, code and [method](method.qmd) are all public.
 
