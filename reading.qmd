@@ -38,6 +38,7 @@ The background reading behind Open Talamh. If you know of something that belongs
 
 | Source | Why it matters |
 |---|---|
+| Fintan O'Toole, [*We Don't Know Ourselves: A Personal History of Ireland Since 1958*](https://en.wikipedia.org/wiki/We_Don%27t_Know_Ourselves) (Head of Zeus, 2021) | A history of modern Ireland, including the Church's hold on its institutions. |
 | Sarah Roddy, [*Money and Irish Catholicism*](https://www.cambridge.org/core/books/money-and-irish-catholicism/introduction/0D3D384691DBB1416DFC9F947857FDAA) (Cambridge University Press) | How the Church acquired its property. |
 | Sarah Roddy and Patrick Doyle, ["The Catholic Church and investor capitalism in late-nineteenth century Ireland"](https://doi.org/10.1080/09670882.2024.2308330), *Irish Studies Review* 32(1), 2024 | How the Church invested its money. |
 | Kevin Cahill, [*Who Owns Ireland: The Hidden Truth of Land Ownership in Ireland*](https://catalogue.nli.ie/Record/vtls000848546) (History Press Ireland, 2017) | The only national land-ownership survey. |

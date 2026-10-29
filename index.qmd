@@ -7,6 +7,8 @@ listing:
   categories: true
 ---
 
-Open Talamh is an open, evidence-graded map of who owns land in Ireland. We start with the Catholic Church and State bodies, and every parcel links back to its source.
+Open Talamh is an open, evidence-graded map of who owns land in Ireland, and every parcel links back to its source.
 
-New here? Start with the [reading list](reading.qmd): the reports, journalism and research behind the project.
+That is a big question, and this project can't answer all of it yet. For now, the focus is on one owner: how much land the Catholic Church in Ireland, through its dioceses, orders, trusts and other bodies, owns today or has owned in the past. State bodies and other owners may follow.
+
+New here? Start with the [reading list](reading.qmd): the reports, journalism and research that inspired this project, in particular Fintan O'Toole's [*We Don't Know Ourselves*](https://en.wikipedia.org/wiki/We_Don%27t_Know_Ourselves), The Journal and Noteworthy's [Holy Land](https://www.thejournal.ie/holy-land-5847757-Aug2022/) investigation, and [Sarah Roddy](https://www.cambridge.org/core/books/money-and-irish-catholicism/introduction/0D3D384691DBB1416DFC9F947857FDAA)'s work at Maynooth on money and Irish Catholicism.
