@@ -52,3 +52,6 @@ b'{\n"type": "FeatureCollection",\n"name": "Development_Plan_2023_2029_RPS_Recor
 
 == rps_record-of-protected-structures-south-dublin-county-development-plan-2022-to-2028-sdcc1.data (170,822 bytes)
 b'{\n"type": "FeatureCollection",\n"name": "Record_of_Protected_Structures_South_Dublin_County_Development_Plan_2022_to_2028",\n"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },\n"features": [\n{ "type": "Feature", "properties": { "FID": 1, "RPS_NUMBER": "038", "RPS_Sub_No": "038-08", "AddressLoc": "8 The Mall, Main Street, Lucan", "Descriptio": "Two Storey House Terrace", "GlobalID": "7e59ca8a-2775-4896-982b-bb55e47f4488", "Sheet": "Map 01" }, "geometry": { "type": '
+
+== rps_record-protected-structures-dcc.data (2,838,337 bytes)
+b'{\n"type": "FeatureCollection",\n"name": "251218-rps-master-2022-2028_for-gis.",\n"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },\n"features": [\n{ "type": "Feature", "properties": { "RPS_ID": "1", "STREET_NUMBER": "07-Aug", "Post Code": "Dublin 1", "Address Full": "Abbey Street Lower, Dublin 1", "DESCRIPTION": "Veritas House", "SECONDARY_DESCRIPTION": "" }, "geometry": { "type": "Point", "coordinates": [ -11.866673323964923, 48.801117002494038 ] } },\n{ "type": "'

@@ -1,13 +1,13 @@
-[22:04:06] OpenStreetMap...
-[22:06:40] OpenStreetMap: 871 rows in 154s
-[22:06:40] NIAH...
-[22:06:47] NIAH: 426 rows in 7s
-[22:06:47] Protected structures...
-[22:06:54] Protected structures: 254 rows in 7s
-[22:06:54] School lists...
-[22:06:56] School lists: 440 rows in 2s
-[22:10:07] Charities register...
-[22:10:08] Charities register: 0 rows in 1s
+[22:15:03] OpenStreetMap...
+[22:18:10] OpenStreetMap: 871 rows in 187s
+[22:18:10] NIAH...
+[22:18:19] NIAH: 426 rows in 9s
+[22:18:19] Protected structures...
+[22:18:28] Protected structures: 254 rows in 9s
+[22:18:28] School lists...
+[22:18:29] School lists: 440 rows in 1s
+[22:21:33] Charities register...
+[22:21:35] Charities register: 0 rows in 1s
 County Dublin
 
                           source  points  with_coordinates
@@ -16,18 +16,14 @@ County Dublin
             Protected structures     254               254
                     School lists     440               440
 Industrial schools (Ryan Report)       2                 2
-               History seed list       0                 0
+               History seed list       1                 1
  Charities register (names only)       0                 0
 
-1063 candidate sites; 388 found by 2+ sources.
+1063 candidate sites; 389 found by 2+ sources.
 Largest site groups {'DU-0184': 10, 'DU-0334': 9, 'DU-0328': 8} (merge radius 50 m).
 98 unmarked points dropped as sitting on another denomination's church.
-16 history sites not yet placed; 68 name leads.
-WARNING: Protected structures Dublin City Council skipped: no usable resource in dublin-city-record-of-protected-structures: ['HTML']
-WARNING: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
-WARNING: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
-WARNING: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
-WARNING: This pattern is interpreted as a regular expression, and has match groups. To actually get the groups, use str.extract.
+15 history sites not yet placed; 68 name leads.
+WARNING: Protected structures Dublin City Council skipped: 'utf-8' codec can't decode byte 0xe7 in position 5903: invalid continuation byte
 WARNING: Charities register skipped: 403 Client Error: Forbidden for url: https://www.charitiesregulator.ie/media/aqgpvsac/20261026-public-register-of-charities.xlsx
 
 Outputs in /home/runner/work/opentalamh.ie/opentalamh.ie/_pipeline/first-map/outputs
