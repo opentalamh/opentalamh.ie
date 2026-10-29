@@ -64,7 +64,7 @@ The ground truth is the Land Registry folio: a mapped parcel with a named regist
 
 ## Data sources
 
-Location data is plentiful and open. Ownership data is closed and paid. The project's work is the bridge between them.
+Location data is plentiful and open, while ownership data is closed and paid. So the work of this project is to bridge the two data sources.
 
 | Source | What it gives | Shows ownership? | Access |
 |---|---|---|---|
