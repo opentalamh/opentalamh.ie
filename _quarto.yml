@@ -10,8 +10,6 @@ website:
   site-url: "https://opentalamh.ie"
   navbar:
     left:
-      - href: index.qmd
-        text: Home
       - href: map.qmd
         text: Map
       - href: method.qmd
