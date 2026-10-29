@@ -44,7 +44,8 @@ COUNTIES = {
         # lists are far larger. Add the authority names here to try anyway.
         "valuation_authorities": [],
         "rps_datasets": {
-            "Dublin City Council": "dublin-city-record-of-protected-structures",
+            # The older "dublin-city-record-of-protected-structures" entry links only to a web page.
+            "Dublin City Council": "record-protected-structures-dcc",
             "Fingal County Council": "development-plan-2023-2029-rps-record-of-protected-structures-fcc2",
             "South Dublin County Council": "record-of-protected-structures-south-dublin-county-development-plan-2022-to-2028-sdcc1",
             "Dún Laoghaire-Rathdown County Council": "development-plan-2022-2028-protected-structures-dlr",

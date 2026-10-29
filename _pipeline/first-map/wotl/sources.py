@@ -703,7 +703,9 @@ def place_history_sites(history, points, max_spread_m=250):
     for i, row in h.iterrows():
         if pd.notna(row["lat"]) or not isinstance(row.get("anchor"), str) or not row["anchor"].strip():
             continue
-        hits = named[named["name"].str.contains(row["anchor"], case=False, regex=True, na=False)]
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore", UserWarning)  # anchors may use groups; only the match matters
+            hits = named[named["name"].str.contains(row["anchor"], case=False, regex=True, na=False)]
         if hits.empty:
             continue
         lat, lon = hits["lat"].astype(float), hits["lon"].astype(float)
