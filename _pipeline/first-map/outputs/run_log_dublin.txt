@@ -1,13 +1,13 @@
-[22:26:14] OpenStreetMap...
-[22:29:08] OpenStreetMap: 871 rows in 174s
-[22:29:08] NIAH...
-[22:29:13] NIAH: 426 rows in 5s
-[22:29:13] Protected structures...
-[22:29:24] Protected structures: 608 rows in 11s
-[22:29:24] School lists...
-[22:29:26] School lists: 440 rows in 2s
-[22:33:08] Charities register...
-[22:33:08] Charities register: 0 rows in 1s
+[22:38:43] OpenStreetMap...
+[22:41:21] OpenStreetMap: 871 rows in 158s
+[22:41:21] NIAH...
+[22:41:28] NIAH: 426 rows in 7s
+[22:41:28] Protected structures...
+[22:41:37] Protected structures: 608 rows in 9s
+[22:41:37] School lists...
+[22:41:38] School lists: 440 rows in 1s
+[22:44:36] Charities register...
+[22:44:37] Charities register: 0 rows in 1s
 County Dublin
 
                           source  points  with_coordinates
@@ -15,14 +15,14 @@ County Dublin
                             NIAH     426               426
             Protected structures     608               608
                     School lists     440               440
-Industrial schools (Ryan Report)       1                 1
+Industrial schools (Ryan Report)       2                 2
                History seed list       3                 3
  Charities register (names only)       0                 0
 
-1274 candidate sites; 391 found by 2+ sources.
-Largest site groups {'DU-0856': 43, 'DU-0184': 10, 'DU-0334': 9} (merge radius 50 m).
-98 unmarked points dropped as sitting on another denomination's church.
-14 history sites not yet placed; 68 name leads.
+1169 candidate sites; 430 found by 2+ sources.
+Largest site groups {'DU-0814': 16, 'DU-0184': 14, 'DU-0439': 13} (merge radius 50 m).
+147 unmarked points dropped as sitting on another denomination's church.
+13 history sites not yet placed; 68 name leads.
 WARNING: Charities register skipped: 403 Client Error: Forbidden for url: https://www.charitiesregulator.ie/media/aqgpvsac/20261026-public-register-of-charities.xlsx
 
 Outputs in /home/runner/work/opentalamh.ie/opentalamh.ie/_pipeline/first-map/outputs
