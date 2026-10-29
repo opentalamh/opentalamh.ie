@@ -179,3 +179,11 @@ def test_industrial_schools_reference_list(dublin):
     config.set_county("Louth")
     louth = sources.load_industrial_schools()
     assert list(louth["source_id"]) == ["Dundalk"] and louth["lat"].notna().all()
+
+
+
+def test_rps_frame_reads_cp1252_geojson():
+    gj = {"features": [{"properties": {"Name": "Church of St François"},
+                        "geometry": {"type": "Point", "coordinates": [-6.26, 53.35]}}]}
+    df = sources._rps_frame("geojson", json.dumps(gj, ensure_ascii=False).encode("cp1252"))
+    assert df["Name"].iloc[0] == "Church of St François"

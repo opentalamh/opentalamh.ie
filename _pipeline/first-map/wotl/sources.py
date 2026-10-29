@@ -384,7 +384,12 @@ def _rps_download(dataset_id):
 
 def _rps_frame(fmt, content):
     if fmt == "geojson":
-        feats = json.loads(content).get("features", [])
+        # Some council exports are Windows-1252 rather than UTF-8.
+        try:
+            text = content.decode("utf-8")
+        except UnicodeDecodeError:
+            text = content.decode("cp1252", errors="replace")
+        feats = json.loads(text).get("features", [])
         df = pd.DataFrame([f.get("properties") or {} for f in feats])
         centres = [_geometry_centre(f.get("geometry")) for f in feats]
         df["_lon"], df["_lat"] = _to_wgs84([c[0] for c in centres], [c[1] for c in centres])
