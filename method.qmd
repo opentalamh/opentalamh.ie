@@ -28,10 +28,10 @@ The Catholic Church is not one legal owner. Open Talamh defines the entities it 
 
 Each parcel is assigned one **ownership tier**:
 
-1. **Legal title.** A Catholic entity or trustee is the registered owner on a folio.
-2. **Beneficial interest.** Title is held by individuals or a company in trust for a Catholic entity.
-3. **Control without title.** For example, patronage of a school on State-owned land, or a long lease.
-4. **Former holding.** Sold, transferred to the State, or handed over under redress agreements since 2002.
+- Legal title: A Catholic entity or trustee is the registered owner on a folio.
+- Beneficial interest: Title is held by individuals or a company in trust for a Catholic entity.
+- Control without title: For example, patronage of a school on State-owned land, or a long lease.
+- Former holding: Sold, transferred to the State, or handed over under redress agreements since 2002.
 
 ## Confidence grades
 
@@ -53,7 +53,7 @@ The ground truth is the Land Registry folio: a mapped parcel with a named regist
 2. Every search is logged, including those that return nothing. Each folio returned is pulled for its owner, burdens and location.
 3. Every church, convent, school and institution is looked up on the free Land Registry map to find its folio. Any site whose owner isn't on the name list reveals a missing name. The share of known sites already found in step 2 measures how complete the search is.
 4. For land with no folio, the Registry of Deeds is searched by townland and by grantor and grantee name. These results get a lower grade.
-5. using the A to E scale above.
+5. Every parcel is graded using the A to E scale above.
 6. A random sample is double-checked by a second researcher, totals are benchmarked against published figures (such as the 2009 panel valuations and RTÉ's 800-property Christian Brothers portfolio), and each major entity is sent its list of parcels for a right of reply before publication.
 
 ### Known blind spots
