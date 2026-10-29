@@ -1,29 +1,28 @@
-[22:15:03] OpenStreetMap...
-[22:18:10] OpenStreetMap: 871 rows in 187s
-[22:18:10] NIAH...
-[22:18:19] NIAH: 426 rows in 9s
-[22:18:19] Protected structures...
-[22:18:28] Protected structures: 254 rows in 9s
-[22:18:28] School lists...
-[22:18:29] School lists: 440 rows in 1s
-[22:21:33] Charities register...
-[22:21:35] Charities register: 0 rows in 1s
+[22:26:14] OpenStreetMap...
+[22:29:08] OpenStreetMap: 871 rows in 174s
+[22:29:08] NIAH...
+[22:29:13] NIAH: 426 rows in 5s
+[22:29:13] Protected structures...
+[22:29:24] Protected structures: 608 rows in 11s
+[22:29:24] School lists...
+[22:29:26] School lists: 440 rows in 2s
+[22:33:08] Charities register...
+[22:33:08] Charities register: 0 rows in 1s
 County Dublin
 
                           source  points  with_coordinates
                    OpenStreetMap     871               871
                             NIAH     426               426
-            Protected structures     254               254
+            Protected structures     608               608
                     School lists     440               440
-Industrial schools (Ryan Report)       2                 2
-               History seed list       1                 1
+Industrial schools (Ryan Report)       1                 1
+               History seed list       3                 3
  Charities register (names only)       0                 0
 
-1063 candidate sites; 389 found by 2+ sources.
-Largest site groups {'DU-0184': 10, 'DU-0334': 9, 'DU-0328': 8} (merge radius 50 m).
+1274 candidate sites; 391 found by 2+ sources.
+Largest site groups {'DU-0856': 43, 'DU-0184': 10, 'DU-0334': 9} (merge radius 50 m).
 98 unmarked points dropped as sitting on another denomination's church.
-15 history sites not yet placed; 68 name leads.
-WARNING: Protected structures Dublin City Council skipped: 'utf-8' codec can't decode byte 0xe7 in position 5903: invalid continuation byte
+14 history sites not yet placed; 68 name leads.
 WARNING: Charities register skipped: 403 Client Error: Forbidden for url: https://www.charitiesregulator.ie/media/aqgpvsac/20261026-public-register-of-charities.xlsx
 
 Outputs in /home/runner/work/opentalamh.ie/opentalamh.ie/_pipeline/first-map/outputs

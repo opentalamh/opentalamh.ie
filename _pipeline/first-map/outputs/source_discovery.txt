@@ -388,7 +388,7 @@ status 403, 5,696 bytes, text/html; charset=UTF-8
 status 406, 156 bytes, text/html
 
 ### https://overpass-api.de/api/status
-status 502, 534 bytes, text/plain
+status 200, 213 bytes, text/plain; charset=utf-8
 
 ### https://overpass.kumi.systems/api/status
 failed: HTTPSConnectionPool(host='overpass.kumi.systems', port=443): Read timed out. (read timeout=90)
