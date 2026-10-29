@@ -52,6 +52,21 @@ data.gov.ie. Then run `python run_pilot.py --county <Name>`.
 The pipeline runs on GitHub Actions (`.github/workflows/build-map.yml` in the
 website repo runs every county and commits the outputs and maps).
 
+### Dublin (first live run 29 October 2026)
+
+| Source | Result for Dublin |
+| --- | --- |
+| OpenStreetMap (Overpass) | 871 points across the four local authorities. Two "Fingal" and "Dublin" areas abroad are dropped by the county's bounding box. |
+| NIAH | 426 records kept (churches, convents, presbyteries, Catholic-marked schools). |
+| Records of Protected Structures | 608 records from the four councils. Dublin City's GeoJSON gives Irish Grid numbers mislabelled as ITM, and South Dublin's is in Web Mercator; both are repaired on read. |
+| Dept of Education school lists | 440 Catholic-ethos schools with coordinates. |
+| Industrial schools and history seed list | Artane, Goldenbridge and three Magdalene laundries placed by name on matching records; 13 institutions not yet placed (see `dublin_unplaced_history.csv`). |
+| Charities register | Still refused (403). |
+
+Result: 1,126 candidate sites, 446 of them found by two or more sources, after
+dropping 158 unmarked points that sit on another denomination's church.
+Every point is a grade D lead: location only, ownership not checked.
+
 ### Louth (first live run 28 October 2026)
 
 | Source | Result for Louth |
