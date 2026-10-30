@@ -23,8 +23,29 @@ The Catholic Church is not one legal owner. Open Talamh defines the entities it 
 | Dioceses (26) and parishes | Diocesan trusts, named clerical trustees | Charities Regulator, diocesan directories |
 | Religious congregations and orders | Trustee bodies, companies limited by guarantee, named trustees | Charities Regulator, CRO, AMRI membership |
 | Schools | Patron trustees, boards of management, congregational trusts (e.g. Edmund Rice Schools Trust) | Department of Education school lists, patron bodies |
-| Health and care | Voluntary hospital companies, congregational holding companies | HSE Section 38 list, CRO |
-| Lay Catholic bodies | Companies, trusts | CRO, Charities Regulator |
+| Health and care | Voluntary hospital companies, congregational holding companies | HSE Section 38 list, HIQA registers of designated centres, CRO |
+| Lay Catholic bodies and diocesan agencies | Companies, trusts | CRO, Charities Regulator |
+
+### The inclusion test
+
+A body is included when it is **part of, or legally controlled by, a Catholic diocese, parish, religious order or lay Catholic association**. Being founded by a priest or a nun, having a Catholic ethos, or meeting in a parish hall is not enough. Every body on the entity list must be backed by a document showing that link, such as a charity registration, a company filing or a diocesan directory.
+
+Included, for example:
+
+- Dioceses, parishes and their trusts, including parish halls and parish centres held by parish trustees.
+- Religious orders and congregations, and the companies and trusts that hold their property.
+- Lay Catholic associations, such as the Society of St Vincent de Paul, the Pioneer Total Abstinence Association, the Legion of Mary and the Knights of Columbanus.
+- Diocesan agencies, such as Crosscare and Accord.
+- Nursing homes, hospitals, disability services and colleges, **only where the registered provider or owner is an order, a diocese or a company they control**. Where an order has handed a hospital or college to an independent company or the State, the site is recorded as a former holding.
+
+Not included as entities:
+
+- Scouting Ireland, the GAA, Comhaltas Ceoltóirí Éireann, Lions Clubs and the Simon Community, which have no formal Church link.
+- Approved housing bodies, even those founded by religious (such as Respond, Focus Ireland and the Peter McVerry Trust), which are independent. A convent an order sold or gave to one is recorded as a former holding of the order.
+- School boards of management, which do not own land. The school's patron or trustees are tracked instead.
+- Community halls run by committees.
+
+Land these groups use can still be Church land. A GAA pitch or a Scout den on parish land appears on the map under the parish's folio, because the folio search is on the owner's name, not the user's.
 
 Each parcel is assigned one ownership tier:
 
