@@ -1,0 +1,22 @@
+---
+title: "Charities for religion"
+description: "How many of Ireland's registered charities exist to advance religion, from the Charities Regulator's public register."
+page-layout: full
+---
+
+The Charities Regulator's register lists every charity in Ireland with the charitable purposes it registered under. This graphic puts all of them on one page and picks out those registered for the advancement of religion. Hover or tap a dot to read the charity's own statement of its objects.
+
+<iframe id="charities-religion" src="charities/religion.html" title="Registered charities in Ireland by charitable purpose" width="100%" height="1400" style="border:0;display:block" loading="lazy"></iframe>
+
+<script>
+(() => {
+  const f = document.getElementById('charities-religion');
+  const fit = () => { try { f.style.height = Math.ceil(f.contentDocument.body.getBoundingClientRect().height) + 'px'; } catch (e) {} };
+  f.addEventListener('load', () => {
+    fit();
+    try { new ResizeObserver(fit).observe(f.contentDocument.body); } catch (e) {}
+  });
+})();
+</script>
+
+The data and the build script are in [the repository](https://github.com/opentalamh/opentalamh.ie/tree/main/charities/build). Spotted something wrong? See [Contribute](contribute.qmd#corrections).

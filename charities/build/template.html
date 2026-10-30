@@ -1,0 +1,401 @@
+<title>Charities for Religion</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a field of 11,454 dots (one per charity) clustered around the 15 statutory purposes; a ledger of purposes beside it. */
+:root {
+  --bg: #f6f7f4;
+  --panel: #ffffff;
+  --ink: #161a17;
+  --ink-2: #4d544f;
+  --ink-3: #7b827d;
+  --rule: #dfe3dd;
+  --dot: #b9c0ba;
+  --dot-dim: #d9ddd8;
+  --accent: #d95a25;
+  --accent-soft: #f6dccf;
+  --link: #2a5fa8;
+  --halo: rgba(246,247,244,.92);
+  --display: "Fraunces", Georgia, "Times New Roman", serif;
+  --body: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #141715; --panel: #1c201d; --ink: #eef0ec; --ink-2: #b9bfb9; --ink-3: #8a918b; --rule: #2e3430;
+  --dot: #5a625c; --dot-dim: #343a36; --accent: #ef7440; --accent-soft: #4a2a1c; --link: #8db4ea; --halo: rgba(20,23,21,.9);
+  color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #141715; --panel: #1c201d; --ink: #eef0ec; --ink-2: #b9bfb9; --ink-3: #8a918b; --rule: #2e3430;
+  --dot: #5a625c; --dot-dim: #343a36; --accent: #ef7440; --accent-soft: #4a2a1c; --link: #8db4ea; --halo: rgba(20,23,21,.9);
+  color-scheme: dark; }
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.5; }
+.wrap { max-width: 1240px; margin: 0 auto; padding-block: 28px 40px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.eyebrow { font: 500 12px/1.2 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; }
+h1 { font: 650 clamp(26px, 4vw, 40px)/1.12 var(--display); margin: 0 0 12px; text-wrap: balance; max-width: 22ch; }
+.lede { font-size: 17px; color: var(--ink-2); max-width: 64ch; margin: 0 0 22px; }
+.lede b { color: var(--ink); font-weight: 600; }
+.lede .hl { color: var(--accent); font-weight: 600; }
+.grid { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 20px; align-items: start; }
+@media (max-width: 900px) { .grid { grid-template-columns: minmax(0, 1fr); } }
+.stage { position: relative; background: var(--panel); border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; touch-action: none; }
+canvas { display: block; width: 100%; aspect-ratio: 1 / 0.86; cursor: grab; }
+canvas.dragging { cursor: grabbing; }
+.zoom { position: absolute; right: 10px; top: 10px; display: flex; flex-direction: column; gap: 4px; }
+.zoom button { width: 32px; height: 32px; border: 1px solid var(--rule); background: var(--panel); color: var(--ink); border-radius: 4px; font: 500 16px/1 var(--mono); cursor: pointer; }
+.zoom button:focus-visible, .purpose:focus-visible, input:focus-visible, .result:focus-visible { outline: 2px solid var(--link); outline-offset: 1px; }
+.key { position: absolute; left: 12px; bottom: 10px; display: flex; gap: 14px; flex-wrap: wrap; font: 400 12px/1.3 var(--mono); color: var(--ink-2); background: var(--halo); padding: 6px 8px; border-radius: 4px; }
+.key span { display: inline-flex; align-items: center; gap: 6px; }
+.sw { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+.hint { font: 400 12px/1.4 var(--mono); color: var(--ink-3); margin: 8px 2px 0; }
+@media (max-width: 600px) { canvas { aspect-ratio: 1 / 1; } }
+.tip { position: absolute; z-index: 5; width: min(340px, calc(100% - 24px)); background: var(--panel); border: 1px solid var(--rule); border-radius: 6px; padding: 12px 14px; box-shadow: 0 6px 24px rgba(0,0,0,.14); pointer-events: none; font-size: 13px; }
+.tip.pinned { pointer-events: auto; }
+.tip h3 { font: 600 15px/1.3 var(--body); margin: 0 0 4px; padding-right: 18px; }
+.tip .meta { font: 400 11.5px/1.4 var(--mono); color: var(--ink-3); margin-bottom: 8px; }
+.tip .tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 8px; }
+.tag { font-size: 11.5px; padding: 1px 7px; border-radius: 10px; border: 1px solid var(--rule); color: var(--ink-2); }
+.tag.on { background: var(--accent-soft); border-color: var(--accent); color: var(--ink); }
+.tip .obj { color: var(--ink-2); margin: 0; }
+.tip .lbl { font: 500 10.5px/1 var(--mono); letter-spacing: .07em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 4px; }
+.tip .x { position: absolute; right: 8px; top: 6px; border: 0; background: none; color: var(--ink-3); font-size: 18px; cursor: pointer; display: none; }
+.tip.pinned .x { display: block; }
+aside { background: var(--panel); border: 1px solid var(--rule); border-radius: 6px; padding: 14px 14px 10px; min-width: 0; }
+aside h2 { font: 500 11.5px/1.2 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 8px; }
+.search { position: relative; margin-bottom: 14px; }
+.search input { width: 100%; padding: 8px 10px; border: 1px solid var(--rule); border-radius: 4px; background: var(--bg); color: var(--ink); font: 400 14px var(--body); }
+.results { position: absolute; left: 0; right: 0; top: 100%; z-index: 6; background: var(--panel); border: 1px solid var(--rule); border-radius: 0 0 4px 4px; max-height: 260px; overflow: auto; }
+.result { display: block; width: 100%; text-align: left; border: 0; background: none; color: var(--ink); padding: 7px 10px; font: 400 13px/1.3 var(--body); cursor: pointer; }
+.result:hover { background: var(--bg); }
+.result small { color: var(--ink-3); font-family: var(--mono); }
+.purposes { display: flex; flex-direction: column; gap: 2px; }
+.purpose { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 8px; text-align: left; border: 0; border-radius: 4px; background: none; color: var(--ink); padding: 6px 8px; cursor: pointer; font: 400 13.5px/1.3 var(--body); }
+.purpose:hover { background: var(--bg); }
+.purpose.sel { background: var(--accent-soft); }
+.purpose .n { font: 500 12.5px/1.3 var(--mono); color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.purpose .bar { grid-column: 1 / -1; height: 4px; background: var(--dot-dim); border-radius: 2px; overflow: hidden; }
+.purpose .bar i { display: block; height: 100%; background: var(--dot); border-radius: 2px; }
+.purpose.sel .bar i { background: var(--accent); }
+.notes { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px 28px; margin-top: 26px; font-size: 14px; color: var(--ink-2); }
+.notes h3 { font: 600 15px/1.3 var(--display); color: var(--ink); margin: 0 0 4px; }
+.notes p { margin: 0; max-width: 62ch; }
+.source { margin-top: 22px; padding-top: 12px; border-top: 1px solid var(--rule); font: 400 12px/1.5 var(--mono); color: var(--ink-3); }
+.source a { color: var(--link); }
+table.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+</style>
+
+<div class="wrap">
+  <p class="eyebrow">Open Talamh · Charities register</p>
+  <h1>How many Irish charities exist to advance religion?</h1>
+  <p class="lede" id="lede"></p>
+
+  <div class="grid">
+    <div style="min-width:0">
+    <div class="stage" id="stage">
+      <canvas id="cv" role="img" aria-label="Each registered charity in Ireland drawn as a dot, grouped by its charitable purposes."></canvas>
+      <div class="zoom">
+        <button id="zin" aria-label="Zoom in">+</button>
+        <button id="zout" aria-label="Zoom out">−</button>
+        <button id="zreset" aria-label="Reset view">⟲</button>
+      </div>
+      <div class="key" id="key"></div>
+      <div class="tip" id="tip" hidden></div>
+    </div>
+    <p class="hint" id="hint">Hover or tap a dot to read the charity's objects · scroll, pinch or use + to zoom · drag to pan</p>
+    </div>
+    <aside>
+      <h2>Find a charity</h2>
+      <div class="search">
+        <input id="q" type="search" placeholder="e.g. Sisters of Mercy, parish, mosque" autocomplete="off" aria-label="Search charities by name">
+        <div class="results" id="results" hidden></div>
+      </div>
+      <h2>Charitable purpose</h2>
+      <div class="purposes" id="purposes"></div>
+    </aside>
+  </div>
+
+  <div class="notes">
+    <div>
+      <h3>How to read it</h3>
+      <p>Each dot is one registered charity. Charities with a single purpose sit in the outer clusters. Charities that list two or more purposes sit in the middle, pulled toward each purpose they list, so a dot between Religion and Relief of poverty lists both. Hover or tap a dot to see the charity's own statement of its objects.</p>
+    </div>
+    <div>
+      <h3>What about church schools?</h3>
+      <p id="schools"></p>
+    </div>
+    <div>
+      <h3>What this does not show</h3>
+      <p>Purposes are chosen by each charity when it registers, from the list in section 3 of the Charities Act 2009. Hospitals, care homes and housing bodies run by religious orders often register under health or community welfare, so a count of "advancement of religion" is a floor for church-linked charities, not a ceiling. It also says nothing about land or assets.</p>
+    </div>
+  </div>
+
+  <p class="source" id="source"></p>
+  <table class="sr" id="srtable"><caption>Registered charities by charitable purpose</caption><thead><tr><th>Purpose</th><th>Charities listing it</th><th>Listing only this purpose</th></tr></thead><tbody></tbody></table>
+</div>
+
+<script id="data" type="application/json">__DATA__</script>
+<script>
+(() => {
+  const D = JSON.parse(document.getElementById('data').textContent);
+  const S = D.stats, H = D.hubs, C = D.c;
+  const N = C.length;
+  const fmt = n => n.toLocaleString('en-IE');
+  const pct = (a, b) => (100 * a / b).toFixed(1) + '%';
+  const fmtDate = iso => new Date(iso + 'T12:00:00').toLocaleDateString('en-IE', { day: 'numeric', month: 'long', year: 'numeric' });
+  const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+  let sel = 0; // purpose index; 0 = Advancement of religion
+  let hover = -1, pinned = -1;
+
+  // ---- text ----
+  function setLede() {
+    const h = H[sel];
+    const only = h.single;
+    document.getElementById('lede').innerHTML = sel === 0
+      ? `<b>${fmt(h.n)}</b> of the ${fmt(S.registered)} charities on the register (<span class="hl">${pct(h.n, S.registered)}</span>) list the <b>advancement of religion</b> as a charitable purpose. For <b>${fmt(only)}</b> of them it is their only purpose.`
+      : `<b>${fmt(h.n)}</b> of the ${fmt(S.registered)} charities on the register (<span class="hl">${pct(h.n, S.registered)}</span>) list <b>${esc(h.full.charAt(0).toLowerCase() + h.full.slice(1))}</b>. ${fmt(only)} list no other purpose. <a href="#" id="back" style="color:var(--link)">Back to religion</a>`;
+    const b = document.getElementById('back');
+    if (b) b.onclick = e => { e.preventDefault(); select(0); };
+    document.getElementById('key').innerHTML =
+      `<span><i class="sw" style="background:var(--accent)"></i>${esc(h.short)} (${fmt(h.n)})</span><span><i class="sw" style="background:var(--dot)"></i>Other charities</span>`;
+  }
+  document.getElementById('schools').textContent =
+    `Schools register for the advancement of education. Of the ${fmt(S.school_boards)} school boards of management on the register, only ${fmt(S.school_boards_religion)} also list religion, even though most schools in Ireland have a church patron. That is why they sit in the large Education cluster and not in the Religion one. Across all charities, ${fmt(S.religion_and_education)} list both religion and education.`;
+  document.getElementById('source').innerHTML =
+    `Source: Charities Regulator, <a href="https://www.charitiesregulator.ie/en/information-for-the-public/search-the-register-of-charities" target="_blank" rel="noopener">Public Register of Charitable Organisations</a>, effective ${fmtDate(S.effective)}, downloaded ${fmtDate(S.downloaded)}. ` +
+    `Shows the ${fmt(S.shown)} charities with status "Registered" that list at least one purpose (${S.no_purpose} list none). ${fmt(S.rows_in_file - S.registered)} deregistered entries in the file are left out. ` +
+    `Information is supplied to the Regulator by the charities themselves; the Regulator does not vouch for its accuracy. Objects text is shortened to about 420 characters.`;
+
+  // ---- purpose list ----
+  const list = document.getElementById('purposes');
+  const sorted = H.slice().sort((a, b) => b.n - a.n);
+  const maxN = sorted[0].n;
+  sorted.forEach(h => {
+    const b = document.createElement('button');
+    b.className = 'purpose'; b.dataset.id = h.id; b.title = h.full;
+    b.innerHTML = `<span>${esc(h.short)}</span><span class="n">${fmt(h.n)}</span><span class="bar"><i style="width:${(100 * h.n / maxN).toFixed(1)}%"></i></span>`;
+    b.onclick = () => select(h.id);
+    list.appendChild(b);
+  });
+  const tb = document.querySelector('#srtable tbody');
+  sorted.forEach(h => { const tr = document.createElement('tr'); tr.innerHTML = `<td>${esc(h.full)}</td><td>${h.n}</td><td>${h.single}</td>`; tb.appendChild(tr); });
+  function select(id) {
+    sel = id;
+    list.querySelectorAll('.purpose').forEach(b => { const on = +b.dataset.id === id; b.classList.toggle('sel', on); b.setAttribute('aria-pressed', on); });
+    setLede(); draw();
+  }
+
+  // ---- geometry ----
+  let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+  for (const c of C) { minX = Math.min(minX, c[0]); maxX = Math.max(maxX, c[0]); minY = Math.min(minY, c[1]); maxY = Math.max(maxY, c[1]); }
+  for (const h of H) { minY = Math.min(minY, h.dy - h.dr - 20); }
+  const PAD = 26;
+  // purpose-combination groups, used for the faint network lines
+  const groups = new Map();
+  for (let i = 0; i < N; i++) {
+    const m = C[i][2]; if ((m & (m - 1)) === 0) continue;
+    const g = groups.get(m) || { m, n: 0, x: 0, y: 0 };
+    g.n++; g.x += C[i][0]; g.y += C[i][1]; groups.set(m, g);
+  }
+  const G = [...groups.values()].map(g => ({ m: g.m, n: g.n, x: g.x / g.n, y: g.y / g.n }));
+  // spatial grid for hit testing
+  const CELL = 8, grid = new Map();
+  const key = (gx, gy) => gx * 100003 + gy;
+  for (let i = 0; i < N; i++) {
+    const k = key(Math.floor(C[i][0] / CELL), Math.floor(C[i][1] / CELL));
+    (grid.get(k) || grid.set(k, []).get(k)).push(i);
+  }
+  function nearest(x, y, r) {
+    let best = -1, bd = r * r;
+    const gx0 = Math.floor((x - r) / CELL), gx1 = Math.floor((x + r) / CELL), gy0 = Math.floor((y - r) / CELL), gy1 = Math.floor((y + r) / CELL);
+    for (let gx = gx0; gx <= gx1; gx++) for (let gy = gy0; gy <= gy1; gy++) {
+      const a = grid.get(key(gx, gy)); if (!a) continue;
+      for (const i of a) { const dx = C[i][0] - x, dy = C[i][1] - y, d = dx * dx + dy * dy; if (d < bd) { bd = d; best = i; } }
+    }
+    return best;
+  }
+
+  // ---- canvas ----
+  const cv = document.getElementById('cv'), ctx = cv.getContext('2d'), stage = document.getElementById('stage');
+  let W = 0, Hh = 0, dpr = 1, base = 1, zoom = 1, panX = 0, panY = 0;
+  const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  let col = {};
+  function readColors() { col = { dot: css('--dot'), dim: css('--dot-dim'), acc: css('--accent'), ink: css('--ink'), ink2: css('--ink-2'), halo: css('--halo'), panel: css('--panel') }; }
+  function resize() {
+    const r = cv.getBoundingClientRect(); dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = r.width; Hh = r.height; cv.width = Math.round(W * dpr); cv.height = Math.round(Hh * dpr);
+    base = Math.min((W - 2 * PAD) / (maxX - minX), (Hh - 2 * PAD) / (maxY - minY));
+    draw();
+  }
+  const sx = x => (W / 2) + ((x - (minX + maxX) / 2) * base * zoom) + panX;
+  const sy = y => (Hh / 2) + ((y - (minY + maxY) / 2) * base * zoom) + panY;
+  const ix = X => (X - W / 2 - panX) / (base * zoom) + (minX + maxX) / 2;
+  const iy = Y => (Y - Hh / 2 - panY) / (base * zoom) + (minY + maxY) / 2;
+
+  function draw() {
+    if (!W) return;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.fillStyle = col.panel; ctx.fillRect(0, 0, W, Hh);
+    const bit = 1 << sel, k = base * zoom;
+    // network lines: each purpose combination to each purpose it includes
+    ctx.lineWidth = 1;
+    for (const g of G) {
+      if (g.n < 3) continue;
+      const on = g.m & bit;
+      ctx.strokeStyle = on ? col.acc : col.dot;
+      ctx.globalAlpha = on ? Math.min(0.5, 0.06 + g.n / 250) : Math.min(0.22, 0.03 + g.n / 600);
+      ctx.beginPath();
+      for (const h of H) if (g.m & (1 << h.id)) { ctx.moveTo(sx(g.x), sy(g.y)); ctx.lineTo(sx(h.dx), sy(h.dy)); }
+      ctx.stroke();
+    }
+    ctx.globalAlpha = 1;
+    const r = Math.max(0.9, Math.min(5, 1.75 * k));
+    // non-selected first, then selected on top
+    for (const pass of [0, 1]) {
+      ctx.fillStyle = pass ? col.acc : col.dot;
+      ctx.beginPath();
+      for (let i = 0; i < N; i++) {
+        const c = C[i]; if (((c[2] & bit) ? 1 : 0) !== pass) continue;
+        const X = sx(c[0]), Y = sy(c[1]);
+        if (X < -5 || Y < -5 || X > W + 5 || Y > Hh + 5) continue;
+        ctx.moveTo(X + r, Y); ctx.arc(X, Y, r, 0, 6.2832);
+      }
+      ctx.fill();
+    }
+    // focused charity: links to its purposes
+    const f = pinned >= 0 ? pinned : hover;
+    if (f >= 0) {
+      const c = C[f];
+      ctx.strokeStyle = col.ink; ctx.lineWidth = 1.25; ctx.globalAlpha = .7;
+      ctx.beginPath();
+      for (const h of H) if (c[2] & (1 << h.id)) { ctx.moveTo(sx(c[0]), sy(c[1])); ctx.lineTo(sx(h.dx), sy(h.dy)); }
+      ctx.stroke(); ctx.globalAlpha = 1;
+      ctx.beginPath(); ctx.arc(sx(c[0]), sy(c[1]), r + 3, 0, 6.2832); ctx.lineWidth = 2; ctx.strokeStyle = col.ink; ctx.stroke();
+    }
+    // labels
+    // selected purpose first, then largest; a label that would overlap one already drawn is skipped
+    ctx.textBaseline = 'middle'; ctx.lineJoin = 'round';
+    const placed = [], fam = css('--body');
+    const order = H.slice().sort((a, b) => (b.id === sel) - (a.id === sel) || b.n - a.n);
+    for (const h of order) {
+      const big = h.id === sel, fs = big ? 13 : 11.5;
+      ctx.font = `${big ? 600 : 500} ${fs}px ${fam}`;
+      const w = ctx.measureText(h.short).width;
+      let X, Y, align;
+      if (h.dr * k > 22) { X = sx(h.dx); Y = sy(h.dy) - h.dr * k - 9; align = 'center'; }
+      else {
+        const a = Math.atan2(h.dy, h.dx), rr = h.dr * k + 6;
+        X = sx(h.dx) + Math.cos(a) * rr; Y = sy(h.dy) + Math.sin(a) * rr;
+        align = Math.cos(a) > 0.35 ? 'left' : Math.cos(a) < -0.35 ? 'right' : 'center';
+        if (align === 'center') Y += Math.sign(Math.sin(a)) * 6;
+      }
+      const x0 = align === 'left' ? X : align === 'right' ? X - w : X - w / 2;
+      const box = [x0 - 2, Y - fs / 2 - 2, x0 + w + 2, Y + fs / 2 + 2];
+      if (box[0] < 2 || box[2] > W - 2 || box[1] < 2) { if (!big) continue; }
+      if (placed.some(b => box[0] < b[2] && box[2] > b[0] && box[1] < b[3] && box[3] > b[1])) continue;
+      placed.push(box);
+      ctx.textAlign = align; ctx.lineWidth = 4; ctx.strokeStyle = col.halo;
+      ctx.strokeText(h.short, X, Y); ctx.fillStyle = big ? col.ink : col.ink2; ctx.fillText(h.short, X, Y);
+    }
+  }
+
+  // ---- tooltip ----
+  const tip = document.getElementById('tip');
+  function showTip(i, pin) {
+    if (i < 0) { tip.hidden = true; tip.classList.remove('pinned'); return; }
+    const c = C[i];
+    const tags = H.filter(h => c[2] & (1 << h.id)).sort((a, b) => (b.id === sel) - (a.id === sel))
+      .map(h => `<span class="tag${h.id === sel ? ' on' : ''}">${esc(h.short)}</span>`).join('');
+    tip.innerHTML = `<button class="x" aria-label="Close">×</button><h3>${esc(c[3])}</h3>
+      <div class="meta">RCN ${esc(c[4])}${c[5] ? ' · ' + esc(c[5]) : ''}${c[6] ? '<br>' + esc(c[6]) : ''}</div>
+      <div class="tags">${tags}</div>
+      <p class="lbl">Charitable objects</p><p class="obj">${c[7] ? esc(c[7]) : '<i>None given</i>'}</p>`;
+    tip.hidden = false; tip.classList.toggle('pinned', !!pin);
+    tip.querySelector('.x').onclick = () => { pinned = -1; showTip(-1); draw(); };
+    const X = sx(c[0]), Y = sy(c[1]), tw = tip.offsetWidth, th = tip.offsetHeight;
+    let L = X + 14, T = Y + 14;
+    if (L + tw > W - 8) L = X - tw - 14;
+    if (L < 8) L = Math.max(8, (W - tw) / 2);
+    if (T + th > Hh - 8) T = Math.max(8, Y - th - 14);
+    tip.style.left = L + 'px'; tip.style.top = T + 'px';
+  }
+
+  // ---- interaction ----
+  const pts = new Map(); let drag = null, moved = false, pinch = null;
+  const local = e => { const r = cv.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; };
+  function zoomAt(f, X, Y) {
+    const nz = Math.max(1, Math.min(14, zoom * f)); f = nz / zoom;
+    panX = X - W / 2 - (X - W / 2 - panX) * f; panY = Y - Hh / 2 - (Y - Hh / 2 - panY) * f; zoom = nz;
+    if (zoom === 1) { panX = 0; panY = 0; }
+    if (pinned >= 0) showTip(pinned, true);
+    draw();
+  }
+  cv.addEventListener('wheel', e => { e.preventDefault(); const [X, Y] = local(e); zoomAt(Math.exp(-e.deltaY * 0.0015), X, Y); }, { passive: false });
+  cv.addEventListener('pointerdown', e => {
+    cv.setPointerCapture(e.pointerId); pts.set(e.pointerId, local(e)); moved = false;
+    if (pts.size === 1) drag = { p: local(e), px: panX, py: panY };
+    if (pts.size === 2) { const [a, b] = [...pts.values()]; pinch = { d: Math.hypot(a[0] - b[0], a[1] - b[1]), z: zoom }; drag = null; }
+  });
+  cv.addEventListener('pointermove', e => {
+    const p = local(e);
+    if (pts.has(e.pointerId)) pts.set(e.pointerId, p);
+    if (pinch && pts.size === 2) {
+      const [a, b] = [...pts.values()]; const d = Math.hypot(a[0] - b[0], a[1] - b[1]);
+      zoomAt((pinch.z * d / pinch.d) / zoom, (a[0] + b[0]) / 2, (a[1] + b[1]) / 2); moved = true; return;
+    }
+    if (drag) {
+      const dx = p[0] - drag.p[0], dy = p[1] - drag.p[1];
+      if (Math.abs(dx) + Math.abs(dy) > 4) moved = true;
+      if (moved && zoom > 1) { cv.classList.add('dragging'); panX = drag.px + dx; panY = drag.py + dy; if (pinned >= 0) showTip(pinned, true); draw(); }
+      return;
+    }
+    if (e.pointerType !== 'mouse' || pinned >= 0) return;
+    const i = nearest(ix(p[0]), iy(p[1]), 7 / (base * zoom));
+    if (i !== hover) { hover = i; showTip(i); draw(); }
+  });
+  const end = e => {
+    const p = local(e); pts.delete(e.pointerId); cv.classList.remove('dragging');
+    if (pts.size < 2) pinch = null;
+    if (drag && !moved) {
+      const i = nearest(ix(p[0]), iy(p[1]), (e.pointerType === 'mouse' ? 7 : 14) / (base * zoom));
+      pinned = i; hover = -1; showTip(i, i >= 0); draw();
+    }
+    drag = null;
+  };
+  cv.addEventListener('pointerup', end); cv.addEventListener('pointercancel', end);
+  cv.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse' && pinned < 0 && hover >= 0) { hover = -1; showTip(-1); draw(); } });
+  document.getElementById('zin').onclick = () => zoomAt(1.6, W / 2, Hh / 2);
+  document.getElementById('zout').onclick = () => zoomAt(1 / 1.6, W / 2, Hh / 2);
+  document.getElementById('zreset').onclick = () => { zoom = 1; panX = panY = 0; pinned = -1; showTip(-1); draw(); };
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && pinned >= 0) { pinned = -1; showTip(-1); draw(); } });
+
+  // ---- search ----
+  const q = document.getElementById('q'), res = document.getElementById('results');
+  const lower = C.map(c => c[3].toLowerCase());
+  q.addEventListener('input', () => {
+    const t = q.value.trim().toLowerCase();
+    if (t.length < 2) { res.hidden = true; return; }
+    const hits = []; for (let i = 0; i < N && hits.length < 12; i++) if (lower[i].includes(t)) hits.push(i);
+    res.innerHTML = hits.length ? hits.map(i => `<button class="result" data-i="${i}">${esc(C[i][3])}<br><small>${esc(C[i][5] || '')}</small></button>`).join('') : '<div class="result">No registered charity matches</div>';
+    res.hidden = false;
+    res.querySelectorAll('button.result').forEach(b => b.onclick = () => focusOn(+b.dataset.i));
+  });
+  function focusOn(i) {
+    res.hidden = true; q.value = C[i][3];
+    zoom = 5; panX = 0; panY = 0;
+    panX = W / 2 - sx(C[i][0]); panY = Hh / 2 - sy(C[i][1]);
+    pinned = i; hover = -1; draw(); showTip(i, true);
+    stage.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'nearest' });
+  }
+  document.addEventListener('click', e => { if (!e.target.closest('.search')) res.hidden = true; });
+
+  readColors();
+  new ResizeObserver(resize).observe(cv);
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { readColors(); draw(); });
+  new MutationObserver(() => { readColors(); draw(); }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  document.fonts && document.fonts.ready.then(draw);
+  select(0);
+})();
+</script>
