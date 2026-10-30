@@ -1,0 +1,10 @@
+title: Department of Education: June 2017 update on cash and property transfers from the congregations
+url: https://assets.gov.ie/static/documents/june-2017-update-on-cash-and-property-transfers-from-the-congregations.pdf
+retrieved: 2026-10-30
+sha256: cace0b17cc04f0e760507535e9e6248279a0205e0ebd0431acd08882944064c4
+format: pdf
+
+
+--- page 1 ---
+
+--- page 2 ---
