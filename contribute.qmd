@@ -15,13 +15,9 @@ Anything that helps show who owns or controls land, for example:
 - a place on the map you think we've missed, or got wrong
 - a tip about a parish, order, trust or State body
 
-## Send it to us
-
 Please read the [privacy and personal data notice](#privacy) below before you send anything.
 
 You can send a message and upload files through the form, or email us directly. Everything sent in is checked before it goes on the map and given a confidence grade (see [Method](method.qmd)). We'll credit you by name if you want, or keep you anonymous.
-
-### Use the form
 
 <div id="contribute-form" data-tally-id="{{< meta tally-id >}}">
 <p><a href="https://tally.so/r/Geejjj">Open the form in a new page</a> if it doesn't load here.</p>
@@ -43,8 +39,6 @@ You can send a message and upload files through the form, or email us directly. 
   document.body.appendChild(s);
 })();
 </script>
-
-### Or email us
 
 Send whatever you have, with files attached, to [opentalamh@proton.me](mailto:opentalamh@proton.me).
 
