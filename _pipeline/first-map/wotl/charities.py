@@ -13,6 +13,10 @@ So each charity gets a `catholic_match`:
 - `order or devotion`: the purpose includes religion and the text names a
   Catholic order or devotion (Jesuits, Presentation Sisters, Fatima...) without
   saying "Catholic". Most orders' registrations never use the word.
+- `named body`: the name is a known Catholic lay body, diocesan agency or an
+  order's service company (St Vincent de Paul, Pioneers, Brothers of Charity
+  Services...), whatever its purpose. These register for poverty relief, health
+  or education, so the religion test misses them.
 
 Charities whose text names another denomination are left out. Every match is
 a lead for the name list, not a finding. Trustee names are not copied: Open
@@ -42,6 +46,15 @@ ORDERS_AND_DEVOTIONS = [
     r"\bparay.le.monial\b", r"\blegion of mary\b", r"\bopus dei\b", r"\bst\.? vincent de paul\b",
     r"\bedmund rice\b", r"\bnano nagle\b", r"\bcatherine mcauley\b",
     r"\bceist\b", r"\ble ch[eé]ile\b", r"\breligious (order|congregation|sisters|brothers|life)\b",
+]
+
+# Matched on the charity's name only, whatever its purpose.
+NAMED_BODIES = [
+    r"vincent de paul", r"\bozanam\b", r"pioneer total abstinence", r"legion of mary", r"legionis mariae",
+    r"knights of (st\.? )?columbanus", r"\bcrosscare\b", r"\baccord\b.*marriage", r"catholic youth care",
+    r"brothers of charity", r"daughters of charity", r"\bsisters of (mercy|charity|nazareth|the poor)\b",
+    r"hospitaller order", r"\bst\.? john of god\b", r"\bbon secours\b", r"\bopus dei\b", r"\btr[oó]caire\b(?!.*\bscoil\b|.*\bs\.? ?n\b)",
+    r"\bmater misericordiae\b", r"\bmarino institute\b", r"\bpontifical\b", r"\bparish (centre|hall|pastoral)\b",
 ]
 
 OTHER_DENOMINATIONS = [
@@ -97,10 +110,13 @@ def classify(df):
             continue
         explicit = _hits(t, EXPLICIT)
         orders = _hits(t, ORDERS_AND_DEVOTIONS)
+        named = _hits(name[i] + " | " + aka[i], NAMED_BODIES)
         if explicit:
             match = "explicit"
         elif orders and religion[i]:
             match = "order or devotion"
+        elif named:
+            match = "named body"
         else:
             continue
         rows.append({
@@ -115,7 +131,7 @@ def classify(df):
             "charitable_purpose": purpose[i],
             "charitable_objects": objects[i],
             "catholic_match": match,
-            "matched_terms": "; ".join(dict.fromkeys(h.lower() for h in explicit + orders)),
+            "matched_terms": "; ".join(dict.fromkeys(h.lower() for h in explicit + orders + named)),
             "purpose_religion": bool(religion[i]),
             "purpose_education": bool(education[i]),
         })

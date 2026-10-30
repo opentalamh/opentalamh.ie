@@ -82,6 +82,17 @@ def test_charities_name_filter():
     assert list(out["in_county"]) == [True, False]
 
 
+def test_charities_named_bodies_match_whatever_their_purpose():
+    df = pd.DataFrame({
+        "Registered Charity Number": [1, 2],
+        "Registered Charity Name": ["Testtown Vincent De Paul", "Testtown Parish Council"],
+        "Primary Address": ["Dublin", "Dublin"],
+        "Charitable Purpose": ["Relief of poverty or economic hardship", "Advancement of community welfare"],
+    })
+    out = sources.parse_charities(df)
+    assert list(out["name"]) == ["Testtown Vincent De Paul"] and out["catholic_match"].iloc[0] == "named body"
+
+
 # --- County switching and the Dublin sources ---------------------------------
 
 import pytest

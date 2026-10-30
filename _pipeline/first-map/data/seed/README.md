@@ -54,13 +54,16 @@ downloads, so the register is downloaded by hand and extracted with
 `python tools/extract_charities.py <file.xlsx> --downloaded YYYY-MM-DD`.
 
 Current extract: register effective **26 October 2026**, downloaded
-**30 October 2026**. 14,519 charities, 623 Catholic-linked.
+**30 October 2026**. 14,519 charities, 699 Catholic-linked (274 with a Dublin address).
 
 The register has no denomination field. `Charitable Purpose` says whether a
 charity advances religion, but so does every faith's, so each charity is
 matched on its name, also-known-as and `Charitable Objects` text:
 `explicit` when it says Catholic, diocese, canon law and the like;
 `order or devotion` when its purpose includes religion and it names a
-Catholic order or devotion (most orders never write "Catholic"). Charities
+Catholic order or devotion (most orders never write "Catholic"); `named body`
+when its name is a known lay Catholic body, diocesan agency or order's service
+company (St Vincent de Paul, Pioneers, Brothers of Charity Services), whatever
+its purpose, since those register for poverty relief, health or education. Charities
 naming another denomination are left out, including "X Parish Church" and the
 Church of Ireland's united dioceses. Trustee names are not copied.
