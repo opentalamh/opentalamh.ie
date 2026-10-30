@@ -24,3 +24,5 @@ Each point shows where a site is, not who owns it. Ownership is confirmed site b
 Click a point for its source record. To show or hide a source, open the layers button at the top right of the map.
 
 [Open the map full screen](maps/dublin_first_map.html). Spotted a mistake? [Send a correction](contribute.qmd#corrections).
+
+A graphic of every registered charity in Ireland, by charitable purpose, is on [Fianaise](https://fianaise.ie/religion/charities.html).
