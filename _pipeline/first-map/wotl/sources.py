@@ -729,6 +729,44 @@ def load_industrial_schools():
     }, columns=SITE_COLUMNS + ["anchor"])
 
 
+def load_redress_transfers():
+    """Properties the congregations handed to the State under the 2002 indemnity and 2009 offers.
+
+    data/seed/redress_property_transfers.csv is transcribed from the
+    Department of Education's July 2018 note to the Public Accounts Committee
+    (data/documents/doe-transfers-2018-07.txt). These are former holdings
+    (grade E): the order held them until the transfer. Rows have no
+    coordinates and are placed through their `anchor`, like history sites.
+    """
+    path = config.SEED_DIR / "redress_property_transfers.csv"
+    if not path.exists():
+        return _empty()
+    t = pd.read_csv(path, dtype=str).fillna("")
+    t = t[t["county"].str.fullmatch(config.COUNTY, case=False)]
+
+    def detail(r):
+        parts = [r["round"], r["transferor"] or "congregation not named in the appendix",
+                 f"to {r['transferee']}" if r["transferee"] else "",
+                 f"valued at €{float(r['value_eur']):,.0f}" if r["value_eur"] else "",
+                 r["status_june_2018"] + " (June 2018)", r["use"],
+                 f"source: {r['source_doc']} p. {r['source_page']}"]
+        return " · ".join(p for p in parts if p)
+
+    return pd.DataFrame({
+        "source": "Redress transfers (former holdings)",
+        "source_id": t["ref"],
+        "name": t["property"],
+        "category": "former holding",
+        "denomination": "catholic",
+        "lat": float("nan"),
+        "lon": float("nan"),
+        "address": t["property"],
+        "source_url": "https://www.gov.ie/en/department-of-education/collections/cash-and-property-transfers",
+        "raw_use": t.apply(detail, axis=1) if len(t) else pd.Series(dtype=str),
+        "anchor": t["anchor"],
+    }, columns=SITE_COLUMNS + ["anchor"])
+
+
 def place_history_sites(history, points, max_spread_m=250):
     """Give unplaced history sites the location of the record their `anchor` names.
 

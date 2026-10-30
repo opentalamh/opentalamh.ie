@@ -54,11 +54,12 @@ def run(refresh=False):
 
     unplaced = []
     for label, seed in (("Industrial schools (Ryan Report)", sources.load_industrial_schools()),
-                        ("History seed list", sources.load_history_sites())):
+                        ("History seed list", sources.load_history_sites()),
+                        ("Redress transfers (former holdings)", sources.load_redress_transfers())):
         placed, missing = sources.place_history_sites(seed, points)
         frames[label] = placed
         unplaced.append(missing)
-    for label in ("Industrial schools (Ryan Report)", "History seed list"):
+    for label in ("Industrial schools (Ryan Report)", "History seed list", "Redress transfers (former holdings)"):
         if not frames[label].empty:
             points = pd.concat([points, frames[label]], ignore_index=True)
     unplaced = pd.concat(unplaced, ignore_index=True)

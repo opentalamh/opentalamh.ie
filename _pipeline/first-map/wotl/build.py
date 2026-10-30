@@ -15,6 +15,7 @@ SOURCE_COLOURS = {
     "Tailte Éireann valuation list": "#6b46c1",
     "History seed list": "#c53030",
     "Industrial schools (Ryan Report)": "#742a2a",
+    "Redress transfers (former holdings)": "#975a16",
 }
 # Council protected-structure lists share one colour family.
 RPS_COLOUR = "#b83280"
@@ -82,7 +83,7 @@ def merge_sites(points, radius_m=None):
     pts["site_id"] = [f"{config.SITE_PREFIX}-{ids[r]:04d}" for r in roots]
 
     # Name a site after its best-evidenced point: Catholic-marked first, then by source.
-    source_rank = {"Industrial schools (Ryan Report)": 0, "History seed list": 0, "NIAH": 1, "OpenStreetMap": 3}
+    source_rank = {"Industrial schools (Ryan Report)": 0, "History seed list": 0, "Redress transfers (former holdings)": 0, "NIAH": 1, "OpenStreetMap": 3}
     for src in pts["source"].unique():
         if src.startswith("Protected structures"):
             source_rank[src] = 1

@@ -196,6 +196,15 @@ def test_industrial_schools_reference_list(dublin):
     assert list(louth["source_id"]) == ["Dundalk"] and louth["lat"].notna().all()
 
 
+def test_redress_transfers_match_the_appendix_total(dublin):
+    t = pd.read_csv(config.SEED_DIR / "redress_property_transfers.csv", dtype=str).fillna("")
+    appendix1 = t[t["ref"].str.startswith("A1-")]
+    assert len(appendix1) == 55
+    assert round(appendix1["value_eur"].astype(float).sum(), 2) == 58_725_275.00  # total printed in the note
+    d = sources.load_redress_transfers()
+    assert "Gate Lodge, Goldenbridge" in set(d["name"]) and d["lat"].isna().all()
+    assert d["raw_use"].str.contains("€220,000").any()
+
 
 def test_rps_frame_reads_cp1252_geojson():
     gj = {"features": [{"properties": {"Name": "Church of St François"},
