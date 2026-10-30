@@ -388,10 +388,10 @@ status 403, 5,696 bytes, text/html; charset=UTF-8
 status 406, 156 bytes, text/html
 
 ### https://overpass-api.de/api/status
-status 200, 210 bytes, text/plain; charset=utf-8
+status 502, 534 bytes, text/plain
 
 ### https://overpass.kumi.systems/api/status
-status 200, 1,181 bytes, text/plain; charset=utf-8
+failed: HTTPSConnectionPool(host='overpass.kumi.systems', port=443): Read timed out. (read timeout=90)
 
 ### https://overpass.private.coffee/api/status
 failed: HTTPSConnectionPool(host='overpass.private.coffee', port=443): Read timed out. (read timeout=90)
