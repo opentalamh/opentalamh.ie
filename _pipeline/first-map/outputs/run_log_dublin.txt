@@ -1,4 +1,106 @@
-  File "/home/runner/work/opentalamh.ie/opentalamh.ie/_pipeline/first-map/run_pilot.py", line 57
-    for label, seed in (("HIQA registered centres", sources.hiqa_church_centres(hiqa)),
-                       ^
-SyntaxError: '(' was never closed
+[12:12:16] OpenStreetMap...
+[12:34:45] OpenStreetMap: 0 rows in 1349s
+[12:34:45] NIAH...
+[12:34:51] NIAH: 426 rows in 6s
+[12:34:51] Protected structures...
+[12:35:01] Protected structures: 608 rows in 10s
+[12:35:01] School lists...
+[12:35:02] School lists: 440 rows in 2s
+[12:35:02] HIQA registers...
+  HIQA: 72 older persons' centres
+[12:36:18] HIQA registers: 72 rows in 75s
+[12:38:43] Charities register...
+[12:38:44] Charities register: 699 rows in 1s
+County Dublin
+
+                             source  points  with_coordinates
+                      OpenStreetMap       0                 0
+                               NIAH     426               426
+               Protected structures     608               608
+                       School lists     440               440
+            HIQA registered centres       0                 0
+   Industrial schools (Ryan Report)       2                 2
+                  History seed list       3                 3
+Redress transfers (former holdings)       2                 2
+    Charities register (names only)     699                 0
+
+880 candidate sites; 207 found by 2+ sources.
+Largest site groups {'DU-0350': 16, 'DU-0177': 11, 'DU-0225': 10} (merge radius 50 m).
+118 unmarked points dropped as sitting on another denomination's church.
+26 history sites not yet placed; 321 name leads.
+WARNING: OpenStreetMap skipped: https://overpass-api.de/api/interpreter: 502 Server Error: Bad Gateway for url: https://overpass-api.de/api/interpreter; https://overpass-api.de/api/interpreter: 502 Server Error: Bad Gateway for url: https://overpass-api.de/api/interpreter; https://overpass.kumi.systems/api/interpreter: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')); https://overpass.kumi.systems/api/interpreter: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')); https://overpass.private.coffee/api/interpreter: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')); https://overpass.private.coffee/api/interpreter: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+WARNING: HIQA centre residence-portmarnock: 503 Server Error: Service Unavailable for url: https://www.hiqa.ie/system/files?file=inspectionreports/9182-the-residence-portmarnock-17-july-2026.pdf
+WARNING: HIQA centre fern-dean-stepaside: 503 Server Error: Service Unavailable for url: https://www.hiqa.ie/system/files?file=inspectionreports/8904-the-fern-dean-stepaside-10-february-2026.pdf
+WARNING: HIQA centre leopardstown-care-centre: 503 Server Error: Service Unavailable for url: https://www.hiqa.ie/system/files?file=inspectionreports/8692-leopardstown-care-centre-25-august-2025.pdf
+WARNING: HIQA centre woodlawn-manor-nursing-home: 503 Server Error: Service Unavailable for url: https://www.hiqa.ie/system/files?file=inspectionreports/8662-woodlawn-manor-nursing-home-29-july-2026.pdf
+WARNING: HIQA centre clondalkin-lodge-residential-home: 503 Server Error: Service Unavailable for url: https://www.hiqa.ie/system/files?file=inspectionreports/8600-clondalkin-lodge-residential-home-20-january-2026.pdf
+WARNING: HIQA centre moorehall-lodge-balbriggan: 503 Server Error: Service Unavailable for url: https://www.hiqa.ie/system/files?file=inspectionreports/8302-moorehall-lodge-balbriggan-22-april-2026.pdf
+WARNING: HIQA centre curam-care-home-navan-road: 503 Server Error: Service Unavailable for url: https://www.hiqa.ie/system/files?file=inspectionreports/8033-curam-care-home-navan-road-14-may-2026.pdf
+WARNING: HIQA centre rathborne-nursing-home: 503 Server Error: Service Unavailable for url: https://www.hiqa.ie/system/files?file=inspectionreports/7976-rathborne-nursing-home-28-january-2026.pdf
+WARNING: HIQA centre lexington-house: 503 Server Error: Service Unavailable for url: https://www.hiqa.ie/system/files?file=inspectionreports/7910-lexington-house-25-march-2026.pdf
+WARNING: HIQA centre tymon-north-community-unit: 503 Server Error: Service Unavailable for url: https://www.hiqa.ie/system/files?file=inspectionreports/7793-tymon-north-communit-unit-27-november-2025.pdf
+WARNING: HIQA centre peamount-healthcare-older-persons-service-0: 503 Server Error: Service Unavailable for url: https://www.hiqa.ie/system/files?file=inspectionreports/7786-peamount-healthcare-older-persons-service-06-october-2025.pdf
+WARNING: HIQA centre northwood-residential-home: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/northwood-residential-home
+WARNING: HIQA centre carechoice-swords: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/carechoice-swords
+WARNING: HIQA centre clarehaven: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/clarehaven
+WARNING: HIQA centre four-ferns: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/four-ferns
+WARNING: HIQA centre loughshinny-residential-home: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/loughshinny-residential-home
+WARNING: HIQA centre nephin-nursing-home: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/nephin-nursing-home
+WARNING: HIQA centre residence-carton: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/residence-carton
+WARNING: HIQA centre firstcare-beneavin-manor: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/firstcare-beneavin-manor
+WARNING: HIQA centre catherine-mcauley-house: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/catherine-mcauley-house
+WARNING: HIQA centre howth-hill-lodge: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/howth-hill-lodge
+WARNING: HIQA centre aclare-house-nursing-home: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/aclare-house-nursing-home
+WARNING: HIQA centre our-ladys-manor: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/our-ladys-manor
+WARNING: HIQA centre marymount-care-centre: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/marymount-care-centre
+WARNING: HIQA centre cherryfield-lodge-nursing-home: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/cherryfield-lodge-nursing-home
+WARNING: HIQA centre bellvilla-community-unit: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/bellvilla-community-unit
+WARNING: HIQA centre marian-house: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/marian-house
+WARNING: HIQA centre millbrook-manor-nursing-home: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/millbrook-manor-nursing-home
+WARNING: HIQA centre ashford-house-nursing-home-0: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/ashford-house-nursing-home-0
+WARNING: HIQA centre newpark-care-centre: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/newpark-care-centre
+WARNING: HIQA centre marlay-nursing-home: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/marlay-nursing-home
+WARNING: HIQA centre meath-community-unit: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/meath-community-unit
+WARNING: HIQA centre altadore-nursing-home: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/altadore-nursing-home
+WARNING: HIQA centre st-gladys-nursing-home: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/st-gladys-nursing-home
+WARNING: HIQA centre firstcare-beneavin-lodge: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/firstcare-beneavin-lodge
+WARNING: HIQA centre navan-road-community-unit: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/navan-road-community-unit
+WARNING: HIQA centre terenure-nursing-home: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/terenure-nursing-home
+WARNING: HIQA centre leeson-park-house-nursing-home: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/leeson-park-house-nursing-home
+WARNING: HIQA centre st-patricks-care-centre: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/st-patricks-care-centre
+WARNING: HIQA centre ardmore-0: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/ardmore-0
+WARNING: HIQA centre hollybrook-lodge: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/hollybrook-lodge
+WARNING: HIQA centre ashbury-nursing-home: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/ashbury-nursing-home
+WARNING: HIQA centre st-pappins-nursing-home: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/st-pappins-nursing-home
+WARNING: HIQA centre alzheimers-care-centre: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/alzheimers-care-centre
+WARNING: HIQA centre raheny-house-nursing-home: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/raheny-house-nursing-home
+WARNING: HIQA centre raheny-community-nursing-unit: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/raheny-community-nursing-unit
+WARNING: HIQA centre st-doolaghs-park-care-and-rehabilitation-centre-0: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/st-doolaghs-park-care-and-rehabilitation-centre-0
+WARNING: HIQA centre beechfield-manor-nursing-home: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/beechfield-manor-nursing-home
+WARNING: HIQA centre glenaulin-nursing-home: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/glenaulin-nursing-home
+WARNING: HIQA centre anovocare-nursing-home: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/anovocare-nursing-home
+WARNING: HIQA centre leopardstown-park-hospital: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/leopardstown-park-hospital
+WARNING: HIQA centre foxrock-nursing-home: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/foxrock-nursing-home
+WARNING: HIQA centre swords-nursing-home: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/swords-nursing-home
+WARNING: HIQA centre simpsons-hospital: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/simpsons-hospital
+WARNING: HIQA centre beechtree-nursing-home: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/beechtree-nursing-home
+WARNING: HIQA centre anna-gaynor-house: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/anna-gaynor-house
+WARNING: HIQA centre orwell-private: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/orwell-private
+WARNING: HIQA centre nazareth-house-dublin: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/nazareth-house-dublin
+WARNING: HIQA centre mount-sackville-nursing-home: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/mount-sackville-nursing-home
+WARNING: HIQA centre cherryfield-housing-care: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/cherryfield-housing-care
+WARNING: HIQA centre royal-hospital-donnybrook: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/royal-hospital-donnybrook
+WARNING: HIQA centre mount-hybla-private: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/mount-hybla-private
+WARNING: HIQA centre beechlawn-house-nursing-home: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/beechlawn-house-nursing-home
+WARNING: HIQA centre elm-green-nursing-home: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/elm-green-nursing-home
+WARNING: HIQA centre elmhurst-nursing-home: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/elmhurst-nursing-home
+WARNING: HIQA centre st-johns-house: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/st-johns-house
+WARNING: HIQA centre st-gabriels-nursing-home: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/st-gabriels-nursing-home
+WARNING: HIQA centre hamilton-park-care-facility: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/hamilton-park-care-facility
+WARNING: HIQA centre maryfield-nursing-home: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/maryfield-nursing-home
+WARNING: HIQA centre griffeen-valley-nursing-home: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/griffeen-valley-nursing-home
+WARNING: HIQA centre carysfort-nursing-home: 429 Client Error: Too many requests for url: https://www.hiqa.ie/areas-we-work/find-a-centre/carysfort-nursing-home
+WARNING: HIQA listing for disability centres failed: 429 Client Error: Too many requests for url: https://www.hiqa.ie/find-a-centre?field_centre_type_target_id=40&field_county_value=Dublin&page=0
+WARNING: Charities register download refused (403 Client Error: Forbidden for url: https://www.charitiesregulator.ie/media/aqgpvsac/20261026-public-register-of-charities.xlsx); using the hand-downloaded extract (register of 2026-10-26, data/seed/charities_catholic.csv)
+
+Outputs in /home/runner/work/opentalamh.ie/opentalamh.ie/_pipeline/first-map/outputs
