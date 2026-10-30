@@ -69,12 +69,16 @@ def test_merge_groups_nearby_points_across_sources(tmp_path):
 
 def test_charities_name_filter():
     df = pd.DataFrame({
-        "Registered Charity Number": [1, 2, 3],
-        "Registered Charity Name": ["Test Diocesan Trust", "Test Sports Club", "Sisters of Test"],
-        "Primary Address": ["Dundalk, Co. Louth", "Drogheda, Co. Louth", "Cork"],
+        "Registered Charity Number": [1, 2, 3, 4, 5],
+        "Registered Charity Name": ["Test Diocesan Trust", "Test Sports Club", "Sisters of Test",
+                                    "Test Parish Church", "Test Presbyterian Congregation"],
+        "Primary Address": ["Dundalk, Co. Louth", "Drogheda, Co. Louth", "Cork", "Louth", "Louth"],
+        "Charitable Purpose": ["Advancement of religion", "Other", "Advancement of religion",
+                               "Advancement of religion", "Advancement of religion"],
     })
     out = sources.parse_charities(df)
     assert list(out["name"]) == ["Test Diocesan Trust", "Sisters of Test"]
+    assert list(out["catholic_match"]) == ["explicit", "order or devotion"]
     assert list(out["in_county"]) == [True, False]
 
 

@@ -89,7 +89,9 @@ def county_charities(charities):
         "entity_class": "charity",
         "found_in": "Charities Regulator register",
         "count": "",
-        "note": "registered charity number " + c.get("charity_number", pd.Series("", index=c.index)).astype(str),
+        "note": "registered charity number " + c.get("charity_number", pd.Series("", index=c.index)).astype(str)
+                + "; match: " + c.get("catholic_match", pd.Series("", index=c.index)).astype(str)
+                + " (" + c.get("matched_terms", pd.Series("", index=c.index)).astype(str) + ")",
         "status": "lead",
     }, columns=NAME_COLUMNS)
 

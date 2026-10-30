@@ -767,38 +767,42 @@ def place_history_sites(history, points, max_spread_m=250):
 # --- Charities Regulator register: names, not places ---------------------------
 
 def parse_charities(df):
-    name = _find_col(df, r"registered.?charity.?name", r"charity.?name", r"^name")
-    aka = _find_col(df, r"also.?known")
-    addr = _find_col(df, r"primary.?address", r"address")
-    number = _find_col(df, r"registered.?charity.?number", r"charity.?number", r"rcn")
-    form = _find_col(df, r"governing.?form", r"legal.?form", r"form")
-    if name is None:
-        warnings.warn(f"Charities register: no name column; columns are {list(df.columns)}")
+    """Catholic-linked charities (see wotl/charities.py), flagged for an address in the county."""
+    from . import charities
+
+    hits = charities.classify(df)
+    hits["in_county"] = hits["address"].str.contains(config.COUNTY_PATTERN, case=False, na=False, regex=True)
+    return hits
+
+
+def load_charities_seed():
+    """The Catholic-linked extract of a register downloaded by hand (tools/extract_charities.py)."""
+    path = config.SEED_DIR / "charities_catholic.csv"
+    if not path.exists():
         return pd.DataFrame()
-    text = df[name].astype(str) + " " + (df[aka].astype(str) if aka else "")
-    hits = df[text.apply(lambda t: _matches(t, config.CATHOLIC_TERMS))].copy()
-    if addr:
-        hits["in_county"] = hits[addr].astype(str).str.contains(config.COUNTY_PATTERN, case=False, na=False, regex=True)
-    keep = [c for c in (number, name, aka, form, addr) if c] + (["in_county"] if addr else [])
-    return hits[keep].rename(columns={number: "charity_number", name: "name", aka: "also_known_as", form: "governing_form", addr: "address"})
+    hits = pd.read_csv(path, dtype=str).fillna("")
+    hits["in_county"] = hits["address"].str.contains(config.COUNTY_PATTERN, case=False, na=False, regex=True)
+    return hits
 
 
 def fetch_charity_names(refresh=False):
+    """Try the live register; the regulator usually refuses (403), so fall back to the hand-downloaded extract."""
     try:
+        from . import charities
+
         def download():
             url, _ = _ckan_resource_url(config.CHARITIES_DATASET, formats=("XLSX",), name_pattern=r"public-register")
             return _get(url, browser=True).content
 
         raw = _cached("public-register-of-charities.xlsx", download, refresh)
-        xl = pd.read_excel(BytesIO(raw), sheet_name=None)
-        # The register has a header block on some sheets; pick the sheet with most rows.
-        df = max(xl.values(), key=len)
-        if not any(re.search(r"name", str(c), re.I) for c in df.columns):
-            hdr = df.index[df.apply(lambda r: r.astype(str).str.contains("Charity Name", case=False).any(), axis=1)]
-            if len(hdr):
-                df.columns = df.loc[hdr[0]].astype(str)
-                df = df.loc[hdr[0] + 1:]
+        df, _ = charities.read_register(BytesIO(raw))
         return parse_charities(df)
     except Exception as e:
-        warnings.warn(f"Charities register skipped: {e}")
-        return pd.DataFrame()
+        seed = load_charities_seed()
+        if seed.empty:
+            warnings.warn(f"Charities register skipped: {e}")
+        else:
+            dates = seed.get("register_effective_date", pd.Series([""])).iloc[0]
+            warnings.warn(f"Charities register download refused ({e}); using the hand-downloaded extract "
+                          f"(register of {dates}, data/seed/charities_catholic.csv)")
+        return seed

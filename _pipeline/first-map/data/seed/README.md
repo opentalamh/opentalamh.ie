@@ -45,3 +45,22 @@ for national trusts). These are leads, not legal names: confirm each against
 the Charities Register or the CRO, and add every variant found on a folio.
 The pipeline adds school patrons, OpenStreetMap operators and county charities
 to it and writes `outputs/<county>_name_leads.csv`.
+
+# Charities Register extract
+
+`charities_catholic.csv` holds the Catholic-linked charities from the
+Charities Regulator's public register. The regulator refuses automated
+downloads, so the register is downloaded by hand and extracted with
+`python tools/extract_charities.py <file.xlsx> --downloaded YYYY-MM-DD`.
+
+Current extract: register effective **26 October 2026**, downloaded
+**30 October 2026**. 14,519 charities, 623 Catholic-linked.
+
+The register has no denomination field. `Charitable Purpose` says whether a
+charity advances religion, but so does every faith's, so each charity is
+matched on its name, also-known-as and `Charitable Objects` text:
+`explicit` when it says Catholic, diocese, canon law and the like;
+`order or devotion` when its purpose includes religion and it names a
+Catholic order or devotion (most orders never write "Catholic"). Charities
+naming another denomination are left out, including "X Parish Church" and the
+Church of Ireland's united dioceses. Trustee names are not copied.
