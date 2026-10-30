@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.19">
+<meta name="generator" content="quarto-1.10.20">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -42,7 +42,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-17888a1159294d3eb470f19f6f52f5a5.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-166690b9c768161ed89deb9505a7d440.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -148,9 +148,24 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>The first map covers County Louth. Every point is graded A to E by how well its ownership is evidenced; see <a href="./method.html">Method</a>.</p>
-<!-- Embed the Folium output from first-map, e.g. copy outputs/louth_map.html to maps/ and: -->
-<!-- <iframe src="maps/louth_map.html" width="100%" height="600" style="border:0"></iframe> -->
+<p>The first map covers County Dublin. It puts every likely Catholic Church site in the county on one map, from open data: OpenStreetMap, the National Inventory of Architectural Heritage, the four Dublin councils’ Records of Protected Structures, the Department of Education school lists and institutions named in the official reports.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Every point is a grade D lead
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A point says <em>where</em> a church, convent or school is, not <em>who owns it</em>. No open dataset records ownership. Each site still has to be checked against its Land Registry folio before it moves up the evidence grades; see <a href="./method.html">Method</a>.</p>
+</div>
+</div>
+<p>Toggle sources in the layer list. Click a point for its source record.</p>
+<iframe src="maps/dublin_first_map.html" width="100%" height="650" style="border:0" title="First-attempt map of candidate Church sites in County Dublin" loading="lazy">
+</iframe>
+<p><a href="maps/dublin_first_map.html">Open the map full screen</a>. Spotted a mistake? <a href="./contribute.html#corrections">Send a correction</a>.</p>
 
 
 
