@@ -254,11 +254,24 @@ def test_run_pilot_end_to_end_with_offline_sources(dublin, tmp_path, monkeypatch
                             "denomination": "catholic", "lat": 53.337, "lon": -6.318, "address": "Inchicore",
                             "source_url": "", "raw_use": "convent"}], columns=sources.SITE_COLUMNS)
     monkeypatch.setattr(config, "OUT_DIR", tmp_path)
-    for name in ("fetch_osm", "fetch_rps", "fetch_schools", "fetch_valuation"):
+    for name in ("fetch_rps", "fetch_valuation"):
         monkeypatch.setattr(sources, name, lambda refresh=False, other_only=False: sources._empty())
     monkeypatch.setattr(sources, "fetch_niah", lambda refresh=False: church)
-    monkeypatch.setattr(sources, "fetch_hiqa_centres", lambda refresh=False: pd.DataFrame(
-        columns=["centre_id", "name", "type", "slug", "address", "centre_type", "provider", "report"]))
+    monkeypatch.setattr(sources, "fetch_osm", lambda refresh=False, other_only=False:
+                        sources._empty() if other_only else church.assign(source="OpenStreetMap"))
+    monkeypatch.setattr(sources, "fetch_schools", lambda refresh=False: church.assign(source="Dept of Education: primary-schools"))
+    monkeypatch.setattr(sources, "load_hiqa_centres", lambda refresh=False: pd.DataFrame(columns=sources.HIQA_COLUMNS))
     monkeypatch.setattr(sources, "fetch_charity_names", lambda refresh=False: pd.DataFrame())
     summary, points, sites, leads, stats = run_pilot.run()
     assert {"Goldenbridge Convent", "Gate Lodge, Goldenbridge"} <= set(points["name"])
+
+
+def test_run_pilot_stops_when_a_main_source_is_down(dublin, tmp_path, monkeypatch):
+    import run_pilot
+
+    monkeypatch.setattr(config, "OUT_DIR", tmp_path)
+    for name in ("fetch_osm", "fetch_niah", "fetch_rps", "fetch_schools", "fetch_valuation"):
+        monkeypatch.setattr(sources, name, lambda refresh=False, other_only=False: sources._empty())
+    with pytest.raises(SystemExit):
+        run_pilot.run()
+    assert not list(tmp_path.iterdir())

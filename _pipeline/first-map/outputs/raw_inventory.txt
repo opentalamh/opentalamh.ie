@@ -1,11 +1,4 @@
 
-== hiqa_dublin.csv (5,768 bytes)
-(72, 8) ['centre_id', 'name', 'type', 'slug', 'address', 'centre_type', 'provider', 'report']
-   centre_id                       name                   type                   slug                                         address          centre_type  provider  report
-0       9460           Garville Private  older persons' centre       garville-private  Garville Private, Garville Place, D06 F6C4 Map  Older Person&#039;s       NaN     NaN
-1       9182  The Residence Portmarnock  older persons' centre  residence-portmarnock                                             NaN                  NaN       NaN     NaN
-2       8904    The Fern Dean Stepaside  older persons' centre    fern-dean-stepaside                                             NaN                  NaN       NaN     NaN
-
 == niah_dublin.geojson (20,552,864 bytes)
 keys: ['type', 'features']
 records: 7535

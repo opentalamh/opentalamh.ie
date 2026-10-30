@@ -6,6 +6,7 @@ on:
       - "_pipeline/first-map/run_pilot.py"
       - "_pipeline/first-map/tools/**"
       - "_pipeline/first-map/data/seed/**"
+      - "_pipeline/first-map/data/cache/**"
       - ".github/workflows/build-map.yml"
   workflow_dispatch:
     inputs:

@@ -95,9 +95,11 @@ contain misread characters, so check figures against the original.
 
 # HIQA registered centres
 
-Not a seed file: `wotl/sources.py` reads HIQA's Find a Centre listing for the
-county's older persons' and disability centres and takes the registered
-provider from the first page of each centre's latest inspection report. Only
+Not a seed file: `tools/fetch_hiqa.py` (run by the "Fetch HIQA register"
+workflow) reads HIQA's Find a Centre listing for the county's older persons'
+and disability centres, slowly, and takes the registered provider from the
+first page of each centre's latest inspection report. It saves the result in
+`../cache/hiqa_<county>.csv`, which the map build reads. Only
 centres whose provider's name says it is a Catholic body
 (`charities.church_provider`) go on the map; the providers also go on the
 name list. A provider runs the centre but may not own the land.

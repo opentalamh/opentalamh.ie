@@ -29,12 +29,21 @@ def _empty():
     return pd.DataFrame(columns=SITE_COLUMNS)
 
 
-def _get(url, *, params=None, data=None, timeout=180, browser=False):
+RETRY_STATUSES = {429, 502, 503, 504}
+
+
+def _get(url, *, params=None, data=None, timeout=180, browser=False, tries=4):
+    """GET (or POST with data), waiting and retrying when a server says it is busy."""
     headers = config.BROWSER_HEADERS if browser else {"User-Agent": config.USER_AGENT}
-    if data is not None:
-        r = requests.post(url, data=data, headers=headers, timeout=timeout)
-    else:
-        r = requests.get(url, params=params, headers=headers, timeout=timeout)
+    for attempt in range(tries):
+        if data is not None:
+            r = requests.post(url, data=data, headers=headers, timeout=timeout)
+        else:
+            r = requests.get(url, params=params, headers=headers, timeout=timeout)
+        if r.status_code not in RETRY_STATUSES or attempt == tries - 1:
+            break
+        wait = r.headers.get("Retry-After", "")
+        time.sleep(min(int(wait), 300) if wait.isdigit() else 15 * 2 ** attempt)
     r.raise_for_status()
     return r
 
@@ -150,13 +159,13 @@ def parse_overpass(payload, other_only=False):
 
 def _overpass(query):
     errors = []
-    for url in config.OVERPASS_MIRRORS:
-        for attempt in range(2):
+    for round_ in range(3):  # Overpass mirrors go down together at times; try them all again later
+        for url in config.OVERPASS_MIRRORS:
             try:
-                return _get(url, data={"data": query}, timeout=330).content
+                return _get(url, data={"data": query}, timeout=330, tries=2).content
             except Exception as e:
                 errors.append(f"{url}: {e}")
-                time.sleep(30 * (attempt + 1))
+        time.sleep(120 * (round_ + 1))
     raise RuntimeError("; ".join(errors))
 
 
@@ -820,7 +829,7 @@ def _hiqa_listing(type_id):
             return out
         out += new
         page += 1
-        time.sleep(0.5)
+        time.sleep(2)
 
 
 def _hiqa_centre(slug):
@@ -846,17 +855,34 @@ def _hiqa_centre(slug):
     }
 
 
-def fetch_hiqa_centres(refresh=False):
+def hiqa_cache_path():
+    return config.SEED_DIR.parent / "cache" / f"hiqa_{config.COUNTY.lower()}.csv"
+
+
+def load_hiqa_centres(refresh=False):
+    """The county's HIQA centres as last saved by tools/fetch_hiqa.py (empty, with a warning, if never run).
+
+    Reading HIQA takes hundreds of slow requests, so the map build doesn't do
+    it; the "Fetch HIQA register" workflow does, and commits the result.
+    """
+    path = hiqa_cache_path()
+    if not path.exists():
+        warnings.warn(f"No HIQA register saved for {config.COUNTY}; run tools/fetch_hiqa.py")
+        return pd.DataFrame(columns=HIQA_COLUMNS)
+    return pd.read_csv(path, dtype=str).fillna("")
+
+
+HIQA_COLUMNS = ["centre_id", "name", "type", "slug", "address", "centre_type", "provider", "report", "retrieved"]
+
+
+def fetch_hiqa_centres(delay=2.0):
     """Every older persons' and disability centre in the county with its registered provider.
 
     HIQA publishes no download, so the Find a Centre listing and each centre's
-    latest inspection report (whose first page names the provider) are read
-    and cached in data/raw/hiqa_<county>.csv. All centres are kept there; the
+    latest inspection report (whose first page names the provider) are read,
+    slowly, since HIQA refuses rapid requests. All centres are kept; the
     Church filter is applied afterwards (see hiqa_church_centres).
     """
-    path = config.RAW_DIR / f"hiqa_{config.COUNTY.lower()}.csv"
-    if path.exists() and not refresh:
-        return pd.read_csv(path, dtype=str).fillna("")
     rows = []
     for type_id, label in HIQA_CENTRE_TYPES.items():
         try:
@@ -871,12 +897,10 @@ def fetch_hiqa_centres(refresh=False):
             except Exception as e:  # one broken page or report shouldn't stop the rest
                 warnings.warn(f"HIQA centre {slug}: {e}")
                 detail = {"address": "", "centre_type": "", "provider": "", "report": ""}
-            rows.append({"centre_id": centre_id, "name": name.strip(), "type": label, "slug": slug, **detail})
-            time.sleep(0.5)
-    df = pd.DataFrame(rows, columns=["centre_id", "name", "type", "slug", "address", "centre_type", "provider", "report"])
-    path.parent.mkdir(parents=True, exist_ok=True)
-    df.to_csv(path, index=False)
-    return df
+            rows.append({"centre_id": centre_id, "name": name.strip(), "type": label, "slug": slug, **detail,
+                         "retrieved": time.strftime("%Y-%m-%d")})
+            time.sleep(delay)
+    return pd.DataFrame(rows, columns=HIQA_COLUMNS)
 
 
 def hiqa_church_centres(centres):

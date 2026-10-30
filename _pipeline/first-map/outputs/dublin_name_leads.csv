@@ -1,7 +1,7 @@
 name,entity_class,found_in,count,note,status
-Archdiocese of Dublin,diocese,entity list,,search also: Archbishop of Dublin; Catholic Archdiocese of Dublin; Ard-Deoise Bhaile Átha Cliath All of County Dublin lies in the archdiocese. The Archbishop is patron of most Catholic primary schools in Dublin.,lead: confirm legal name on Charities Register / CRO
+Archdiocese of Dublin,diocese,entity list; OpenStreetMap operator tag,5,search also: Archbishop of Dublin; Catholic Archdiocese of Dublin; Ard-Deoise Bhaile Átha Cliath All of County Dublin lies in the archdiocese. The Archbishop is patron of most Catholic primary schools in Dublin.,lead: confirm legal name on Charities Register / CRO
 Parishes of the Archdiocese of Dublin,parish,entity list,,search also: Parish of <name>; named clerical trustees Parish property is often held by named trustees rather than a body; search each parish and its trustees.,lead: build the parish list from the diocesan directory
-Religious Sisters of Charity,congregation,entity list; Dept of Education school lists,5,search also: Sisters of Charity; Irish Sisters of Charity Founded in Dublin. Ran St Vincent's Hospital and the Donnybrook Magdalene laundry.,lead: confirm legal name on Charities Register / CRO
+Religious Sisters of Charity,congregation,entity list; Dept of Education school lists; OpenStreetMap operator tag,5,search also: Sisters of Charity; Irish Sisters of Charity Founded in Dublin. Ran St Vincent's Hospital and the Donnybrook Magdalene laundry.,lead: confirm legal name on Charities Register / CRO
 Sisters of Mercy,congregation,entity list,,search also: Congregation of the Sisters of Mercy; Mercy Sisters Founded in Dublin (Baggot Street). Ran Goldenbridge and the Dún Laoghaire laundry in Dublin and St Joseph's in Dundalk.,lead: confirm legal name on Charities Register / CRO
 Sisters of Our Lady of Charity,congregation,entity list; Charities Regulator register,,search also: Our Lady of Charity of Refuge; OLC Sisters Ran the High Park and Sean McDermott Street laundries.,lead: confirm legal name on Charities Register / CRO
 Congregation of Christian Brothers,congregation,entity list,,search also: Christian Brothers; Irish Christian Brothers Ran Artane and Carriglea Park. School property largely passed to the Edmund Rice Schools Trust.,lead: confirm legal name on Charities Register / CRO
@@ -10,13 +10,13 @@ Congregation of the Holy Spirit,congregation,entity list; Charities Regulator re
 Society of Jesus,congregation,entity list,,search also: Jesuits; Irish Jesuit Province Belvedere College; Gonzaga College; Milltown Park.,lead: confirm legal name on Charities Register / CRO
 Congregation of the Mission,congregation,entity list,,search also: Vincentians; Vincentian Fathers Castleknock College; St Paul's College Raheny.,lead: confirm legal name on Charities Register / CRO
 Loreto Sisters,congregation,entity list,,search also: Institute of the Blessed Virgin Mary; IBVM; Loreto Education Trust Loreto schools across Dublin; Loreto Abbey Rathfarnham.,lead: confirm legal name on Charities Register / CRO
-Holy Faith Sisters,congregation,entity list,,search also: Congregation of the Sisters of the Holy Faith Founded in Dublin; Glasnevin; schools in the north city.,lead: confirm legal name on Charities Register / CRO
+Holy Faith Sisters,congregation,entity list; OpenStreetMap operator tag,1,search also: Congregation of the Sisters of the Holy Faith Founded in Dublin; Glasnevin; schools in the north city.,lead: confirm legal name on Charities Register / CRO
 Dominican Sisters,congregation,entity list,,search also: Dominican Sisters Cabra Cabra (St Mary's School for Deaf Girls); Sion Hill.,lead: confirm legal name on Charities Register / CRO
 Carmelites,congregation,entity list,,search also: Order of Carmelites; Irish Province of Carmelites Terenure College; Whitefriar Street.,lead: confirm legal name on Charities Register / CRO
 Capuchin Franciscans,congregation,entity list,,search also: Irish Capuchin Province; Capuchins Church Street friary.,lead: confirm legal name on Charities Register / CRO
 De La Salle Brothers,congregation,entity list,,search also: Brothers of the Christian Schools De La Salle schools in Dublin.,lead: confirm legal name on Charities Register / CRO
 Legion of Mary,lay body,entity list,,search also: Concilium Legionis Mariae Ran the Regina Coeli hostel on North Brunswick Street.,lead: confirm legal name on Charities Register / CRO
-Edmund Rice Schools Trust,school trust,entity list; Dept of Education school lists,23,search also: ERST Trustee of former Christian Brothers schools since 2008.,lead: confirm legal name on Charities Register / CRO
+Edmund Rice Schools Trust,school trust,entity list; Dept of Education school lists; OpenStreetMap operator tag,23,search also: ERST Trustee of former Christian Brothers schools since 2008.,lead: confirm legal name on Charities Register / CRO
 CEIST,school trust,entity list; Dept of Education school lists,10,search also: Catholic Education an Irish Schools Trust Trustee of voluntary secondary schools from several congregations.,lead: confirm legal name on Charities Register / CRO
 Le Chéile Schools Trust,school trust,entity list; Dept of Education school lists,25,search also: Le Cheile Trustee of voluntary secondary schools from several congregations.,lead: confirm legal name on Charities Register / CRO
 Rosminians,congregation,entity list,,search also: Institute of Charity; Rosminian Fathers Ran Upton (Cork) and Ferryhouse (Clonmel) industrial schools (Ryan Report).,lead: confirm legal name on Charities Register / CRO
@@ -24,22 +24,14 @@ Brothers of Charity,congregation,entity list,,"search also: Brothers of Charity 
 Presentation Brothers,congregation,entity list,,"search also: Congregation of Presentation Brothers Ran Greenmount industrial school, Cork (Ryan Report).",lead: confirm legal name on Charities Register / CRO
 Oblates of Mary Immaculate,congregation,entity list; Charities Regulator register,,"search also: Missionary Oblates of Mary Immaculate; Oblate Fathers Ran St Conleth's reformatory, Daingean (Ryan Report); Inchicore church.",lead: confirm legal name on Charities Register / CRO
 Daughters of the Cross of Liège,congregation,entity list,,"search also: Congregation of the Daughters of the Cross of Liège Ran Mary Immaculate, Stillorgan (Ryan Report).",lead: confirm legal name on Charities Register / CRO
-Society of St Vincent de Paul,lay body,entity list,,"search also: SVP; St Vincent de Paul <place> Conference; Ozanam House A Catholic lay society. Holds shops, hostels and social housing, often through local conferences registered as separate charities.",lead: confirm legal names on Charities Register
-Pioneer Total Abstinence Association,lay body,entity list; Charities Regulator register,,search also: Pioneer Total Abstinence Association of the Sacred Heart; Pioneers A Catholic lay association founded by a Jesuit in 1898. Branches register as separate charities.,lead: confirm legal names on Charities Register
-Knights of Columbanus,lay body,entity list,,"search also: Order of the Knights of Saint Columbanus A Catholic fraternal order. Not a registered charity, so its property-holding company has to be found on the CRO. Its headquarters is at Ely House, Ely Place, Dublin 2.",lead: CRO search
-Crosscare,diocesan agency,entity list,,search also: Catholic Social Service Conference The social care agency of the Archdiocese of Dublin. Runs hostels and centres on diocesan property.,lead: confirm legal name on Charities Register
-Accord,diocesan agency,entity list,,search also: ACCORD Catholic Marriage Care Service The Irish bishops' marriage and relationship agency. Runs centres in each diocese.,lead: confirm legal names on Charities Register
-Catholic Youth Care,diocesan agency,entity list,,search also: CYC Youth agency of the Archdiocese of Dublin. Not registered under this name; the legal name is still to be found.,lead: CRO and Charities Register search
-St John of God Hospitaller Order,congregation,entity list,,"search also: Hospitaller Order of St John of God; Saint John of God Community Services CLG Runs disability and mental health services, many on order land, and is a Section 38 agency.",lead: confirm legal names on Charities Register and CRO
-Bon Secours Sisters,congregation,entity list,,search also: Congregation of the Sisters of Bon Secours of Paris; Bon Secours Health System Owned the Bon Secours hospitals; ran the Tuam mother and baby home.,lead: confirm legal names on Charities Register and CRO
-Archbishop Of Dublin,school patron,Dept of Education school lists,334,schools in the county with this patron; the patron is not always the landowner,lead
-An Foras Pátrúnachta,school patron,Dept of Education school lists,9,schools in the county with this patron; the patron is not always the landowner,lead
+Archbishop Of Dublin,school patron,Dept of Education school lists; OpenStreetMap operator tag,334,schools in the county with this patron; the patron is not always the landowner,lead
+An Foras Pátrúnachta,school patron,Dept of Education school lists; OpenStreetMap operator tag,9,schools in the county with this patron; the patron is not always the landowner,lead
 Loreto Education Trust,school patron,Dept of Education school lists; Charities Regulator register,7,schools in the county with this patron; the patron is not always the landowner,lead
 The Spiritan Education Trust,school patron,Dept of Education school lists,5,schools in the county with this patron; the patron is not always the landowner,lead
 Minister For Education & Skills,school patron,Dept of Education school lists,3,schools in the county with this patron; the patron is not always the landowner,lead
 Congregation Of The Missions (Vincentians),school patron,Dept of Education school lists,2,schools in the county with this patron; the patron is not always the landowner,lead
 Marist Brothers (Province Of West Central Europe),school patron,Dept of Education school lists,2,schools in the county with this patron; the patron is not always the landowner,lead
-Society Of Jesus (Jesuits),school patron,Dept of Education school lists,2,schools in the county with this patron; the patron is not always the landowner,lead
+Society Of Jesus (Jesuits),school patron,Dept of Education school lists; OpenStreetMap operator tag,2,schools in the county with this patron; the patron is not always the landowner,lead
 Marist Education Authority,school patron,Dept of Education school lists,2,schools in the county with this patron; the patron is not always the landowner,lead
 Erst,school patron,Dept of Education school lists,1,schools in the county with this patron; the patron is not always the landowner,lead
 Mount Anville Sacred Heart Education Trust,school patron,Dept of Education school lists,1,schools in the county with this patron; the patron is not always the landowner,lead
@@ -52,6 +44,29 @@ Famed,school patron,Dept of Education school lists,1,schools in the county with 
 Le Chéile Schools Trust  Religious Sisters Of Charity,school patron,Dept of Education school lists,1,schools in the county with this patron; the patron is not always the landowner,lead
 City Of Dublin Etb,school patron,Dept of Education school lists,1,schools in the county with this patron; the patron is not always the landowner,lead
 Minister For Education,school patron,Dept of Education school lists,1,schools in the county with this patron; the patron is not always the landowner,lead
+Edmund Rice Schools Trust Company Limited by Guarantee,operator,OpenStreetMap operator tag; Charities Regulator register,5,volunteer-entered; often the parish or order that runs the site,lead
+Diocese of Dublin,operator,OpenStreetMap operator tag,5,volunteer-entered; often the parish or order that runs the site,lead
+Le Chéile Schools Trust Company Limited by Guarantee,operator,OpenStreetMap operator tag,4,volunteer-entered; often the parish or order that runs the site,lead
+Fingal County Council,operator,OpenStreetMap operator tag,3,volunteer-entered; often the parish or order that runs the site,lead
+CEIST Company Limited by Guarantee,operator,OpenStreetMap operator tag,3,volunteer-entered; often the parish or order that runs the site,lead
+Sisters of Loreto,operator,OpenStreetMap operator tag,2,volunteer-entered; often the parish or order that runs the site,lead
+Marist Sisters,operator,OpenStreetMap operator tag,2,volunteer-entered; often the parish or order that runs the site,lead
+Sisters of Charity,operator,OpenStreetMap operator tag,2,volunteer-entered; often the parish or order that runs the site,lead
+Catholic Church,operator,OpenStreetMap operator tag,1,volunteer-entered; often the parish or order that runs the site,lead
+UCD Chaplaincy,operator,OpenStreetMap operator tag,1,volunteer-entered; often the parish or order that runs the site,lead
+Congregation of Dominican Sisters,operator,OpenStreetMap operator tag; Charities Regulator register,1,volunteer-entered; often the parish or order that runs the site,lead
+Spiritan Education Trust,operator,OpenStreetMap operator tag; Charities Regulator register,1,volunteer-entered; often the parish or order that runs the site,lead
+Dublin and Dún Laoghaire Education and Training Board,operator,OpenStreetMap operator tag,1,volunteer-entered; often the parish or order that runs the site,lead
+Redeemed Christian Church of God,operator,OpenStreetMap operator tag,1,volunteer-entered; often the parish or order that runs the site,lead
+Pious Disciples of the Divine Master Sisters,operator,OpenStreetMap operator tag,1,volunteer-entered; often the parish or order that runs the site,lead
+Institute of the Blessed Virgin Mary,operator,OpenStreetMap operator tag,1,volunteer-entered; often the parish or order that runs the site,lead
+St. Martin apostolate,operator,OpenStreetMap operator tag,1,volunteer-entered; often the parish or order that runs the site,lead
+Rush NS Board of Management,operator,OpenStreetMap operator tag,1,volunteer-entered; often the parish or order that runs the site,lead
+CEIST / Board of Management,operator,OpenStreetMap operator tag,1,volunteer-entered; often the parish or order that runs the site,lead
+Little Sisters of the Poor,operator,OpenStreetMap operator tag,1,volunteer-entered; often the parish or order that runs the site,lead
+Department of Education and Skills,operator,OpenStreetMap operator tag,1,volunteer-entered; often the parish or order that runs the site,lead
+Foras Patrúnachta,operator,OpenStreetMap operator tag,1,volunteer-entered; often the parish or order that runs the site,lead
+Betania Limited,operator,OpenStreetMap operator tag,1,volunteer-entered; often the parish or order that runs the site,lead
 Accord Dublin Catholic Marriage Care Service,charity,Charities Regulator register,,registered charity number 20158606; match: explicit (catholic; archdiocese; accord dublin catholic marriage),lead
 Adelaide Blake Trust.,charity,Charities Regulator register,,registered charity number 20000127; match: explicit (catholic),lead
 Aid To The Church In Need (Ireland),charity,Charities Regulator register,,registered charity number 20023768; match: explicit (catholic; holy see),lead
@@ -95,7 +110,6 @@ Clonmacnois Faith Heritage Trust,charity,Charities Regulator register,,registere
 Community of Nazareth Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20141417; match: explicit (catholic; mercy),lead
 Concilium Legionis Mariae,charity,Charities Regulator register,,registered charity number 20006112; match: order or devotion (legion of mary; legionis mariae),lead
 Congregation of Christian Brothers European Province - Republic of Ireland,charity,Charities Regulator register,,registered charity number 20014049; match: explicit (catholic; congregation of; christian brothers; edmund rice),lead
-Congregation of Dominican Sisters,charity,Charities Regulator register,,registered charity number 20007171; match: order or devotion (sisters of; congregation of; parish; dominican; our lady),lead
 Congregation of La Retraite,charity,Charities Regulator register,,registered charity number 20010522; match: explicit (catholic; congregation of),lead
 Congregation of Our Lady of Charity of The Good Shepherd - Irish Province,charity,Charities Regulator register,,registered charity number 20012076; match: order or devotion (congregation of; our lady),lead
 Congregation of Our Lady of The Missions (Ireland) CLG,charity,Charities Regulator register,,registered charity number 20011833; match: explicit (catholic; congregation of; our lady),lead
@@ -132,7 +146,6 @@ Dublin Metropolitan Garda Catholic Obsequies Association.,charity,Charities Regu
 Dublin South East Community Training Centre CLG,charity,Charities Regulator register,,registered charity number 20021733; match: explicit (catholic),lead
 Dublin University Mission To Chota Nagpur,charity,Charities Regulator register,,registered charity number 20003555; match: explicit (diocese of),lead
 Edmund Rice Development,charity,Charities Regulator register,,registered charity number 20071004; match: order or devotion (edmund rice),lead
-Edmund Rice Schools Trust Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20069452; match: explicit (catholic; edmund rice),lead
 Employ Ability CLG,charity,Charities Regulator register,,registered charity number 20069889; match: explicit (catholic; religious order),lead
 Equestrian Order of The Holy Sepulchre of Jerusalem,charity,Charities Regulator register,,registered charity number 20021399; match: explicit (catholic; christian brothers),lead
 Evangelisation Mission Ireland,charity,Charities Regulator register,,registered charity number 20200309; match: explicit (catholic),lead
@@ -202,6 +215,7 @@ Order of Discalced Carmelites -Anglo Irish Province,charity,Charities Regulator 
 Our Lady's Manor Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20007874; match: order or devotion (congregation of; carmelite; our lady),lead
 Pallottine Fathers- Trust For Needy Members,charity,Charities Regulator register,,registered charity number 20061166; match: order or devotion (fathers),lead
 Parish of Baldoyle,charity,Charities Regulator register,,registered charity number 20007744; match: order or devotion (parish),lead
+Pioneer Total Abstinence Association,charity,Charities Regulator register,,registered charity number 20003579; match: explicit (catholic; pioneer total abstinence),lead
 Pious Disciples of The Divine Master,charity,Charities Regulator register,,registered charity number 20027070; match: order or devotion (sisters of; congregation of),lead
 Pontifical Mission Societies.,charity,Charities Regulator register,,registered charity number 20002985; match: explicit (catholic; apostolic; pontifical),lead
 Poor Clare Coletine Community,charity,Charities Regulator register,,registered charity number 20013646; match: order or devotion (poor clare),lead
@@ -261,7 +275,6 @@ Society of Saint Vincent De Paul-Saint Mary's Conference.,charity,Charities Regu
 Society of The Catholic Apostolate,charity,Charities Regulator register,,registered charity number 20011826; match: explicit (catholic; apostolic; fathers),lead
 Society of The Holy Child Jesus,charity,Charities Regulator register,,registered charity number 20043889; match: order or devotion (holy child),lead
 Society of The Sacred Heart.,charity,Charities Regulator register,,registered charity number 20013578; match: explicit (catholic; sacred heart),lead
-Spiritan Education Trust,charity,Charities Regulator register,,registered charity number 20040505; match: explicit (catholic; spiritan),lead
 St John of God N S,charity,Charities Regulator register,,registered charity number 20117764; match: named body (st john of god),lead
 St John of God Sp Sch,charity,Charities Regulator register,,registered charity number 20139773; match: named body (st john of god),lead
 St Monica's Nursing Home,charity,Charities Regulator register,,registered charity number 20020033; match: explicit (catholic; sisters of; religious sisters),lead

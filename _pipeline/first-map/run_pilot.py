@@ -10,6 +10,7 @@ Land Registry search, and a seed list of Catholic-sounding charity names.
 """
 
 import argparse
+import sys
 import time
 import warnings
 
@@ -42,6 +43,10 @@ def run(refresh=False):
     if not config.VALUATION_LOCAL_AUTHORITIES:
         del fetchers["Valuation list"]
     frames = {label: _timed(label, fetch, refresh) for label, fetch in fetchers.items()}
+    # A source that comes back empty is down, not empty: stop rather than publish a map without it.
+    down = [label for label in ("OpenStreetMap", "NIAH", "School lists") if frames[label].empty]
+    if down:
+        sys.exit(f"{', '.join(down)} returned nothing (source down?); outputs left unchanged.")
     found = [v for v in frames.values() if not v.empty]
     points = pd.concat(found, ignore_index=True) if found else sources._empty()
     # An area name can also match a place abroad (there is a Fingal in Tasmania).
@@ -52,7 +57,7 @@ def run(refresh=False):
               f"{points.loc[~inside, 'source'].value_counts().to_dict()}", flush=True)
     points = points[inside].reset_index(drop=True)
 
-    hiqa = _timed("HIQA registers", sources.fetch_hiqa_centres, refresh)
+    hiqa = _timed("HIQA registers (saved copy)", sources.load_hiqa_centres, refresh)
     unplaced = []
     for label, seed in (("HIQA registered centres", sources.hiqa_church_centres(hiqa)),
                         ("Industrial schools (Ryan Report)", sources.load_industrial_schools()),
