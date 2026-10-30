@@ -33,7 +33,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install pandas requests pdfplumber
+      - run: sudo apt-get install -y -q tesseract-ocr && pip install pandas requests pdfplumber pytesseract
       - run: python -u tools/fetch_documents.py ${{ inputs.refresh && '--refresh' || '' }}
       - name: Commit the text copies
         working-directory: .

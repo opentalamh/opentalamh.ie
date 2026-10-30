@@ -33,24 +33,42 @@ HEADERS = {"User-Agent": "OpenTalamh/0.1 (+https://opentalamh.ie; research on pu
 
 
 def pdf_text(data):
+    """Text of each page; scanned pages (no text layer) are read with OCR when tesseract is installed."""
     import pdfplumber
 
     pages = []
     with pdfplumber.open(io.BytesIO(data)) as pdf:
         for i, page in enumerate(pdf.pages, 1):
-            pages.append(f"\n--- page {i} ---\n" + (page.extract_text(layout=True) or ""))
+            text = page.extract_text(layout=True) or ""
+            if not text.strip():
+                text = _ocr(page)
+            pages.append(f"\n--- page {i} ---\n" + text)
     return "".join(pages)
+
+
+def _ocr(page):
+    try:
+        import pytesseract
+    except ImportError:
+        return ""
+    image = page.to_image(resolution=300).original
+    return "[OCR]\n" + pytesseract.image_to_string(image, config="--psm 6")
 
 
 def html_text(data):
     """Visible text plus every link, so a document's own links can be followed."""
     html = data.decode("utf-8", "replace")
     links = sorted(set(re.findall(r'href="([^"#]+)"', html)))
+    # Form fields show how a search page takes its filters.
+    fields = re.findall(r'<(?:input|select)[^>]*name="([^"]+)"', html)
+    options = re.findall(r'<option[^>]*value="([^"]*)"[^>]*>([^<]*)<', html)
     body = re.sub(r"(?is)<(script|style|noscript)[^>]*>.*?</\1>", " ", html)
     body = re.sub(r"(?s)<[^>]+>", " ", body)
     body = re.sub(r"[ \t\r\f\v]+", " ", body)
     body = re.sub(r"\n\s*\n+", "\n", body)
-    return body.strip() + "\n\n--- links ---\n" + "\n".join(links)
+    return (body.strip() + "\n\n--- links ---\n" + "\n".join(links)
+            + "\n\n--- form fields ---\n" + "\n".join(dict.fromkeys(fields))
+            + "\n\n--- options ---\n" + "\n".join(f"{v}\t{t.strip()}" for v, t in options))
 
 
 def fetch(row, refresh=False):
