@@ -53,7 +53,7 @@ NAMED_BODIES = [
     r"vincent de paul", r"\bozanam\b", r"pioneer total abstinence", r"legion of mary", r"legionis mariae",
     r"knights of (st\.? )?columbanus", r"\bcrosscare\b", r"\baccord\b.*marriage", r"catholic youth care",
     r"brothers of charity", r"daughters of charity", r"\bsisters of (mercy|charity|nazareth|the poor)\b",
-    r"hospitaller order", r"\bst\.? john of god\b", r"\bbon secours\b", r"\bopus dei\b", r"\btr[oó]caire\b(?!.*\bscoil\b|.*\bs\.? ?n\b)",
+    r"hospitaller order", r"\b(st\.?|saint) john of god\b", r"\bbon secours\b", r"\bopus dei\b", r"\btr[oó]caire\b(?!.*\bscoil\b|.*\bs\.? ?n\b)",
     r"\bmater misericordiae\b", r"\bmarino institute\b", r"\bpontifical\b", r"\bparish (centre|hall|pastoral)\b",
 ]
 
@@ -67,6 +67,25 @@ OTHER_DENOMINATIONS = [
     r"cashel.{0,40}ossory", r"limerick.{0,20}killaloe", r"meath and kildare", r"derry and raphoe",
     r"kilmore,? elphin", r"tuam,? (killala|limerick)", r"christian (assembly|fellowship|centre)",
 ]
+
+# Registered providers of care (HIQA) are companies, so order names show up in
+# forms like "Congregation of the Little Sisters of the Poor" or "Nazareth Care
+# Ireland". A saint's name alone ("St Joseph's Nursing Home Ltd") is not enough.
+PROVIDER_TERMS = [
+    r"\bsisters\b", r"\bbrothers of\b", r"\bcongregation\b", r"\bnazareth\b", r"\bdaughters of\b",
+    r"\bpoor servants of the mother of god\b", r"\blittle company of mary\b", r"\bsociety of jesus\b",
+    r"\bcarmelite\b", r"\bmercy\b", r"\bpresentation\b", r"\bmarie auxiliatrice\b",
+    r"\bsacred heart\b", r"\bholy faith\b", r"\bpoor clares?\b", r"\bmissionar(y|ies) of\b",
+]
+
+
+def church_provider(name):
+    """Matched terms when a care provider's name says it is a Catholic body, else ''."""
+    name = name or ""
+    if _hits(name, OTHER_DENOMINATIONS):
+        return ""
+    return "; ".join(dict.fromkeys(h.lower() for h in _hits(name, EXPLICIT + NAMED_BODIES + PROVIDER_TERMS)))
+
 
 COLUMNS = [
     "charity_number", "name", "also_known_as", "status", "classification", "address", "governing_form",

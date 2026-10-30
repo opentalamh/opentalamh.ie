@@ -7,7 +7,9 @@ module gathers candidate names from what the open sources already say:
 - the hand-curated entity list (data/seed/entities.csv),
 - school patrons in the Department of Education lists,
 - `operator` tags on OpenStreetMap sites,
-- Catholic-sounding charities with an address in the county.
+- Catholic-sounding charities with an address in the county,
+- registered providers of HIQA-registered nursing homes and disability
+  centres whose name says they are a Catholic body.
 
 None of these is a legal owner's name yet. Each is a lead to confirm against
 the Charities Register, the CRO or a folio before it goes on the search list.
@@ -96,8 +98,28 @@ def county_charities(charities):
     }, columns=NAME_COLUMNS)
 
 
-def name_leads(schools, osm, charities):
-    frames = [seed_entities(), school_patrons(schools), osm_operators(osm), county_charities(charities)]
+def care_providers(hiqa):
+    """Church registered providers of care centres in the county, with how many centres each runs."""
+    from . import charities
+
+    if hiqa is None or hiqa.empty:
+        return pd.DataFrame(columns=NAME_COLUMNS)
+    p = hiqa["provider"].astype(str).str.strip()
+    p = p[(p != "") & p.map(charities.church_provider).ne("")]
+    counts = p.value_counts()
+    return pd.DataFrame({
+        "name": counts.index,
+        "entity_class": "registered care provider",
+        "found_in": "HIQA registers of designated centres",
+        "count": counts.values,
+        "note": "centres in the county with this registered provider; the provider may lease the land",
+        "status": "lead",
+    }, columns=NAME_COLUMNS)
+
+
+def name_leads(schools, osm, charities, hiqa=None):
+    frames = [seed_entities(), school_patrons(schools), osm_operators(osm), county_charities(charities),
+              care_providers(hiqa)]
     leads = pd.concat([f for f in frames if not f.empty], ignore_index=True) \
         if any(not f.empty for f in frames) else pd.DataFrame(columns=NAME_COLUMNS)
     # One row per name: keep the first (seed entries come first) and carry

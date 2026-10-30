@@ -29,12 +29,21 @@ def _empty():
     return pd.DataFrame(columns=SITE_COLUMNS)
 
 
-def _get(url, *, params=None, data=None, timeout=180, browser=False):
+RETRY_STATUSES = {429, 502, 503, 504}
+
+
+def _get(url, *, params=None, data=None, timeout=180, browser=False, tries=4):
+    """GET (or POST with data), waiting and retrying when a server says it is busy."""
     headers = config.BROWSER_HEADERS if browser else {"User-Agent": config.USER_AGENT}
-    if data is not None:
-        r = requests.post(url, data=data, headers=headers, timeout=timeout)
-    else:
-        r = requests.get(url, params=params, headers=headers, timeout=timeout)
+    for attempt in range(tries):
+        if data is not None:
+            r = requests.post(url, data=data, headers=headers, timeout=timeout)
+        else:
+            r = requests.get(url, params=params, headers=headers, timeout=timeout)
+        if r.status_code not in RETRY_STATUSES or attempt == tries - 1:
+            break
+        wait = r.headers.get("Retry-After", "")
+        time.sleep(min(int(wait), 300) if wait.isdigit() else 15 * 2 ** attempt)
     r.raise_for_status()
     return r
 
@@ -150,13 +159,13 @@ def parse_overpass(payload, other_only=False):
 
 def _overpass(query):
     errors = []
-    for url in config.OVERPASS_MIRRORS:
-        for attempt in range(2):
+    for round_ in range(3):  # Overpass mirrors go down together at times; try them all again later
+        for url in config.OVERPASS_MIRRORS:
             try:
-                return _get(url, data={"data": query}, timeout=330).content
+                return _get(url, data={"data": query}, timeout=330, tries=2).content
             except Exception as e:
                 errors.append(f"{url}: {e}")
-                time.sleep(30 * (attempt + 1))
+        time.sleep(120 * (round_ + 1))
     raise RuntimeError("; ".join(errors))
 
 
@@ -729,6 +738,44 @@ def load_industrial_schools():
     }, columns=SITE_COLUMNS + ["anchor"])
 
 
+def load_redress_transfers():
+    """Properties the congregations handed to the State under the 2002 indemnity and 2009 offers.
+
+    data/seed/redress_property_transfers.csv is transcribed from the
+    Department of Education's July 2018 note to the Public Accounts Committee
+    (data/documents/doe-transfers-2018-07.txt). These are former holdings
+    (grade E): the order held them until the transfer. Rows have no
+    coordinates and are placed through their `anchor`, like history sites.
+    """
+    path = config.SEED_DIR / "redress_property_transfers.csv"
+    if not path.exists():
+        return _empty()
+    t = pd.read_csv(path, dtype=str).fillna("")
+    t = t[t["county"].str.fullmatch(config.COUNTY, case=False)]
+
+    def detail(r):
+        parts = [r["round"], r["transferor"] or "congregation not named in the appendix",
+                 f"to {r['transferee']}" if r["transferee"] else "",
+                 f"valued at €{float(r['value_eur']):,.0f}" if r["value_eur"] else "",
+                 r["status_june_2018"] + " (June 2018)", r.get("later_status", ""), r["use"],
+                 f"source: {r['source_doc']} p. {r['source_page']}"]
+        return " · ".join(p for p in parts if p)
+
+    return pd.DataFrame({
+        "source": "Redress transfers (former holdings)",
+        "source_id": t["ref"],
+        "name": t["property"],
+        "category": "former holding",
+        "denomination": "catholic",
+        "lat": float("nan"),
+        "lon": float("nan"),
+        "address": t["property"],
+        "source_url": "https://www.gov.ie/en/department-of-education/collections/cash-and-property-transfers",
+        "raw_use": t.apply(detail, axis=1) if len(t) else pd.Series(dtype=str),
+        "anchor": t["anchor"],
+    }, columns=SITE_COLUMNS + ["anchor"])
+
+
 def place_history_sites(history, points, max_spread_m=250):
     """Give unplaced history sites the location of the record their `anchor` names.
 
@@ -762,6 +809,120 @@ def place_history_sites(history, points, max_spread_m=250):
         )
     placed = h["lat"].notna() & h["lon"].notna()
     return h[placed].drop(columns="anchor"), h[~placed].drop(columns="anchor")
+
+
+# --- HIQA registers of designated centres ---------------------------------------
+
+HIQA = "https://www.hiqa.ie"
+HIQA_CENTRE_TYPES = {"41": "older persons' centre", "40": "disability centre"}
+
+
+def _hiqa_listing(type_id):
+    """(slug, name, centre id) for every centre of one type in the county, from Find a Centre."""
+    out, page = [], 0
+    while True:
+        html = _get(f"{HIQA}/find-a-centre", params={
+            "field_centre_type_target_id": type_id, "field_county_value": config.COUNTY, "page": page}).text
+        rows = re.findall(r'href="/areas-we-work/find-a-centre/([^"]+)"[^>]*>\s*([^<]+?)\s*<.*?ID:\s*(\d+)', html, re.S)
+        new = [r for r in rows if r[0] not in {o[0] for o in out}]
+        if not new:
+            return out
+        out += new
+        page += 1
+        time.sleep(2)
+
+
+def _hiqa_centre(slug):
+    """Address, type and the provider named on the latest inspection report of one centre."""
+    html = _get(f"{HIQA}/areas-we-work/find-a-centre/{slug}").text
+    text = re.sub(r"\s+", " ", re.sub(r"(?s)<[^>]+>", " ", html))
+    field = lambda label, nxt: (re.search(rf"{label}:\s*(.+?)\s*(?:{nxt}|$)", text) or [None, ""])[1]
+    reports = re.findall(r'href="(/system/files\?file=inspectionreports/[^"]+\.pdf)"', html)
+    provider = ""
+    if reports:
+        import pdfplumber
+
+        pdf = _get(HIQA + reports[0].replace("&amp;", "&")).content
+        with pdfplumber.open(BytesIO(pdf)) as doc:
+            first = " ".join((pg.extract_text() or "") for pg in doc.pages[:2])
+        m = re.search(r"Name of provider:\s*(.+?)\s*(?:Address of centre|Address of|Type of inspection|\n)", first, re.S)
+        provider = re.sub(r"\s+", " ", m.group(1)).strip() if m else ""
+    return {
+        "address": field("Address", "Phone|Inspection Reports"),
+        "centre_type": field("Centre type", "County"),
+        "provider": provider,
+        "report": HIQA + reports[0] if reports else "",
+    }
+
+
+def hiqa_cache_path():
+    return config.SEED_DIR.parent / "cache" / f"hiqa_{config.COUNTY.lower()}.csv"
+
+
+def load_hiqa_centres(refresh=False):
+    """The county's HIQA centres as last saved by tools/fetch_hiqa.py (empty, with a warning, if never run).
+
+    Reading HIQA takes hundreds of slow requests, so the map build doesn't do
+    it; the "Fetch HIQA register" workflow does, and commits the result.
+    """
+    path = hiqa_cache_path()
+    if not path.exists():
+        warnings.warn(f"No HIQA register saved for {config.COUNTY}; run tools/fetch_hiqa.py")
+        return pd.DataFrame(columns=HIQA_COLUMNS)
+    return pd.read_csv(path, dtype=str).fillna("")
+
+
+HIQA_COLUMNS = ["centre_id", "name", "type", "slug", "address", "centre_type", "provider", "report", "retrieved"]
+
+
+def fetch_hiqa_centres(delay=2.0):
+    """Every older persons' and disability centre in the county with its registered provider.
+
+    HIQA publishes no download, so the Find a Centre listing and each centre's
+    latest inspection report (whose first page names the provider) are read,
+    slowly, since HIQA refuses rapid requests. All centres are kept; the
+    Church filter is applied afterwards (see hiqa_church_centres).
+    """
+    rows = []
+    for type_id, label in HIQA_CENTRE_TYPES.items():
+        try:
+            listing = _hiqa_listing(type_id)
+        except Exception as e:
+            warnings.warn(f"HIQA listing for {label}s failed: {e}")
+            continue
+        print(f"  HIQA: {len(listing)} {label}s", flush=True)
+        for slug, name, centre_id in listing:
+            try:
+                detail = _hiqa_centre(slug)
+            except Exception as e:  # one broken page or report shouldn't stop the rest
+                warnings.warn(f"HIQA centre {slug}: {e}")
+                detail = {"address": "", "centre_type": "", "provider": "", "report": ""}
+            rows.append({"centre_id": centre_id, "name": name.strip(), "type": label, "slug": slug, **detail,
+                         "retrieved": time.strftime("%Y-%m-%d")})
+            time.sleep(delay)
+    return pd.DataFrame(rows, columns=HIQA_COLUMNS)
+
+
+def hiqa_church_centres(centres):
+    """Centres whose registered provider is a Catholic body, as points to place by name."""
+    from . import charities
+
+    c = centres.copy()
+    c["church_match"] = c["provider"].map(charities.church_provider)
+    c = c[c["church_match"] != ""]
+    return pd.DataFrame({
+        "source": "HIQA registered centres",
+        "source_id": c["centre_id"],
+        "name": c["name"],
+        "category": c["type"],
+        "denomination": "catholic",
+        "lat": float("nan"),
+        "lon": float("nan"),
+        "address": c["address"],
+        "source_url": HIQA + "/areas-we-work/find-a-centre/" + c["slug"],
+        "raw_use": "registered provider: " + c["provider"] + " (matched: " + c["church_match"] + ")",
+        "anchor": c["name"].map(lambda n: re.escape(re.sub(r"\s+", " ", n).strip())),
+    }, columns=SITE_COLUMNS + ["anchor"])
 
 
 # --- Charities Regulator register: names, not places ---------------------------

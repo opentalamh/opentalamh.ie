@@ -1,0 +1,41 @@
+on:
+  workflow_dispatch:
+    inputs:
+      counties:
+        description: "Counties to fetch, space-separated"
+        default: "Dublin"
+
+name: Fetch HIQA register
+
+concurrency:
+  group: fetch-hiqa-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    defaults:
+      run:
+        working-directory: _pipeline/first-map
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pandas requests pdfplumber pyproj
+      - env:
+          COUNTIES: ${{ inputs.counties || 'Dublin' }}
+        run: for c in $COUNTIES; do python -u tools/fetch_hiqa.py --county "$c"; done
+      - name: Commit the saved register
+        working-directory: .
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898213+github-actions[bot]@users.noreply.github.com"
+          git add _pipeline/first-map/data/cache
+          git commit -m "Save the HIQA register" || echo "nothing changed"
+          git pull --rebase origin "${GITHUB_REF_NAME}" || true
+          git push

@@ -3,8 +3,12 @@
 `industrial_schools.csv` is the national reference list of the institutions
 the Ryan Report investigated, taken from Industrial Memories' list of
 institutions (https://industrialmemories.ucd.ie/ryan-report/report/institutions),
-plus Passage West from its Transfer Graph 7 and other Dublin industrial
-schools from Wikipedia's list. One row per institution: its order, town and
+plus Passage West from its Transfer Graph 7 and the other Dublin industrial
+and reformatory schools named in the Schedule to the Residential Institutions
+Redress Act 2002. Every row cites a primary source: the Schedule, the Ryan
+Report, NIAH, a council's protected structures record, the school lists or
+the Department of Education's transfer notes. Secondary sources such as
+Wikipedia can point to a record but are not cited. One row per institution: its order, town and
 county, its Ryan Report pages, and what is known about the site today
 (`current_occupier`, `sale_or_transfer`, `sale_date`, `sale_price`), each with
 the source it came from. Blank means not yet researched or not found.
@@ -67,3 +71,35 @@ company (St Vincent de Paul, Pioneers, Brothers of Charity Services), whatever
 its purpose, since those register for poverty relief, health or education. Charities
 naming another denomination are left out, including "X Parish Church" and the
 Church of Ireland's united dioceses. Trustee names are not copied.
+
+# Redress property transfers
+
+`redress_property_transfers.csv` lists the properties the congregations
+handed to the State: the 55 fully transferred and 5 outstanding under the 2002
+Indemnity Agreement (Appendices 1 and 2) and the 18 accepted from the 2009
+voluntary offers (Appendix 3), transcribed from the Department of Education's
+July 2018 note to the Public Accounts Committee
+(`../documents/doe-transfers-2018-07.txt`). The Appendix 1 values add up to the
+EUR 58,725,275 the note prints, and a test checks this. `later_status` adds
+what the October 2019 note says of properties still open then. Appendix 1
+does not name the congregation for each property. These are former holdings
+(grade E). Rows are placed on the map through `anchor`, like history sites.
+
+# Primary documents
+
+`documents.csv` lists the reports and registers the seed files cite.
+`tools/fetch_documents.py` (run by the "Fetch primary documents" workflow)
+saves a text copy of each in `../documents/`, headed with its URL, retrieval
+date and SHA-256, reading scanned PDFs with OCR. Text marked `[OCR]` can
+contain misread characters, so check figures against the original.
+
+# HIQA registered centres
+
+Not a seed file: `tools/fetch_hiqa.py` (run by the "Fetch HIQA register"
+workflow) reads HIQA's Find a Centre listing for the county's older persons'
+and disability centres, slowly, and takes the registered provider from the
+first page of each centre's latest inspection report. It saves the result in
+`../cache/hiqa_<county>.csv`, which the map build reads. Only
+centres whose provider's name says it is a Catholic body
+(`charities.church_provider`) go on the map; the providers also go on the
+name list. A provider runs the centre but may not own the land.

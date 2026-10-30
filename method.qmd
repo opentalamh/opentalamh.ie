@@ -23,8 +23,20 @@ The Catholic Church is not one legal owner. Open Talamh defines the entities it 
 | Dioceses (26) and parishes | Diocesan trusts, named clerical trustees | Charities Regulator, diocesan directories |
 | Religious congregations and orders | Trustee bodies, companies limited by guarantee, named trustees | Charities Regulator, CRO, AMRI membership |
 | Schools | Patron trustees, boards of management, congregational trusts (e.g. Edmund Rice Schools Trust) | Department of Education school lists, patron bodies |
-| Health and care | Voluntary hospital companies, congregational holding companies | HSE Section 38 list, CRO |
-| Lay Catholic bodies | Companies, trusts | CRO, Charities Regulator |
+| Health and care | Voluntary hospital companies, congregational holding companies | HSE Section 38 list, HIQA registers of designated centres, CRO |
+| Lay Catholic bodies and diocesan agencies | Companies, trusts | CRO, Charities Regulator |
+
+### The inclusion test
+
+A body is included when it is **part of, or legally controlled by, a Catholic diocese, parish, religious order or lay Catholic association**. Being founded by a priest or a nun, having a Catholic ethos, or meeting in a parish hall is not enough. Every body on the entity list must be backed by a document showing that link, such as a charity registration, a company filing or a diocesan directory.
+
+Included, for example:
+
+- Dioceses, parishes and their trusts, including parish halls and parish centres held by parish trustees.
+- Religious orders and congregations, and the companies and trusts that hold their property.
+- Lay Catholic associations, such as the Society of St Vincent de Paul, the Pioneer Total Abstinence Association, the Legion of Mary and the Knights of Columbanus.
+- Diocesan agencies, such as Crosscare and Accord.
+- Nursing homes, hospitals, disability services and colleges, **only where the registered provider or owner is an order, a diocese or a company they control**. Where an order has handed a hospital or college to an independent company or the State, the site is recorded as a former holding.
 
 Each parcel is assigned one ownership tier:
 
@@ -43,7 +55,33 @@ Each parcel is assigned one ownership tier:
 | **D** | Use, signage or a heritage record suggests Church ownership; title not yet checked | Unverified lead (not counted in totals) |
 | **E** | Held since 2002 but since sold or transferred | Former holding |
 
-The first Dublin map is built entirely from open data, so every point on it is currently a **grade D lead**.
+## How the Dublin map is built
+
+The [Dublin map](map.qmd) is built from open data only, so it shows where Church-linked sites are, not who owns them. Points from open data are grade D leads; properties the State records as handed over by the orders are grade E former holdings. The code is in [`_pipeline/first-map`](https://github.com/opentalamh/opentalamh.ie/tree/main/_pipeline/first-map) and anyone can re-run it.
+
+**Where the points come from**
+
+- Catholic churches, convents, presbyteries, religious houses and Catholic-ethos schools tagged on [OpenStreetMap](https://www.openstreetmap.org/).
+- Churches, convents, presbyteries and institutions recorded by the [National Inventory of Architectural Heritage](https://data.gov.ie/dataset/national-inventory-of-architectural-heritage-niah-national-dataset).
+- Churches, convents and religious institutions in the Records of Protected Structures of [Dublin City](https://data.gov.ie/dataset/record-protected-structures-dcc), [Fingal](https://data.gov.ie/dataset/development-plan-2023-2029-rps-record-of-protected-structures-fcc2), [South Dublin](https://data.gov.ie/dataset/record-of-protected-structures-south-dublin-county-development-plan-2022-to-2028-sdcc1) and [Dún Laoghaire-Rathdown](https://data.gov.ie/dataset/development-plan-2022-2028-protected-structures-dlr) councils.
+- Schools with a Catholic ethos in the Department of Education [primary](https://data.gov.ie/dataset/primary-schools) and [post-primary](https://data.gov.ie/dataset/post-primary-schools) lists, with their patron.
+- Industrial and reformatory schools investigated by the [Ryan Report](https://industrialmemories.ucd.ie/), with their official names from the Schedule to the [Residential Institutions Redress Act 2002](https://www.irishstatutebook.ie/eli/2002/act/13/enacted/en/print). The list covers every county and records the order that ran each school, who occupies the site now, and any sale or transfer.
+- Magdalene laundries and mother and baby homes named in the McAleese Report and the Final Report of the Commission of Investigation into Mother and Baby Homes.
+- Properties congregations transferred to the State under the 2002 Indemnity Agreement and the 2009 voluntary offers, with agreed values, from the Department of Education's [updates to the Public Accounts Committee](https://www.gov.ie/en/department-of-education/collections/cash-and-property-transfers) (2017 to 2019).
+- Nursing homes and disability centres whose registered provider is a Catholic order or body, from [HIQA's register of designated centres](https://www.hiqa.ie/find-a-centre). The provider runs the centre but may lease the land.
+
+**How the points are cleaned**
+
+- Points outside the county are dropped, as are points that sit on another denomination's church and carry no Catholic tag.
+- Points from different sources within 50 metres of each other are grouped as one candidate site. A site found by two or more sources is more likely to be correctly placed.
+- Institutions named in reports have no coordinates, so each is placed on the record of the same building in another source, matched by name, and only when every match sits within 250 metres. The rest stay off the map until checked by hand.
+- Every row in the hand-made lists cites a primary source: a statute, an official report, a register or a heritage record. Secondary sources such as Wikipedia can point to a record but are not cited.
+
+**Names for the Land Registry search**
+
+The map is a starting point for the folio search, which works by owner name. The name list combines the entity list (dioceses, orders, lay bodies and school trusts), the school patrons, the operators recorded on OpenStreetMap, the HIQA registered providers, and Catholic charities with a Dublin address from the [Charities Regulator's register](https://data.gov.ie/dataset/register-of-charities-in-ireland). The register was downloaded by hand on 30 October 2026 (effective 26 October 2026), because the Regulator refuses automated downloads. A charity counts when its name, other names or charitable objects say Catholic or name a diocese, when it is registered for the advancement of religion and names a Catholic order or devotion, or when its name is a known Catholic body such as the Society of St Vincent de Paul, whatever its purpose. Charities naming another denomination are left out. Trustee names are not copied.
+
+The text of every report and register these lists cite is saved, with its retrieval date, in [`data/documents`](https://github.com/opentalamh/opentalamh.ie/tree/main/_pipeline/first-map/data/documents), so each figure can be checked even if the original link moves.
 
 ## How ownership is established
 
@@ -77,7 +115,10 @@ Location data is plentiful and open, while ownership data is closed and paid. So
 | [Valuation list](https://tailte.ie/en/valuation/open-data/open-data-information) (Tailte Éireann) | Rateable properties with use, area and location | No; places of worship are often exempt | Free |
 | [Charities Regulator register](https://data.gov.ie/dataset/register-of-charities-in-ireland) | Legal names of dioceses, parishes, congregations and trusts | Names only | Free |
 | [Companies Registration Office](https://core.cro.ie/) | Companies, directors, former names | Names only | Search free; documents paid |
-| Ryan, McAleese and Mother and Baby Homes reports; [Industrial Memories](https://industrialmemories.ucd.ie/) | Institutions, operators, dates | No | Free |
+| Ryan, McAleese and Mother and Baby Homes reports; [Industrial Memories](https://industrialmemories.ucd.ie/); the Schedule to the [Residential Institutions Redress Act 2002](https://www.irishstatutebook.ie/eli/2002/act/13/enacted/en/print) | Institutions, operators, dates, official names | No | Free |
+| Department of Education [cash and property transfer updates](https://www.gov.ie/en/department-of-education/collections/cash-and-property-transfers) to the Public Accounts Committee (2017 to 2019); [C&AG Special Report 96](https://www.audit.gov.ie/en/publications/special%20reports/special-report-96-cost-of-child-abuse-inquiry-and-redress.html) | Properties congregations handed to the State under the 2002 indemnity and the 2009 offers, with agreed values and recipients | **Former ownership** (grade E) | Free |
+| [HIQA Find a Centre](https://www.hiqa.ie/find-a-centre) | Nursing homes and disability centres with their registered provider (named on each inspection report) | No (the provider may lease the land) | Free; no download, so read page by page |
+| HSE Section 38 agencies | Voluntary hospitals and agencies funded under Section 38 of the Health Act 2004, many founded by orders | No | Not yet obtained: the HSE site refuses automated requests and publishes no list in its Section 38 pages |
 | [PARISH: Preserving And Recording Ireland's Sacred Heritage](https://parishproject.nd.edu/) (Keough-Naughton Institute, University of Notre Dame, with Maynooth University) | A photographic record of the interiors of every Catholic church on the island of Ireland | No | Archive and map not yet published; to be used, with credit, once released |
 | [Townland and county boundaries](https://data.gov.ie/en_GB/dataset/townlands-national-statutory-boundaries-ungeneralised-20241) | Statutory boundaries | No | Free (CC BY) |
 | [Residential Property Price Register](https://www.propertypriceregister.ie/) | Sale prices since 2010 | No | Free |

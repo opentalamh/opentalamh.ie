@@ -15,9 +15,26 @@ SOURCE_COLOURS = {
     "Tailte Éireann valuation list": "#6b46c1",
     "History seed list": "#c53030",
     "Industrial schools (Ryan Report)": "#742a2a",
+    "Redress transfers (former holdings)": "#975a16",
+    "HIQA registered centres": "#2c7a7b",
 }
 # Council protected-structure lists share one colour family.
 RPS_COLOUR = "#b83280"
+
+# How each source is named on the map, spelled out for readers.
+DISPLAY_NAMES = {
+    "NIAH": "National Inventory of Architectural Heritage",
+    "History seed list": "Magdalene laundries and mother and baby homes",
+    "Industrial schools (Ryan Report)": "Industrial and reformatory schools (Ryan Report)",
+    "Redress transfers (former holdings)": "Properties transferred to the State under redress agreements",
+    "HIQA registered centres": "Nursing homes and disability centres run by Church bodies (HIQA)",
+    "Dept of Education: primary-schools": "Catholic-ethos primary schools (Department of Education)",
+    "Dept of Education: post-primary-schools": "Catholic-ethos post-primary schools (Department of Education)",
+}
+
+
+def display_name(source):
+    return DISPLAY_NAMES.get(source, source)
 
 
 def _metres(lat1, lon1, lat2, lon2):
@@ -82,7 +99,7 @@ def merge_sites(points, radius_m=None):
     pts["site_id"] = [f"{config.SITE_PREFIX}-{ids[r]:04d}" for r in roots]
 
     # Name a site after its best-evidenced point: Catholic-marked first, then by source.
-    source_rank = {"Industrial schools (Ryan Report)": 0, "History seed list": 0, "NIAH": 1, "OpenStreetMap": 3}
+    source_rank = {"Industrial schools (Ryan Report)": 0, "History seed list": 0, "Redress transfers (former holdings)": 0, "NIAH": 1, "OpenStreetMap": 3}
     for src in pts["source"].unique():
         if src.startswith("Protected structures"):
             source_rank[src] = 1
@@ -131,13 +148,15 @@ def _popup(row):
     gmap = f"https://www.google.com/maps/search/?api=1&query={row.lat:.6f},{row.lon:.6f}"
     return folium.Popup(
         f"<b>{row['name'] or '(unnamed)'}</b><br>"
-        f"<i>{row['category']}</i> · {row['source']}<br>"
+        f"<i>{row['category']}</i> · {display_name(row['source'])}<br>"
         f"Denomination: {row['denomination']}<br>"
         f"{_detail(row)}"
         f"{row['address']}<br>"
         f"<a href='{row['source_url']}' target='_blank'>source record</a> · "
         f"<a href='{gmap}' target='_blank'>open location</a><br>"
-        f"Site {row['site_id']} · grade D (unverified lead)",
+        f"Site {row['site_id']} · "
+        + ("grade E (former holding)" if row["source"] == "Redress transfers (former holdings)"
+           else "grade D (location only; ownership not yet checked)"),
         max_width=320,
     )
 
@@ -149,7 +168,7 @@ def draw_map(points, sites, path=None):
         centre = [points["lat"].astype(float).mean(), points["lon"].astype(float).mean()]
     m = folium.Map(location=centre, zoom_start=10, tiles="OpenStreetMap", control_scale=True)
     for source, g in points.groupby("source"):
-        layer = folium.FeatureGroup(name=f"{source} ({len(g)})", show=True)
+        layer = folium.FeatureGroup(name=f"{display_name(source)} ({len(g)})", show=True)
         colour = SOURCE_COLOURS.get(source, RPS_COLOUR if source.startswith("Protected structures") else "#4a5568")
         for _, row in g.iterrows():
             folium.CircleMarker(
@@ -163,15 +182,8 @@ def draw_map(points, sites, path=None):
         folium.Circle([s.lat, s.lon], radius=config.MERGE_RADIUS_M, color="#000", weight=2, fill=False,
                       tooltip=f"{s['name']} · {s['sources']}").add_to(ring)
     ring.add_to(m)
-    folium.LayerControl(collapsed=False).add_to(m)
-    title = (
-        f"<div style='position:fixed;top:10px;left:50px;z-index:9999;background:white;padding:8px 12px;"
-        f"border:1px solid #999;border-radius:4px;font:13px sans-serif;max-width:360px'>"
-        f"<b>Who Owns the Land? First-attempt map, County {config.COUNTY}</b><br>"
-        f"Candidate Church sites from open data. Every point is a grade D lead: "
-        f"location only, ownership not checked.</div>"
-    )
-    m.get_root().html.add_child(folium.Element(title))
+    # Collapsed, so the list of sources doesn't cover the map; the page shows the legend.
+    folium.LayerControl(collapsed=True).add_to(m)
     if path:
         m.save(str(path))
     return m

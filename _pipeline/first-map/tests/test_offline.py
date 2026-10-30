@@ -196,6 +196,30 @@ def test_industrial_schools_reference_list(dublin):
     assert list(louth["source_id"]) == ["Dundalk"] and louth["lat"].notna().all()
 
 
+def test_redress_transfers_match_the_appendix_total(dublin):
+    t = pd.read_csv(config.SEED_DIR / "redress_property_transfers.csv", dtype=str).fillna("")
+    appendix1 = t[t["ref"].str.startswith("A1-")]
+    assert len(appendix1) == 55
+    assert round(appendix1["value_eur"].astype(float).sum(), 2) == 58_725_275.00  # total printed in the note
+    d = sources.load_redress_transfers()
+    assert "Gate Lodge, Goldenbridge" in set(d["name"]) and d["lat"].isna().all()
+    assert d["raw_use"].str.contains("€220,000").any()
+
+
+def test_hiqa_keeps_only_church_providers(dublin):
+    centres = pd.DataFrame([
+        {"centre_id": "1", "name": "Nazareth House Malahide Road", "type": "older persons' centre", "slug": "nazareth-house",
+         "address": "Malahide Road", "centre_type": "", "provider": "Nazareth Care Ireland", "report": ""},
+        {"centre_id": "2", "name": "St Joseph's Nursing Home", "type": "older persons' centre", "slug": "st-josephs",
+         "address": "", "centre_type": "", "provider": "St Joseph's Nursing Home Limited", "report": ""},
+        {"centre_id": "3", "name": "Example disability centre", "type": "disability centre", "slug": "c",
+         "address": "", "centre_type": "", "provider": "Saint John of God Community Services CLG", "report": ""},
+    ])
+    church = sources.hiqa_church_centres(centres)
+    assert list(church["source_id"]) == ["1", "3"]
+    leads = names.care_providers(centres)
+    assert set(leads["name"]) == {"Nazareth Care Ireland", "Saint John of God Community Services CLG"}
+
 
 def test_rps_frame_reads_cp1252_geojson():
     gj = {"features": [{"properties": {"Name": "Church of St François"},
@@ -217,3 +241,37 @@ def test_rps_frame_reads_web_mercator():
                         "geometry": {"type": "Point", "coordinates": [-692110.0, 7050980.0]}}]}
     df = sources._rps_frame("geojson", json.dumps(gj).encode())
     assert 53.3 < df["_lat"].iloc[0] < 53.4 and -6.3 < df["_lon"].iloc[0] < -6.1
+
+
+def test_run_pilot_imports():
+    import run_pilot  # noqa: F401  (a syntax error here would only show in the live build)
+
+
+def test_run_pilot_end_to_end_with_offline_sources(dublin, tmp_path, monkeypatch):
+    import run_pilot
+
+    church = pd.DataFrame([{"source": "NIAH", "source_id": "1", "name": "Goldenbridge Convent", "category": "convent",
+                            "denomination": "catholic", "lat": 53.337, "lon": -6.318, "address": "Inchicore",
+                            "source_url": "", "raw_use": "convent"}], columns=sources.SITE_COLUMNS)
+    monkeypatch.setattr(config, "OUT_DIR", tmp_path)
+    for name in ("fetch_rps", "fetch_valuation"):
+        monkeypatch.setattr(sources, name, lambda refresh=False, other_only=False: sources._empty())
+    monkeypatch.setattr(sources, "fetch_niah", lambda refresh=False: church)
+    monkeypatch.setattr(sources, "fetch_osm", lambda refresh=False, other_only=False:
+                        sources._empty() if other_only else church.assign(source="OpenStreetMap"))
+    monkeypatch.setattr(sources, "fetch_schools", lambda refresh=False: church.assign(source="Dept of Education: primary-schools"))
+    monkeypatch.setattr(sources, "load_hiqa_centres", lambda refresh=False: pd.DataFrame(columns=sources.HIQA_COLUMNS))
+    monkeypatch.setattr(sources, "fetch_charity_names", lambda refresh=False: pd.DataFrame())
+    summary, points, sites, leads, stats = run_pilot.run()
+    assert {"Goldenbridge Convent", "Gate Lodge, Goldenbridge"} <= set(points["name"])
+
+
+def test_run_pilot_stops_when_a_main_source_is_down(dublin, tmp_path, monkeypatch):
+    import run_pilot
+
+    monkeypatch.setattr(config, "OUT_DIR", tmp_path)
+    for name in ("fetch_osm", "fetch_niah", "fetch_rps", "fetch_schools", "fetch_valuation"):
+        monkeypatch.setattr(sources, name, lambda refresh=False, other_only=False: sources._empty())
+    with pytest.raises(SystemExit):
+        run_pilot.run()
+    assert not list(tmp_path.iterdir())

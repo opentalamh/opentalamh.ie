@@ -1,29 +1,34 @@
-[11:41:59] OpenStreetMap...
-[11:45:22] OpenStreetMap: 871 rows in 204s
-[11:45:22] NIAH...
-[11:45:26] NIAH: 426 rows in 3s
-[11:45:26] Protected structures...
-[11:45:35] Protected structures: 608 rows in 10s
-[11:45:35] School lists...
-[11:45:36] School lists: 440 rows in 1s
+[12:45:08] OpenStreetMap...
+[12:47:48] OpenStreetMap: 871 rows in 159s
+[12:47:48] NIAH...
+[12:47:55] NIAH: 426 rows in 7s
+[12:47:55] Protected structures...
+[12:48:04] Protected structures: 608 rows in 9s
+[12:48:04] School lists...
+[12:48:06] School lists: 440 rows in 2s
 Dropped 2 points outside the county's bounding box: {'OpenStreetMap': 2}
-[11:49:10] Charities register...
-[11:49:11] Charities register: 699 rows in 1s
+[12:48:06] HIQA registers (saved copy)...
+[12:48:06] HIQA registers (saved copy): 0 rows in 0s
+[12:51:04] Charities register...
+[12:51:05] Charities register: 699 rows in 1s
 County Dublin
 
-                          source  points  with_coordinates
-                   OpenStreetMap     871               871
-                            NIAH     426               426
-            Protected structures     608               608
-                    School lists     440               440
-Industrial schools (Ryan Report)       2                 2
-               History seed list       3                 3
- Charities register (names only)     699                 0
+                             source  points  with_coordinates
+                      OpenStreetMap     871               871
+                               NIAH     426               426
+               Protected structures     608               608
+                       School lists     440               440
+            HIQA registered centres       0                 0
+   Industrial schools (Ryan Report)       2                 2
+                  History seed list       3                 3
+Redress transfers (former holdings)       2                 2
+    Charities register (names only)     699                 0
 
 1126 candidate sites; 446 found by 2+ sources.
 Largest site groups {'DU-0812': 16, 'DU-0184': 14, 'DU-0438': 13} (merge radius 50 m).
 158 unmarked points dropped as sitting on another denomination's church.
-13 history sites not yet placed; 334 name leads.
+26 history sites not yet placed; 341 name leads.
+WARNING: No HIQA register saved for Dublin; run tools/fetch_hiqa.py
 WARNING: Charities register download refused (403 Client Error: Forbidden for url: https://www.charitiesregulator.ie/media/aqgpvsac/20261026-public-register-of-charities.xlsx); using the hand-downloaded extract (register of 2026-10-26, data/seed/charities_catholic.csv)
 
 Outputs in /home/runner/work/opentalamh.ie/opentalamh.ie/_pipeline/first-map/outputs
