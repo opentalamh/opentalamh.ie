@@ -1,6 +1,9 @@
-"""Build layout + compact JSON for the religious-charities graphic.
+"""Build layout + compact JSON for the charities landscape graphic.
 
-Usage: python3 -I build_data.py <register.xlsx> <out.json>
+Usage: python3 -I build_data.py <register.xlsx> <school_matches.csv> <out.json>
+
+school_matches.csv comes from match_schools.py and links school charities to
+the Department of Education school lists (ethos and patron).
 """
 import json
 import math
@@ -12,7 +15,8 @@ import numpy as np
 import pandas as pd
 from scipy.spatial import cKDTree
 
-SRC, OUT = sys.argv[1], sys.argv[2]
+SRC, MATCHES, OUT = sys.argv[1:4]
+SCHOOLS_AS_OF = "2025/26 school year (Department of Education, final data as of 26 June 2026)"
 
 SHORT = {
     "Advancement of religion": "Religion",
@@ -100,8 +104,14 @@ def sunflower(n, cx, cy, spacing):
     return pts
 
 # sort so the same purpose combination is contiguous; inside a group, larger objects text first (arbitrary but stable)
+m = pd.read_csv(MATCHES, dtype=str).set_index("charity_number")
+df["ethos"] = df["Registered Charity Number"].map(m["ethos"]).fillna("")
+df["patron"] = df["Registered Charity Number"].map(m["patron"]).fillna("")
+df["school"] = df["Registered Charity Number"].map(m["school_name"]).fillna("")
+df["catholic"] = df["ethos"].eq("Catholic")
+# inside each cluster, Catholic-patron schools fill the centre so they read as one core
 df["key"] = df["P"].apply(lambda ps: tuple(sorted(ps, key=idx.get)))
-df = df.sort_values(["key", "Registered Charity Name"]).reset_index(drop=True)
+df = df.sort_values(["key", "catholic", "Registered Charity Name"], ascending=[True, False, True]).reset_index(drop=True)
 
 pos = np.zeros((len(df), 2))
 target = np.zeros((len(df), 2))
@@ -166,6 +176,12 @@ stats = {
     "religion_and_education": int(df["P"].apply(lambda ps: rel in ps and "Advancement of education" in ps).sum()),
     "school_boards": int(bm.sum()),
     "school_boards_religion": int((bm & is_rel).sum()),
+    "schools_as_of": SCHOOLS_AS_OF,
+    "school_charities": int(len(m)),
+    "catholic_schools": int(df["catholic"].sum()),
+    "catholic_schools_religion": int((df["catholic"] & is_rel).sum()),
+    "catholic_schools_education_only": int((df["catholic"] & df["P"].apply(lambda ps: ps == ["Advancement of education"])).sum()),
+    "education": int(df["P"].apply(lambda ps: "Advancement of education" in ps).sum()),
 }
 print(stats)
 
@@ -175,6 +191,10 @@ hubs = [
      "dx": round(disc_xy[p][0], 1), "dy": round(disc_xy[p][1], 1), "dr": round(disc_r[p], 1)}
     for i, p in enumerate(order)
 ]
+patrons = sorted(set(df["patron"]) - {""})
+pidx = {p: i for i, p in enumerate(patrons)}
+ethos_codes = sorted(set(df["ethos"]) - {""})
+eidx = {e: i for i, e in enumerate(ethos_codes)}
 recs = []
 for i, r in df.iterrows():
     mask = sum(1 << idx[p] for p in r["P"])
@@ -183,7 +203,9 @@ for i, r in df.iterrows():
         r["Registered Charity Name"], r["Registered Charity Number"], county(r["Primary Address"]),
         r["Governing Form"] if isinstance(r["Governing Form"], str) else "",
         trim(r["Charitable Objects"]),
+        # school ethos and patron from the Department of Education list (-1 = not a matched school)
+        eidx.get(r["ethos"], -1), pidx.get(r["patron"], -1), r["school"].title() if r["school"] else "",
     ])
 with open(OUT, "w") as f:
-    json.dump({"stats": stats, "hubs": hubs, "c": recs}, f, ensure_ascii=False, separators=(",", ":"))
+    json.dump({"stats": stats, "hubs": hubs, "ethos": ethos_codes, "patrons": patrons, "c": recs}, f, ensure_ascii=False, separators=(",", ":"))
 print("wrote", OUT, len(recs))

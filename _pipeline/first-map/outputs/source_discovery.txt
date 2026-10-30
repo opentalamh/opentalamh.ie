@@ -1,0 +1,397 @@
+
+### data.gov.ie package_search q='primary schools'
+status 200
+- ed106-primary-schools | ED106 - Primary Schools | modified 2026-10-30
+    CSV: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED106/CSV/1.0/en
+    json-stat: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED106/JSON-stat/1.0/en
+    px: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED106/PX/2013/en
+    XLSX: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED106/XLSX/2007/en
+- ed121-mainstream-primary-schools | ED121 - Mainstream Primary Schools | modified 2026-10-30
+    CSV: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED121/CSV/1.0/en
+    json-stat: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED121/JSON-stat/1.0/en
+    px: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED121/PX/2013/en
+    XLSX: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED121/XLSX/2007/en
+- post-primary-schools-list-2017 | List of Post Primary Schools for academic year 2016/2017 | modified 2018-03-05
+    CSV: https://www.education.ie/en/Publications/Statistics/Data-on-Individual-Schools/Education-UT-post_primaryEducation-IE-DepartmentofEducationAndSkills-Post-PrimarySchoolsLocations2016-2017_080617.csv
+- ed126-pupils-attending-mainstream-primary-schools | ED126 - Pupils attending Mainstream Primary Schools | modified 2026-10-30
+    CSV: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED126/CSV/1.0/en
+    json-stat: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED126/JSON-stat/1.0/en
+    px: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED126/PX/2013/en
+    XLSX: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED126/XLSX/2007/en
+- eaacc22-re-and-all-children-who-entered-a-mainstream-primary-school-from-another-primary-school-8abb | EAACC22 - Children in care and all children who entered a mainstream primary school from another primary school | modified 2026-10-30
+    CSV: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/EAACC22/CSV/1.0/en
+    json-stat: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/EAACC22/JSON-stat/1.0/en
+    px: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/EAACC22/PX/2013/en
+    XLSX: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/EAACC22/XLSX/2007/en
+- primary-schools-special-classes-by-type-between-2010-and-2023 | Primary and Post Primary School Special classes by type between 2010 and 2024 | modified 2026-10-23
+    CSV: https://opendata.ncse.ie/dataset/2e938ae3-3310-44de-8b92-9a71e667bf46/resource/4a162dfd-4c03-420e-aaaf-08c13b8ebf48/download/primary-special-classes-by-type-2010_2023.csv
+    CSV: https://opendata.ncse.ie/dataset/2e938ae3-3310-44de-8b92-9a71e667bf46/resource/dcf1b5f8-d870-4acd-8c54-3e0411799230/download/postprimary-special-classes-by-type-2010_2023.csv
+    CSV: https://opendata.ncse.ie/dataset/2e938ae3-3310-44de-8b92-9a71e667bf46/resource/fe15b69e-6591-478e-8855-9e54447ea654/download/post-primary-special-classes-by-designation-and-year.csv
+- ed123-nationality-of-pupils-attending-primary-school | ED123 - Nationality of Pupils attending Primary School | modified 2026-10-30
+    CSV: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED123/CSV/1.0/en
+    json-stat: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED123/JSON-stat/1.0/en
+    px: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED123/PX/2013/en
+    XLSX: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED123/XLSX/2007/en
+- wmi07-number-of-primary-and-secondary-school-teachers | WMI07 - Number of Primary and Secondary School Teachers | modified 2026-10-30
+    CSV: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/WMI07/CSV/1.0/en
+    json-stat: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/WMI07/JSON-stat/1.0/en
+    px: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/WMI07/PX/2013/en
+    XLSX: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/WMI07/XLSX/2007/en
+- list-of-primary-schools |  | modified 2026-09-22
+    CSV: https://www.education.ie/en/Publications/Statistics/Data-on-Individual-Schools/Education-UT-primaryEducation-IE-DepartmentofEducationAndSkills-PrimarySchoolsLocations2016-2017-0103171.csv
+- ed112-mainstream-pupils-repeating-a-grade-in-primary-school | ED112 - Mainstream Pupils repeating a Grade in Primary School | modified 2026-10-30
+    CSV: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED112/CSV/1.0/en
+    json-stat: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED112/JSON-stat/1.0/en
+    px: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED112/PX/2013/en
+    XLSX: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED112/XLSX/2007/en
+- ed104-mainstream-pupils-and-classes-in-mainstream-primary-schools | ED104 - Mainstream Pupils and Classes in Mainstream Primary Schools | modified 2026-10-30
+    CSV: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED104/CSV/1.0/en
+    json-stat: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED104/JSON-stat/1.0/en
+    px: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED104/PX/2013/en
+    XLSX: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED104/XLSX/2007/en
+- ed111-primary-school-pupils-who-are-taught-through-irish | ED111 - Primary School Pupils who are taught through Irish | modified 2026-10-30
+    CSV: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED111/CSV/1.0/en
+    json-stat: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED111/JSON-stat/1.0/en
+    px: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED111/PX/2013/en
+    XLSX: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED111/XLSX/2007/en
+- e8079-parents-of-primary-school-children-2011-to-2016 | E8079 - Parents of Primary School Children 2011 to 2016 | modified 2021-07-09
+    CSV: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/E8079/CSV/1.0/en
+    json-stat: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/E8079/JSON-stat/1.0/en
+    px: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/E8079/PX/2013/en
+    XLSX: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/E8079/XLSX/2007/en
+- sca42-mary-school-children-who-were-absent-from-school-for-20-days-or-more-in-the-school-year-f52a | SCA42 - Average Percentage of  Primary School Children who were absent from School for 20 days or more in the School Year | modified 2025-11-17
+    CSV: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SCA42/CSV/1.0/en
+    json-stat: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SCA42/JSON-stat/1.0/en
+    px: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SCA42/PX/2013/en
+    XLSX: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SCA42/XLSX/2007/en
+- sca42-mary-school-children-who-were-absent-from-school-for-20-days-or-more-in-the-school-year-f7ca | SCA42 - Average Percentage of  Primary School Children who were absent from School for 20 days or more in the School Year | modified 2024-06-20
+    CSV: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SCA42/CSV/1.0/en
+    json-stat: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SCA42/JSON-stat/1.0/en
+    px: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SCA42/PX/2013/en
+    XLSX: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/SCA42/XLSX/2007/en
+
+### data.gov.ie package_search q='post-primary schools'
+status 200
+- post-primary-schools-list-2017 | List of Post Primary Schools for academic year 2016/2017 | modified 2018-03-05
+    CSV: https://www.education.ie/en/Publications/Statistics/Data-on-Individual-Schools/Education-UT-post_primaryEducation-IE-DepartmentofEducationAndSkills-Post-PrimarySchoolsLocations2016-2017_080617.csv
+- primary-schools-special-classes-by-type-between-2010-and-2023 | Primary and Post Primary School Special classes by type between 2010 and 2024 | modified 2026-10-23
+    CSV: https://opendata.ncse.ie/dataset/2e938ae3-3310-44de-8b92-9a71e667bf46/resource/4a162dfd-4c03-420e-aaaf-08c13b8ebf48/download/primary-special-classes-by-type-2010_2023.csv
+    CSV: https://opendata.ncse.ie/dataset/2e938ae3-3310-44de-8b92-9a71e667bf46/resource/dcf1b5f8-d870-4acd-8c54-3e0411799230/download/postprimary-special-classes-by-type-2010_2023.csv
+    CSV: https://opendata.ncse.ie/dataset/2e938ae3-3310-44de-8b92-9a71e667bf46/resource/fe15b69e-6591-478e-8855-9e54447ea654/download/post-primary-special-classes-by-designation-and-year.csv
+- eaacc25-age-group-of-children-in-care-and-all-children-who-changed-post-primary-schools | EAACC25 - Age Group of Children in care and all children who changed post primary schools | modified 2026-10-30
+    CSV: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/EAACC25/CSV/1.0/en
+    json-stat: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/EAACC25/JSON-stat/1.0/en
+    px: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/EAACC25/PX/2013/en
+    XLSX: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/EAACC25/XLSX/2007/en
+- ed106-primary-schools | ED106 - Primary Schools | modified 2026-10-30
+    CSV: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED106/CSV/1.0/en
+    json-stat: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED106/JSON-stat/1.0/en
+    px: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED106/PX/2013/en
+    XLSX: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED106/XLSX/2007/en
+- ed121-mainstream-primary-schools | ED121 - Mainstream Primary Schools | modified 2026-10-30
+    CSV: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED121/CSV/1.0/en
+    json-stat: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED121/JSON-stat/1.0/en
+    px: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED121/PX/2013/en
+    XLSX: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED121/XLSX/2007/en
+- ed126-pupils-attending-mainstream-primary-schools | ED126 - Pupils attending Mainstream Primary Schools | modified 2026-10-30
+    CSV: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED126/CSV/1.0/en
+    json-stat: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED126/JSON-stat/1.0/en
+    px: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED126/PX/2013/en
+    XLSX: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED126/XLSX/2007/en
+- eaacc22-re-and-all-children-who-entered-a-mainstream-primary-school-from-another-primary-school-8abb | EAACC22 - Children in care and all children who entered a mainstream primary school from another primary school | modified 2026-10-30
+    CSV: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/EAACC22/CSV/1.0/en
+    json-stat: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/EAACC22/JSON-stat/1.0/en
+    px: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/EAACC22/PX/2013/en
+    XLSX: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/EAACC22/XLSX/2007/en
+- ed123-nationality-of-pupils-attending-primary-school | ED123 - Nationality of Pupils attending Primary School | modified 2026-10-30
+    CSV: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED123/CSV/1.0/en
+    json-stat: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED123/JSON-stat/1.0/en
+    px: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED123/PX/2013/en
+    XLSX: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED123/XLSX/2007/en
+- sna-posts-2022-2023 | SNA Posts 2022/2023 | modified 2026-06-15
+    CSV: https://opendata.ncse.ie/dataset/a234726e-e400-40e4-94e9-d2de1a60cea2/resource/31bd949e-6d40-405e-aef1-a6d280371c22/download/outcome-sna-exceptional-review-process-2022_2023.csv
+    CSV: https://opendata.ncse.ie/dataset/a234726e-e400-40e4-94e9-d2de1a60cea2/resource/93474935-60bf-42cc-82c1-c9fc0c2c80e6/download/number-of-sna-posts.csv
+- wmi07-number-of-primary-and-secondary-school-teachers | WMI07 - Number of Primary and Secondary School Teachers | modified 2026-10-30
+    CSV: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/WMI07/CSV/1.0/en
+    json-stat: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/WMI07/JSON-stat/1.0/en
+    px: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/WMI07/PX/2013/en
+    XLSX: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/WMI07/XLSX/2007/en
+- list-of-primary-schools |  | modified 2026-09-22
+    CSV: https://www.education.ie/en/Publications/Statistics/Data-on-Individual-Schools/Education-UT-primaryEducation-IE-DepartmentofEducationAndSkills-PrimarySchoolsLocations2016-2017-0103171.csv
+- 2019-2020-school-allocations | 2019-2020 School Allocations | modified 2025-03-13
+    CSV: https://opendata.ncse.ie/dataset/8351a35d-d9df-4704-98af-beff08809727/resource/b069997c-6b69-4870-9585-e30c8b86cb77/download/sna-allocations-primary-schools.csv
+    CSV: https://opendata.ncse.ie/dataset/8351a35d-d9df-4704-98af-beff08809727/resource/e52e3d36-21a3-4644-94e1-e23fd7b9f31d/download/sna-allocations-post-primary-schools.csv
+    CSV: https://opendata.ncse.ie/dataset/8351a35d-d9df-4704-98af-beff08809727/resource/94ad6ce3-3bc5-4416-90be-f932454a88dd/download/sna-and-set-hours-allocations-special-schools.csv
+    CSV: https://opendata.ncse.ie/dataset/8351a35d-d9df-4704-98af-beff08809727/resource/83858d29-4a93-4d2d-8cbb-b1a89215c40f/download/set-hours-primary-schools.csv
+    CSV: https://opendata.ncse.ie/dataset/8351a35d-d9df-4704-98af-beff08809727/resource/4bffcf30-dec7-4042-885e-3b074fbabf8d/download/set-hours-post-primary-schools.csv
+- schools-in-dublin-region | Schools in Dublin Region | modified 2026-09-22
+    CSV: https://data.smartdublin.ie/dataset/b5ccf3b7-0eea-4dc9-acda-617e9463e5e4/resource/25c2c757-e143-4cbf-b055-3776b78ec78e/download/mainstream-schools_dublin_2019-2020.xlsx
+    CSV: https://data.smartdublin.ie/dataset/b5ccf3b7-0eea-4dc9-acda-617e9463e5e4/resource/eb567c3f-bb5b-4350-8a0a-39038a76d96c/download/special-schools_dublin_2019-2020.xlsx
+    CSV: https://data.smartdublin.ie/dataset/b5ccf3b7-0eea-4dc9-acda-617e9463e5e4/resource/7879d601-710c-4969-a576-9ad5cd80d2bb/download/post-primary-schools-2019-2020-1.xlsx
+- 2020-2021-school-allocations | 2020-2021 School Allocations | modified 2025-04-16
+    CSV: https://opendata.ncse.ie/dataset/fa48bbdb-6b66-4380-aef1-ed3dacc2e1dc/resource/a3462160-5473-4e7b-83d1-f6e53ecd679a/download/sna-allocations-special-schools.csv
+    CSV: https://opendata.ncse.ie/dataset/fa48bbdb-6b66-4380-aef1-ed3dacc2e1dc/resource/d5a051b3-f52e-425f-bc87-63984ff96b2e/download/sna-and-set-hours-allocations-post-primary-schools.csv
+    CSV: https://opendata.ncse.ie/dataset/fa48bbdb-6b66-4380-aef1-ed3dacc2e1dc/resource/dbf56dd8-2442-4dbd-9a8b-ac9db5058853/download/sna-and-set-hours-allocations-primary-schools.csv
+- sna-posts-2021-2022 | SNA Posts, 2021/2022 | modified 2026-09-22
+    CSV: https://opendata.ncse.ie/dataset/c83f6bc7-6320-470d-8100-3c508032019f/resource/6894e542-77c0-4a1f-8af6-2f9c6c626ddb/download/number-of-sna-posts-21_22.csv
+
+### data.gov.ie package_search q='schools ethos'
+status 200
+
+### data.gov.ie package_search q='charities register'
+status 200
+- register-of-charities-in-ireland |  | modified 2026-10-27
+    XLSX: https://www.charitiesregulator.ie/media/aqgpvsac/20261026-public-register-of-charities.xlsx
+    CSV: https://www.charitiesregulator.ie/media/d52jwriz/register-of-charities.csv
+    CSV: https://www.charitiesregulator.ie/media/yeia3rfc/charity-annual-reports.csv
+- report-on-the-social-and-economic-impact-of-registered-charities-in-ireland-2023 | Report on the Social and Economic Impact of Registered Charities in Ireland 2023 | modified 2026-03-26
+    PDF: https://www.charitiesregulator.ie/media/othbcwjd/scoeco.pdf
+- charities-regulator-annual-report-comparison-report | Charities Regulator Annual Report Comparison Report | modified 2023-07-14
+    html + xml: https://www.charitiesregulator.ie/media/4656/charities-regulator-annual-report-comparison-final.pdf
+- charities-regulator-charitable-bequests-report-2021 | Charities Regulator Charitable bequests report 2021 | modified 2023-07-14
+    html + xml: https://www.charitiesregulator.ie/media/4718/charitable-bequests-report.pdf
+- an-overview-of-ireland-s-smaller-charities | An overview of Ireland’s  smaller charities | modified 2024-05-01
+    html + xml: https://www.charitiesregulator.ie/media/d2mdc0ft/en-3-86229-charities-regulator-smaller-charities-report-web_final.pdf
+- annual-report-comparison-2019-2023 | Annual Report comparison 2019-2023 | modified 2026-03-26
+    PDF: https://www.charitiesregulator.ie/media/4d3nxuly/annual-report-comparison-19-23.pdf
+- annual-report-comparison-2019-2022 | Annual Report comparison 2019-2022 | modified 2026-03-24
+    PDF: https://www.charitiesregulator.ie/media/zz2ni3qv/annual-report-comparison-19-22-final.pdf
+
+### data.gov.ie package_search q='protected structures dublin'
+status 200
+- dublin-city-record-of-protected-structures | Dublin City Record of Protected Structures | modified 2026-09-22
+    HTML: http://www.dublincity.ie/Planning/DublinCityDevelopmentPlan/Pages/CityDevelopmentPlan.aspx
+- dun-laoghaire-rathdown-record-of-protected-structures | Dun Laoghaire Rathdown Record of Protected Structures | modified 2026-09-22
+    HTML: http://www.dlrcoco.ie/aboutus/councildepartments/planning/findit/developmentplan2010-2016/
+- record-protected-structures-dcc | Record Protected Structures DCC | modified 2026-09-22
+    CSV: https://data.smartdublin.ie/dataset/f1dd00f0-5914-4b97-b66e-0dbb4bcb510c/resource/f0288278-32e4-4117-803e-9ac10b83a882/download/251218-rps-master-2022-2028_for-gis.csv
+    GeoJSON: https://data.smartdublin.ie/dataset/f1dd00f0-5914-4b97-b66e-0dbb4bcb510c/resource/376cac34-31d3-4d18-ad03-d3ce5c8e7981/download/251218-rps-master-2022-2028_for-gis.geojson
+- record-of-protected-structures2 | Record of Protected Structures | modified 2026-10-30
+    HTML: https://galway-city-council-opendata-galwaycityco.hub.arcgis.com/datasets/e50b7e58228f427f904605e0151c53b2_0
+    ArcGIS GeoServices REST API: https://services-eu1.arcgis.com/Zmea819kt4Uu8kML/arcgis/rest/services/RecordofProtectedStructures/FeatureServer/0
+    CSV: https://galway-city-council-opendata-galwaycityco.hub.arcgis.com/api/download/v1/items/e50b7e58228f427f904605e0151c53b2/csv?layers=0
+    ZIP: https://galway-city-council-opendata-galwaycityco.hub.arcgis.com/api/download/v1/items/e50b7e58228f427f904605e0151c53b2/shapefile?layers=0
+    GeoJSON: https://galway-city-council-opendata-galwaycityco.hub.arcgis.com/api/download/v1/items/e50b7e58228f427f904605e0151c53b2/geojson?layers=0
+    KML: https://galway-city-council-opendata-galwaycityco.hub.arcgis.com/api/download/v1/items/e50b7e58228f427f904605e0151c53b2/kml?layers=0
+- arklow-protected-structures | Arklow Protected Structures | modified 2020-02-04
+    Esri REST: https://services.arcgis.com/hQOfkHGHCu8mgDpG/arcgis/rest/services/Arklow_Protected_Structures/FeatureServer
+    CSV: https://opendata.arcgis.com/datasets/3e7fb08ccd6343c8ae979c3cff50c087_0.csv
+    KML: https://opendata.arcgis.com/datasets/3e7fb08ccd6343c8ae979c3cff50c087_0.kml
+    shape file: https://opendata.arcgis.com/datasets/3e7fb08ccd6343c8ae979c3cff50c087_0.zip
+    GeoJSON: https://opendata.arcgis.com/datasets/3e7fb08ccd6343c8ae979c3cff50c087_0.geojson
+- bray-protected-structures | Bray Protected Structures | modified 2020-02-04
+    Esri REST: http://hub.arcgis.com/datasets/wicklow::bray-protected-structures
+    CSV: https://opendata.arcgis.com/datasets/6f01f4ab0ba84e30b88977ef13b9e30f_0.csv
+    KML: https://opendata.arcgis.com/datasets/6f01f4ab0ba84e30b88977ef13b9e30f_0.kml
+    shape file: https://opendata.arcgis.com/datasets/6f01f4ab0ba84e30b88977ef13b9e30f_0.zip
+    GeoJSON: https://opendata.arcgis.com/datasets/6f01f4ab0ba84e30b88977ef13b9e30f_0.geojson
+- protected-structures-arklow-cdp-2022-2028 | Protected Structures Arklow (CDP 2022 - 2028) | modified 2024-04-04
+    CSV: https://opendata.arcgis.com/api/v3/datasets/1b56756fab1542d68b6b9a5ad7d8009c_0/downloads/data?format=csv&spatialRefId=4326&where=1%3D1
+    KML: https://opendata.arcgis.com/api/v3/datasets/1b56756fab1542d68b6b9a5ad7d8009c_0/downloads/data?format=kml&spatialRefId=4326&where=1%3D1
+    shapefiles: https://opendata.arcgis.com/api/v3/datasets/1b56756fab1542d68b6b9a5ad7d8009c_0/downloads/data?format=shp&spatialRefId=4326&where=1%3D1
+    GeoJSON: https://opendata.arcgis.com/api/v3/datasets/1b56756fab1542d68b6b9a5ad7d8009c_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1
+    esri rest service: https://services.arcgis.com/hQOfkHGHCu8mgDpG/arcgis/rest/services/Protected_Structures_Arklow_CDP2022_2028/FeatureServer
+- protected-structures-bray-cdp-2022-2028 | Protected Structures Bray (CDP 2022 - 2028) | modified 2024-04-04
+    CSV: https://opendata.arcgis.com/api/v3/datasets/ccec52c221ef4909a19e05b27ef908bb_0/downloads/data?format=csv&spatialRefId=4326&where=1%3D1
+    KML: https://opendata.arcgis.com/api/v3/datasets/ccec52c221ef4909a19e05b27ef908bb_0/downloads/data?format=kml&spatialRefId=4326&where=1%3D1
+    shapefiles: https://opendata.arcgis.com/api/v3/datasets/ccec52c221ef4909a19e05b27ef908bb_0/downloads/data?format=shp&spatialRefId=4326&where=1%3D1
+    GeoJSON: https://opendata.arcgis.com/api/v3/datasets/ccec52c221ef4909a19e05b27ef908bb_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1
+    esri rest service: https://services.arcgis.com/hQOfkHGHCu8mgDpG/arcgis/rest/services/Record%20of%20Protected%20Structures%20Bray%20Town_CDP_2022_2028/FeatureServer
+- record-of-protected-structures-south-dublin-county-development-plan-2022-to-2028-sdcc1 | Record of Protected Structures South Dublin County Development Plan 2022 to 2028 SDCC | modified 2026-09-22
+    HTML: https://data-sdublincoco.opendata.arcgis.com/datasets/sdublincoco::record-of-protected-structures-south-dublin-county-development-plan-2022-to-2028-sdcc
+    ArcGIS GeoServices REST API: https://services1.arcgis.com/PxbTDTskGHCe4sv6/arcgis/rest/services/Record_of_Protected_Structures_South_Dublin_County_Development_Plan_2022_to_2028/FeatureServer/0
+    CSV: https://data-sdublincoco.opendata.arcgis.com/api/download/v1/items/223a9302e62f4bb68317d0566a70644d/csv?layers=0
+    GeoJSON: https://data-sdublincoco.opendata.arcgis.com/api/download/v1/items/223a9302e62f4bb68317d0566a70644d/geojson?layers=0
+    ZIP: https://data-sdublincoco.opendata.arcgis.com/api/download/v1/items/223a9302e62f4bb68317d0566a70644d/shapefile?layers=0
+    KML: https://data-sdublincoco.opendata.arcgis.com/api/download/v1/items/223a9302e62f4bb68317d0566a70644d/kml?layers=0
+- protected-structures-wicklow-rathnew-cdp-2022-2028 | Protected Structures Wicklow Rathnew (CDP 2022 - 2028) | modified 2024-04-04
+    CSV: https://opendata.arcgis.com/api/v3/datasets/5245af969bbf4b06b82849d4fbf924b6_0/downloads/data?format=csv&spatialRefId=4326&where=1%3D1
+    KML: https://opendata.arcgis.com/api/v3/datasets/5245af969bbf4b06b82849d4fbf924b6_0/downloads/data?format=kml&spatialRefId=4326&where=1%3D1
+    shapefiles: https://opendata.arcgis.com/api/v3/datasets/5245af969bbf4b06b82849d4fbf924b6_0/downloads/data?format=shp&spatialRefId=4326&where=1%3D1
+    GeoJSON: https://opendata.arcgis.com/api/v3/datasets/5245af969bbf4b06b82849d4fbf924b6_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1
+    esri rest service: https://services.arcgis.com/hQOfkHGHCu8mgDpG/arcgis/rest/services/Protected_Structures_Wicklow_Rathnew_CDP_2022_2028/FeatureServer
+- protected-structures-wicklow-county-cdp-2022-2028 | Protected Structures Wicklow County (CDP 2022 - 2028) | modified 2024-04-04
+    CSV: https://opendata.arcgis.com/api/v3/datasets/598ac85b023d440e868b086305428826_0/downloads/data?format=csv&spatialRefId=4326&where=1%3D1
+    KML: https://opendata.arcgis.com/api/v3/datasets/598ac85b023d440e868b086305428826_0/downloads/data?format=kml&spatialRefId=4326&where=1%3D1
+    shapefiles: https://opendata.arcgis.com/api/v3/datasets/598ac85b023d440e868b086305428826_0/downloads/data?format=shp&spatialRefId=4326&where=1%3D1
+    GeoJSON: https://opendata.arcgis.com/api/v3/datasets/598ac85b023d440e868b086305428826_0/downloads/data?format=geojson&spatialRefId=4326&where=1%3D1
+    esri rest service: https://services.arcgis.com/hQOfkHGHCu8mgDpG/arcgis/rest/services/Protected_Structures_Wicklow_County_CDP_2022_2028/FeatureServer
+- co-wicklow-protected-structures | Co. Wicklow Protected Structures | modified 2020-02-04
+    Esri REST: https://services.arcgis.com/hQOfkHGHCu8mgDpG/arcgis/rest/services/Wicklow_County_Protected_Structures/FeatureServer
+    CSV: https://opendata.arcgis.com/datasets/2670e691feb544388f9a16df41c1694a_0.csv
+    KML: https://opendata.arcgis.com/datasets/2670e691feb544388f9a16df41c1694a_0.kml
+    shape file: https://opendata.arcgis.com/datasets/2670e691feb544388f9a16df41c1694a_0.zip
+    GeoJSON: https://opendata.arcgis.com/datasets/2670e691feb544388f9a16df41c1694a_0.geojson
+- record-of-protected-structure | Record of Protected Structures | modified 2026-04-02
+    SHP: https://data.corkcity.ie/dataset/5073cbf6-102e-4028-8173-b16c0f429218/resource/e4c69877-de52-466d-9772-081dcb79ce99/download/recordprotectedstructures.zip
+    CSV: https://data.corkcity.ie/dataset/5073cbf6-102e-4028-8173-b16c0f429218/resource/b80c5f04-01b1-4689-8240-8a7236caf8b2/download/record_protected_structures.csv
+    gdb: https://data.corkcity.ie/dataset/5073cbf6-102e-4028-8173-b16c0f429218/resource/a8e3fc47-61f9-47da-973b-9c0c40575fe6/download/record-protected-structures.gdb.zip
+    Feature Service: https://services-eu1.arcgis.com/f0ZQOHXBIeLonX0V/arcgis/rest/services/ProtectedStructures/FeatureServer
+- wicklow-town-rathnew-protected-structures | Wicklow Town - Rathnew Protected Structures | modified 2021-03-04
+    Esri REST: https://services.arcgis.com/hQOfkHGHCu8mgDpG/arcgis/rest/services/Wicklow_Rathnew_Protected_Structures/FeatureServer
+    CSV: https://opendata.arcgis.com/datasets/86cea00d996d492f9ee194ce47b602b3_0.csv
+    shape file: https://opendata.arcgis.com/datasets/86cea00d996d492f9ee194ce47b602b3_0.zip
+    GeoJSON: https://opendata.arcgis.com/datasets/86cea00d996d492f9ee194ce47b602b3_0.geojson
+    KML: https://opendata.arcgis.com/datasets/86cea00d996d492f9ee194ce47b602b3_0.kml
+- co-meath-record-of-protected-structures | Co. Meath Record of Protected Structures | modified 2026-09-22
+    HTML: http://www.meath.ie/LocalAuthorities/Heritage/ArchitecturalHeritage/ProtectedStructures/
+
+### data.gov.ie package_search q='planning applications dublin'
+status 200
+- national-planning-applications |  | modified 2026-09-22
+    Esri REST: https://services.arcgis.com/NzlPQPKn5QF9v2US/arcgis/rest/services/IrishPlanningApplications/FeatureServer
+    restservice: https://services.arcgis.com/NzlPQPKn5QF9v2US/arcgis/rest/services/IrishPlanningApplications/FeatureServer/0/query?outFields=*&where=1%3D1
+    GeoJSON: https://opendata.arcgis.com/datasets/8f69dffe26324ba3acc653cf6cb5cf8b_0.geojson
+    restservice: https://services.arcgis.com/NzlPQPKn5QF9v2US/arcgis/rest/services/IrishPlanningApplications/FeatureServer/1/query?outFields=*&where=1%3D1
+    GeoJSON: https://opendata.arcgis.com/datasets/8f69dffe26324ba3acc653cf6cb5cf8b_1.geojson
+- planning-applications-2025 | Planning Applications 2025 | modified 2026-07-27
+    CSV: https://opendata.housing.gov.ie/dataset/351dd6d3-4e6e-4a15-8b0c-b28b33681850/resource/cf0e71f7-f8c0-4e46-b9c8-90cc8aea3680/download/planning_returns_2025_all_la.csv
+- planning-application-sites6 | Planning Application Sites | modified 2026-10-28
+    HTML: https://data-housinggovie.opendata.arcgis.com/datasets/housinggovie::planning-application-sites
+    ArcGIS GeoServices REST API: https://services.arcgis.com/NzlPQPKn5QF9v2US/arcgis/rest/services/IrishPlanningApplications/FeatureServer/1
+    CSV: https://data-housinggovie.opendata.arcgis.com/api/download/v1/items/8f69dffe26324ba3acc653cf6cb5cf8b/csv?layers=1
+    ZIP: https://data-housinggovie.opendata.arcgis.com/api/download/v1/items/8f69dffe26324ba3acc653cf6cb5cf8b/shapefile?layers=1
+    GeoJSON: https://data-housinggovie.opendata.arcgis.com/api/download/v1/items/8f69dffe26324ba3acc653cf6cb5cf8b/geojson?layers=1
+    KML: https://data-housinggovie.opendata.arcgis.com/api/download/v1/items/8f69dffe26324ba3acc653cf6cb5cf8b/kml?layers=1
+    ZIP: https://data-housinggovie.opendata.arcgis.com/api/download/v1/items/8f69dffe26324ba3acc653cf6cb5cf8b/filegdb?layers=1
+    TXT: https://data-housinggovie.opendata.arcgis.com/api/download/v1/items/8f69dffe26324ba3acc653cf6cb5cf8b/featureCollection?layers=1
+    XLSX: https://data-housinggovie.opendata.arcgis.com/api/download/v1/items/8f69dffe26324ba3acc653cf6cb5cf8b/excel?layers=1
+    GPKG: https://data-housinggovie.opendata.arcgis.com/api/download/v1/items/8f69dffe26324ba3acc653cf6cb5cf8b/geoPackage?layers=1
+    GDB: https://data-housinggovie.opendata.arcgis.com/api/download/v1/items/8f69dffe26324ba3acc653cf6cb5cf8b/sqlite?layers=1
+- planning-application-points6 | Planning Application Points | modified 2026-10-28
+    HTML: https://data-housinggovie.opendata.arcgis.com/datasets/housinggovie::planning-application-points
+    ArcGIS GeoServices REST API: https://services.arcgis.com/NzlPQPKn5QF9v2US/arcgis/rest/services/IrishPlanningApplications/FeatureServer/0
+    CSV: https://data-housinggovie.opendata.arcgis.com/api/download/v1/items/8f69dffe26324ba3acc653cf6cb5cf8b/csv?layers=0
+    ZIP: https://data-housinggovie.opendata.arcgis.com/api/download/v1/items/8f69dffe26324ba3acc653cf6cb5cf8b/shapefile?layers=0
+    GeoJSON: https://data-housinggovie.opendata.arcgis.com/api/download/v1/items/8f69dffe26324ba3acc653cf6cb5cf8b/geojson?layers=0
+    KML: https://data-housinggovie.opendata.arcgis.com/api/download/v1/items/8f69dffe26324ba3acc653cf6cb5cf8b/kml?layers=0
+    ZIP: https://data-housinggovie.opendata.arcgis.com/api/download/v1/items/8f69dffe26324ba3acc653cf6cb5cf8b/filegdb?layers=0
+    TXT: https://data-housinggovie.opendata.arcgis.com/api/download/v1/items/8f69dffe26324ba3acc653cf6cb5cf8b/featureCollection?layers=0
+    XLSX: https://data-housinggovie.opendata.arcgis.com/api/download/v1/items/8f69dffe26324ba3acc653cf6cb5cf8b/excel?layers=0
+    GPKG: https://data-housinggovie.opendata.arcgis.com/api/download/v1/items/8f69dffe26324ba3acc653cf6cb5cf8b/geoPackage?layers=0
+    GDB: https://data-housinggovie.opendata.arcgis.com/api/download/v1/items/8f69dffe26324ba3acc653cf6cb5cf8b/sqlite?layers=0
+- irishplanningapplications2 | IrishPlanningApplications | modified 2026-07-23
+    HTML: https://data-housinggovie.opendata.arcgis.com/maps/housinggovie::irishplanningapplications
+    ArcGIS GeoServices REST API: https://services.arcgis.com/NzlPQPKn5QF9v2US/arcgis/rest/services/IrishPlanningApplications/FeatureServer
+- dun-laoghaire-rathdown-county-council-planning-applications | DLR Planning Applications | modified 2026-09-22
+    HTML: http://planning.dlrcoco.ie/swiftlg/apas/run/wphappcriteria.display
+    ZIP: https://data.smartdublin.ie/dataset/737cbfff-b548-4055-94a8-73b1091c442a/resource/6b209b82-402d-4e9a-89c5-aa9ffd0e574c/download/dlrplanningapps.zip
+    CSV: https://data.smartdublin.ie/dataset/737cbfff-b548-4055-94a8-73b1091c442a/resource/28ee9319-6fc3-4fb1-9aba-99499ef3f414/download/dlrplanningappscsv.csv
+- planning-applications-2013-decisions | Planning Applications 2013 Decisions | modified 2024-04-04
+    CSV: https://opendata.housing.gov.ie/dataset/df02a4d3-a2ce-4644-848f-91053f541bf2/resource/0ce9a1b4-1aff-4d1e-aa46-e3829535a71e/download/planning_applications_2013_decisions.csv
+- planning-applications-2010-decisions | Planning Applications 2010 Decisions | modified 2024-04-04
+    CSV: https://opendata.housing.gov.ie/dataset/aeacfe83-e9f7-4a4f-9698-84cebaff0f2e/resource/83321e7b-e7e5-49a5-b1bb-543ee67e2b7e/download/planning_applications_2010_decisions.csv
+- planning-applications-2012-decisions | Planning Applications 2012 Decisions | modified 2024-04-04
+    CSV: https://opendata.housing.gov.ie/dataset/a6d878da-2aec-41be-a3f8-91f0bbee56e5/resource/07b9e3e7-85f9-45f1-83d6-d4adcc51e2f4/download/planning_applications_2012_decisions.csv
+- planning-applications-2011-decisions | Planning Applications 2011 Decisions | modified 2024-04-04
+    CSV: https://opendata.housing.gov.ie/dataset/4f41ee48-ab8c-4ecb-9f35-3564aec6fc79/resource/1ef4729d-fb6e-40c0-bd5c-5b005f69d61d/download/planning_applications_2011_decisions.csv
+- planning-applications-2009-decisions | Planning Applications 2009 Decisions | modified 2024-04-04
+    CSV: https://opendata.housing.gov.ie/dataset/c1df29fc-ac2b-46ce-a898-e0201d50cdf5/resource/8bd5c8d6-ff5f-43d9-add9-f3616f77542d/download/planning_applications_2009_decisions.csv
+- westmeath-planning-applications | Westmeath Planning Applications | modified 2026-10-30
+    HTML: https://westmeath-county-council-open-data-westmeath.hub.arcgis.com/datasets/aca4f0662f5442e28c16b0dbd24920c0_0
+    ArcGIS GeoServices REST API: https://services-eu1.arcgis.com/DsXSaNAVVnwb89Pt/arcgis/rest/services/Westmeath_Planning_Applications/FeatureServer/0
+    CSV: https://westmeath-county-council-open-data-westmeath.hub.arcgis.com/api/download/v1/items/aca4f0662f5442e28c16b0dbd24920c0/csv?layers=0
+    ZIP: https://westmeath-county-council-open-data-westmeath.hub.arcgis.com/api/download/v1/items/aca4f0662f5442e28c16b0dbd24920c0/shapefile?layers=0
+    GeoJSON: https://westmeath-county-council-open-data-westmeath.hub.arcgis.com/api/download/v1/items/aca4f0662f5442e28c16b0dbd24920c0/geojson?layers=0
+    KML: https://westmeath-county-council-open-data-westmeath.hub.arcgis.com/api/download/v1/items/aca4f0662f5442e28c16b0dbd24920c0/kml?layers=0
+    ZIP: https://westmeath-county-council-open-data-westmeath.hub.arcgis.com/api/download/v1/items/aca4f0662f5442e28c16b0dbd24920c0/filegdb?layers=0
+    TXT: https://westmeath-county-council-open-data-westmeath.hub.arcgis.com/api/download/v1/items/aca4f0662f5442e28c16b0dbd24920c0/featureCollection?layers=0
+    XLSX: https://westmeath-county-council-open-data-westmeath.hub.arcgis.com/api/download/v1/items/aca4f0662f5442e28c16b0dbd24920c0/excel?layers=0
+    GPKG: https://westmeath-county-council-open-data-westmeath.hub.arcgis.com/api/download/v1/items/aca4f0662f5442e28c16b0dbd24920c0/geoPackage?layers=0
+    GDB: https://westmeath-county-council-open-data-westmeath.hub.arcgis.com/api/download/v1/items/aca4f0662f5442e28c16b0dbd24920c0/sqlite?layers=0
+- planning-applications-deferred-1995-2012 | Planning Applications Deferred 1995-2012 | modified 2024-04-04
+    CSV: https://opendata.housing.gov.ie/dataset/c03886c8-85dd-4b5f-88ba-9acee96776fd/resource/55855c5c-fcf7-4b48-b1a6-72d3720c25ab/download/applications_deferred_1995-2012.csv
+- planning-applications2-fcc2 | Planning Applications2 FCC | modified 2026-10-28
+    HTML: https://data.fingal.ie/datasets/FingalCoCo::planning-applications2-fcc
+    ArcGIS GeoServices REST API: https://services5.arcgis.com/CI1e5PKQXvJgmJK8/arcgis/rest/services/Planning_Applications_New_FCC/FeatureServer/0
+    CSV: https://data.fingal.ie/api/download/v1/items/fce64680d727452388c3e6b6037866a6/csv?layers=0
+    ZIP: https://data.fingal.ie/api/download/v1/items/fce64680d727452388c3e6b6037866a6/shapefile?layers=0
+    GeoJSON: https://data.fingal.ie/api/download/v1/items/fce64680d727452388c3e6b6037866a6/geojson?layers=0
+    KML: https://data.fingal.ie/api/download/v1/items/fce64680d727452388c3e6b6037866a6/kml?layers=0
+- planning-application-points-roscommon6 | Planning Application Points - Roscommon | modified 2026-10-30
+    HTML: https://data-roscoco.opendata.arcgis.com/datasets/RosCoCo::planning-application-points-roscommon
+    ArcGIS GeoServices REST API: https://services1.arcgis.com/0g8o874l5un2eDgz/arcgis/rest/services/Roscommon_Planning_Application_Points/FeatureServer/0
+    CSV: https://data-roscoco.opendata.arcgis.com/api/download/v1/items/117c3b641a3e45c5ac284bae66c5fef8/csv?layers=0
+    ZIP: https://data-roscoco.opendata.arcgis.com/api/download/v1/items/117c3b641a3e45c5ac284bae66c5fef8/shapefile?layers=0
+    GeoJSON: https://data-roscoco.opendata.arcgis.com/api/download/v1/items/117c3b641a3e45c5ac284bae66c5fef8/geojson?layers=0
+    KML: https://data-roscoco.opendata.arcgis.com/api/download/v1/items/117c3b641a3e45c5ac284bae66c5fef8/kml?layers=0
+    ZIP: https://data-roscoco.opendata.arcgis.com/api/download/v1/items/117c3b641a3e45c5ac284bae66c5fef8/filegdb?layers=0
+    TXT: https://data-roscoco.opendata.arcgis.com/api/download/v1/items/117c3b641a3e45c5ac284bae66c5fef8/featureCollection?layers=0
+    XLSX: https://data-roscoco.opendata.arcgis.com/api/download/v1/items/117c3b641a3e45c5ac284bae66c5fef8/excel?layers=0
+    GPKG: https://data-roscoco.opendata.arcgis.com/api/download/v1/items/117c3b641a3e45c5ac284bae66c5fef8/geoPackage?layers=0
+    GDB: https://data-roscoco.opendata.arcgis.com/api/download/v1/items/117c3b641a3e45c5ac284bae66c5fef8/sqlite?layers=0
+
+### data.gov.ie package_show dublin-city-record-of-protected-structures
+status 200
+    HTML: http://www.dublincity.ie/Planning/DublinCityDevelopmentPlan/Pages/CityDevelopmentPlan.aspx
+
+### data.gov.ie package_show record-protected-structures-dcc
+status 200
+    CSV: https://data.smartdublin.ie/dataset/f1dd00f0-5914-4b97-b66e-0dbb4bcb510c/resource/f0288278-32e4-4117-803e-9ac10b83a882/download/251218-rps-master-2022-2028_for-gis.csv
+    GeoJSON: https://data.smartdublin.ie/dataset/f1dd00f0-5914-4b97-b66e-0dbb4bcb510c/resource/376cac34-31d3-4d18-ad03-d3ce5c8e7981/download/251218-rps-master-2022-2028_for-gis.geojson
+
+### data.gov.ie package_show development-plan-2023-2029-rps-record-of-protected-structures-fcc2
+status 200
+    HTML: https://data.fingal.ie/datasets/FingalCoCo::development-plan-2023-2029-rps-record-of-protected-structures-fcc
+    ArcGIS GeoServices REST API: https://services5.arcgis.com/CI1e5PKQXvJgmJK8/arcgis/rest/services/FCC_Development_Plan_2023_2029_RPS_Record_of_Protected_Structures/FeatureServer/0
+    CSV: https://data.fingal.ie/api/download/v1/items/601387c1d5ed4f6aa172fcf231a61fd3/csv?layers=0
+    ZIP: https://data.fingal.ie/api/download/v1/items/601387c1d5ed4f6aa172fcf231a61fd3/shapefile?layers=0
+    GeoJSON: https://data.fingal.ie/api/download/v1/items/601387c1d5ed4f6aa172fcf231a61fd3/geojson?layers=0
+    KML: https://data.fingal.ie/api/download/v1/items/601387c1d5ed4f6aa172fcf231a61fd3/kml?layers=0
+
+### data.gov.ie package_show record-of-protected-structures-south-dublin-county-development-plan-2022-to-2028-sdcc1
+status 200
+    HTML: https://data-sdublincoco.opendata.arcgis.com/datasets/sdublincoco::record-of-protected-structures-south-dublin-county-development-plan-2022-to-2028-sdcc
+    ArcGIS GeoServices REST API: https://services1.arcgis.com/PxbTDTskGHCe4sv6/arcgis/rest/services/Record_of_Protected_Structures_South_Dublin_County_Development_Plan_2022_to_2028/FeatureServer/0
+    CSV: https://data-sdublincoco.opendata.arcgis.com/api/download/v1/items/223a9302e62f4bb68317d0566a70644d/csv?layers=0
+    GeoJSON: https://data-sdublincoco.opendata.arcgis.com/api/download/v1/items/223a9302e62f4bb68317d0566a70644d/geojson?layers=0
+    ZIP: https://data-sdublincoco.opendata.arcgis.com/api/download/v1/items/223a9302e62f4bb68317d0566a70644d/shapefile?layers=0
+    KML: https://data-sdublincoco.opendata.arcgis.com/api/download/v1/items/223a9302e62f4bb68317d0566a70644d/kml?layers=0
+
+### data.gov.ie package_show development-plan-2022-2028-protected-structures-dlr
+status 200
+    CSV: https://data.smartdublin.ie/dataset/24d5a52e-8379-4723-83bf-ab5f8e9e0db7/resource/06009b5c-bd20-4b19-80e9-eb34a0654c42/download/devplan_2022_2028_protected_structures.csv
+    ZIP: https://data.smartdublin.ie/dataset/24d5a52e-8379-4723-83bf-ab5f8e9e0db7/resource/dbfa434c-002c-4921-9a95-8504a4f2c449/download/protected-structures.zip
+    GeoJSON: https://data.smartdublin.ie/dataset/24d5a52e-8379-4723-83bf-ab5f8e9e0db7/resource/0c424eef-29e1-4c03-8065-a3cee0f4ae72/download/devplan2022_2028_protected-structures.geojson
+    KML: https://data.smartdublin.ie/dataset/24d5a52e-8379-4723-83bf-ab5f8e9e0db7/resource/7e5b4b3e-c57c-4fb0-8c7b-ba0fb1981ac3/download/devplan2022_2028_protected_structures.kml
+
+### data.gov.ie package_show national-planning-applications
+status 200
+    Esri REST: https://services.arcgis.com/NzlPQPKn5QF9v2US/arcgis/rest/services/IrishPlanningApplications/FeatureServer
+    restservice: https://services.arcgis.com/NzlPQPKn5QF9v2US/arcgis/rest/services/IrishPlanningApplications/FeatureServer/0/query?outFields=*&where=1%3D1
+    GeoJSON: https://opendata.arcgis.com/datasets/8f69dffe26324ba3acc653cf6cb5cf8b_0.geojson
+    restservice: https://services.arcgis.com/NzlPQPKn5QF9v2US/arcgis/rest/services/IrishPlanningApplications/FeatureServer/1/query?outFields=*&where=1%3D1
+    GeoJSON: https://opendata.arcgis.com/datasets/8f69dffe26324ba3acc653cf6cb5cf8b_1.geojson
+
+### links on https://www.gov.ie/en/service/search-or-download-the-public-register-of-charities/
+status 200 final url https://www.gov.ie/en/department-of-justice-home-affairs-and-migration/services/search-or-download-the-public-register-of-charities/
+
+### links on https://www.charitiesregulator.ie/en/information-for-the-public/search-the-register-of-charities
+status 403 final url https://www.charitiesregulator.ie/en/information-for-the-public/search-the-register-of-charities
+
+### links on https://www.gov.ie/en/department-of-education/collections/data-on-individual-schools/
+status 200 final url https://www.gov.ie/en/department-of-education/collections/data-on-individual-schools/
+
+### links on https://www.gov.ie/en/department-of-education/publications/data-on-individual-schools/
+status 404 final url https://www.gov.ie/en/department-of-education/publications/data-on-individual-schools/
+
+### https://assets.gov.ie/static/documents/8e1b86ab/Data_on_Individual_Schools_Mainstream..xlsx
+status 200, 986,203 bytes, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+
+### https://assets.gov.ie/static/documents/d5fbb204/Data_on_Individual_Schools_post_primary..xlsx
+status 200, 256,644 bytes, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+
+### https://www.charitiesregulator.ie/media/d52jwriz/register-of-charities.csv
+status 403, 5,696 bytes, text/html; charset=UTF-8
+
+### https://overpass-api.de/api/interpreter?data=[out:json];node(53.70,-6.40,53.72,-6.34)[amenity=place_of_worship];out;
+status 406, 156 bytes, text/html
+
+### https://overpass-api.de/api/status
+status 200, 210 bytes, text/plain; charset=utf-8
+
+### https://overpass.kumi.systems/api/status
+status 200, 1,181 bytes, text/plain; charset=utf-8
+
+### https://overpass.private.coffee/api/status
+failed: HTTPSConnectionPool(host='overpass.private.coffee', port=443): Read timed out. (read timeout=90)

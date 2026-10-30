@@ -1,4 +1,4 @@
-<title>Charities for Religion</title>
+<title>Ireland's Charities Landscape</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -15,6 +15,7 @@
   --dot-dim: #d9ddd8;
   --accent: #d95a25;
   --accent-soft: #f6dccf;
+  --school: #2a78d6;
   --link: #2a5fa8;
   --halo: rgba(246,247,244,.92);
   --display: "Fraunces", Georgia, "Times New Roman", serif;
@@ -23,11 +24,11 @@
 }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
   --bg: #141715; --panel: #1c201d; --ink: #eef0ec; --ink-2: #b9bfb9; --ink-3: #8a918b; --rule: #2e3430;
-  --dot: #5a625c; --dot-dim: #343a36; --accent: #ef7440; --accent-soft: #4a2a1c; --link: #8db4ea; --halo: rgba(20,23,21,.9);
+  --dot: #5a625c; --dot-dim: #343a36; --accent: #ef7440; --accent-soft: #4a2a1c; --school: #3987e5; --link: #8db4ea; --halo: rgba(20,23,21,.9);
   color-scheme: dark; } }
 :root[data-theme="dark"] {
   --bg: #141715; --panel: #1c201d; --ink: #eef0ec; --ink-2: #b9bfb9; --ink-3: #8a918b; --rule: #2e3430;
-  --dot: #5a625c; --dot-dim: #343a36; --accent: #ef7440; --accent-soft: #4a2a1c; --link: #8db4ea; --halo: rgba(20,23,21,.9);
+  --dot: #5a625c; --dot-dim: #343a36; --accent: #ef7440; --accent-soft: #4a2a1c; --school: #3987e5; --link: #8db4ea; --halo: rgba(20,23,21,.9);
   color-scheme: dark; }
 * { box-sizing: border-box; }
 body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.5; }
@@ -38,6 +39,10 @@ h1 { font: 650 clamp(26px, 4vw, 40px)/1.12 var(--display); margin: 0 0 12px; tex
 .lede { font-size: 17px; color: var(--ink-2); max-width: 64ch; margin: 0 0 22px; }
 .lede b { color: var(--ink); font-weight: 600; }
 .lede .hl { color: var(--accent); font-weight: 600; }
+.lede .hs { color: var(--school); font-weight: 600; }
+.toggle { display: flex; align-items: flex-start; gap: 8px; margin: 0 0 14px; font-size: 13.5px; line-height: 1.35; cursor: pointer; }
+.toggle input { margin: 2px 0 0; accent-color: var(--school); }
+.toggle small { display: block; color: var(--ink-3); font-size: 12px; }
 .grid { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 20px; align-items: start; }
 @media (max-width: 900px) { .grid { grid-template-columns: minmax(0, 1fr); } }
 .stage { position: relative; background: var(--panel); border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; touch-action: none; }
@@ -88,13 +93,13 @@ table.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: 
 
 <div class="wrap">
   <p class="eyebrow">Open Talamh · Charities register</p>
-  <h1>How many Irish charities exist to advance religion?</h1>
+  <h1>The landscape of Ireland's charities</h1>
   <p class="lede" id="lede"></p>
 
   <div class="grid">
     <div style="min-width:0">
     <div class="stage" id="stage">
-      <canvas id="cv" role="img" aria-label="Each registered charity in Ireland drawn as a dot, grouped by its charitable purposes."></canvas>
+      <canvas id="cv" role="img" aria-label="Each registered charity in Ireland drawn as a dot, grouped by its charitable purposes, with religion and Catholic-patron schools highlighted."></canvas>
       <div class="zoom">
         <button id="zin" aria-label="Zoom in">+</button>
         <button id="zout" aria-label="Zoom out">−</button>
@@ -111,6 +116,8 @@ table.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: 
         <input id="q" type="search" placeholder="e.g. Sisters of Mercy, parish, mosque" autocomplete="off" aria-label="Search charities by name">
         <div class="results" id="results" hidden></div>
       </div>
+      <h2>Schools</h2>
+      <label class="toggle" for="cath"><input type="checkbox" id="cath" checked><span>Show schools with a Catholic patron<small id="cathn"></small></span></label>
       <h2>Charitable purpose</h2>
       <div class="purposes" id="purposes"></div>
     </aside>
@@ -122,7 +129,7 @@ table.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: 
       <p>Each dot is one registered charity. Charities with a single purpose sit in the outer clusters. Charities that list two or more purposes sit in the middle, pulled toward each purpose they list, so a dot between Religion and Relief of poverty lists both. Hover or tap a dot to see the charity's own statement of its objects.</p>
     </div>
     <div>
-      <h3>What about church schools?</h3>
+      <h3>Church schools</h3>
       <p id="schools"></p>
     </div>
     <div>
@@ -147,26 +154,37 @@ table.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: 
   const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
   let sel = 0; // purpose index; 0 = Advancement of religion
+  let showCath = true;
+  const CATH = D.ethos.indexOf('Catholic');
   let hover = -1, pinned = -1;
 
   // ---- text ----
   function setLede() {
     const h = H[sel];
     const only = h.single;
-    document.getElementById('lede').innerHTML = sel === 0
-      ? `<b>${fmt(h.n)}</b> of the ${fmt(S.registered)} charities on the register (<span class="hl">${pct(h.n, S.registered)}</span>) list the <b>advancement of religion</b> as a charitable purpose. For <b>${fmt(only)}</b> of them it is their only purpose.`
-      : `<b>${fmt(h.n)}</b> of the ${fmt(S.registered)} charities on the register (<span class="hl">${pct(h.n, S.registered)}</span>) list <b>${esc(h.full.charAt(0).toLowerCase() + h.full.slice(1))}</b>. ${fmt(only)} list no other purpose. <a href="#" id="back" style="color:var(--link)">Back to religion</a>`;
+    const what = sel === 0 ? 'the <b>advancement of religion</b> as a charitable purpose' : `<b>${esc(h.full.charAt(0).toLowerCase() + h.full.slice(1))}</b>`;
+    document.getElementById('lede').innerHTML =
+      `Ireland has ${fmt(S.registered)} registered charities, each listing one or more of fifteen charitable purposes. ` +
+      `<b>${fmt(h.n)}</b> (<span class="hl">${pct(h.n, S.registered)}</span>) list ${what}, and ${fmt(only)} of those list no other purpose. ` +
+      (showCath ? `Inside Education, <b>${fmt(S.catholic_schools)}</b> are <span class="hs">schools with a Catholic patron</span>, almost none of which list religion.` : '') +
+      (sel !== 0 ? ` <a href="#" id="back" style="color:var(--link)">Back to religion</a>` : '');
     const b = document.getElementById('back');
     if (b) b.onclick = e => { e.preventDefault(); select(0); };
     document.getElementById('key').innerHTML =
-      `<span><i class="sw" style="background:var(--accent)"></i>${esc(h.short)} (${fmt(h.n)})</span><span><i class="sw" style="background:var(--dot)"></i>Other charities</span>`;
+      `<span><i class="sw" style="background:var(--accent)"></i>${esc(h.short)} (${fmt(h.n)})</span>` +
+      (showCath ? `<span><i class="sw" style="background:var(--school)"></i>Catholic-patron school (${fmt(S.catholic_schools)})</span>` : '') +
+      `<span><i class="sw" style="background:var(--dot)"></i>Other charities</span>`;
   }
   document.getElementById('schools').textContent =
-    `Schools register for the advancement of education. Of the ${fmt(S.school_boards)} school boards of management on the register, only ${fmt(S.school_boards_religion)} also list religion, even though most schools in Ireland have a church patron. That is why they sit in the large Education cluster and not in the Religion one. Across all charities, ${fmt(S.religion_and_education)} list both religion and education.`;
+    `Schools register for the advancement of education, not religion. We matched ${fmt(S.school_charities)} school charities to the Department of Education's school lists for the ${S.schools_as_of}, which give each school's ethos and patron. ` +
+    `${fmt(S.catholic_schools)} have a Catholic ethos, usually with the local bishop or a religious order as patron, and are shown in blue. Only ${fmt(S.catholic_schools_religion)} of them list religion as a purpose; they are drawn blue too. ` +
+    `The register has no roll numbers, so the match is on school name, county and address. A few hundred school charities found no match and stay grey, and a small share of matches may point to the wrong school.`;
+  document.getElementById('cathn').textContent = `${fmt(S.catholic_schools)} matched to a Catholic-ethos school`;
   document.getElementById('source').innerHTML =
     `Source: Charities Regulator, <a href="https://www.charitiesregulator.ie/en/information-for-the-public/search-the-register-of-charities" target="_blank" rel="noopener">Public Register of Charitable Organisations</a>, effective ${fmtDate(S.effective)}, downloaded ${fmtDate(S.downloaded)}. ` +
     `Shows the ${fmt(S.shown)} charities with status "Registered" that list at least one purpose (${S.no_purpose} list none). ${fmt(S.rows_in_file - S.registered)} deregistered entries in the file are left out. ` +
-    `Information is supplied to the Regulator by the charities themselves; the Regulator does not vouch for its accuracy. Objects text is shortened to about 420 characters.`;
+    `Information is supplied to the Regulator by the charities themselves; the Regulator does not vouch for its accuracy. Objects text is shortened to about 420 characters. ` +
+    `School ethos and patron: Department of Education, Data on Individual Schools (primary, special and post-primary), ${S.schools_as_of}.`;
 
   // ---- purpose list ----
   const list = document.getElementById('purposes');
@@ -222,7 +240,7 @@ table.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: 
   let W = 0, Hh = 0, dpr = 1, base = 1, zoom = 1, panX = 0, panY = 0;
   const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
   let col = {};
-  function readColors() { col = { dot: css('--dot'), dim: css('--dot-dim'), acc: css('--accent'), ink: css('--ink'), ink2: css('--ink-2'), halo: css('--halo'), panel: css('--panel') }; }
+  function readColors() { col = { dot: css('--dot'), dim: css('--dot-dim'), acc: css('--accent'), school: css('--school'), ink: css('--ink'), ink2: css('--ink-2'), halo: css('--halo'), panel: css('--panel') }; }
   function resize() {
     const r = cv.getBoundingClientRect(); dpr = Math.min(window.devicePixelRatio || 1, 2);
     W = r.width; Hh = r.height; cv.width = Math.round(W * dpr); cv.height = Math.round(Hh * dpr);
@@ -252,12 +270,13 @@ table.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: 
     }
     ctx.globalAlpha = 1;
     const r = Math.max(0.9, Math.min(5, 1.75 * k));
-    // non-selected first, then selected on top
-    for (const pass of [0, 1]) {
-      ctx.fillStyle = pass ? col.acc : col.dot;
+    // other charities, then the selected purpose, then Catholic-patron schools on top
+    const layer = c => (showCath && c[8] === CATH) ? 2 : (c[2] & bit) ? 1 : 0;
+    for (const pass of [0, 1, 2]) {
+      ctx.fillStyle = [col.dot, col.acc, col.school][pass];
       ctx.beginPath();
       for (let i = 0; i < N; i++) {
-        const c = C[i]; if (((c[2] & bit) ? 1 : 0) !== pass) continue;
+        const c = C[i]; if (layer(c) !== pass) continue;
         const X = sx(c[0]), Y = sy(c[1]);
         if (X < -5 || Y < -5 || X > W + 5 || Y > Hh + 5) continue;
         ctx.moveTo(X + r, Y); ctx.arc(X, Y, r, 0, 6.2832);
@@ -311,6 +330,7 @@ table.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: 
     tip.innerHTML = `<button class="x" aria-label="Close">×</button><h3>${esc(c[3])}</h3>
       <div class="meta">RCN ${esc(c[4])}${c[5] ? ' · ' + esc(c[5]) : ''}${c[6] ? '<br>' + esc(c[6]) : ''}</div>
       <div class="tags">${tags}</div>
+      ${c[8] >= 0 ? `<p class="lbl">School (Dept of Education list)</p><p class="obj" style="margin-bottom:8px">${esc(c[10])}<br>Ethos: ${esc(D.ethos[c[8]])}${c[9] >= 0 ? ' · Patron: ' + esc(D.patrons[c[9]]) : ''}</p>` : ''}
       <p class="lbl">Charitable objects</p><p class="obj">${c[7] ? esc(c[7]) : '<i>None given</i>'}</p>`;
     tip.hidden = false; tip.classList.toggle('pinned', !!pin);
     tip.querySelector('.x').onclick = () => { pinned = -1; showTip(-1); draw(); };
@@ -391,6 +411,7 @@ table.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: 
   }
   document.addEventListener('click', e => { if (!e.target.closest('.search')) res.hidden = true; });
 
+  document.getElementById('cath').addEventListener('change', e => { showCath = e.target.checked; setLede(); draw(); });
   readColors();
   new ResizeObserver(resize).observe(cv);
   matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { readColors(); draw(); });
