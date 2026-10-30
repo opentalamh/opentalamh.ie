@@ -16,6 +16,7 @@ SOURCE_COLOURS = {
     "History seed list": "#c53030",
     "Industrial schools (Ryan Report)": "#742a2a",
     "Redress transfers (former holdings)": "#975a16",
+    "HIQA registered centres": "#2b6cb0",
 }
 # Council protected-structure lists share one colour family.
 RPS_COLOUR = "#b83280"

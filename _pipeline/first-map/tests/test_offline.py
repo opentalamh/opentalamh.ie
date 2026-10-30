@@ -206,6 +206,21 @@ def test_redress_transfers_match_the_appendix_total(dublin):
     assert d["raw_use"].str.contains("€220,000").any()
 
 
+def test_hiqa_keeps_only_church_providers(dublin):
+    centres = pd.DataFrame([
+        {"centre_id": "1", "name": "Nazareth House Malahide Road", "type": "older persons' centre", "slug": "nazareth-house",
+         "address": "Malahide Road", "centre_type": "", "provider": "Nazareth Care Ireland", "report": ""},
+        {"centre_id": "2", "name": "St Joseph's Nursing Home", "type": "older persons' centre", "slug": "st-josephs",
+         "address": "", "centre_type": "", "provider": "St Joseph's Nursing Home Limited", "report": ""},
+        {"centre_id": "3", "name": "Example disability centre", "type": "disability centre", "slug": "c",
+         "address": "", "centre_type": "", "provider": "Saint John of God Community Services CLG", "report": ""},
+    ])
+    church = sources.hiqa_church_centres(centres)
+    assert list(church["source_id"]) == ["1", "3"]
+    leads = names.care_providers(centres)
+    assert set(leads["name"]) == {"Nazareth Care Ireland", "Saint John of God Community Services CLG"}
+
+
 def test_rps_frame_reads_cp1252_geojson():
     gj = {"features": [{"properties": {"Name": "Church of St François"},
                         "geometry": {"type": "Point", "coordinates": [-6.26, 53.35]}}]}

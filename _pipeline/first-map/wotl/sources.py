@@ -748,7 +748,7 @@ def load_redress_transfers():
         parts = [r["round"], r["transferor"] or "congregation not named in the appendix",
                  f"to {r['transferee']}" if r["transferee"] else "",
                  f"valued at €{float(r['value_eur']):,.0f}" if r["value_eur"] else "",
-                 r["status_june_2018"] + " (June 2018)", r["use"],
+                 r["status_june_2018"] + " (June 2018)", r.get("later_status", ""), r["use"],
                  f"source: {r['source_doc']} p. {r['source_page']}"]
         return " · ".join(p for p in parts if p)
 
@@ -800,6 +800,105 @@ def place_history_sites(history, points, max_spread_m=250):
         )
     placed = h["lat"].notna() & h["lon"].notna()
     return h[placed].drop(columns="anchor"), h[~placed].drop(columns="anchor")
+
+
+# --- HIQA registers of designated centres ---------------------------------------
+
+HIQA = "https://www.hiqa.ie"
+HIQA_CENTRE_TYPES = {"41": "older persons' centre", "40": "disability centre"}
+
+
+def _hiqa_listing(type_id):
+    """(slug, name, centre id) for every centre of one type in the county, from Find a Centre."""
+    out, page = [], 0
+    while True:
+        html = _get(f"{HIQA}/find-a-centre", params={
+            "field_centre_type_target_id": type_id, "field_county_value": config.COUNTY, "page": page}).text
+        rows = re.findall(r'href="/areas-we-work/find-a-centre/([^"]+)"[^>]*>\s*([^<]+?)\s*<.*?ID:\s*(\d+)', html, re.S)
+        new = [r for r in rows if r[0] not in {o[0] for o in out}]
+        if not new:
+            return out
+        out += new
+        page += 1
+        time.sleep(0.5)
+
+
+def _hiqa_centre(slug):
+    """Address, type and the provider named on the latest inspection report of one centre."""
+    html = _get(f"{HIQA}/areas-we-work/find-a-centre/{slug}").text
+    text = re.sub(r"\s+", " ", re.sub(r"(?s)<[^>]+>", " ", html))
+    field = lambda label, nxt: (re.search(rf"{label}:\s*(.+?)\s*(?:{nxt}|$)", text) or [None, ""])[1]
+    reports = re.findall(r'href="(/system/files\?file=inspectionreports/[^"]+\.pdf)"', html)
+    provider = ""
+    if reports:
+        import pdfplumber
+
+        pdf = _get(HIQA + reports[0].replace("&amp;", "&")).content
+        with pdfplumber.open(BytesIO(pdf)) as doc:
+            first = " ".join((pg.extract_text() or "") for pg in doc.pages[:2])
+        m = re.search(r"Name of provider:\s*(.+?)\s*(?:Address of centre|Address of|Type of inspection|\n)", first, re.S)
+        provider = re.sub(r"\s+", " ", m.group(1)).strip() if m else ""
+    return {
+        "address": field("Address", "Phone|Inspection Reports"),
+        "centre_type": field("Centre type", "County"),
+        "provider": provider,
+        "report": HIQA + reports[0] if reports else "",
+    }
+
+
+def fetch_hiqa_centres(refresh=False):
+    """Every older persons' and disability centre in the county with its registered provider.
+
+    HIQA publishes no download, so the Find a Centre listing and each centre's
+    latest inspection report (whose first page names the provider) are read
+    and cached in data/raw/hiqa_<county>.csv. All centres are kept there; the
+    Church filter is applied afterwards (see hiqa_church_centres).
+    """
+    path = config.RAW_DIR / f"hiqa_{config.COUNTY.lower()}.csv"
+    if path.exists() and not refresh:
+        return pd.read_csv(path, dtype=str).fillna("")
+    rows = []
+    for type_id, label in HIQA_CENTRE_TYPES.items():
+        try:
+            listing = _hiqa_listing(type_id)
+        except Exception as e:
+            warnings.warn(f"HIQA listing for {label}s failed: {e}")
+            continue
+        print(f"  HIQA: {len(listing)} {label}s", flush=True)
+        for slug, name, centre_id in listing:
+            try:
+                detail = _hiqa_centre(slug)
+            except Exception as e:  # one broken page or report shouldn't stop the rest
+                warnings.warn(f"HIQA centre {slug}: {e}")
+                detail = {"address": "", "centre_type": "", "provider": "", "report": ""}
+            rows.append({"centre_id": centre_id, "name": name.strip(), "type": label, "slug": slug, **detail})
+            time.sleep(0.5)
+    df = pd.DataFrame(rows, columns=["centre_id", "name", "type", "slug", "address", "centre_type", "provider", "report"])
+    path.parent.mkdir(parents=True, exist_ok=True)
+    df.to_csv(path, index=False)
+    return df
+
+
+def hiqa_church_centres(centres):
+    """Centres whose registered provider is a Catholic body, as points to place by name."""
+    from . import charities
+
+    c = centres.copy()
+    c["church_match"] = c["provider"].map(charities.church_provider)
+    c = c[c["church_match"] != ""]
+    return pd.DataFrame({
+        "source": "HIQA registered centres",
+        "source_id": c["centre_id"],
+        "name": c["name"],
+        "category": c["type"],
+        "denomination": "catholic",
+        "lat": float("nan"),
+        "lon": float("nan"),
+        "address": c["address"],
+        "source_url": HIQA + "/areas-we-work/find-a-centre/" + c["slug"],
+        "raw_use": "registered provider: " + c["provider"] + " (matched: " + c["church_match"] + ")",
+        "anchor": c["name"].map(lambda n: re.escape(re.sub(r"\s+", " ", n).strip())),
+    }, columns=SITE_COLUMNS + ["anchor"])
 
 
 # --- Charities Regulator register: names, not places ---------------------------

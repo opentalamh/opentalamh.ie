@@ -52,14 +52,17 @@ def run(refresh=False):
               f"{points.loc[~inside, 'source'].value_counts().to_dict()}", flush=True)
     points = points[inside].reset_index(drop=True)
 
+    hiqa = _timed("HIQA registers", sources.fetch_hiqa_centres, refresh)
     unplaced = []
-    for label, seed in (("Industrial schools (Ryan Report)", sources.load_industrial_schools()),
+    for label, seed in (("HIQA registered centres", sources.hiqa_church_centres(hiqa)),
+                        (("Industrial schools (Ryan Report)", sources.load_industrial_schools()),
                         ("History seed list", sources.load_history_sites()),
                         ("Redress transfers (former holdings)", sources.load_redress_transfers())):
         placed, missing = sources.place_history_sites(seed, points)
         frames[label] = placed
         unplaced.append(missing)
-    for label in ("Industrial schools (Ryan Report)", "History seed list", "Redress transfers (former holdings)"):
+    for label in ("HIQA registered centres", "Industrial schools (Ryan Report)", "History seed list",
+                  "Redress transfers (former holdings)"):
         if not frames[label].empty:
             points = pd.concat([points, frames[label]], ignore_index=True)
     unplaced = pd.concat(unplaced, ignore_index=True)
@@ -79,7 +82,7 @@ def run(refresh=False):
     charities = _timed("Charities register", sources.fetch_charity_names, refresh)
     if not charities.empty:
         charities.to_csv(config.OUT_DIR / "charity_name_leads.csv", index=False)
-    leads = names.name_leads(frames["School lists"], frames["OpenStreetMap"], charities)
+    leads = names.name_leads(frames["School lists"], frames["OpenStreetMap"], charities, hiqa)
     leads.to_csv(config.OUT_DIR / f"{county}_name_leads.csv", index=False)
 
     summary.loc[len(summary)] = {"source": "Charities register (names only)", "points": len(charities), "with_coordinates": 0}
