@@ -4,7 +4,7 @@ description: "How Open Talamh finds, checks and grades land held by Catholic Chu
 toc: true
 ---
 
-Open Talamh is building the first open, parcel-level atlas of land held by Catholic Church entities in Ireland. Every parcel traces back to a primary record, and every parcel carries a confidence grade. The method is being piloted in County Louth before it is extended to other counties and, later, to State bodies.
+Open Talamh is building the first open, parcel-level atlas of land held by Catholic Church entities in Ireland. Every parcel traces back to a primary record, and every parcel carries a confidence grade. The method is being piloted in County Dublin before it is extended to other counties and, later, to State bodies.
 
 ## Principles
 
@@ -43,7 +43,7 @@ Each parcel is assigned one ownership tier:
 | **D** | Use, signage or a heritage record suggests Church ownership; title not yet checked | Unverified lead (not counted in totals) |
 | **E** | Held since 2002 but since sold or transferred | Former holding |
 
-The first Louth map is built entirely from open data, so every point on it is currently a **grade D lead**.
+The first Dublin map is built entirely from open data, so every point on it is currently a **grade D lead**.
 
 ## How ownership is established
 
@@ -72,11 +72,13 @@ Location data is plentiful and open, while ownership data is closed and paid. So
 | Registry of Deeds, Henrietta Street | Deeds since 1708, by grantor and townland | Clues | In person, by appointment |
 | [OpenStreetMap](https://www.openstreetmap.org/) | Churches, convents, religious land, schools, graveyards | No | Free (ODbL) |
 | [National Inventory of Architectural Heritage](https://data.gov.ie/dataset/national-inventory-of-architectural-heritage-niah-national-dataset) | Historic churches, convents, presbyteries and schools, with original and current use | No | Free |
+| Council Records of Protected Structures (e.g. [Dublin City](https://data.gov.ie/dataset/dublin-city-record-of-protected-structures), Fingal, South Dublin, Dún Laoghaire-Rathdown) | Protected churches, convents and institutions, described by each council | No | Free |
 | Department of Education school lists ([primary](https://data.gov.ie/dataset/primary-schools), [post-primary](https://data.gov.ie/dataset/post-primary-schools)) | Every school with its ethos and location | No (the patron is not always the landowner) | Free |
 | [Valuation list](https://tailte.ie/en/valuation/open-data/open-data-information) (Tailte Éireann) | Rateable properties with use, area and location | No; places of worship are often exempt | Free |
 | [Charities Regulator register](https://data.gov.ie/dataset/register-of-charities-in-ireland) | Legal names of dioceses, parishes, congregations and trusts | Names only | Free |
 | [Companies Registration Office](https://core.cro.ie/) | Companies, directors, former names | Names only | Search free; documents paid |
 | Ryan, McAleese and Mother and Baby Homes reports; [Industrial Memories](https://industrialmemories.ucd.ie/) | Institutions, operators, dates | No | Free |
+| [PARISH: Preserving And Recording Ireland's Sacred Heritage](https://parishproject.nd.edu/) (Keough-Naughton Institute, University of Notre Dame, with Maynooth University) | A photographic record of the interiors of every Catholic church on the island of Ireland | No | Archive and map not yet published; to be used, with credit, once released |
 | [Townland and county boundaries](https://data.gov.ie/en_GB/dataset/townlands-national-statutory-boundaries-ungeneralised-20241) | Statutory boundaries | No | Free (CC BY) |
 | [Residential Property Price Register](https://www.propertypriceregister.ie/) | Sale prices since 2010 | No | Free |
 | INSPIRE cadastral parcels (Tailte Éireann) | Parcel shapes without owners | No | Licence to be confirmed |
