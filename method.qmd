@@ -38,15 +38,6 @@ Included, for example:
 - Diocesan agencies, such as Crosscare and Accord.
 - Nursing homes, hospitals, disability services and colleges, **only where the registered provider or owner is an order, a diocese or a company they control**. Where an order has handed a hospital or college to an independent company or the State, the site is recorded as a former holding.
 
-Not included as entities:
-
-- Scouting Ireland, the GAA, Comhaltas Ceoltóirí Éireann, Lions Clubs and the Simon Community, which have no formal Church link.
-- Approved housing bodies, even those founded by religious (such as Respond, Focus Ireland and the Peter McVerry Trust), which are independent. A convent an order sold or gave to one is recorded as a former holding of the order.
-- School boards of management, which do not own land. The school's patron or trustees are tracked instead.
-- Community halls run by committees.
-
-Land these groups use can still be Church land. A GAA pitch or a Scout den on parish land appears on the map under the parish's folio, because the folio search is on the owner's name, not the user's.
-
 Each parcel is assigned one ownership tier:
 
 - Legal title: A Catholic entity or trustee is the registered owner on a folio.
@@ -64,7 +55,33 @@ Each parcel is assigned one ownership tier:
 | **D** | Use, signage or a heritage record suggests Church ownership; title not yet checked | Unverified lead (not counted in totals) |
 | **E** | Held since 2002 but since sold or transferred | Former holding |
 
-The first Dublin map is built entirely from open data, so every point on it is currently a **grade D lead**.
+## How the Dublin map is built
+
+The [Dublin map](map.qmd) is built from open data only, so it shows where Church-linked sites are, not who owns them. Points from open data are grade D leads; properties the State records as handed over by the orders are grade E former holdings. The code is in [`_pipeline/first-map`](https://github.com/opentalamh/opentalamh.ie/tree/main/_pipeline/first-map) and anyone can re-run it.
+
+**Where the points come from**
+
+- Catholic churches, convents, presbyteries, religious houses and Catholic-ethos schools tagged on [OpenStreetMap](https://www.openstreetmap.org/).
+- Churches, convents, presbyteries and institutions recorded by the [National Inventory of Architectural Heritage](https://data.gov.ie/dataset/national-inventory-of-architectural-heritage-niah-national-dataset).
+- Churches, convents and religious institutions in the Records of Protected Structures of [Dublin City](https://data.gov.ie/dataset/record-protected-structures-dcc), [Fingal](https://data.gov.ie/dataset/development-plan-2023-2029-rps-record-of-protected-structures-fcc2), [South Dublin](https://data.gov.ie/dataset/record-of-protected-structures-south-dublin-county-development-plan-2022-to-2028-sdcc1) and [Dún Laoghaire-Rathdown](https://data.gov.ie/dataset/development-plan-2022-2028-protected-structures-dlr) councils.
+- Schools with a Catholic ethos in the Department of Education [primary](https://data.gov.ie/dataset/primary-schools) and [post-primary](https://data.gov.ie/dataset/post-primary-schools) lists, with their patron.
+- Industrial and reformatory schools investigated by the [Ryan Report](https://industrialmemories.ucd.ie/), with their official names from the Schedule to the [Residential Institutions Redress Act 2002](https://www.irishstatutebook.ie/eli/2002/act/13/enacted/en/print). The list covers every county and records the order that ran each school, who occupies the site now, and any sale or transfer.
+- Magdalene laundries and mother and baby homes named in the McAleese Report and the Final Report of the Commission of Investigation into Mother and Baby Homes.
+- Properties congregations transferred to the State under the 2002 Indemnity Agreement and the 2009 voluntary offers, with agreed values, from the Department of Education's [updates to the Public Accounts Committee](https://www.gov.ie/en/department-of-education/collections/cash-and-property-transfers) (2017 to 2019).
+- Nursing homes and disability centres whose registered provider is a Catholic order or body, from [HIQA's register of designated centres](https://www.hiqa.ie/find-a-centre). The provider runs the centre but may lease the land.
+
+**How the points are cleaned**
+
+- Points outside the county are dropped, as are points that sit on another denomination's church and carry no Catholic tag.
+- Points from different sources within 50 metres of each other are grouped as one candidate site. A site found by two or more sources is more likely to be correctly placed.
+- Institutions named in reports have no coordinates, so each is placed on the record of the same building in another source, matched by name, and only when every match sits within 250 metres. The rest stay off the map until checked by hand.
+- Every row in the hand-made lists cites a primary source: a statute, an official report, a register or a heritage record. Secondary sources such as Wikipedia can point to a record but are not cited.
+
+**Names for the Land Registry search**
+
+The map is a starting point for the folio search, which works by owner name. The name list combines the entity list (dioceses, orders, lay bodies and school trusts), the school patrons, the operators recorded on OpenStreetMap, the HIQA registered providers, and Catholic charities with a Dublin address from the [Charities Regulator's register](https://data.gov.ie/dataset/register-of-charities-in-ireland). The register was downloaded by hand on 30 October 2026 (effective 26 October 2026), because the Regulator refuses automated downloads. A charity counts when its name, other names or charitable objects say Catholic or name a diocese, when it is registered for the advancement of religion and names a Catholic order or devotion, or when its name is a known Catholic body such as the Society of St Vincent de Paul, whatever its purpose. Charities naming another denomination are left out. Trustee names are not copied.
+
+The text of every report and register these lists cite is saved, with its retrieval date, in [`data/documents`](https://github.com/opentalamh/opentalamh.ie/tree/main/_pipeline/first-map/data/documents), so each figure can be checked even if the original link moves.
 
 ## How ownership is established
 
