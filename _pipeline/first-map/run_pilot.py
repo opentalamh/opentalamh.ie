@@ -55,7 +55,7 @@ def run(refresh=False):
     hiqa = _timed("HIQA registers", sources.fetch_hiqa_centres, refresh)
     unplaced = []
     for label, seed in (("HIQA registered centres", sources.hiqa_church_centres(hiqa)),
-                        (("Industrial schools (Ryan Report)", sources.load_industrial_schools()),
+                        ("Industrial schools (Ryan Report)", sources.load_industrial_schools()),
                         ("History seed list", sources.load_history_sites()),
                         ("Redress transfers (former holdings)", sources.load_redress_transfers())):
         placed, missing = sources.place_history_sites(seed, points)
