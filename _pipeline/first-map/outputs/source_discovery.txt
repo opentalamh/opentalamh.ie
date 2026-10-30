@@ -1,24 +1,24 @@
 
 ### data.gov.ie package_search q='primary schools'
 status 200
-- ed106-primary-schools | ED106 - Primary Schools | modified 2026-10-29
+- ed106-primary-schools | ED106 - Primary Schools | modified 2026-10-30
     CSV: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED106/CSV/1.0/en
     json-stat: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED106/JSON-stat/1.0/en
     px: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED106/PX/2013/en
     XLSX: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED106/XLSX/2007/en
-- ed121-mainstream-primary-schools | ED121 - Mainstream Primary Schools | modified 2026-10-29
+- ed121-mainstream-primary-schools | ED121 - Mainstream Primary Schools | modified 2026-10-30
     CSV: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED121/CSV/1.0/en
     json-stat: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED121/JSON-stat/1.0/en
     px: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED121/PX/2013/en
     XLSX: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED121/XLSX/2007/en
 - post-primary-schools-list-2017 | List of Post Primary Schools for academic year 2016/2017 | modified 2018-03-05
     CSV: https://www.education.ie/en/Publications/Statistics/Data-on-Individual-Schools/Education-UT-post_primaryEducation-IE-DepartmentofEducationAndSkills-Post-PrimarySchoolsLocations2016-2017_080617.csv
-- ed126-pupils-attending-mainstream-primary-schools | ED126 - Pupils attending Mainstream Primary Schools | modified 2026-10-29
+- ed126-pupils-attending-mainstream-primary-schools | ED126 - Pupils attending Mainstream Primary Schools | modified 2026-10-30
     CSV: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED126/CSV/1.0/en
     json-stat: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED126/JSON-stat/1.0/en
     px: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED126/PX/2013/en
     XLSX: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED126/XLSX/2007/en
-- eaacc22-re-and-all-children-who-entered-a-mainstream-primary-school-from-another-primary-school-8abb | EAACC22 - Children in care and all children who entered a mainstream primary school from another primary school | modified 2026-10-29
+- eaacc22-re-and-all-children-who-entered-a-mainstream-primary-school-from-another-primary-school-8abb | EAACC22 - Children in care and all children who entered a mainstream primary school from another primary school | modified 2026-10-30
     CSV: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/EAACC22/CSV/1.0/en
     json-stat: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/EAACC22/JSON-stat/1.0/en
     px: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/EAACC22/PX/2013/en
@@ -27,29 +27,29 @@ status 200
     CSV: https://opendata.ncse.ie/dataset/2e938ae3-3310-44de-8b92-9a71e667bf46/resource/4a162dfd-4c03-420e-aaaf-08c13b8ebf48/download/primary-special-classes-by-type-2010_2023.csv
     CSV: https://opendata.ncse.ie/dataset/2e938ae3-3310-44de-8b92-9a71e667bf46/resource/dcf1b5f8-d870-4acd-8c54-3e0411799230/download/postprimary-special-classes-by-type-2010_2023.csv
     CSV: https://opendata.ncse.ie/dataset/2e938ae3-3310-44de-8b92-9a71e667bf46/resource/fe15b69e-6591-478e-8855-9e54447ea654/download/post-primary-special-classes-by-designation-and-year.csv
-- ed123-nationality-of-pupils-attending-primary-school | ED123 - Nationality of Pupils attending Primary School | modified 2026-10-29
+- ed123-nationality-of-pupils-attending-primary-school | ED123 - Nationality of Pupils attending Primary School | modified 2026-10-30
     CSV: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED123/CSV/1.0/en
     json-stat: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED123/JSON-stat/1.0/en
     px: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED123/PX/2013/en
     XLSX: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED123/XLSX/2007/en
-- wmi07-number-of-primary-and-secondary-school-teachers | WMI07 - Number of Primary and Secondary School Teachers | modified 2026-10-29
+- wmi07-number-of-primary-and-secondary-school-teachers | WMI07 - Number of Primary and Secondary School Teachers | modified 2026-10-30
     CSV: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/WMI07/CSV/1.0/en
     json-stat: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/WMI07/JSON-stat/1.0/en
     px: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/WMI07/PX/2013/en
     XLSX: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/WMI07/XLSX/2007/en
 - list-of-primary-schools |  | modified 2026-09-22
     CSV: https://www.education.ie/en/Publications/Statistics/Data-on-Individual-Schools/Education-UT-primaryEducation-IE-DepartmentofEducationAndSkills-PrimarySchoolsLocations2016-2017-0103171.csv
-- ed112-mainstream-pupils-repeating-a-grade-in-primary-school | ED112 - Mainstream Pupils repeating a Grade in Primary School | modified 2026-10-29
+- ed112-mainstream-pupils-repeating-a-grade-in-primary-school | ED112 - Mainstream Pupils repeating a Grade in Primary School | modified 2026-10-30
     CSV: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED112/CSV/1.0/en
     json-stat: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED112/JSON-stat/1.0/en
     px: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED112/PX/2013/en
     XLSX: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED112/XLSX/2007/en
-- ed104-mainstream-pupils-and-classes-in-mainstream-primary-schools | ED104 - Mainstream Pupils and Classes in Mainstream Primary Schools | modified 2026-10-29
+- ed104-mainstream-pupils-and-classes-in-mainstream-primary-schools | ED104 - Mainstream Pupils and Classes in Mainstream Primary Schools | modified 2026-10-30
     CSV: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED104/CSV/1.0/en
     json-stat: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED104/JSON-stat/1.0/en
     px: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED104/PX/2013/en
     XLSX: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED104/XLSX/2007/en
-- ed111-primary-school-pupils-who-are-taught-through-irish | ED111 - Primary School Pupils who are taught through Irish | modified 2026-10-29
+- ed111-primary-school-pupils-who-are-taught-through-irish | ED111 - Primary School Pupils who are taught through Irish | modified 2026-10-30
     CSV: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED111/CSV/1.0/en
     json-stat: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED111/JSON-stat/1.0/en
     px: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED111/PX/2013/en
@@ -78,32 +78,32 @@ status 200
     CSV: https://opendata.ncse.ie/dataset/2e938ae3-3310-44de-8b92-9a71e667bf46/resource/4a162dfd-4c03-420e-aaaf-08c13b8ebf48/download/primary-special-classes-by-type-2010_2023.csv
     CSV: https://opendata.ncse.ie/dataset/2e938ae3-3310-44de-8b92-9a71e667bf46/resource/dcf1b5f8-d870-4acd-8c54-3e0411799230/download/postprimary-special-classes-by-type-2010_2023.csv
     CSV: https://opendata.ncse.ie/dataset/2e938ae3-3310-44de-8b92-9a71e667bf46/resource/fe15b69e-6591-478e-8855-9e54447ea654/download/post-primary-special-classes-by-designation-and-year.csv
-- eaacc25-age-group-of-children-in-care-and-all-children-who-changed-post-primary-schools | EAACC25 - Age Group of Children in care and all children who changed post primary schools | modified 2026-10-29
+- eaacc25-age-group-of-children-in-care-and-all-children-who-changed-post-primary-schools | EAACC25 - Age Group of Children in care and all children who changed post primary schools | modified 2026-10-30
     CSV: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/EAACC25/CSV/1.0/en
     json-stat: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/EAACC25/JSON-stat/1.0/en
     px: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/EAACC25/PX/2013/en
     XLSX: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/EAACC25/XLSX/2007/en
-- ed106-primary-schools | ED106 - Primary Schools | modified 2026-10-29
+- ed106-primary-schools | ED106 - Primary Schools | modified 2026-10-30
     CSV: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED106/CSV/1.0/en
     json-stat: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED106/JSON-stat/1.0/en
     px: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED106/PX/2013/en
     XLSX: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED106/XLSX/2007/en
-- ed121-mainstream-primary-schools | ED121 - Mainstream Primary Schools | modified 2026-10-29
+- ed121-mainstream-primary-schools | ED121 - Mainstream Primary Schools | modified 2026-10-30
     CSV: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED121/CSV/1.0/en
     json-stat: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED121/JSON-stat/1.0/en
     px: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED121/PX/2013/en
     XLSX: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED121/XLSX/2007/en
-- ed126-pupils-attending-mainstream-primary-schools | ED126 - Pupils attending Mainstream Primary Schools | modified 2026-10-29
+- ed126-pupils-attending-mainstream-primary-schools | ED126 - Pupils attending Mainstream Primary Schools | modified 2026-10-30
     CSV: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED126/CSV/1.0/en
     json-stat: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED126/JSON-stat/1.0/en
     px: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED126/PX/2013/en
     XLSX: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED126/XLSX/2007/en
-- eaacc22-re-and-all-children-who-entered-a-mainstream-primary-school-from-another-primary-school-8abb | EAACC22 - Children in care and all children who entered a mainstream primary school from another primary school | modified 2026-10-29
+- eaacc22-re-and-all-children-who-entered-a-mainstream-primary-school-from-another-primary-school-8abb | EAACC22 - Children in care and all children who entered a mainstream primary school from another primary school | modified 2026-10-30
     CSV: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/EAACC22/CSV/1.0/en
     json-stat: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/EAACC22/JSON-stat/1.0/en
     px: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/EAACC22/PX/2013/en
     XLSX: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/EAACC22/XLSX/2007/en
-- ed123-nationality-of-pupils-attending-primary-school | ED123 - Nationality of Pupils attending Primary School | modified 2026-10-29
+- ed123-nationality-of-pupils-attending-primary-school | ED123 - Nationality of Pupils attending Primary School | modified 2026-10-30
     CSV: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED123/CSV/1.0/en
     json-stat: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED123/JSON-stat/1.0/en
     px: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/ED123/PX/2013/en
@@ -111,7 +111,7 @@ status 200
 - sna-posts-2022-2023 | SNA Posts 2022/2023 | modified 2026-06-15
     CSV: https://opendata.ncse.ie/dataset/a234726e-e400-40e4-94e9-d2de1a60cea2/resource/31bd949e-6d40-405e-aef1-a6d280371c22/download/outcome-sna-exceptional-review-process-2022_2023.csv
     CSV: https://opendata.ncse.ie/dataset/a234726e-e400-40e4-94e9-d2de1a60cea2/resource/93474935-60bf-42cc-82c1-c9fc0c2c80e6/download/number-of-sna-posts.csv
-- wmi07-number-of-primary-and-secondary-school-teachers | WMI07 - Number of Primary and Secondary School Teachers | modified 2026-10-29
+- wmi07-number-of-primary-and-secondary-school-teachers | WMI07 - Number of Primary and Secondary School Teachers | modified 2026-10-30
     CSV: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/WMI07/CSV/1.0/en
     json-stat: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/WMI07/JSON-stat/1.0/en
     px: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/WMI07/PX/2013/en
@@ -128,12 +128,12 @@ status 200
     CSV: https://data.smartdublin.ie/dataset/b5ccf3b7-0eea-4dc9-acda-617e9463e5e4/resource/25c2c757-e143-4cbf-b055-3776b78ec78e/download/mainstream-schools_dublin_2019-2020.xlsx
     CSV: https://data.smartdublin.ie/dataset/b5ccf3b7-0eea-4dc9-acda-617e9463e5e4/resource/eb567c3f-bb5b-4350-8a0a-39038a76d96c/download/special-schools_dublin_2019-2020.xlsx
     CSV: https://data.smartdublin.ie/dataset/b5ccf3b7-0eea-4dc9-acda-617e9463e5e4/resource/7879d601-710c-4969-a576-9ad5cd80d2bb/download/post-primary-schools-2019-2020-1.xlsx
-- sna-posts-2021-2022 | SNA Posts, 2021/2022 | modified 2026-09-22
-    CSV: https://opendata.ncse.ie/dataset/c83f6bc7-6320-470d-8100-3c508032019f/resource/6894e542-77c0-4a1f-8af6-2f9c6c626ddb/download/number-of-sna-posts-21_22.csv
 - 2020-2021-school-allocations | 2020-2021 School Allocations | modified 2025-04-16
     CSV: https://opendata.ncse.ie/dataset/fa48bbdb-6b66-4380-aef1-ed3dacc2e1dc/resource/a3462160-5473-4e7b-83d1-f6e53ecd679a/download/sna-allocations-special-schools.csv
     CSV: https://opendata.ncse.ie/dataset/fa48bbdb-6b66-4380-aef1-ed3dacc2e1dc/resource/d5a051b3-f52e-425f-bc87-63984ff96b2e/download/sna-and-set-hours-allocations-post-primary-schools.csv
     CSV: https://opendata.ncse.ie/dataset/fa48bbdb-6b66-4380-aef1-ed3dacc2e1dc/resource/dbf56dd8-2442-4dbd-9a8b-ac9db5058853/download/sna-and-set-hours-allocations-primary-schools.csv
+- sna-posts-2021-2022 | SNA Posts, 2021/2022 | modified 2026-09-22
+    CSV: https://opendata.ncse.ie/dataset/c83f6bc7-6320-470d-8100-3c508032019f/resource/6894e542-77c0-4a1f-8af6-2f9c6c626ddb/download/number-of-sna-posts-21_22.csv
 
 ### data.gov.ie package_search q='schools ethos'
 status 200
@@ -166,7 +166,7 @@ status 200
 - record-protected-structures-dcc | Record Protected Structures DCC | modified 2026-09-22
     CSV: https://data.smartdublin.ie/dataset/f1dd00f0-5914-4b97-b66e-0dbb4bcb510c/resource/f0288278-32e4-4117-803e-9ac10b83a882/download/251218-rps-master-2022-2028_for-gis.csv
     GeoJSON: https://data.smartdublin.ie/dataset/f1dd00f0-5914-4b97-b66e-0dbb4bcb510c/resource/376cac34-31d3-4d18-ad03-d3ce5c8e7981/download/251218-rps-master-2022-2028_for-gis.geojson
-- record-of-protected-structures2 | Record of Protected Structures | modified 2026-10-29
+- record-of-protected-structures2 | Record of Protected Structures | modified 2026-10-30
     HTML: https://galway-city-council-opendata-galwaycityco.hub.arcgis.com/datasets/e50b7e58228f427f904605e0151c53b2_0
     ArcGIS GeoServices REST API: https://services-eu1.arcgis.com/Zmea819kt4Uu8kML/arcgis/rest/services/RecordofProtectedStructures/FeatureServer/0
     CSV: https://galway-city-council-opendata-galwaycityco.hub.arcgis.com/api/download/v1/items/e50b7e58228f427f904605e0151c53b2/csv?layers=0
@@ -287,7 +287,7 @@ status 200
     CSV: https://opendata.housing.gov.ie/dataset/4f41ee48-ab8c-4ecb-9f35-3564aec6fc79/resource/1ef4729d-fb6e-40c0-bd5c-5b005f69d61d/download/planning_applications_2011_decisions.csv
 - planning-applications-2009-decisions | Planning Applications 2009 Decisions | modified 2024-04-04
     CSV: https://opendata.housing.gov.ie/dataset/c1df29fc-ac2b-46ce-a898-e0201d50cdf5/resource/8bd5c8d6-ff5f-43d9-add9-f3616f77542d/download/planning_applications_2009_decisions.csv
-- westmeath-planning-applications | Westmeath Planning Applications | modified 2026-10-29
+- westmeath-planning-applications | Westmeath Planning Applications | modified 2026-10-30
     HTML: https://westmeath-county-council-open-data-westmeath.hub.arcgis.com/datasets/aca4f0662f5442e28c16b0dbd24920c0_0
     ArcGIS GeoServices REST API: https://services-eu1.arcgis.com/DsXSaNAVVnwb89Pt/arcgis/rest/services/Westmeath_Planning_Applications/FeatureServer/0
     CSV: https://westmeath-county-council-open-data-westmeath.hub.arcgis.com/api/download/v1/items/aca4f0662f5442e28c16b0dbd24920c0/csv?layers=0
@@ -308,7 +308,7 @@ status 200
     ZIP: https://data.fingal.ie/api/download/v1/items/fce64680d727452388c3e6b6037866a6/shapefile?layers=0
     GeoJSON: https://data.fingal.ie/api/download/v1/items/fce64680d727452388c3e6b6037866a6/geojson?layers=0
     KML: https://data.fingal.ie/api/download/v1/items/fce64680d727452388c3e6b6037866a6/kml?layers=0
-- planning-application-points-roscommon6 | Planning Application Points - Roscommon | modified 2026-10-29
+- planning-application-points-roscommon6 | Planning Application Points - Roscommon | modified 2026-10-30
     HTML: https://data-roscoco.opendata.arcgis.com/datasets/RosCoCo::planning-application-points-roscommon
     ArcGIS GeoServices REST API: https://services1.arcgis.com/0g8o874l5un2eDgz/arcgis/rest/services/Roscommon_Planning_Application_Points/FeatureServer/0
     CSV: https://data-roscoco.opendata.arcgis.com/api/download/v1/items/117c3b641a3e45c5ac284bae66c5fef8/csv?layers=0
@@ -388,10 +388,10 @@ status 403, 5,696 bytes, text/html; charset=UTF-8
 status 406, 156 bytes, text/html
 
 ### https://overpass-api.de/api/status
-status 200, 212 bytes, text/plain; charset=utf-8
+status 200, 210 bytes, text/plain; charset=utf-8
 
 ### https://overpass.kumi.systems/api/status
-failed: HTTPSConnectionPool(host='overpass.kumi.systems', port=443): Read timed out. (read timeout=90)
+status 200, 1,181 bytes, text/plain; charset=utf-8
 
 ### https://overpass.private.coffee/api/status
-status 200, 758 bytes, text/plain; charset=utf-8
+failed: HTTPSConnectionPool(host='overpass.private.coffee', port=443): Read timed out. (read timeout=90)

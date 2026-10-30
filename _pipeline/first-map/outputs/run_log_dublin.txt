@@ -1,14 +1,14 @@
-[22:49:28] OpenStreetMap...
-[22:53:05] OpenStreetMap: 871 rows in 216s
-[22:53:05] NIAH...
-[22:53:10] NIAH: 426 rows in 6s
-[22:53:10] Protected structures...
-[22:53:19] Protected structures: 608 rows in 8s
-[22:53:19] School lists...
-[22:53:20] School lists: 440 rows in 1s
+[11:19:57] OpenStreetMap...
+[11:23:14] OpenStreetMap: 871 rows in 197s
+[11:23:14] NIAH...
+[11:23:16] NIAH: 426 rows in 3s
+[11:23:16] Protected structures...
+[11:23:26] Protected structures: 608 rows in 10s
+[11:23:26] School lists...
+[11:23:27] School lists: 440 rows in 1s
 Dropped 2 points outside the county's bounding box: {'OpenStreetMap': 2}
-[22:55:23] Charities register...
-[22:55:23] Charities register: 0 rows in 1s
+[11:25:39] Charities register...
+[11:25:40] Charities register: 699 rows in 1s
 County Dublin
 
                           source  points  with_coordinates
@@ -18,12 +18,12 @@ County Dublin
                     School lists     440               440
 Industrial schools (Ryan Report)       2                 2
                History seed list       3                 3
- Charities register (names only)       0                 0
+ Charities register (names only)     699                 0
 
 1126 candidate sites; 446 found by 2+ sources.
 Largest site groups {'DU-0812': 16, 'DU-0184': 14, 'DU-0438': 13} (merge radius 50 m).
 158 unmarked points dropped as sitting on another denomination's church.
-13 history sites not yet placed; 68 name leads.
-WARNING: Charities register skipped: 403 Client Error: Forbidden for url: https://www.charitiesregulator.ie/media/aqgpvsac/20261026-public-register-of-charities.xlsx
+13 history sites not yet placed; 334 name leads.
+WARNING: Charities register download refused (403 Client Error: Forbidden for url: https://www.charitiesregulator.ie/media/aqgpvsac/20261026-public-register-of-charities.xlsx); using the hand-downloaded extract (register of 2026-10-26, data/seed/charities_catholic.csv)
 
 Outputs in /home/runner/work/opentalamh.ie/opentalamh.ie/_pipeline/first-map/outputs

@@ -3,10 +3,10 @@ Archdiocese of Dublin,diocese,entity list; OpenStreetMap operator tag,5,search a
 Parishes of the Archdiocese of Dublin,parish,entity list,,search also: Parish of <name>; named clerical trustees Parish property is often held by named trustees rather than a body; search each parish and its trustees.,lead: build the parish list from the diocesan directory
 Religious Sisters of Charity,congregation,entity list; Dept of Education school lists; OpenStreetMap operator tag,5,search also: Sisters of Charity; Irish Sisters of Charity Founded in Dublin. Ran St Vincent's Hospital and the Donnybrook Magdalene laundry.,lead: confirm legal name on Charities Register / CRO
 Sisters of Mercy,congregation,entity list,,search also: Congregation of the Sisters of Mercy; Mercy Sisters Founded in Dublin (Baggot Street). Ran Goldenbridge and the Dún Laoghaire laundry in Dublin and St Joseph's in Dundalk.,lead: confirm legal name on Charities Register / CRO
-Sisters of Our Lady of Charity,congregation,entity list,,search also: Our Lady of Charity of Refuge; OLC Sisters Ran the High Park and Sean McDermott Street laundries.,lead: confirm legal name on Charities Register / CRO
+Sisters of Our Lady of Charity,congregation,entity list; Charities Regulator register,,search also: Our Lady of Charity of Refuge; OLC Sisters Ran the High Park and Sean McDermott Street laundries.,lead: confirm legal name on Charities Register / CRO
 Congregation of Christian Brothers,congregation,entity list,,search also: Christian Brothers; Irish Christian Brothers Ran Artane and Carriglea Park. School property largely passed to the Edmund Rice Schools Trust.,lead: confirm legal name on Charities Register / CRO
 Daughters of Charity of St Vincent de Paul,congregation,entity list,,search also: Daughters of Charity Ran St Patrick's on the Navan Road for the Dublin health authority; disability services in Dublin.,lead: confirm legal name on Charities Register / CRO
-Congregation of the Holy Spirit,congregation,entity list,,search also: Holy Ghost Fathers; Spiritans; Des Places Educational Association Blackrock College; St Mary's College Rathmines; Templeogue College.,lead: confirm legal name on Charities Register / CRO
+Congregation of the Holy Spirit,congregation,entity list; Charities Regulator register,,search also: Holy Ghost Fathers; Spiritans; Des Places Educational Association Blackrock College; St Mary's College Rathmines; Templeogue College.,lead: confirm legal name on Charities Register / CRO
 Society of Jesus,congregation,entity list,,search also: Jesuits; Irish Jesuit Province Belvedere College; Gonzaga College; Milltown Park.,lead: confirm legal name on Charities Register / CRO
 Congregation of the Mission,congregation,entity list,,search also: Vincentians; Vincentian Fathers Castleknock College; St Paul's College Raheny.,lead: confirm legal name on Charities Register / CRO
 Loreto Sisters,congregation,entity list,,search also: Institute of the Blessed Virgin Mary; IBVM; Loreto Education Trust Loreto schools across Dublin; Loreto Abbey Rathfarnham.,lead: confirm legal name on Charities Register / CRO
@@ -22,11 +22,11 @@ Le Chéile Schools Trust,school trust,entity list; Dept of Education school list
 Rosminians,congregation,entity list,,search also: Institute of Charity; Rosminian Fathers Ran Upton (Cork) and Ferryhouse (Clonmel) industrial schools (Ryan Report).,lead: confirm legal name on Charities Register / CRO
 Brothers of Charity,congregation,entity list,,"search also: Brothers of Charity Services Ireland Ran Lota, Glanmire (Ryan Report); large disability services.",lead: confirm legal name on Charities Register / CRO
 Presentation Brothers,congregation,entity list,,"search also: Congregation of Presentation Brothers Ran Greenmount industrial school, Cork (Ryan Report).",lead: confirm legal name on Charities Register / CRO
-Oblates of Mary Immaculate,congregation,entity list,,"search also: Missionary Oblates of Mary Immaculate; Oblate Fathers Ran St Conleth's reformatory, Daingean (Ryan Report); Inchicore church.",lead: confirm legal name on Charities Register / CRO
+Oblates of Mary Immaculate,congregation,entity list; Charities Regulator register,,"search also: Missionary Oblates of Mary Immaculate; Oblate Fathers Ran St Conleth's reformatory, Daingean (Ryan Report); Inchicore church.",lead: confirm legal name on Charities Register / CRO
 Daughters of the Cross of Liège,congregation,entity list,,"search also: Congregation of the Daughters of the Cross of Liège Ran Mary Immaculate, Stillorgan (Ryan Report).",lead: confirm legal name on Charities Register / CRO
 Archbishop Of Dublin,school patron,Dept of Education school lists; OpenStreetMap operator tag,334,schools in the county with this patron; the patron is not always the landowner,lead
 An Foras Pátrúnachta,school patron,Dept of Education school lists; OpenStreetMap operator tag,9,schools in the county with this patron; the patron is not always the landowner,lead
-Loreto Education Trust,school patron,Dept of Education school lists,7,schools in the county with this patron; the patron is not always the landowner,lead
+Loreto Education Trust,school patron,Dept of Education school lists; Charities Regulator register,7,schools in the county with this patron; the patron is not always the landowner,lead
 The Spiritan Education Trust,school patron,Dept of Education school lists,5,schools in the county with this patron; the patron is not always the landowner,lead
 Minister For Education & Skills,school patron,Dept of Education school lists,3,schools in the county with this patron; the patron is not always the landowner,lead
 Congregation Of The Missions (Vincentians),school patron,Dept of Education school lists,2,schools in the county with this patron; the patron is not always the landowner,lead
@@ -44,7 +44,7 @@ Famed,school patron,Dept of Education school lists,1,schools in the county with 
 Le Chéile Schools Trust  Religious Sisters Of Charity,school patron,Dept of Education school lists,1,schools in the county with this patron; the patron is not always the landowner,lead
 City Of Dublin Etb,school patron,Dept of Education school lists,1,schools in the county with this patron; the patron is not always the landowner,lead
 Minister For Education,school patron,Dept of Education school lists,1,schools in the county with this patron; the patron is not always the landowner,lead
-Edmund Rice Schools Trust Company Limited by Guarantee,operator,OpenStreetMap operator tag,5,volunteer-entered; often the parish or order that runs the site,lead
+Edmund Rice Schools Trust Company Limited by Guarantee,operator,OpenStreetMap operator tag; Charities Regulator register,5,volunteer-entered; often the parish or order that runs the site,lead
 Diocese of Dublin,operator,OpenStreetMap operator tag,5,volunteer-entered; often the parish or order that runs the site,lead
 Le Chéile Schools Trust Company Limited by Guarantee,operator,OpenStreetMap operator tag,4,volunteer-entered; often the parish or order that runs the site,lead
 Fingal County Council,operator,OpenStreetMap operator tag,3,volunteer-entered; often the parish or order that runs the site,lead
@@ -54,8 +54,8 @@ Marist Sisters,operator,OpenStreetMap operator tag,2,volunteer-entered; often th
 Sisters of Charity,operator,OpenStreetMap operator tag,2,volunteer-entered; often the parish or order that runs the site,lead
 Catholic Church,operator,OpenStreetMap operator tag,1,volunteer-entered; often the parish or order that runs the site,lead
 UCD Chaplaincy,operator,OpenStreetMap operator tag,1,volunteer-entered; often the parish or order that runs the site,lead
-Congregation of Dominican Sisters,operator,OpenStreetMap operator tag,1,volunteer-entered; often the parish or order that runs the site,lead
-Spiritan Education Trust,operator,OpenStreetMap operator tag,1,volunteer-entered; often the parish or order that runs the site,lead
+Congregation of Dominican Sisters,operator,OpenStreetMap operator tag; Charities Regulator register,1,volunteer-entered; often the parish or order that runs the site,lead
+Spiritan Education Trust,operator,OpenStreetMap operator tag; Charities Regulator register,1,volunteer-entered; often the parish or order that runs the site,lead
 Dublin and Dún Laoghaire Education and Training Board,operator,OpenStreetMap operator tag,1,volunteer-entered; often the parish or order that runs the site,lead
 Redeemed Christian Church of God,operator,OpenStreetMap operator tag,1,volunteer-entered; often the parish or order that runs the site,lead
 Pious Disciples of the Divine Master Sisters,operator,OpenStreetMap operator tag,1,volunteer-entered; often the parish or order that runs the site,lead
@@ -67,3 +67,269 @@ Little Sisters of the Poor,operator,OpenStreetMap operator tag,1,volunteer-enter
 Department of Education and Skills,operator,OpenStreetMap operator tag,1,volunteer-entered; often the parish or order that runs the site,lead
 Foras Patrúnachta,operator,OpenStreetMap operator tag,1,volunteer-entered; often the parish or order that runs the site,lead
 Betania Limited,operator,OpenStreetMap operator tag,1,volunteer-entered; often the parish or order that runs the site,lead
+Accord Dublin Catholic Marriage Care Service,charity,Charities Regulator register,,registered charity number 20158606; match: explicit (catholic; archdiocese; accord dublin catholic marriage),lead
+Adelaide Blake Trust.,charity,Charities Regulator register,,registered charity number 20000127; match: explicit (catholic),lead
+Aid To The Church In Need (Ireland),charity,Charities Regulator register,,registered charity number 20023768; match: explicit (catholic; holy see),lead
+All Are Welcome Mass,charity,Charities Regulator register,,registered charity number 20101732; match: explicit (catholic),lead
+All Hallows College,charity,Charities Regulator register,,registered charity number 20000226; match: explicit (catholic),lead
+Apostolic Church-Dublin,charity,Charities Regulator register,,registered charity number 20017019; match: explicit (apostolic),lead
+Apostolic Work (Dublin Centre),charity,Charities Regulator register,,registered charity number 20015404; match: explicit (apostolic),lead
+Assisi Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20010560; match: order or devotion (franciscan),lead
+Association of Leaders of Missionaries and Religious of Ireland CLG,charity,Charities Regulator register,,registered charity number 20023263; match: explicit (catholic; apostolic),lead
+Augustinian Schools Trust Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20082246; match: explicit (catholic; augustinian),lead
+Beginning Experience,charity,Charities Regulator register,,registered charity number 20205972; match: explicit (catholic),lead
+Bon Secours Health System Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20027841; match: explicit (catholic; bon secours),lead
+Brudazzo,charity,Charities Regulator register,,registered charity number 20079390; match: order or devotion (congregation of; ursuline),lead
+Calaroga Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20003760; match: order or devotion (dominican),lead
+Capuchin Friary-Raheny,charity,Charities Regulator register,,registered charity number 20012854; match: order or devotion (friary; capuchin),lead
+Capuchin Order - Parish of The Ascension,charity,Charities Regulator register,,registered charity number 20012885; match: order or devotion (parish; capuchin),lead
+Capuchin Provincial Account.,charity,Charities Regulator register,,registered charity number 20009434; match: explicit (catholic; apostolic; franciscan; capuchin),lead
+Carmelite Convent,charity,Charities Regulator register,,registered charity number 20000691; match: order or devotion (convent; carmelite),lead
+Carmelite Convent Firhouse Tallaght,charity,Charities Regulator register,,registered charity number 20008123; match: explicit (catholic; convent; carmelite),lead
+Castleknock College,charity,Charities Regulator register,,registered charity number 20000721; match: order or devotion (st. vincent de paul),lead
+Catholic Guides of Ireland (Banoglaigh Catoilici Na Heireann),charity,Charities Regulator register,,registered charity number 20018689; match: explicit (catholic),lead
+Catholic Headmasters Association.,charity,Charities Regulator register,,registered charity number 20020934; match: explicit (catholic),lead
+Catholic Institute For International Relations (Ireland),charity,Charities Regulator register,,registered charity number 20047153; match: explicit (catholic),lead
+Catholic Marriage Encounter In Ireland,charity,Charities Regulator register,,registered charity number 20153199; match: explicit (catholic),lead
+Catholic Nurses Guild of Ireland,charity,Charities Regulator register,,registered charity number 20020835; match: explicit (catholic),lead
+Catholic Truth Society of Ireland Incorporated.,charity,Charities Regulator register,,registered charity number 20006594; match: explicit (catholic),lead
+Catholic Young Mens Society -National Council Of,charity,Charities Regulator register,,registered charity number 20006297; match: explicit (catholic),lead
+Celestial Church of Christ - Bright Morning Star Parish,charity,Charities Regulator register,,registered charity number 20071059; match: order or devotion (parish),lead
+Celestial Church of Christ Ajijola-Jesu (Providence) Parish,charity,Charities Regulator register,,registered charity number 20204672; match: order or devotion (parish),lead
+Central Catholic Library Association (Incorporated),charity,Charities Regulator register,,registered charity number 20003678; match: explicit (catholic),lead
+Centre For Faith and Justice,charity,Charities Regulator register,,registered charity number 20014094; match: order or devotion (jesuit),lead
+Charitable Infirmary Charitable Trust - Jervis Street,charity,Charities Regulator register,,registered charity number 20024321; match: explicit (catholic; diocesan),lead
+Charitable Trust of The Jesuit Fathers,charity,Charities Regulator register,,registered charity number 20003050; match: explicit (catholic; fathers; jesuit),lead
+Charities of The Roman Catholic Archdiocese of Dublin,charity,Charities Regulator register,,registered charity number 20002022; match: explicit (catholic; archdiocese),lead
+Childrens University Hospital,charity,Charities Regulator register,,registered charity number 20000462; match: explicit (catholic; sisters of; congregation of; mercy),lead
+"Christ Apostolic Church Outreach, Ireland Company Limited By Guarantee",charity,Charities Regulator register,,registered charity number 20207089; match: explicit (apostolic),lead
+Christian Brothers Edmund Rice Trust,charity,Charities Regulator register,,registered charity number 20033163; match: order or devotion (christian brothers; edmund rice),lead
+Ciorani Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20047559; match: explicit (catholic),lead
+Clonboy Designated Activity Company,charity,Charities Regulator register,,registered charity number 20060497; match: order or devotion (congregation of),lead
+Clonmacnois Faith Heritage Trust,charity,Charities Regulator register,,registered charity number 20077570; match: explicit (catholic),lead
+Community of Nazareth Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20141417; match: explicit (catholic; mercy),lead
+Concilium Legionis Mariae,charity,Charities Regulator register,,registered charity number 20006112; match: order or devotion (legion of mary; legionis mariae),lead
+Congregation of Christian Brothers European Province - Republic of Ireland,charity,Charities Regulator register,,registered charity number 20014049; match: explicit (catholic; congregation of; christian brothers; edmund rice),lead
+Congregation of La Retraite,charity,Charities Regulator register,,registered charity number 20010522; match: explicit (catholic; congregation of),lead
+Congregation of Our Lady of Charity of The Good Shepherd - Irish Province,charity,Charities Regulator register,,registered charity number 20012076; match: order or devotion (congregation of; our lady),lead
+Congregation of Our Lady of The Missions (Ireland) CLG,charity,Charities Regulator register,,registered charity number 20011833; match: explicit (catholic; congregation of; our lady),lead
+Congregation of Our Lady of The Missions.,charity,Charities Regulator register,,registered charity number 20007560; match: order or devotion (congregation of; our lady),lead
+Congregation of The Blessed Sacrament,charity,Charities Regulator register,,registered charity number 20018061; match: explicit (catholic; congregation of),lead
+Congregation of The Passion,charity,Charities Regulator register,,registered charity number 20004927; match: explicit (catholic; congregation of; parish; passionist; religious congregation),lead
+Congregation of The Sacred Hearts of Jesus and Mary [Sscc],charity,Charities Regulator register,,registered charity number 20012434; match: explicit (holy see; apostolic; pontifical; sisters of; congregation of; religious congregation),lead
+Convent of Our Lady of Charity - Kilmacud,charity,Charities Regulator register,,registered charity number 20005832; match: order or devotion (convent; our lady),lead
+Convent of The Holy Faith,charity,Charities Regulator register,,registered charity number 20004972; match: explicit (apostolic; pontifical; convent; holy faith),lead
+Convent of The Sacred Heart-Dublin,charity,Charities Regulator register,,registered charity number 20005962; match: order or devotion (convent; sacred heart),lead
+Cornelscourt Oratory Trust,charity,Charities Regulator register,,registered charity number 20045067; match: explicit (catholic),lead
+Corporation of Trustees For The Franciscan Missionaries of Mary Unlimited Company,charity,Charities Regulator register,,registered charity number 20014575; match: order or devotion (franciscan),lead
+Crosscare- The Catholic Social Service Conference.,charity,Charities Regulator register,,registered charity number 20010942; match: explicit (catholic; archdiocese; diocesan; parochial; crosscare),lead
+Cunamh,charity,Charities Regulator register,,registered charity number 20003845; match: explicit (catholic),lead
+Daughters of Charity Child and Family Service Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20064730; match: named body (daughters of charity),lead
+Daughters of Charity Community Services Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20068325; match: named body (daughters of charity),lead
+Daughters of Charity of Saint Vincent De Paul (General),charity,Charities Regulator register,,registered charity number 20014704; match: order or devotion (religious congregation; vincent de paul; daughters of charity),lead
+Daughters of Charity of St Vincent De Paul Medical & Retirement Trust,charity,Charities Regulator register,,registered charity number 20051174; match: order or devotion (st vincent de paul; vincent de paul; daughters of charity),lead
+Daughters of Our Lady of The Sacred Heart,charity,Charities Regulator register,,registered charity number 20010430; match: explicit (apostolic; parish; mercy; sacred heart; our lady),lead
+Daughters of The Holy Spirit,charity,Charities Regulator register,,registered charity number 20075279; match: order or devotion (congregation of; religious congregation),lead
+Diocesan Trustees  (Diocese of Ardagh & Clonmacnoise),charity,Charities Regulator register,,registered charity number 20006532; match: explicit (diocese of; diocesan),lead
+Diocese of Kildare and Leighlin,charity,Charities Regulator register,,registered charity number 20015848; match: explicit (catholic; diocese of; diocesan; canon law; parish; religious life),lead
+Divine Mercy and Faustinum Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20206239; match: explicit (catholic; mercy),lead
+Divine Will Family Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20206619; match: explicit (catholic),lead
+Divine Word Missionaries Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20206182; match: explicit (catholic; apostolic),lead
+Dominican Convent Girls,charity,Charities Regulator register,,registered charity number 20116965; match: order or devotion (convent; dominican),lead
+Dominican Convent-Muckross Park.,charity,Charities Regulator register,,registered charity number 20003357; match: order or devotion (convent; dominican),lead
+Dominican Convent-Sion Hill,charity,Charities Regulator register,,registered charity number 20005825; match: order or devotion (convent; dominican),lead
+Dominican Convent-Sutton.,charity,Charities Regulator register,,registered charity number 20005221; match: order or devotion (convent; dominican),lead
+Dominican Order In Ireland,charity,Charities Regulator register,,registered charity number 20015053; match: order or devotion (dominican),lead
+Dublin Diocesan Clerical Fund.,charity,Charities Regulator register,,registered charity number 20002428; match: explicit (diocesan),lead
+Dublin Diocesan Pilgrimage To Lourdes.,charity,Charities Regulator register,,registered charity number 20008703; match: explicit (diocesan; lourdes),lead
+Dublin Metropolitan Garda Catholic Obsequies Association.,charity,Charities Regulator register,,registered charity number 20013677; match: explicit (catholic; passionist),lead
+Dublin South East Community Training Centre CLG,charity,Charities Regulator register,,registered charity number 20021733; match: explicit (catholic),lead
+Dublin University Mission To Chota Nagpur,charity,Charities Regulator register,,registered charity number 20003555; match: explicit (diocese of),lead
+Edmund Rice Development,charity,Charities Regulator register,,registered charity number 20071004; match: order or devotion (edmund rice),lead
+Employ Ability CLG,charity,Charities Regulator register,,registered charity number 20069889; match: explicit (catholic; religious order),lead
+Equestrian Order of The Holy Sepulchre of Jerusalem,charity,Charities Regulator register,,registered charity number 20021399; match: explicit (catholic; christian brothers),lead
+Evangelisation Mission Ireland,charity,Charities Regulator register,,registered charity number 20200309; match: explicit (catholic),lead
+F.M.A. Trustees,charity,Charities Regulator register,,registered charity number 20010935; match: order or devotion (sisters of; salesian; religious congregation),lead
+Father Willie Doyle Association Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20206655; match: explicit (catholic),lead
+Foundation Masses - Carmelite Missions Odc,charity,Charities Regulator register,,registered charity number 20002626; match: order or devotion (carmelite),lead
+Franciscan Minoresses-Cabra,charity,Charities Regulator register,,registered charity number 20020651; match: explicit (catholic; franciscan),lead
+Franciscan Missionary Sisters For Africa. (Generalate),charity,Charities Regulator register,,registered charity number 20008697; match: explicit (apostolic; franciscan),lead
+Franciscan Sisters of The Immaculate Conception,charity,Charities Regulator register,,registered charity number 20051969; match: explicit (apostolic; sisters of; franciscan),lead
+Frederic Ozanam Trust (Incorporated),charity,Charities Regulator register,,registered charity number 20005979; match: named body (st vincent de paul; ozanam),lead
+Friends of Bethlehem University In Ireland.,charity,Charities Regulator register,,registered charity number 20013721; match: explicit (catholic),lead
+Fsc International Pastoral Trust Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20073916; match: explicit (catholic; brothers of),lead
+Glasnevin Crematorium Ltd,charity,Charities Regulator register,,registered charity number 20011734; match: explicit (catholic),lead
+Gracemere (Ireland) Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20036119; match: order or devotion (holy child),lead
+Handmaids of The Sacred Heart of Jesus.,charity,Charities Regulator register,,registered charity number 20011925; match: explicit (apostolic; congregation of; sacred heart),lead
+Holy Faith Convent- Glasnevin,charity,Charities Regulator register,,registered charity number 20005016; match: order or devotion (convent; holy faith),lead
+Holy Faith Sisters-Generalate.,charity,Charities Regulator register,,registered charity number 20013929; match: explicit (catholic; apostolic; pontifical; sister of; congregation of; holy faith),lead
+Holy Ghost Fathers.,charity,Charities Regulator register,,registered charity number 20005191; match: order or devotion (fathers; holy ghost),lead
+Hospitaller Order of Saint John of God In Ireland,charity,Charities Regulator register,,registered charity number 20004958; match: named body (hospitaller order),lead
+Institute of Blessed Virgin Mary- Loreto Generalate,charity,Charities Regulator register,,registered charity number 20004408; match: order or devotion (loreto),lead
+Institute of Charity (Rosminians) Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20204555; match: explicit (catholic; fathers; rosminian),lead
+Irish Messenger of The Sacred Heart,charity,Charities Regulator register,,registered charity number 20207032; match: explicit (catholic; sacred heart),lead
+Irish Province of The Congregation of Religious of Jesus and Mary,charity,Charities Regulator register,,registered charity number 20016555; match: order or devotion (congregation of),lead
+Jesuit Community House of Studies,charity,Charities Regulator register,,registered charity number 20001582; match: order or devotion (jesuit),lead
+Jesuit Fathers-Gardiner St,charity,Charities Regulator register,,registered charity number 20004798; match: order or devotion (fathers; jesuit),lead
+Jesuit House of Studies Trust,charity,Charities Regulator register,,registered charity number 20004477; match: explicit (catholic; novitiate; jesuit; society of jesus),lead
+Jesuit Mission Trust,charity,Charities Regulator register,,registered charity number 20076979; match: explicit (catholic; jesuit),lead
+Jesuit Order - The Missions of The Society of Jesus,charity,Charities Regulator register,,registered charity number 20041212; match: order or devotion (jesuit; society of jesus),lead
+Jesuit Volunteer Communities,charity,Charities Regulator register,,registered charity number 20024840; match: order or devotion (jesuit),lead
+Kingdom Covenant Ministry of Christ Apostolic Church Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20080419; match: explicit (apostolic),lead
+Legionaries of Christ,charity,Charities Regulator register,,registered charity number 20008420; match: explicit (catholic; apostolic),lead
+Little Sisters of The Assumption,charity,Charities Regulator register,,registered charity number 20011154; match: order or devotion (sisters of),lead
+Loreto College-Crumlin Road,charity,Charities Regulator register,,registered charity number 20004392; match: order or devotion (loreto),lead
+Loreto College-Stephens Green Development Foundation.,charity,Charities Regulator register,,registered charity number 20004385; match: order or devotion (loreto),lead
+Loyola Institute Company,charity,Charities Regulator register,,registered charity number 20079123; match: explicit (catholic),lead
+Loyola Institute Trust,charity,Charities Regulator register,,registered charity number 20079130; match: explicit (catholic),lead
+Manresa House,charity,Charities Regulator register,,registered charity number 20006266; match: explicit (catholic),lead
+Marino Institute of Education,charity,Charities Regulator register,,registered charity number 20054786; match: explicit (catholic; christian brothers; marino institute),lead
+Marino Institute of Education Trust Fund,charity,Charities Regulator register,,registered charity number 20031022; match: named body (marino institute),lead
+Marist Brothers In Ireland-Tallaght,charity,Charities Regulator register,,registered charity number 20015275; match: explicit (apostolic; brothers of; marist),lead
+Marist Fathers Catholic University School.,charity,Charities Regulator register,,registered charity number 20004613; match: explicit (catholic; fathers; marist),lead
+Mary Adelaide Macnamara Will Trust,charity,Charities Regulator register,,registered charity number 20003999; match: explicit (catholic),lead
+Mater Dei Institute of Education,charity,Charities Regulator register,,registered charity number 20010287; match: explicit (catholic),lead
+Mater Misericordiae and The Children's University Hospitals CLG,charity,Charities Regulator register,,registered charity number 20047634; match: named body (mater misericordiae),lead
+Mater Misericordiae Trust,charity,Charities Regulator register,,registered charity number 20051099; match: named body (mater misericordiae),lead
+Mater Misericordiae University Hospital,charity,Charities Regulator register,,registered charity number 20000349; match: named body (mater misericordiae),lead
+Medical Missionaries of Mary (Congregation),charity,Charities Regulator register,,registered charity number 20014780; match: order or devotion (congregation of),lead
+Mercy Care South Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20156435; match: order or devotion (mercy),lead
+Mercy Family Centre Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20024765; match: order or devotion (mercy),lead
+Mercy International Association,charity,Charities Regulator register,,registered charity number 20025472; match: explicit (apostolic; sisters of; mercy; catherine mcauley),lead
+Missio Pms Ireland Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20205153; match: explicit (catholic),lead
+Missionaries of Africa (White Fathers) Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20008864; match: explicit (catholic; fathers),lead
+Missionary Sisters of The Holy Rosary (Central Region),charity,Charities Regulator register,,registered charity number 20014827; match: order or devotion (sisters of),lead
+Missionary Sisters of The Immaculate Conception.,charity,Charities Regulator register,,registered charity number 20015954; match: order or devotion (sisters of),lead
+Monastery of St. Alphonsus - Dublin.,charity,Charities Regulator register,,registered charity number 20006921; match: explicit (catholic; monastery),lead
+Monte Argentario Trust Ltd - Passionist Congregation.,charity,Charities Regulator register,,registered charity number 20019631; match: explicit (canon law; congregation of; passionist),lead
+Morning Star Hostel,charity,Charities Regulator register,,registered charity number 20006389; match: order or devotion (legion of mary),lead
+Mount Anville Sacred Heart Education Trust Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20065676; match: explicit (catholic; sacred heart),lead
+National Bible Society of Ireland,charity,Charities Regulator register,,registered charity number 20002343; match: explicit (catholic),lead
+National Council of Apostolic Work-Ireland.,charity,Charities Regulator register,,registered charity number 20018979; match: explicit (apostolic),lead
+Nazareth Care Ireland CLG,charity,Charities Regulator register,,registered charity number 20154622; match: order or devotion (sisters of; congregation of),lead
+Nazareth Mar Thoma Church,charity,Charities Regulator register,,registered charity number 20070342; match: explicit (diocesan; parish),lead
+Notre Dame Schools Trust Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20056575; match: explicit (catholic),lead
+Opus Dei Prelature Charitable Trust In Ireland,charity,Charities Regulator register,,registered charity number 20062668; match: order or devotion (opus dei),lead
+Order of Charity of Rosminian Fathers,charity,Charities Regulator register,,registered charity number 20004699; match: order or devotion (fathers; rosminian),lead
+Order of Discalced Carmelites -Anglo Irish Province,charity,Charities Regulator register,,registered charity number 20034313; match: order or devotion (carmelites),lead
+Our Lady's Manor Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20007874; match: order or devotion (congregation of; carmelite; our lady),lead
+Pallottine Fathers- Trust For Needy Members,charity,Charities Regulator register,,registered charity number 20061166; match: order or devotion (fathers),lead
+Parish of Baldoyle,charity,Charities Regulator register,,registered charity number 20007744; match: order or devotion (parish),lead
+Pioneer Total Abstinence Association,charity,Charities Regulator register,,registered charity number 20003579; match: explicit (catholic; pioneer total abstinence),lead
+Pious Disciples of The Divine Master,charity,Charities Regulator register,,registered charity number 20027070; match: order or devotion (sisters of; congregation of),lead
+Pontifical Mission Societies.,charity,Charities Regulator register,,registered charity number 20002985; match: explicit (catholic; apostolic; pontifical),lead
+Poor Clare Coletine Community,charity,Charities Regulator register,,registered charity number 20013646; match: order or devotion (poor clare),lead
+Poor Servants of The Mother of God,charity,Charities Regulator register,,registered charity number 20016630; match: order or devotion (parish),lead
+Praise Tabernacle Ireland Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20200247; match: explicit (apostolic; congregation of),lead
+Pure In Heart,charity,Charities Regulator register,,registered charity number 20048532; match: explicit (catholic; parish),lead
+Quantum Universal Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20053499; match: explicit (catholic),lead
+Radio Maria (Ireland) Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20206307; match: explicit (catholic),lead
+Ramakrishna Vedanta Centre Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20203638; match: order or devotion (monastery),lead
+Rathfarnham Charitable Trust of The Jesuit Fathers,charity,Charities Regulator register,,registered charity number 20004538; match: explicit (catholic; fathers; jesuit),lead
+Rccg Excel Parish Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20204495; match: order or devotion (parish),lead
+Reformed Priests Protection Society.,charity,Charities Regulator register,,registered charity number 20002978; match: order or devotion (parochial),lead
+Refuge of The Immaculate Heart of Mary Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20205154; match: explicit (catholic),lead
+Religious of The Sacred Heart of Mary (Ireland),charity,Charities Regulator register,,registered charity number 20006006; match: explicit (catholic; congregation of; sacred heart),lead
+Retrouvaille Ireland Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20038908; match: explicit (catholic),lead
+Richmond Newstreet CLG,charity,Charities Regulator register,,registered charity number 20029678; match: explicit (catholic),lead
+Roman Catholic Diocese and Parishes of Meath,charity,Charities Regulator register,,registered charity number 20015176; match: explicit (catholic; diocese of; diocesan),lead
+Saint Clare's Generalate - Harolds Cross,charity,Charities Regulator register,,registered charity number 20000332; match: explicit (catholic; apostolic; pontifical; sisters of; congregation of; religious congregation),lead
+Saint Damien's Convent-Donnybrook.,charity,Charities Regulator register,,registered charity number 20000707; match: order or devotion (convent),lead
+Saint Finians Diocesan Trust.,charity,Charities Regulator register,,registered charity number 20002145; match: explicit (diocesan),lead
+Saint James' Parish,charity,Charities Regulator register,,registered charity number 20003883; match: order or devotion (parish),lead
+Saint John of God Foundation,charity,Charities Regulator register,,registered charity number 20069841; match: explicit (catholic; religious order),lead
+Saint John of God Hospitaller Services Group,charity,Charities Regulator register,,registered charity number 20106515; match: explicit (catholic),lead
+Saint John of God Research Foundation Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20069872; match: explicit (catholic; religious order),lead
+Saint John of God University Hospital CLG,charity,Charities Regulator register,,registered charity number 20069858; match: explicit (catholic; religious order; st john of god),lead
+Saint Josephs Society For Foreign Missions,charity,Charities Regulator register,,registered charity number 20004354; match: explicit (catholic; fathers),lead
+Saint Mary's Secondary School Killester,charity,Charities Regulator register,,registered charity number 20022358; match: explicit (catholic; holy faith),lead
+Saint Michans Conference of Saint Vincent De Paul.,charity,Charities Regulator register,,registered charity number 20002060; match: named body (vincent de paul),lead
+Saint Vincent De Paul Free Night Shelter - Dublin,charity,Charities Regulator register,,registered charity number 20004194; match: named body (vincent de paul),lead
+Saint Vincent De Paul Society-Sandymount.,charity,Charities Regulator register,,registered charity number 20002688; match: named body (vincent de paul),lead
+Saint Vincent De Paul Society-Terenure.,charity,Charities Regulator register,,registered charity number 20001650; match: named body (vincent de paul),lead
+Salesian Congregation of Don Bosco- Ireland,charity,Charities Regulator register,,registered charity number 20007126; match: explicit (apostolic; pontifical; congregation of; salesian),lead
+Salesian Missions Ireland,charity,Charities Regulator register,,registered charity number 20006518; match: order or devotion (congregation of; salesian),lead
+Schools and Parishes of The Diocese of Dublin (R.C.),charity,Charities Regulator register,,registered charity number 20016166; match: explicit (catholic; r.c.; diocese of; parish),lead
+Secretariat of Secondary Schools Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20010089; match: explicit (catholic),lead
+Secular Franciscan Order,charity,Charities Regulator register,,registered charity number 20017354; match: order or devotion (franciscan),lead
+Segovia Education Trust Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20058920; match: explicit (catholic),lead
+Sisters of Charity - Generalate,charity,Charities Regulator register,,registered charity number 20000295; match: explicit (catholic; sisters of; mercy; religious sisters; sisters of charity),lead
+Sisters of Charity of Christian Instruction of Nevers,charity,Charities Regulator register,,registered charity number 20016685; match: order or devotion (sisters of; sisters of charity),lead
+Sisters of Charity of Saint Paul The Apostle-Greenhills,charity,Charities Regulator register,,registered charity number 20011604; match: order or devotion (sisters of; sisters of charity),lead
+Sisters of Christian Education.,charity,Charities Regulator register,,registered charity number 20014506; match: explicit (catholic; sisters of; our lady),lead
+Sisters of Mercy Solidarity Trust,charity,Charities Regulator register,,registered charity number 20043094; match: order or devotion (sisters of; mercy; sisters of mercy),lead
+Sisters of Nazareth,charity,Charities Regulator register,,registered charity number 20014209; match: explicit (catholic; sisters of; sisters of nazareth),lead
+Sisters of Saint Joseph of Chambery CLG,charity,Charities Regulator register,,registered charity number 20015619; match: explicit (catholic; sisters of; congregation of),lead
+Sisters of Saint Joseph of Cluny,charity,Charities Regulator register,,registered charity number 20005351; match: explicit (catholic; sisters of),lead
+Sisters of Saint Louis-Generalate,charity,Charities Regulator register,,registered charity number 20012274; match: order or devotion (sisters of),lead
+Sisters of Saint Paul De Chartres-Rathgar,charity,Charities Regulator register,,registered charity number 20017484; match: explicit (catholic; sisters of),lead
+"Sisters of St Louis, Irish Region",charity,Charities Regulator register,,registered charity number 20014759; match: order or devotion (sisters of),lead
+Sisters of The Cross and Passion In Ireland-Tallaght,charity,Charities Regulator register,,registered charity number 20015893; match: explicit (catholic; sisters of),lead
+Sisters of The Little Company of Mary,charity,Charities Regulator register,,registered charity number 20009496; match: explicit (catholic; sisters of),lead
+Sisters of The Sacred Hearts,charity,Charities Regulator register,,registered charity number 20018382; match: explicit (catholic; sisters of; congregation of),lead
+Society of Jesus-Leeson Street,charity,Charities Regulator register,,registered charity number 20005030; match: explicit (catholic; society of jesus),lead
+Society of Mary (Marist Fathers) - Ireland,charity,Charities Regulator register,,registered charity number 20016265; match: explicit (apostolic; fathers; marist),lead
+Society of Saint Pius X,charity,Charities Regulator register,,registered charity number 20024284; match: explicit (catholic),lead
+Society of Saint Vincent De Paul-Council of Ireland.,charity,Charities Regulator register,,registered charity number 20001452; match: named body (vincent de paul),lead
+Society of Saint Vincent De Paul-Saint Mary's Conference.,charity,Charities Regulator register,,registered charity number 20001575; match: named body (vincent de paul),lead
+Society of The Catholic Apostolate,charity,Charities Regulator register,,registered charity number 20011826; match: explicit (catholic; apostolic; fathers),lead
+Society of The Holy Child Jesus,charity,Charities Regulator register,,registered charity number 20043889; match: order or devotion (holy child),lead
+Society of The Sacred Heart.,charity,Charities Regulator register,,registered charity number 20013578; match: explicit (catholic; sacred heart),lead
+St John of God N S,charity,Charities Regulator register,,registered charity number 20117764; match: named body (st john of god),lead
+St John of God Sp Sch,charity,Charities Regulator register,,registered charity number 20139773; match: named body (st john of god),lead
+St Monica's Nursing Home,charity,Charities Regulator register,,registered charity number 20020033; match: explicit (catholic; sisters of; religious sisters),lead
+St Paul's Child & Family Care Centre Dac,charity,Charities Regulator register,,registered charity number 20055905; match: explicit (catholic; sisters of; congregation of; mercy),lead
+St Vincent De Paul Girls School,charity,Charities Regulator register,,registered charity number 20201710; match: named body (st vincent de paul; vincent de paul),lead
+St. Conleth's College Educational Trust,charity,Charities Regulator register,,registered charity number 20042554; match: explicit (catholic),lead
+St. Conleths Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20043018; match: explicit (catholic),lead
+St. Declan's School Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20076405; match: order or devotion (society of jesus),lead
+St. John of God Community Services CLG,charity,Charities Regulator register,,registered charity number 20069865; match: explicit (catholic; religious order; st. john of god),lead
+St. Laurence O'Toole Catholic Social Care CLG,charity,Charities Regulator register,,registered charity number 20169084; match: explicit (catholic; archdiocese; crosscare),lead
+St. Mary's Dominican Convent - Dun Laoghaire,charity,Charities Regulator register,,registered charity number 20004736; match: order or devotion (convent; dominican),lead
+St. Mary's Dominican Convent- Cabra,charity,Charities Regulator register,,registered charity number 20011659; match: order or devotion (convent; dominican),lead
+St. Peter Claver (African Missions) Association,charity,Charities Regulator register,,registered charity number 20004316; match: explicit (catholic),lead
+St. Vincent De Paul - Council of Ireland,charity,Charities Regulator register,,registered charity number 20013806; match: named body (st. vincent de paul; vincent de paul),lead
+St. Vincent's Hospital,charity,Charities Regulator register,,registered charity number 20044244; match: explicit (catholic),lead
+Star of The Sea Carmelite Monastry,charity,Charities Regulator register,,registered charity number 20008789; match: order or devotion (monastery; carmelite),lead
+Syro Malabar Catholic Church Ireland,charity,Charities Regulator register,,registered charity number 20201956; match: explicit (catholic; archdiocese),lead
+Syro Malabar Catholic Church of Dublin,charity,Charities Regulator register,,registered charity number 20202675; match: explicit (catholic; archdiocese),lead
+The Carmelite Institute of Britain and Ireland,charity,Charities Regulator register,,registered charity number 20061562; match: order or devotion (carmelite),lead
+The Catholic Institute For Deaf People,charity,Charities Regulator register,,registered charity number 20002138; match: explicit (catholic; fathers; dominican; vincentian; christian brothers),lead
+The Cenacle Charity Incorporated (Ireland),charity,Charities Regulator register,,registered charity number 20012359; match: order or devotion (convent),lead
+The Congregation of Marie Auxiliatrice Ireland,charity,Charities Regulator register,,registered charity number 20006785; match: explicit (catholic; apostolic; sisters of; congregation of),lead
+The Congregation of The Sisters of Mercy,charity,Charities Regulator register,,registered charity number 20023843; match: order or devotion (sisters of; congregation of; mercy; religious life; sisters of mercy),lead
+The Congregation of The Sisters of Nazareth Ireland,charity,Charities Regulator register,,registered charity number 20154417; match: explicit (catholic; sisters of; congregation of; sisters of nazareth),lead
+The Coolmannon Trust,charity,Charities Regulator register,,registered charity number 20068608; match: explicit (catholic),lead
+The Governors of Raheny and Coolock Schools,charity,Charities Regulator register,,registered charity number 20144739; match: order or devotion (parish; parochial),lead
+The High and Diocesan School Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20145651; match: explicit (diocesan),lead
+The Holy Ghost Fathers Trust For The Elderly and Infirm,charity,Charities Regulator register,,registered charity number 20035952; match: order or devotion (fathers; congregation of; holy ghost; religious congregation),lead
+The Icarus Foundation,charity,Charities Regulator register,,registered charity number 20061654; match: explicit (catholic),lead
+The Institute of The Blessed Virgin Mary - Irish Province,charity,Charities Regulator register,,registered charity number 20014186; match: order or devotion (loreto),lead
+"The Irish Association of The Sovereign Military Hospitaller Order of St. John of Jerusalem, of Rhodes and of Malta",charity,Charities Regulator register,,registered charity number 20005924; match: named body (hospitaller order),lead
+The Irish Dominican Aquinas Educational Foundation,charity,Charities Regulator register,,registered charity number 20207085; match: order or devotion (dominican; religious life),lead
+The Irish Province of The Society of Catholic Apostolate Trust,charity,Charities Regulator register,,registered charity number 20074364; match: explicit (catholic; apostolic; fathers),lead
+The Marist Trustees Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20006273; match: explicit (catholic; fathers; congregation of; marist),lead
+The Mater Dei Educational and Research Trust,charity,Charities Regulator register,,registered charity number 20072834; match: explicit (catholic),lead
+"The Military & Hospitaller Order of Saint Lazarus of Jerusalem, Grand Priory of Ireland",charity,Charities Regulator register,,registered charity number 20072513; match: order or devotion (priory; hospitaller order),lead
+The Order of Friars Minor In Ireland,charity,Charities Regulator register,,registered charity number 20007966; match: explicit (catholic; franciscan),lead
+The Order of St Augustine - Irish Province,charity,Charities Regulator register,,registered charity number 20014926; match: explicit (catholic),lead
+The Peter Claver Trust,charity,Charities Regulator register,,registered charity number 20076870; match: order or devotion (society of jesus),lead
+The Religious Sisters of Charity,charity,Charities Regulator register,,registered charity number 20000271; match: explicit (catholic; sisters of; mercy; religious sisters; sisters of charity),lead
+The Sacred Cherubim and Seraphim Church-Prince of Peace Parish Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20067755; match: order or devotion (parish),lead
+The Sacred Heart Fathers Trust (Ireland),charity,Charities Regulator register,,registered charity number 20014582; match: explicit (catholic; fathers; congregation of; parish; sacred heart),lead
+The Sacred Heart Missionary Education CLG,charity,Charities Regulator register,,registered charity number 20006402; match: order or devotion (sacred heart),lead
+The Sarah Crudden Charity,charity,Charities Regulator register,,registered charity number 20002916; match: explicit (catholic; diocese of),lead
+The Shekinah Programme,charity,Charities Regulator register,,registered charity number 20204454; match: explicit (catholic; salesian),lead
+Transfiguration Parish of Celestial Church of Christ Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20070144; match: order or devotion (parish),lead
+Ukrainian Catholic Church Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20206888; match: explicit (catholic),lead
+Union of Sisters of The Presentation of The Blessed Virgin Mary - North East Province,charity,Charities Regulator register,,registered charity number 20015350; match: order or devotion (sisters of; presentation; nano nagle),lead
+University Hall Trust,charity,Charities Regulator register,,registered charity number 20004002; match: explicit (catholic),lead
+Verona Fathers Company Limited By Guarantee,charity,Charities Regulator register,,registered charity number 20021511; match: order or devotion (fathers; congregation of),lead
+Vincentian Fathers,charity,Charities Regulator register,,registered charity number 20016678; match: explicit (catholic; fathers; congregation of; vincentian; st. vincent de paul),lead
+Vincentian Fathers-Phibsborough,charity,Charities Regulator register,,registered charity number 20007904; match: explicit (catholic; fathers; parish; vincentian),lead
+Vocations Society of St. Joseph,charity,Charities Regulator register,,registered charity number 20002244; match: order or devotion (religious life),lead
+Walkinstown Parish (R.C),charity,Charities Regulator register,,registered charity number 20015879; match: order or devotion (parish),lead
+Warrenmount Community Education and Development Centre CLG,charity,Charities Regulator register,,registered charity number 20049591; match: explicit (catholic; congregation of; presentation),lead
+We Are Church Ireland,charity,Charities Regulator register,,registered charity number 20203544; match: explicit (catholic),lead
+Whitefriars Ltd,charity,Charities Regulator register,,registered charity number 20009656; match: order or devotion (carmelites),lead
+World Meeting of Families 2018 CLG,charity,Charities Regulator register,,registered charity number 20152710; match: explicit (catholic; canon law),lead
