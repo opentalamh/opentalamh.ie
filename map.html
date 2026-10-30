@@ -148,7 +148,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This is a working map of sites in County Dublin linked to the Catholic Church: churches, convents, presbyteries and religious houses, Catholic-ethos schools, institutions run by religious orders, and nursing homes and disability centres whose registered provider is an order or Church body. It is built from open data, including OpenStreetMap, the National Inventory of Architectural Heritage, the four Dublin councils’ Records of Protected Structures, the Department of Education school lists, HIQA’s register of care centres and the official reports on residential institutions. For the full method and every source, see <a href="./method.html">Method</a>.</p>
+<p>This is a working map of sites in County Dublin linked to the Catholic Church: churches, convents, presbyteries and religious houses, Catholic-ethos schools, and institutions run by religious orders. It is built from open data, including OpenStreetMap, the National Inventory of Architectural Heritage, the four Dublin councils’ Records of Protected Structures, the Department of Education school lists and the official reports on residential institutions. For the full method and every source, see <a href="./method.html">Method</a>.</p>
 <p>Each point shows where a site is, not who owns it. Ownership is confirmed site by site against Land Registry folios, so for now every point is a lead (grade D on the <a href="./method.html#confidence-grades">evidence scale</a>), apart from properties the State records as handed over by the orders, which are former holdings (grade E).</p>
 <iframe src="maps/dublin_first_map.html" width="100%" height="650" style="border:0" title="Map of sites linked to the Catholic Church in County Dublin" loading="lazy">
 </iframe>
@@ -160,30 +160,13 @@ ul.task-list li input[type="checkbox"] {
 <div><span style="color:#276749">●</span> Catholic-ethos post-primary schools</div>
 <div><span style="color:#742a2a">●</span> Industrial and reformatory schools (Ryan Report)</div>
 <div><span style="color:#c53030">●</span> Magdalene laundries and mother and baby homes</div>
-<div><span style="color:#2c7a7b">●</span> Nursing homes and disability centres run by Church bodies (HIQA)</div>
 <div><span style="color:#975a16">●</span> Properties transferred to the State under redress agreements</div>
 </div>
 <p>Click a point for its source record. To show or hide a source, open the layers button at the top right of the map.</p>
 <p><a href="maps/dublin_first_map.html">Open the map full screen</a>. Spotted a mistake? <a href="./contribute.html#corrections">Send a correction</a>.</p>
-<section id="the-landscape-of-irelands-charities" class="level2">
-<h2 class="anchored" data-anchor-id="the-landscape-of-irelands-charities">The landscape of Ireland’s charities</h2>
-<p>Every registered charity in Ireland, grouped by the charitable purposes it registered under, from the Charities Regulator’s register (26 October 2026). Charities for the advancement of religion are in orange. Schools with a Catholic ethos in the Department of Education lists are in blue, and community schools with a Catholic bishop or order as joint patron are in light blue. Schools register for education, not religion, so they sit inside the Education cluster. Hover or tap a dot to read the charity’s objects.</p>
-<iframe id="charities-landscape" src="maps/charities_landscape.html" width="100%" height="1400" style="border:0;display:block" title="Registered charities in Ireland by charitable purpose" loading="lazy">
-</iframe>
-<script>
-(() => {
-  const f = document.getElementById('charities-landscape');
-  const fit = () => { try { f.style.height = Math.ceil(f.contentDocument.body.getBoundingClientRect().height) + 'px'; } catch (e) {} };
-  f.addEventListener('load', () => {
-    fit();
-    try { new ResizeObserver(fit).observe(f.contentDocument.body); } catch (e) {}
-  });
-})();
-</script>
-<p><a href="maps/charities_landscape.html">Open the graphic full screen</a>. How it was built, and the school matches to check: <a href="https://github.com/opentalamh/opentalamh.ie/tree/main/_pipeline/charities"><code>_pipeline/charities</code></a>.</p>
+<p>A graphic of every registered charity in Ireland, by charitable purpose, is on <a href="https://fianaise.ie/religion/charities.html">Fianaise</a>.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
