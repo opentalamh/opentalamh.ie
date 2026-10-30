@@ -20,8 +20,8 @@ GENERIC = {
     "n", "s", "ns", "sn", "national", "school", "schools", "scoil", "naisiunta", "board", "of", "management",
     "the", "and", "primary", "junior", "senior", "infant", "infants", "mxd", "mixed", "boys", "girls",
     "b", "g", "bns", "gns", "j", "jns", "sns", "clg", "company", "limited", "by", "guarantee", "ltd", "co",
-    "na", "an", "ag", "a", "ar", "de", "le", "sc", "nat", "sch", "community", "college", "secondary", "post",
-    "vocational", "comprehensive", "convent", "special", "gaelscoil",
+    "na", "an", "ag", "a", "ar", "de", "le", "sc", "nat", "sch", "college", "secondary", "post",
+    "convent", "special", "gaelscoil",
     # saints' titles are shared by hundreds of schools, so they cannot identify one
     "saint", "saints", "naomh", "naofa", "naoimh", "nais", "jnr", "snr", "jun", "sen", "bun", "bunscoil", "mhuire_",
 }
@@ -32,6 +32,7 @@ EXPAND = {"st": "saint", "sts": "saints", "naoimh": "naomh", "mhuire": "muire", 
 def norm(s):
     s = unidecode(str(s)).lower().replace("&", " and ")
     s = re.sub(r"\b(n|s)\.\s*(s|n)\.?", " ns ", s)
+    s = re.sub(r"\bc\.?\s?b\.?\s?s\b\.?", " christian brothers ", s)
     s = re.sub(r"[^a-z0-9 ]", " ", s)
     return [EXPAND.get(t, t) for t in s.split()]
 
@@ -42,8 +43,9 @@ def core(s):
 
 def county_key(s):
     s = unidecode(str(s)).lower()
-    s = re.sub(r"^(co\.?|county)\s+", "", s.strip())
-    return s.split()[0] if s else ""
+    s = re.sub(r"^(co\.?|county)\s*", "", s.strip())
+    s = re.sub(r"[^a-z ]", " ", s).split()
+    return s[0] if s else ""
 
 
 def charity_county(addr):
@@ -84,8 +86,15 @@ schools["towns"] = schools["addr"].map(lambda a: {t for t in norm(a) if len(t) >
 df = pd.read_excel(REG, sheet_name="Public Register", header=1, dtype=str).dropna(subset=["Registered Charity Number"])
 df = df[df["Status"] == "Registered"]
 cls = df["Charity Classification: Primary [Secondary (Sub)]"].fillna("")
-is_school = df["Governing Form"].str.contains("Board of Management", case=False, na=False) | cls.str.contains(r"Primary level|Secondary level|Special needs education", case=False)
+is_board = df["Governing Form"].str.contains("Board of Management", case=False, na=False) | cls.str.contains(r"Primary level|Secondary level|Special needs education", case=False)
+# Many voluntary secondary schools register as a company or trust, not as a board of management.
+# Education charities with a school-like name are tried too, but need a closer match.
+school_word = r"college|col[aá]iste|school|scoil|secondary|academy|\bc\.?\s?b\.?\s?s\b|convent|gaelcholaiste|pobalscoil|meanscoil|ardscoil"
+is_named = (df["Charitable Purpose"].fillna("").str.contains("Advancement of education")
+            & df["Registered Charity Name"].fillna("").str.contains(school_word, case=False, regex=True))
+is_school = is_board | is_named
 ch = df[is_school].copy()
+ch["strict"] = ~is_board[is_school]
 ch["county"] = ch["Primary Address"].map(charity_county)
 form = ch["Governing Form"].fillna("") + " " + cls[is_school]
 ch["level"] = form.map(lambda f: "Post-primary" if re.search(r"post-primary|secondary", f, re.I) else "Primary" if re.search(r"primary", f, re.I) else "")
@@ -100,9 +109,11 @@ def sex(tokens):
 cands = []
 by_county = {k: g for k, g in schools.groupby("county")}
 for (i, r), nm in zip(ch.iterrows(), names):
+    # an address that doesn't end in a county is tried against every school, on a strict match
     pool = by_county.get(r["county"])
     if pool is None:
-        continue
+        pool, r = schools, r.copy()
+        r["strict"] = True
     variants = [core(v) for v in nm.split("|") if v.strip()]
     variants = [v for v in variants if v]
     csex = sex(norm(nm))
@@ -116,7 +127,16 @@ for (i, r), nm in zip(ch.iterrows(), names):
         place = any(set(v.split()) and set(v.split()) <= s["towns"] for v in variants) or (
             bool(s["core"]) and set(s["core"].split()) <= r["addr_tokens"])
         town = len(s["towns"] & r["addr_tokens"]) > 0
-        if name_score >= 95 or (name_score >= 86 and town) or (place and town):
+        # one name inside the other: "Coláiste Mhuire (Baile Átha Cliath)" and "Coláiste Mhuire"
+        sc = set(s["core"].split())
+        subset = any(sc and (sc <= set(v.split()) or set(v.split()) <= sc) and any(len(t) > 4 for t in sc & set(v.split())) for v in variants)
+        if r["strict"]:
+            ok = name_score == 100 or (name_score >= 92 and town)
+        else:
+            ok = name_score >= 95 or (name_score >= 86 and town) or (place and town) or (subset and town)
+        if subset and town:
+            name_score = max(name_score, 88)
+        if ok:
             score = max(name_score, 90 if place else 0) + (10 if town else 0)
             cands.append((score, name_score, town, r["Registered Charity Number"], s["roll"]))
 

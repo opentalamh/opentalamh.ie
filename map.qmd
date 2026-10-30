@@ -17,7 +17,7 @@ Toggle sources in the layer list. Click a point for its source record.
 
 ## The landscape of Ireland's charities
 
-Every registered charity in Ireland, grouped by the charitable purposes it registered under, from the Charities Regulator's register (26 October 2026). Charities for the advancement of religion are in orange. Schools whose Department of Education record gives a Catholic ethos are in blue: they register for education, not religion, so they sit inside the Education cluster. Hover or tap a dot to read the charity's objects.
+Every registered charity in Ireland, grouped by the charitable purposes it registered under, from the Charities Regulator's register (26 October 2026). Charities for the advancement of religion are in orange. Schools with a Catholic ethos in the Department of Education lists are in blue, and community schools with a Catholic bishop or order as joint patron are in light blue. Schools register for education, not religion, so they sit inside the Education cluster. Hover or tap a dot to read the charity's objects.
 
 <iframe id="charities-landscape" src="maps/charities_landscape.html" width="100%" height="1400" style="border:0;display:block" title="Registered charities in Ireland by charitable purpose" loading="lazy"></iframe>
 

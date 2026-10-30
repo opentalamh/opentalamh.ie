@@ -16,6 +16,7 @@
   --accent: #d95a25;
   --accent-soft: #f6dccf;
   --school: #2a78d6;
+  --joint: #9cc0ee;
   --link: #2a5fa8;
   --halo: rgba(246,247,244,.92);
   --display: "Fraunces", Georgia, "Times New Roman", serif;
@@ -24,11 +25,11 @@
 }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
   --bg: #141715; --panel: #1c201d; --ink: #eef0ec; --ink-2: #b9bfb9; --ink-3: #8a918b; --rule: #2e3430;
-  --dot: #5a625c; --dot-dim: #343a36; --accent: #ef7440; --accent-soft: #4a2a1c; --school: #3987e5; --link: #8db4ea; --halo: rgba(20,23,21,.9);
+  --dot: #5a625c; --dot-dim: #343a36; --accent: #ef7440; --accent-soft: #4a2a1c; --school: #3987e5; --joint: #a9c9f2; --link: #8db4ea; --halo: rgba(20,23,21,.9);
   color-scheme: dark; } }
 :root[data-theme="dark"] {
   --bg: #141715; --panel: #1c201d; --ink: #eef0ec; --ink-2: #b9bfb9; --ink-3: #8a918b; --rule: #2e3430;
-  --dot: #5a625c; --dot-dim: #343a36; --accent: #ef7440; --accent-soft: #4a2a1c; --school: #3987e5; --link: #8db4ea; --halo: rgba(20,23,21,.9);
+  --dot: #5a625c; --dot-dim: #343a36; --accent: #ef7440; --accent-soft: #4a2a1c; --school: #3987e5; --joint: #a9c9f2; --link: #8db4ea; --halo: rgba(20,23,21,.9);
   color-scheme: dark; }
 * { box-sizing: border-box; }
 body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.5; }
@@ -117,7 +118,7 @@ table.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: 
         <div class="results" id="results" hidden></div>
       </div>
       <h2>Schools</h2>
-      <label class="toggle" for="cath"><input type="checkbox" id="cath" checked><span>Show schools with a Catholic patron<small id="cathn"></small></span></label>
+      <label class="toggle" for="cath"><input type="checkbox" id="cath" checked><span>Show Catholic schools<small id="cathn"></small></span></label>
       <h2>Charitable purpose</h2>
       <div class="purposes" id="purposes"></div>
     </aside>
@@ -166,20 +167,21 @@ table.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: 
     document.getElementById('lede').innerHTML =
       `Ireland has ${fmt(S.registered)} registered charities, each listing one or more of fifteen charitable purposes. ` +
       `<b>${fmt(h.n)}</b> (<span class="hl">${pct(h.n, S.registered)}</span>) list ${what}, and ${fmt(only)} of those list no other purpose. ` +
-      (showCath ? `Inside Education, <b>${fmt(S.catholic_schools)}</b> are <span class="hs">schools with a Catholic patron</span>, almost none of which list religion.` : '') +
+      (showCath ? `Inside Education, <b>${fmt(S.catholic_schools)}</b> are <span class="hs">Catholic schools</span> and ${fmt(S.joint_catholic_schools)} more are community schools with a Catholic bishop or order as joint patron. Almost none of them list religion.` : '') +
       (sel !== 0 ? ` <a href="#" id="back" style="color:var(--link)">Back to religion</a>` : '');
     const b = document.getElementById('back');
     if (b) b.onclick = e => { e.preventDefault(); select(0); };
     document.getElementById('key').innerHTML =
       `<span><i class="sw" style="background:var(--accent)"></i>${esc(h.short)} (${fmt(h.n)})</span>` +
-      (showCath ? `<span><i class="sw" style="background:var(--school)"></i>Catholic-patron school (${fmt(S.catholic_schools)})</span>` : '') +
+      (showCath ? `<span><i class="sw" style="background:var(--school)"></i>Catholic school (${fmt(S.catholic_schools)})</span><span><i class="sw" style="background:var(--joint)"></i>Joint Catholic patron (${fmt(S.joint_catholic_schools)})</span>` : '') +
       `<span><i class="sw" style="background:var(--dot)"></i>Other charities</span>`;
   }
   document.getElementById('schools').textContent =
     `Schools register for the advancement of education, not religion. We matched ${fmt(S.school_charities)} school charities to the Department of Education's school lists for the ${S.schools_as_of}, which give each school's ethos and patron. ` +
-    `${fmt(S.catholic_schools)} have a Catholic ethos, usually with the local bishop or a religious order as patron, and are shown in blue. Only ${fmt(S.catholic_schools_religion)} of them list religion as a purpose; they are drawn blue too. ` +
+    `${fmt(S.catholic_schools)} have a Catholic ethos, with a bishop, a religious order or a Catholic schools trust such as CEIST or the Edmund Rice Schools Trust as patron. They are shown in blue. Only ${fmt(S.catholic_schools_religion)} of them list religion as a purpose; they are drawn blue too. ` +
+    `Another ${fmt(S.joint_catholic_schools)}, mostly community schools, have an inter-denominational ethos but a Catholic bishop or order as joint patron with an Education and Training Board. They are shown in light blue. ` +
     `The register has no roll numbers, so the match is on school name, county and address. A few hundred school charities found no match and stay grey, and a small share of matches may point to the wrong school.`;
-  document.getElementById('cathn').textContent = `${fmt(S.catholic_schools)} matched to a Catholic-ethos school`;
+  document.getElementById('cathn').textContent = `${fmt(S.catholic_schools)} Catholic, ${fmt(S.joint_catholic_schools)} with a joint Catholic patron`;
   document.getElementById('source').innerHTML =
     `Source: Charities Regulator, <a href="https://www.charitiesregulator.ie/en/information-for-the-public/search-the-register-of-charities" target="_blank" rel="noopener">Public Register of Charitable Organisations</a>, effective ${fmtDate(S.effective)}, downloaded ${fmtDate(S.downloaded)}. ` +
     `Shows the ${fmt(S.shown)} charities with status "Registered" that list at least one purpose (${S.no_purpose} list none). ${fmt(S.rows_in_file - S.registered)} deregistered entries in the file are left out. ` +
@@ -240,7 +242,7 @@ table.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: 
   let W = 0, Hh = 0, dpr = 1, base = 1, zoom = 1, panX = 0, panY = 0;
   const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
   let col = {};
-  function readColors() { col = { dot: css('--dot'), dim: css('--dot-dim'), acc: css('--accent'), school: css('--school'), ink: css('--ink'), ink2: css('--ink-2'), halo: css('--halo'), panel: css('--panel') }; }
+  function readColors() { col = { dot: css('--dot'), dim: css('--dot-dim'), acc: css('--accent'), school: css('--school'), joint: css('--joint'), ink: css('--ink'), ink2: css('--ink-2'), halo: css('--halo'), panel: css('--panel') }; }
   function resize() {
     const r = cv.getBoundingClientRect(); dpr = Math.min(window.devicePixelRatio || 1, 2);
     W = r.width; Hh = r.height; cv.width = Math.round(W * dpr); cv.height = Math.round(Hh * dpr);
@@ -271,9 +273,9 @@ table.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: 
     ctx.globalAlpha = 1;
     const r = Math.max(0.9, Math.min(5, 1.75 * k));
     // other charities, then the selected purpose, then Catholic-patron schools on top
-    const layer = c => (showCath && c[8] === CATH) ? 2 : (c[2] & bit) ? 1 : 0;
-    for (const pass of [0, 1, 2]) {
-      ctx.fillStyle = [col.dot, col.acc, col.school][pass];
+    const layer = c => (showCath && c[11] === 1) ? 2 : (showCath && c[11] === 2) ? 3 : (c[2] & bit) ? 1 : 0;
+    for (const pass of [0, 1, 2, 3]) {
+      ctx.fillStyle = [col.dot, col.acc, col.school, col.joint][pass];
       ctx.beginPath();
       for (let i = 0; i < N; i++) {
         const c = C[i]; if (layer(c) !== pass) continue;

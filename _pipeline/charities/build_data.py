@@ -6,6 +6,7 @@ school_matches.csv comes from match_schools.py and links school charities to
 the Department of Education school lists (ethos and patron).
 """
 import json
+import re
 import math
 import sys
 from collections import Counter
@@ -109,9 +110,21 @@ df["ethos"] = df["Registered Charity Number"].map(m["ethos"]).fillna("")
 df["patron"] = df["Registered Charity Number"].map(m["patron"]).fillna("")
 df["school"] = df["Registered Charity Number"].map(m["school_name"]).fillna("")
 df["catholic"] = df["ethos"].eq("Catholic")
+# Community and comprehensive schools often have an ETB and a Catholic bishop or order as joint patrons,
+# with an inter-denominational ethos. Church of Ireland bishops are marked "COI" in the patron field.
+ORDERS = (r"sisters|brothers|congregation|society of jesus|jesuit|mercy|presentation|carmelite|edmund rice|ceist|erst|loreto|"
+          r"le ch[eé]ile|spiritan|des places|marist|salesian|ursuline|dominican|vincentian|franciscan|capuchin|patrician|"
+          r"de la salle|catholic|st louis|holy child|holy faith|friars|redemptorist")
+def joint_catholic(ethos, patron):
+    if ethos in ("", "Catholic", "Church Of Ireland", "Presbyterian", "Methodist", "Quaker", "Jewish", "Muslim"):
+        return False
+    p = patron.lower()
+    return bool(re.search(ORDERS, p)) or p.count("bishop") > p.count("coi")
+df["joint"] = [joint_catholic(e, p) for e, p in zip(df["ethos"], df["patron"])]
 # inside each cluster, Catholic-patron schools fill the centre so they read as one core
 df["key"] = df["P"].apply(lambda ps: tuple(sorted(ps, key=idx.get)))
-df = df.sort_values(["key", "catholic", "Registered Charity Name"], ascending=[True, False, True]).reset_index(drop=True)
+df["school_rank"] = np.where(df["catholic"], 0, np.where(df["joint"], 1, 2))
+df = df.sort_values(["key", "school_rank", "Registered Charity Name"]).reset_index(drop=True)
 
 pos = np.zeros((len(df), 2))
 target = np.zeros((len(df), 2))
@@ -180,6 +193,7 @@ stats = {
     "school_charities": int(len(m)),
     "catholic_schools": int(df["catholic"].sum()),
     "catholic_schools_religion": int((df["catholic"] & is_rel).sum()),
+    "joint_catholic_schools": int(df["joint"].sum()),
     "catholic_schools_education_only": int((df["catholic"] & df["P"].apply(lambda ps: ps == ["Advancement of education"])).sum()),
     "education": int(df["P"].apply(lambda ps: "Advancement of education" in ps).sum()),
 }
@@ -205,6 +219,7 @@ for i, r in df.iterrows():
         trim(r["Charitable Objects"]),
         # school ethos and patron from the Department of Education list (-1 = not a matched school)
         eidx.get(r["ethos"], -1), pidx.get(r["patron"], -1), r["school"].title() if r["school"] else "",
+        1 if r["catholic"] else 2 if r["joint"] else 0,  # 1 Catholic ethos, 2 joint Catholic patronage
     ])
 with open(OUT, "w") as f:
     json.dump({"stats": stats, "hubs": hubs, "ethos": ethos_codes, "patrons": patrons, "c": recs}, f, ensure_ascii=False, separators=(",", ":"))
